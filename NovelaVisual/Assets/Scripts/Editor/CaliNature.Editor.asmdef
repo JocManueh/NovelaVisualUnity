@@ -1,0 +1,1 @@
+{"name":"CaliNature.Editor","references":["CaliNature.Runtime","UnityEditor.TestRunner","UnityEngine.TestRunner"],"includePlatforms":["Editor"],"autoReferenced":true}

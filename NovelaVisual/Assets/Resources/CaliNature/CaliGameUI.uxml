@@ -1,0 +1,52 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+  <Style src="CaliGameUI.uss" />
+  <ui:VisualElement name="app" picking-mode="Ignore">
+    <ui:VisualElement name="menu" class="screen opaque blocks-world">
+      <ui:VisualElement class="hero">
+        <ui:Label text="BITÁCORA INTERACTIVA · CALI" class="eyebrow" />
+        <ui:Label text="Cali ante&#10;la naturaleza" class="title" />
+        <ui:Label text="Cuatro momentos. Una comunidad.&#10;Aprende a observar, escuchar y decidir." class="lead" />
+        <ui:Button name="new-game" text="Comenzar recorrido" class="primary" />
+        <ui:Button name="continue" text="Continuar partida" />
+        <ui:Button name="menu-help" text="Tutorial y controles" />
+        <ui:Label text="Proyecto universitario · protagonista estudiante de la UAO&#10;Simulación educativa. Consulta siempre la información oficial vigente." class="caption" />
+      </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="intro" class="screen opaque blocks-world hidden centered">
+      <ui:VisualElement class="reading-card">
+        <ui:Label text="UN RECORRIDO PARA APRENDER" class="eyebrow" />
+        <ui:Label text="Tu libreta empieza aquí" class="heading" />
+        <ui:Label text="Eres Alex, estudiante de la UAO. Junto a una iniciativa comunitaria, conocerás cuatro fenómenos que pueden afectar a Cali.&#10;&#10;Tu tarea es escuchar a sus habitantes, reunir pistas y tomar decisiones responsables. Los capítulos suceden en momentos distintos.&#10;&#10;No eres rescatista. Aprender también significa reconocer cuándo alejarse de una situación peligrosa y atender las indicaciones de las autoridades." class="body" />
+        <ui:Button name="intro-map" text="Ir al mapa de Cali" class="primary" />
+      </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="map" class="screen hidden" picking-mode="Ignore">
+      <ui:VisualElement class="map-heading blocks-world">
+        <ui:Label text="Cali · destinos del recorrido" class="heading" />
+        <ui:Label name="map-progress" text="Capítulos completados: 0/4" />
+        <ui:Label text="Clic: seleccionar · Arrastrar: desplazar · Rueda: zoom" class="caption" />
+        <ui:VisualElement class="row"><ui:Button name="filter-all" text="Todos" /><ui:Button name="filter-0" text="Sequía" /><ui:Button name="filter-1" text="Inundación" /><ui:Button name="filter-2" text="Vendaval" /><ui:Button name="filter-3" text="Torrencial" /></ui:VisualElement>
+      </ui:VisualElement>
+      <ui:VisualElement name="zone-info" class="zone-card blocks-world hidden">
+        <ui:Label name="zone-title" class="heading" /><ui:Label name="zone-progress" class="eyebrow" />
+        <ui:Label name="zone-description" class="body" /><ui:Button name="enter-zone" text="Entrar a la zona" class="primary" />
+      </ui:VisualElement>
+      <ui:VisualElement class="legend blocks-world"><ui:Label text="LEYENDA · CAPÍTULOS&#10;1 Sequía · 2 Inundación · 3 Vendaval · 4 Avenida torrencial&#10;Simulación educativa: ubicación ilustrativa, sin niveles de amenaza oficiales.&#10;No representa rutas de evacuación ni puntos de encuentro oficiales." class="caption" /></ui:VisualElement>
+      <ui:VisualElement class="zoom blocks-world"><ui:Button name="zoom-in" text="+" /><ui:Button name="zoom-out" text="−" /></ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="hud" class="screen hidden" picking-mode="Ignore">
+      <ui:VisualElement class="objective blocks-world"><ui:Label name="chapter-name" class="heading" /><ui:Label name="objective" class="body" /><ui:Label text="Reúne 3 pistas y conversa con 3 personas. Puedes elegir el orden." class="caption" /><ui:Button name="back-map" text="Regresar al mapa" /></ui:VisualElement>
+      <ui:Label name="interaction-prompt" class="interaction blocks-world" />
+      <ui:VisualElement class="touch-controls blocks-world"><ui:Button name="move-up" text="W ↑" /><ui:VisualElement class="row"><ui:Button name="move-left" text="A ←" /><ui:Button name="move-down" text="S ↓" /><ui:Button name="move-right" text="D →" /></ui:VisualElement></ui:VisualElement>
+      <ui:Button name="touch-interact" text="E · Interactuar" class="touch-interact blocks-world primary" />
+    </ui:VisualElement>
+    <ui:VisualElement name="dialogue" class="screen hidden conversation-backdrop blocks-world">
+      <ui:VisualElement class="dialogue-card"><ui:VisualElement class="row"><ui:Label name="speaker" class="heading" /><ui:Label name="voice-status" class="caption" /></ui:VisualElement><ui:Label name="dialogue-text" class="dialogue-text" /><ui:VisualElement name="choices" /><ui:Label name="dialogue-hint" class="caption" /><ui:VisualElement class="row"><ui:Button name="history" text="Historial" /><ui:Button name="touch-advance" text="Espacio · Avanzar" class="primary" /></ui:VisualElement></ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="cinematic" class="screen hidden opaque blocks-world centered"><ui:VisualElement name="cinematic-card" class="reading-card"><ui:Label text="UNA HISTORIA DE LA COMUNIDAD" class="eyebrow" /><ui:Label name="cinematic-title" class="title" /><ui:Label name="cinematic-text" class="lead" /></ui:VisualElement><ui:Button name="skip-cinematic" text="Continuar a la exploración" class="cinematic-skip" /></ui:VisualElement>
+    <ui:VisualElement name="loading" class="screen hidden opaque blocks-world centered"><ui:Label text="Preparando tu visita…" class="heading" /><ui:ProgressBar name="load-progress" title="Cargando zona" low-value="0" high-value="100" /></ui:VisualElement>
+    <ui:VisualElement name="summary" class="screen hidden opaque blocks-world centered"><ui:ScrollView class="reading-card"><ui:Label name="summary-title" class="heading" /><ui:Label name="summary-text" class="body" /><ui:Button name="summary-map" text="Guardar y volver al mapa" class="primary" /></ui:ScrollView></ui:VisualElement>
+    <ui:VisualElement name="topbar" class="topbar blocks-world"><ui:Button name="notebook" text="Libreta" /><ui:Button name="help" text="Ayuda" /><ui:Button name="settings" text="Ajustes" /></ui:VisualElement>
+    <ui:VisualElement name="modal" class="screen hidden modal-shade blocks-world centered"><ui:VisualElement class="modal-card"><ui:Label name="modal-title" class="heading" /><ui:ScrollView class="modal-scroll"><ui:Label name="modal-text" class="body" /><ui:VisualElement name="settings-fields" class="hidden"><ui:Slider name="volume" label="Volumen" low-value="0" high-value="1" /><ui:Toggle name="muted" label="Silenciar" /><ui:Slider name="text-speed" label="Velocidad del texto" low-value="10" high-value="100" /><ui:Toggle name="subtitles" label="Mostrar subtítulos" /></ui:VisualElement></ui:ScrollView><ui:VisualElement class="row"><ui:Button name="close-modal" text="Volver" /><ui:Button name="confirm-reset" text="Confirmar reinicio" class="primary hidden" /></ui:VisualElement></ui:VisualElement></ui:VisualElement>
+  </ui:VisualElement>
+</ui:UXML>

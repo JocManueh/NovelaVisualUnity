@@ -1,0 +1,1084 @@
+{
+  "chapters": [
+    {
+      "id": "drought",
+      "title": "01 · Cuando el agua escasea",
+      "subtitle": "Sequía y disminución del caudal",
+      "phenomenon": "Sequía · fenómeno hidroclimático",
+      "period": "Momento 1 · temporada seca ficticia",
+      "description": "Una comunidad conversa sobre la disponibilidad del agua y el cuidado de sus usos cotidianos. El Niño puede favorecer condiciones secas en regiones de Colombia; no explica por sí solo cada sequía.",
+      "summary": "La sequía se relaciona con un déficit prolongado de precipitación. Puede reducir la disponibilidad de agua y afectar ecosistemas y actividades humanas. El Niño es un factor de variabilidad climática, no una causa única. Observar, verificar fuentes y acordar hábitos responsables fortalece la preparación.",
+      "objective": "Escucha tres perspectivas, reúne tres pistas y decide antes, durante y después.",
+      "sceneName": "04_DroughtChapter",
+      "sources": [
+        "https://ideam.gov.co/fenomeno-del-nino",
+        "https://www.ideam.gov.co/sites/default/files/prensa/boletines/2024-08-23/capitulo_7_alteraciones_del_regimen_hidrologico_y_de_la_oferta_hidrica_por_varibilidad_y_cambio_climatico.pdf",
+        "https://www.cali.gov.co/gestiondelriesgo/publicaciones/182650/estudios-de-escenarios-de-riesgo/",
+        "https://www.cali.gov.co/gestiondelriesgo/publicaciones/184329/precaucion-en-el-primer-puente-de-2025-medidas-clave-ante-riesgos-por-lluvias/",
+        "https://www.ideam.gov.co/file-download/download/public/18906"
+      ],
+      "clues": [
+        {
+          "id": "drought/clue/0",
+          "title": "Registro comunitario",
+          "text": "Varias observaciones a lo largo del tiempo son más útiles que una sola fotografía. Este registro es ficticio y no reemplaza las mediciones oficiales."
+        },
+        {
+          "id": "drought/clue/1",
+          "title": "Nota del IDEAM",
+          "text": "El Niño y La Niña forman parte de la variabilidad climática. Sus efectos no son idénticos en todos los lugares."
+        },
+        {
+          "id": "drought/clue/2",
+          "title": "Acuerdo de uso del agua",
+          "text": "El grupo propone revisar hábitos y atender las indicaciones del prestador del servicio. El documento es una propuesta narrativa, no una orden real."
+        }
+      ],
+      "conversations": [
+        {
+          "id": "drought/before",
+          "firstNode": "start",
+          "nodes": [
+            {
+              "id": "start",
+              "speaker": "Lucía",
+              "text": "Soy Lucía, coordinadora de esta iniciativa. Un mensaje asegura que una foto demuestra una sequía en toda Cali. ¿Cómo prepararías nuestra conversación?",
+              "next": "",
+              "choices": [
+                {
+                  "id": "verified",
+                  "label": "Consultar la fuente y el periodo del registro.",
+                  "next": "good",
+                  "requiredClue": "",
+                  "decisionKey": "drought/before",
+                  "responsible": true,
+                  "consequence": "El grupo distingue una observación de una conclusión y busca información verificable."
+                },
+                {
+                  "id": "impulsive",
+                  "label": "Reenviar la foto como prueba suficiente.",
+                  "next": "reconsider",
+                  "requiredClue": "",
+                  "decisionKey": "drought/before",
+                  "responsible": false,
+                  "consequence": "Se eligió una opción que requería corrección. El grupo distingue una observación de una conclusión y busca información verificable."
+                },
+                {
+                  "id": "evidence",
+                  "label": "Usar la pista «Registro comunitario» para justificar mi respuesta.",
+                  "next": "evidence",
+                  "requiredClue": "drought/clue/0",
+                  "decisionKey": "drought/before",
+                  "responsible": true,
+                  "consequence": "El grupo distingue una observación de una conclusión y busca información verificable."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/drought_before_start"
+            },
+            {
+              "id": "good",
+              "speaker": "Lucía",
+              "text": "El grupo distingue una observación de una conclusión y busca información verificable.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/drought_before_good"
+            },
+            {
+              "id": "reconsider",
+              "speaker": "Lucía",
+              "text": "Revisemos esa idea. El grupo distingue una observación de una conclusión y busca información verificable. Tu elección queda en la libreta para reflexionar sobre ella.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/drought_before_reconsider"
+            },
+            {
+              "id": "evidence",
+              "speaker": "Lucía",
+              "text": "Has relacionado una pista con una decisión. El grupo distingue una observación de una conclusión y busca información verificable.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/drought_before_evidence"
+            }
+          ]
+        },
+        {
+          "id": "drought/during",
+          "firstNode": "start",
+          "nodes": [
+            {
+              "id": "start",
+              "speaker": "Mateo",
+              "text": "Soy Mateo, vecino del sector. Hay preocupación por el agua disponible. No tenemos una orden oficial de racionamiento en esta historia. ¿Qué propones?",
+              "next": "",
+              "choices": [
+                {
+                  "id": "verified",
+                  "label": "Revisar hábitos y atender avisos oficiales del servicio.",
+                  "next": "good",
+                  "requiredClue": "",
+                  "decisionKey": "drought/during",
+                  "responsible": true,
+                  "consequence": "La propuesta se centra en hábitos responsables y en información del prestador, sin inventar restricciones."
+                },
+                {
+                  "id": "impulsive",
+                  "label": "Presentar un rumor como una orden de racionamiento.",
+                  "next": "reconsider",
+                  "requiredClue": "",
+                  "decisionKey": "drought/during",
+                  "responsible": false,
+                  "consequence": "Se eligió una opción que requería corrección. La propuesta se centra en hábitos responsables y en información del prestador, sin inventar restricciones."
+                },
+                {
+                  "id": "evidence",
+                  "label": "Usar la pista «Nota del IDEAM» para justificar mi respuesta.",
+                  "next": "evidence",
+                  "requiredClue": "drought/clue/1",
+                  "decisionKey": "drought/during",
+                  "responsible": true,
+                  "consequence": "La propuesta se centra en hábitos responsables y en información del prestador, sin inventar restricciones."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/drought_during_start"
+            },
+            {
+              "id": "good",
+              "speaker": "Mateo",
+              "text": "La propuesta se centra en hábitos responsables y en información del prestador, sin inventar restricciones.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/drought_during_good"
+            },
+            {
+              "id": "reconsider",
+              "speaker": "Mateo",
+              "text": "Revisemos esa idea. La propuesta se centra en hábitos responsables y en información del prestador, sin inventar restricciones. Tu elección queda en la libreta para reflexionar sobre ella.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/drought_during_reconsider"
+            },
+            {
+              "id": "evidence",
+              "speaker": "Mateo",
+              "text": "Has relacionado una pista con una decisión. La propuesta se centra en hábitos responsables y en información del prestador, sin inventar restricciones.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/drought_during_evidence"
+            }
+          ]
+        },
+        {
+          "id": "drought/after",
+          "firstNode": "start",
+          "nodes": [
+            {
+              "id": "start",
+              "speaker": "Inés",
+              "text": "Soy Inés, encargada de la libreta. Al cerrar este encuentro, queremos saber qué aprendimos. ¿Qué dejarías registrado?",
+              "next": "",
+              "choices": [
+                {
+                  "id": "verified",
+                  "label": "Anotar lo observado, las fuentes y lo que falta comprobar.",
+                  "next": "good",
+                  "requiredClue": "",
+                  "decisionKey": "drought/after",
+                  "responsible": true,
+                  "consequence": "La libreta conserva evidencias y preguntas pendientes para una visita posterior."
+                },
+                {
+                  "id": "impulsive",
+                  "label": "Afirmar que una sola lluvia resuelve cualquier sequía.",
+                  "next": "reconsider",
+                  "requiredClue": "",
+                  "decisionKey": "drought/after",
+                  "responsible": false,
+                  "consequence": "Se eligió una opción que requería corrección. La libreta conserva evidencias y preguntas pendientes para una visita posterior."
+                },
+                {
+                  "id": "evidence",
+                  "label": "Usar la pista «Acuerdo de uso del agua» para justificar mi respuesta.",
+                  "next": "evidence",
+                  "requiredClue": "drought/clue/2",
+                  "decisionKey": "drought/after",
+                  "responsible": true,
+                  "consequence": "La libreta conserva evidencias y preguntas pendientes para una visita posterior."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/drought_after_start"
+            },
+            {
+              "id": "good",
+              "speaker": "Inés",
+              "text": "La libreta conserva evidencias y preguntas pendientes para una visita posterior.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/drought_after_good"
+            },
+            {
+              "id": "reconsider",
+              "speaker": "Inés",
+              "text": "Revisemos esa idea. La libreta conserva evidencias y preguntas pendientes para una visita posterior. Tu elección queda en la libreta para reflexionar sobre ella.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/drought_after_reconsider"
+            },
+            {
+              "id": "evidence",
+              "speaker": "Inés",
+              "text": "Has relacionado una pista con una decisión. La libreta conserva evidencias y preguntas pendientes para una visita posterior.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/drought_after_evidence"
+            }
+          ]
+        }
+      ],
+      "cinematic": [
+        {
+          "title": "El cuaderno de Alex",
+          "text": "Alex llega a una reunión comunitaria. En la mesa hay notas de días distintos. Nadie quiere sacar conclusiones a partir de una sola imagen.",
+          "seconds": 8.117647058823529,
+          "imageResource": "",
+          "voiceResource": "CaliNature/Voices/drought_cinematic_0"
+        },
+        {
+          "title": "Una mañana distinta",
+          "text": "Antes de compartir una afirmación sobre el agua, Lucía propone comprobar de dónde viene y qué periodo describe.",
+          "seconds": 7,
+          "imageResource": "",
+          "voiceResource": "CaliNature/Voices/drought_cinematic_1"
+        },
+        {
+          "title": "Un acuerdo posible",
+          "text": "En otra visita, la comunidad revisará sus acuerdos. El recorrido no termina con una respuesta: empieza con una pregunta mejor.",
+          "seconds": 7.411764705882353,
+          "imageResource": "",
+          "voiceResource": "CaliNature/Voices/drought_cinematic_2"
+        }
+      ]
+    },
+    {
+      "id": "flood",
+      "title": "02 · El río y sus márgenes",
+      "subtitle": "Inundación por desbordamiento",
+      "phenomenon": "Inundación fluvial · fenómeno hidrológico",
+      "period": "Momento 2 · episodio de lluvias ficticio, meses después",
+      "description": "Alex se reúne con la comunidad en un lugar seguro para distinguir el río, la ocupación de sus márgenes y los avisos oficiales. La Niña puede favorecer lluvias, pero una inundación no depende obligatoriamente de ella.",
+      "summary": "Una inundación fluvial ocurre cuando el agua desborda su cauce y ocupa áreas aledañas. La lluvia y las condiciones del territorio importan. La Niña puede favorecer situaciones lluviosas, pero no es condición necesaria. Amenaza, exposición y riesgo no significan lo mismo.",
+      "objective": "Escucha tres perspectivas, reúne tres pistas y decide antes, durante y después.",
+      "sceneName": "05_RiverFloodChapter",
+      "sources": [
+        "https://ideam.gov.co/fenomeno-del-nino",
+        "https://www.ideam.gov.co/sites/default/files/prensa/boletines/2024-08-23/capitulo_7_alteraciones_del_regimen_hidrologico_y_de_la_oferta_hidrica_por_varibilidad_y_cambio_climatico.pdf",
+        "https://www.cali.gov.co/gestiondelriesgo/publicaciones/182650/estudios-de-escenarios-de-riesgo/",
+        "https://www.cali.gov.co/gestiondelriesgo/publicaciones/184329/precaucion-en-el-primer-puente-de-2025-medidas-clave-ante-riesgos-por-lluvias/",
+        "https://www.ideam.gov.co/file-download/download/public/18906"
+      ],
+      "clues": [
+        {
+          "id": "flood/clue/0",
+          "title": "Mapa de demostración",
+          "text": "Una marca en este prototipo identifica un capítulo. No certifica el nivel de amenaza de un barrio ni una ruta de evacuación."
+        },
+        {
+          "id": "flood/clue/1",
+          "title": "Boletín con fecha",
+          "text": "Antes de usar un aviso, comprueba su emisor, fecha y lugar. La vigencia importa."
+        },
+        {
+          "id": "flood/clue/2",
+          "title": "Testimonio de Lucía",
+          "text": "Una experiencia local ayuda a formular preguntas, pero no reemplaza estudios ni instrucciones oficiales."
+        }
+      ],
+      "conversations": [
+        {
+          "id": "flood/before",
+          "firstNode": "start",
+          "nodes": [
+            {
+              "id": "start",
+              "speaker": "Lucía",
+              "text": "El barrio prepara una reunión sobre el río. Soy Lucía. ¿Qué información conviene revisar antes?",
+              "next": "",
+              "choices": [
+                {
+                  "id": "verified",
+                  "label": "Revisar estudios y avisos oficiales con fecha y alcance.",
+                  "next": "good",
+                  "requiredClue": "",
+                  "decisionKey": "flood/before",
+                  "responsible": true,
+                  "consequence": "El grupo identifica que una fuente necesita contexto, escala y vigencia."
+                },
+                {
+                  "id": "impulsive",
+                  "label": "Usar el color del mapa del juego como nivel oficial.",
+                  "next": "reconsider",
+                  "requiredClue": "",
+                  "decisionKey": "flood/before",
+                  "responsible": false,
+                  "consequence": "Se eligió una opción que requería corrección. El grupo identifica que una fuente necesita contexto, escala y vigencia."
+                },
+                {
+                  "id": "evidence",
+                  "label": "Usar la pista «Mapa de demostración» para justificar mi respuesta.",
+                  "next": "evidence",
+                  "requiredClue": "flood/clue/0",
+                  "decisionKey": "flood/before",
+                  "responsible": true,
+                  "consequence": "El grupo identifica que una fuente necesita contexto, escala y vigencia."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/flood_before_start"
+            },
+            {
+              "id": "good",
+              "speaker": "Lucía",
+              "text": "El grupo identifica que una fuente necesita contexto, escala y vigencia.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/flood_before_good"
+            },
+            {
+              "id": "reconsider",
+              "speaker": "Lucía",
+              "text": "Revisemos esa idea. El grupo identifica que una fuente necesita contexto, escala y vigencia. Tu elección queda en la libreta para reflexionar sobre ella.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/flood_before_reconsider"
+            },
+            {
+              "id": "evidence",
+              "speaker": "Lucía",
+              "text": "Has relacionado una pista con una decisión. El grupo identifica que una fuente necesita contexto, escala y vigencia.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/flood_before_evidence"
+            }
+          ]
+        },
+        {
+          "id": "flood/during",
+          "firstNode": "start",
+          "nodes": [
+            {
+              "id": "start",
+              "speaker": "Mateo",
+              "text": "Soy Mateo. Alguien quiere acercarse al río para grabar un video durante la alerta de este relato. ¿Qué propones?",
+              "next": "",
+              "choices": [
+                {
+                  "id": "verified",
+                  "label": "Permanecer fuera del área expuesta y seguir las indicaciones oficiales.",
+                  "next": "good",
+                  "requiredClue": "",
+                  "decisionKey": "flood/during",
+                  "responsible": true,
+                  "consequence": "El estudiante conserva su papel de observador responsable y evita exponerse para completar una tarea."
+                },
+                {
+                  "id": "impulsive",
+                  "label": "Ir a la orilla para conseguir una imagen más cercana.",
+                  "next": "reconsider",
+                  "requiredClue": "",
+                  "decisionKey": "flood/during",
+                  "responsible": false,
+                  "consequence": "Se eligió una opción que requería corrección. El estudiante conserva su papel de observador responsable y evita exponerse para completar una tarea."
+                },
+                {
+                  "id": "evidence",
+                  "label": "Usar la pista «Boletín con fecha» para justificar mi respuesta.",
+                  "next": "evidence",
+                  "requiredClue": "flood/clue/1",
+                  "decisionKey": "flood/during",
+                  "responsible": true,
+                  "consequence": "El estudiante conserva su papel de observador responsable y evita exponerse para completar una tarea."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/flood_during_start"
+            },
+            {
+              "id": "good",
+              "speaker": "Mateo",
+              "text": "El estudiante conserva su papel de observador responsable y evita exponerse para completar una tarea.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/flood_during_good"
+            },
+            {
+              "id": "reconsider",
+              "speaker": "Mateo",
+              "text": "Revisemos esa idea. El estudiante conserva su papel de observador responsable y evita exponerse para completar una tarea. Tu elección queda en la libreta para reflexionar sobre ella.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/flood_during_reconsider"
+            },
+            {
+              "id": "evidence",
+              "speaker": "Mateo",
+              "text": "Has relacionado una pista con una decisión. El estudiante conserva su papel de observador responsable y evita exponerse para completar una tarea.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/flood_during_evidence"
+            }
+          ]
+        },
+        {
+          "id": "flood/after",
+          "firstNode": "start",
+          "nodes": [
+            {
+              "id": "start",
+              "speaker": "Inés",
+              "text": "Soy Inés. Al revisar la visita, un compañero dice que amenaza y riesgo son exactamente iguales. ¿Qué responderías?",
+              "next": "",
+              "choices": [
+                {
+                  "id": "verified",
+                  "label": "Distinguir el fenómeno, lo expuesto y los daños potenciales.",
+                  "next": "good",
+                  "requiredClue": "",
+                  "decisionKey": "flood/after",
+                  "responsible": true,
+                  "consequence": "La libreta separa amenaza, exposición y riesgo; quedan pendientes las verificaciones cartográficas."
+                },
+                {
+                  "id": "impulsive",
+                  "label": "Asignar riesgo alto a cualquier barrio por intuición.",
+                  "next": "reconsider",
+                  "requiredClue": "",
+                  "decisionKey": "flood/after",
+                  "responsible": false,
+                  "consequence": "Se eligió una opción que requería corrección. La libreta separa amenaza, exposición y riesgo; quedan pendientes las verificaciones cartográficas."
+                },
+                {
+                  "id": "evidence",
+                  "label": "Usar la pista «Testimonio de Lucía» para justificar mi respuesta.",
+                  "next": "evidence",
+                  "requiredClue": "flood/clue/2",
+                  "decisionKey": "flood/after",
+                  "responsible": true,
+                  "consequence": "La libreta separa amenaza, exposición y riesgo; quedan pendientes las verificaciones cartográficas."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/flood_after_start"
+            },
+            {
+              "id": "good",
+              "speaker": "Inés",
+              "text": "La libreta separa amenaza, exposición y riesgo; quedan pendientes las verificaciones cartográficas.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/flood_after_good"
+            },
+            {
+              "id": "reconsider",
+              "speaker": "Inés",
+              "text": "Revisemos esa idea. La libreta separa amenaza, exposición y riesgo; quedan pendientes las verificaciones cartográficas. Tu elección queda en la libreta para reflexionar sobre ella.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/flood_after_reconsider"
+            },
+            {
+              "id": "evidence",
+              "speaker": "Inés",
+              "text": "Has relacionado una pista con una decisión. La libreta separa amenaza, exposición y riesgo; quedan pendientes las verificaciones cartográficas.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/flood_after_evidence"
+            }
+          ]
+        }
+      ],
+      "cinematic": [
+        {
+          "title": "Otro momento del año",
+          "text": "Meses después del primer encuentro, el relato cambia. Las conversaciones se realizan lejos de las áreas expuestas.",
+          "seconds": 7,
+          "imageResource": "",
+          "voiceResource": "CaliNature/Voices/flood_cinematic_0"
+        },
+        {
+          "title": "Escuchar desde un lugar seguro",
+          "text": "Lucía trae un boletín y una libreta. Alex compara sus fechas antes de compartirlos con el grupo.",
+          "seconds": 7,
+          "imageResource": "",
+          "voiceResource": "CaliNature/Voices/flood_cinematic_1"
+        },
+        {
+          "title": "El mapa no lo dice todo",
+          "text": "Un punto de color en un mapa puede parecer una respuesta definitiva. Inés recuerda que primero hay que entender qué representa.",
+          "seconds": 7.470588235294118,
+          "imageResource": "",
+          "voiceResource": "CaliNature/Voices/flood_cinematic_2"
+        }
+      ]
+    },
+    {
+      "id": "wind",
+      "title": "03 · Cuando cambia el viento",
+      "subtitle": "Vendavales",
+      "phenomenon": "Vendaval · fenómeno meteorológico",
+      "period": "Momento 3 · otra visita comunitaria ficticia",
+      "description": "En una jornada distinta, la comunidad revisa qué hacer con información sobre vientos fuertes. El capítulo diferencia un vendaval de una tormenta eléctrica, aunque pueden presentarse asociados.",
+      "summary": "Los vientos fuertes pueden afectar techos, árboles e infraestructura. Una tormenta eléctrica se caracteriza por actividad eléctrica; no es sinónimo de vendaval. La preparación exige información vigente y evitar exponerse para registrar el fenómeno.",
+      "objective": "Escucha tres perspectivas, reúne tres pistas y decide antes, durante y después.",
+      "sceneName": "06_WindstormChapter",
+      "sources": [
+        "https://ideam.gov.co/fenomeno-del-nino",
+        "https://www.ideam.gov.co/sites/default/files/prensa/boletines/2024-08-23/capitulo_7_alteraciones_del_regimen_hidrologico_y_de_la_oferta_hidrica_por_varibilidad_y_cambio_climatico.pdf",
+        "https://www.cali.gov.co/gestiondelriesgo/publicaciones/182650/estudios-de-escenarios-de-riesgo/",
+        "https://www.cali.gov.co/gestiondelriesgo/publicaciones/184329/precaucion-en-el-primer-puente-de-2025-medidas-clave-ante-riesgos-por-lluvias/",
+        "https://www.ideam.gov.co/file-download/download/public/18906"
+      ],
+      "clues": [
+        {
+          "id": "wind/clue/0",
+          "title": "Lista de observación",
+          "text": "El estudiante observa desde un lugar seguro y comunica inquietudes; no realiza reparaciones en altura."
+        },
+        {
+          "id": "wind/clue/1",
+          "title": "Dos fenómenos",
+          "text": "Viento fuerte y actividad eléctrica son fenómenos diferentes. Pueden coincidir, pero no deben confundirse."
+        },
+        {
+          "id": "wind/clue/2",
+          "title": "Canal de información",
+          "text": "La comunidad acuerda verificar el emisor de los avisos y evitar cadenas sin fuente."
+        }
+      ],
+      "conversations": [
+        {
+          "id": "wind/before",
+          "firstNode": "start",
+          "nodes": [
+            {
+              "id": "start",
+              "speaker": "Lucía",
+              "text": "Soy Lucía. Antes de la jornada, revisamos la información disponible. ¿Cómo describirías los fenómenos?",
+              "next": "",
+              "choices": [
+                {
+                  "id": "verified",
+                  "label": "Diferenciar el viento fuerte de la actividad eléctrica.",
+                  "next": "good",
+                  "requiredClue": "",
+                  "decisionKey": "wind/before",
+                  "responsible": true,
+                  "consequence": "La explicación distingue los dos fenómenos y evita una equivalencia falsa."
+                },
+                {
+                  "id": "impulsive",
+                  "label": "Asegurar que todo vendaval es una tormenta eléctrica.",
+                  "next": "reconsider",
+                  "requiredClue": "",
+                  "decisionKey": "wind/before",
+                  "responsible": false,
+                  "consequence": "Se eligió una opción que requería corrección. La explicación distingue los dos fenómenos y evita una equivalencia falsa."
+                },
+                {
+                  "id": "evidence",
+                  "label": "Usar la pista «Lista de observación» para justificar mi respuesta.",
+                  "next": "evidence",
+                  "requiredClue": "wind/clue/0",
+                  "decisionKey": "wind/before",
+                  "responsible": true,
+                  "consequence": "La explicación distingue los dos fenómenos y evita una equivalencia falsa."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/wind_before_start"
+            },
+            {
+              "id": "good",
+              "speaker": "Lucía",
+              "text": "La explicación distingue los dos fenómenos y evita una equivalencia falsa.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/wind_before_good"
+            },
+            {
+              "id": "reconsider",
+              "speaker": "Lucía",
+              "text": "Revisemos esa idea. La explicación distingue los dos fenómenos y evita una equivalencia falsa. Tu elección queda en la libreta para reflexionar sobre ella.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/wind_before_reconsider"
+            },
+            {
+              "id": "evidence",
+              "speaker": "Lucía",
+              "text": "Has relacionado una pista con una decisión. La explicación distingue los dos fenómenos y evita una equivalencia falsa.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/wind_before_evidence"
+            }
+          ]
+        },
+        {
+          "id": "wind/during",
+          "firstNode": "start",
+          "nodes": [
+            {
+              "id": "start",
+              "speaker": "Mateo",
+              "text": "Soy Mateo. Un compañero propone salir a filmar los árboles mientras ocurre el vendaval de la historia. ¿Qué decides?",
+              "next": "",
+              "choices": [
+                {
+                  "id": "verified",
+                  "label": "Priorizar la protección y seguir avisos de las autoridades.",
+                  "next": "good",
+                  "requiredClue": "",
+                  "decisionKey": "wind/during",
+                  "responsible": true,
+                  "consequence": "El grupo elige aprender sin convertir la tarea académica en una exposición innecesaria."
+                },
+                {
+                  "id": "impulsive",
+                  "label": "Exponerse para conseguir la mejor grabación.",
+                  "next": "reconsider",
+                  "requiredClue": "",
+                  "decisionKey": "wind/during",
+                  "responsible": false,
+                  "consequence": "Se eligió una opción que requería corrección. El grupo elige aprender sin convertir la tarea académica en una exposición innecesaria."
+                },
+                {
+                  "id": "evidence",
+                  "label": "Usar la pista «Dos fenómenos» para justificar mi respuesta.",
+                  "next": "evidence",
+                  "requiredClue": "wind/clue/1",
+                  "decisionKey": "wind/during",
+                  "responsible": true,
+                  "consequence": "El grupo elige aprender sin convertir la tarea académica en una exposición innecesaria."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/wind_during_start"
+            },
+            {
+              "id": "good",
+              "speaker": "Mateo",
+              "text": "El grupo elige aprender sin convertir la tarea académica en una exposición innecesaria.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/wind_during_good"
+            },
+            {
+              "id": "reconsider",
+              "speaker": "Mateo",
+              "text": "Revisemos esa idea. El grupo elige aprender sin convertir la tarea académica en una exposición innecesaria. Tu elección queda en la libreta para reflexionar sobre ella.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/wind_during_reconsider"
+            },
+            {
+              "id": "evidence",
+              "speaker": "Mateo",
+              "text": "Has relacionado una pista con una decisión. El grupo elige aprender sin convertir la tarea académica en una exposición innecesaria.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/wind_during_evidence"
+            }
+          ]
+        },
+        {
+          "id": "wind/after",
+          "firstNode": "start",
+          "nodes": [
+            {
+              "id": "start",
+              "speaker": "Inés",
+              "text": "Soy Inés. Después del episodio hay observaciones que revisar. ¿Qué puede aportar Alex como estudiante?",
+              "next": "",
+              "choices": [
+                {
+                  "id": "verified",
+                  "label": "Registrar preguntas desde un lugar seguro y comunicarlas.",
+                  "next": "good",
+                  "requiredClue": "",
+                  "decisionKey": "wind/after",
+                  "responsible": true,
+                  "consequence": "Alex comunica sus observaciones sin asumir labores profesionales de evaluación o reparación."
+                },
+                {
+                  "id": "impulsive",
+                  "label": "Subir a inspeccionar techos dañados por cuenta propia.",
+                  "next": "reconsider",
+                  "requiredClue": "",
+                  "decisionKey": "wind/after",
+                  "responsible": false,
+                  "consequence": "Se eligió una opción que requería corrección. Alex comunica sus observaciones sin asumir labores profesionales de evaluación o reparación."
+                },
+                {
+                  "id": "evidence",
+                  "label": "Usar la pista «Canal de información» para justificar mi respuesta.",
+                  "next": "evidence",
+                  "requiredClue": "wind/clue/2",
+                  "decisionKey": "wind/after",
+                  "responsible": true,
+                  "consequence": "Alex comunica sus observaciones sin asumir labores profesionales de evaluación o reparación."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/wind_after_start"
+            },
+            {
+              "id": "good",
+              "speaker": "Inés",
+              "text": "Alex comunica sus observaciones sin asumir labores profesionales de evaluación o reparación.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/wind_after_good"
+            },
+            {
+              "id": "reconsider",
+              "speaker": "Inés",
+              "text": "Revisemos esa idea. Alex comunica sus observaciones sin asumir labores profesionales de evaluación o reparación. Tu elección queda en la libreta para reflexionar sobre ella.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/wind_after_reconsider"
+            },
+            {
+              "id": "evidence",
+              "speaker": "Inés",
+              "text": "Has relacionado una pista con una decisión. Alex comunica sus observaciones sin asumir labores profesionales de evaluación o reparación.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/wind_after_evidence"
+            }
+          ]
+        }
+      ],
+      "cinematic": [
+        {
+          "title": "Una visita distinta",
+          "text": "En otra fecha, Alex vuelve al encuentro. La conversación de hoy trata sobre vientos fuertes.",
+          "seconds": 7,
+          "imageResource": "",
+          "voiceResource": "CaliNature/Voices/wind_cinematic_0"
+        },
+        {
+          "title": "Dos palabras, dos fenómenos",
+          "text": "Mateo distingue dos palabras que había usado como si fueran iguales: vendaval y tormenta eléctrica.",
+          "seconds": 7,
+          "imageResource": "",
+          "voiceResource": "CaliNature/Voices/wind_cinematic_1"
+        },
+        {
+          "title": "Decidir sin exponerse",
+          "text": "La tarea universitaria sigue siendo aprender. Ninguna fotografía justifica ponerse en peligro.",
+          "seconds": 7,
+          "imageResource": "",
+          "voiceResource": "CaliNature/Voices/wind_cinematic_2"
+        }
+      ]
+    },
+    {
+      "id": "flash",
+      "title": "04 · Una creciente que sorprende",
+      "subtitle": "Avenidas torrenciales",
+      "phenomenon": "Avenida torrencial · fenómeno hidrológico",
+      "period": "Momento 4 · encuentro posterior, episodio ficticio",
+      "description": "La comunidad estudia un caso narrativo de una creciente rápida. El agua puede transportar sedimentos y otros materiales. La escena sirve para aprender conceptos; no delimita una amenaza real de una cuenca.",
+      "summary": "Una avenida torrencial puede desarrollarse rápidamente y transportar agua, sedimentos y otros materiales. Se diferencia de inundaciones de evolución más lenta. No necesita una tormenta eléctrica como condición obligatoria. Los mapas y planes oficiales aportan el contexto local.",
+      "objective": "Escucha tres perspectivas, reúne tres pistas y decide antes, durante y después.",
+      "sceneName": "07_FlashFloodChapter",
+      "sources": [
+        "https://ideam.gov.co/fenomeno-del-nino",
+        "https://www.ideam.gov.co/sites/default/files/prensa/boletines/2024-08-23/capitulo_7_alteraciones_del_regimen_hidrologico_y_de_la_oferta_hidrica_por_varibilidad_y_cambio_climatico.pdf",
+        "https://www.cali.gov.co/gestiondelriesgo/publicaciones/182650/estudios-de-escenarios-de-riesgo/",
+        "https://www.cali.gov.co/gestiondelriesgo/publicaciones/184329/precaucion-en-el-primer-puente-de-2025-medidas-clave-ante-riesgos-por-lluvias/",
+        "https://www.ideam.gov.co/file-download/download/public/18906"
+      ],
+      "clues": [
+        {
+          "id": "flash/clue/0",
+          "title": "Secuencia del relato",
+          "text": "Las viñetas muestran una evolución rápida ficticia. No constituyen un pronóstico ni una señal universal de alerta."
+        },
+        {
+          "id": "flash/clue/1",
+          "title": "Agua y materiales",
+          "text": "Una avenida torrencial puede transportar sedimentos, rocas y otros materiales además de agua."
+        },
+        {
+          "id": "flash/clue/2",
+          "title": "Referencia cartográfica",
+          "text": "Cali publica estudios sobre diferentes cuencas. La interpretación debe respetar su fecha, alcance y escala."
+        }
+      ],
+      "conversations": [
+        {
+          "id": "flash/before",
+          "firstNode": "start",
+          "nodes": [
+            {
+              "id": "start",
+              "speaker": "Lucía",
+              "text": "Soy Lucía. Antes de revisar el caso, ¿qué diferencia debemos tener presente?",
+              "next": "",
+              "choices": [
+                {
+                  "id": "verified",
+                  "label": "La rapidez y el transporte de materiales pueden ser determinantes.",
+                  "next": "good",
+                  "requiredClue": "",
+                  "decisionKey": "flash/before",
+                  "responsible": true,
+                  "consequence": "La comunidad reconoce rasgos del fenómeno sin confundir todos los tipos de inundación."
+                },
+                {
+                  "id": "impulsive",
+                  "label": "Decir que todas las inundaciones avanzan al mismo ritmo.",
+                  "next": "reconsider",
+                  "requiredClue": "",
+                  "decisionKey": "flash/before",
+                  "responsible": false,
+                  "consequence": "Se eligió una opción que requería corrección. La comunidad reconoce rasgos del fenómeno sin confundir todos los tipos de inundación."
+                },
+                {
+                  "id": "evidence",
+                  "label": "Usar la pista «Secuencia del relato» para justificar mi respuesta.",
+                  "next": "evidence",
+                  "requiredClue": "flash/clue/0",
+                  "decisionKey": "flash/before",
+                  "responsible": true,
+                  "consequence": "La comunidad reconoce rasgos del fenómeno sin confundir todos los tipos de inundación."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/flash_before_start"
+            },
+            {
+              "id": "good",
+              "speaker": "Lucía",
+              "text": "La comunidad reconoce rasgos del fenómeno sin confundir todos los tipos de inundación.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/flash_before_good"
+            },
+            {
+              "id": "reconsider",
+              "speaker": "Lucía",
+              "text": "Revisemos esa idea. La comunidad reconoce rasgos del fenómeno sin confundir todos los tipos de inundación. Tu elección queda en la libreta para reflexionar sobre ella.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/flash_before_reconsider"
+            },
+            {
+              "id": "evidence",
+              "speaker": "Lucía",
+              "text": "Has relacionado una pista con una decisión. La comunidad reconoce rasgos del fenómeno sin confundir todos los tipos de inundación.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/flash_before_evidence"
+            }
+          ]
+        },
+        {
+          "id": "flash/during",
+          "firstNode": "start",
+          "nodes": [
+            {
+              "id": "start",
+              "speaker": "Mateo",
+              "text": "Soy Mateo. En la simulación hay una alerta por una creciente rápida. ¿Qué actitud corresponde a nuestro papel?",
+              "next": "",
+              "choices": [
+                {
+                  "id": "verified",
+                  "label": "Atender las indicaciones oficiales y evitar acercarse al cauce.",
+                  "next": "good",
+                  "requiredClue": "",
+                  "decisionKey": "flash/during",
+                  "responsible": true,
+                  "consequence": "Alex mantiene su papel educativo y evita una observación peligrosa."
+                },
+                {
+                  "id": "impulsive",
+                  "label": "Acercarse para medir la creciente con el celular.",
+                  "next": "reconsider",
+                  "requiredClue": "",
+                  "decisionKey": "flash/during",
+                  "responsible": false,
+                  "consequence": "Se eligió una opción que requería corrección. Alex mantiene su papel educativo y evita una observación peligrosa."
+                },
+                {
+                  "id": "evidence",
+                  "label": "Usar la pista «Agua y materiales» para justificar mi respuesta.",
+                  "next": "evidence",
+                  "requiredClue": "flash/clue/1",
+                  "decisionKey": "flash/during",
+                  "responsible": true,
+                  "consequence": "Alex mantiene su papel educativo y evita una observación peligrosa."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/flash_during_start"
+            },
+            {
+              "id": "good",
+              "speaker": "Mateo",
+              "text": "Alex mantiene su papel educativo y evita una observación peligrosa.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/flash_during_good"
+            },
+            {
+              "id": "reconsider",
+              "speaker": "Mateo",
+              "text": "Revisemos esa idea. Alex mantiene su papel educativo y evita una observación peligrosa. Tu elección queda en la libreta para reflexionar sobre ella.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/flash_during_reconsider"
+            },
+            {
+              "id": "evidence",
+              "speaker": "Mateo",
+              "text": "Has relacionado una pista con una decisión. Alex mantiene su papel educativo y evita una observación peligrosa.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/flash_during_evidence"
+            }
+          ]
+        },
+        {
+          "id": "flash/after",
+          "firstNode": "start",
+          "nodes": [
+            {
+              "id": "start",
+              "speaker": "Inés",
+              "text": "Soy Inés. Queremos llevar lo aprendido a un informe. ¿Cómo presentarías la ubicación y las fuentes?",
+              "next": "",
+              "choices": [
+                {
+                  "id": "verified",
+                  "label": "Separar la simulación de la cartografía oficial verificada.",
+                  "next": "good",
+                  "requiredClue": "",
+                  "decisionKey": "flash/after",
+                  "responsible": true,
+                  "consequence": "El informe documenta las limitaciones del prototipo y las fuentes que deben verificarse."
+                },
+                {
+                  "id": "impulsive",
+                  "label": "Inventar una ruta segura y presentarla como oficial.",
+                  "next": "reconsider",
+                  "requiredClue": "",
+                  "decisionKey": "flash/after",
+                  "responsible": false,
+                  "consequence": "Se eligió una opción que requería corrección. El informe documenta las limitaciones del prototipo y las fuentes que deben verificarse."
+                },
+                {
+                  "id": "evidence",
+                  "label": "Usar la pista «Referencia cartográfica» para justificar mi respuesta.",
+                  "next": "evidence",
+                  "requiredClue": "flash/clue/2",
+                  "decisionKey": "flash/after",
+                  "responsible": true,
+                  "consequence": "El informe documenta las limitaciones del prototipo y las fuentes que deben verificarse."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/flash_after_start"
+            },
+            {
+              "id": "good",
+              "speaker": "Inés",
+              "text": "El informe documenta las limitaciones del prototipo y las fuentes que deben verificarse.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/flash_after_good"
+            },
+            {
+              "id": "reconsider",
+              "speaker": "Inés",
+              "text": "Revisemos esa idea. El informe documenta las limitaciones del prototipo y las fuentes que deben verificarse. Tu elección queda en la libreta para reflexionar sobre ella.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/flash_after_reconsider"
+            },
+            {
+              "id": "evidence",
+              "speaker": "Inés",
+              "text": "Has relacionado una pista con una decisión. El informe documenta las limitaciones del prototipo y las fuentes que deben verificarse.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": "CaliNature/Voices/flash_after_evidence"
+            }
+          ]
+        }
+      ],
+      "cinematic": [
+        {
+          "title": "El tiempo de una creciente",
+          "text": "En el último encuentro, Alex observa una secuencia ilustrada de un caso ficticio. El cambio ocurre en poco tiempo.",
+          "seconds": 7,
+          "imageResource": "",
+          "voiceResource": "CaliNature/Voices/flash_cinematic_0"
+        },
+        {
+          "title": "Algo más que agua",
+          "text": "Inés señala los materiales transportados. El grupo necesita una explicación más precisa que la palabra inundación.",
+          "seconds": 7,
+          "imageResource": "",
+          "voiceResource": "CaliNature/Voices/flash_cinematic_1"
+        },
+        {
+          "title": "El valor de una fuente",
+          "text": "Antes de cerrar la libreta, Lucía insiste: una simulación ayuda a aprender, pero una decisión real necesita información oficial vigente.",
+          "seconds": 8,
+          "imageResource": "",
+          "voiceResource": "CaliNature/Voices/flash_cinematic_2"
+        }
+      ]
+    }
+  ]
+}
