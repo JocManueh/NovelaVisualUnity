@@ -35,7 +35,8 @@
         <ui:Label name="zone-title" class="heading" /><ui:Label name="zone-progress" class="eyebrow" />
         <ui:ScrollView class="zone-scroll"><ui:Label name="zone-description" class="body" /></ui:ScrollView><ui:Button name="enter-zone" text="Entrar a la zona" class="primary" />
       </ui:VisualElement>
-      <ui:VisualElement class="legend blocks-world"><ui:Label text="LEYENDA · CAPÍTULOS&#10;1 Sequía · 2 Inundación · 3 Vendaval · 4 Avenida torrencial&#10;Simulación educativa: ubicación ilustrativa, sin niveles de amenaza oficiales.&#10;No representa rutas de evacuación ni puntos de encuentro oficiales." class="caption" /></ui:VisualElement>
+      <ui:VisualElement class="legend blocks-world"><ui:Label text="LEYENDA · CAPÍTULOS&#10;Rojo: incompleta · Verde: completada&#10;1 Sequía · 2 Inundación · 3 Vendaval · 4 Avenida torrencial&#10;Simulación educativa: ubicación ilustrativa, sin niveles de amenaza oficiales.&#10;No representa rutas de evacuación ni puntos de encuentro oficiales." class="caption" /></ui:VisualElement>
+      <ui:Label text="Google Maps · Datos del mapa ©2026 Google" class="map-attribution" picking-mode="Ignore" />
       <ui:VisualElement class="zoom blocks-world"><ui:Button name="zoom-in" text="+" /><ui:Button name="zoom-out" text="−" /></ui:VisualElement>
     </ui:VisualElement>
     <ui:VisualElement name="hud" class="screen hidden" picking-mode="Ignore">

@@ -21,6 +21,7 @@ Button:disabled { opacity: 0.5; }
 .topbar { position: absolute; right: 24px; top: 18px; flex-direction: row; }
 .reading-card { width: 78%; max-width: 980px; max-height: 82%; padding: 40px; background-color: rgb(255, 254, 249); border-radius: 16px; }
 .map-heading { position: absolute; top: 82px; left: 25px; padding: 20px; background-color: var(--paper); border-radius: 10px; max-width: 690px; }
+.map-heading Button { font-size: 16px; padding: 8px 12px; min-height: 40px; }
 .zone-card { position: absolute; top: 90px; bottom: 165px; right: 25px; width: 330px; background-color: var(--paper); padding: 24px; border-radius: 12px; }
 .zone-scroll { flex-grow: 1; flex-shrink: 1; min-height: 0; }
 .marker-label { position: absolute; background-color: rgb(20, 57, 49); color: white; padding: 5px 10px; border-radius: 5px; font-size: 16px; -unity-font-style: bold; }
@@ -34,7 +35,7 @@ Button:disabled { opacity: 0.5; }
 .compact .map-heading Button { font-size: 13px; padding: 4px 8px; min-height: 30px; }
 .compact .legend { max-width: 60%; bottom: 6px; padding: 6px; }
 .compact .legend .caption { font-size: 11px; }
-.compact .zoom { bottom: 6px; right: 12px; flex-direction: row; }
+.compact .zoom { bottom: 28px; right: 12px; flex-direction: row; }
 .compact .zoom Button { min-height: 38px; padding: 4px 12px; }
 .compact .objective { top: 75px; width: 270px; padding: 10px; }
 .compact .objective .body { font-size: 14px; }
@@ -43,7 +44,7 @@ Button:disabled { opacity: 0.5; }
 .compact .reading-card { padding: 18px; }
 .compact .hero { margin-top: 6%; }
 .compact .hero Button { min-height: 36px; padding: 6px 12px; }
-.legend { position: absolute; bottom: 18px; left: 24px; max-width: 690px; padding: 12px; background-color: var(--paper); border-radius: 8px; }
+.legend { position: absolute; bottom: 18px; left: 24px; max-width: 420px; padding: 12px; background-color: var(--paper); border-radius: 8px; }
 .zoom { position: absolute; bottom: 30px; right: 28px; }
 .zoom Button { width: 62px; font-size: 26px; }
 .objective { position: absolute; left: 24px; top: 24px; width: 350px; background-color: rgba(246, 244, 235, 0.94); padding: 18px; border-radius: 10px; }
@@ -66,3 +67,5 @@ Button:disabled { opacity: 0.5; }
 #settings-fields Slider, #settings-fields Toggle { margin-bottom: 20px; min-height: 38px; }
 .cinematic-skip { position: absolute; right: 28px; bottom: 24px; }
 #load-progress { width: 70%; margin-top: 30px; height: 35px; }
+
+.map-attribution { position: absolute; bottom: 4px; right: 8px; background-color: white; color: rgb(45, 45, 45); font-size: 12px; padding: 3px 8px; }

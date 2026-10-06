@@ -76,6 +76,9 @@ namespace CaliNature
             {
                 var label = root.Q<Label>("marker-label-" + marker.ChapterIndex);
                 if (label == null) continue;
+                bool completed = marker.IsCompleted;
+                label.style.backgroundColor = completed ? CaliMapZoneSelector.CompletedColor : CaliMapZoneSelector.IncompleteColor;
+                label.tooltip = completed ? "Misión completada" : "Misión incompleta";
                 Vector3 point = Camera.main.WorldToViewportPoint(marker.transform.position);
                 bool visible = point.z > 0 && point.x > 0 && point.x < 1 && point.y > 0 && point.y < 1;
                 label.style.display = visible ? DisplayStyle.Flex : DisplayStyle.None;
