@@ -6,6 +6,81 @@ namespace CaliNature.Tests
 {
     public sealed class ControlsAndStoryTests
     {
+        private GameObject inputObject;
+        private GameStateController state;
+        private GameInputRouter input;
+        [SetUp] public void SetUpInput()
+        {
+            inputObject = new GameObject("Input test");
+            state = inputObject.AddComponent<GameStateController>();
+            input = inputObject.AddComponent<GameInputRouter>();
+            typeof(GameInputRouter).GetMethod("Awake", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).Invoke(input, null);
+        }
+        [TearDown] public void RemoveInput() { Object.DestroyImmediate(inputObject); }
+        private void Tick() { typeof(GameInputRouter).GetMethod("Update", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).Invoke(input, null); }
+        [Test] public void HeldSpaceOnlyAdvancesOnceUntilRelease()
+        {
+            state.SetMode(GameMode.Dialogue); int advances = 0;
+            input.AdvancePressed += () => advances++;
+            input.KeyPressed(KeyCode.Space); Tick();
+            input.KeyPressed(KeyCode.Space); Tick(); Tick();
+            Assert.AreEqual(1, advances);
+            input.KeyReleased(KeyCode.Space); input.KeyPressed(KeyCode.Space); Tick();
+            Assert.AreEqual(2, advances);
+        }
+        [Test] public void InteractionOpeningDialogueCannotAdvanceItsFirstLine()
+        {
+            state.SetMode(GameMode.Exploration); int advances = 0, interactions = 0;
+            input.InteractPressed += () => { interactions++; state.SetMode(GameMode.Dialogue); };
+            input.AdvancePressed += () => advances++;
+            input.KeyPressed(KeyCode.E); input.KeyPressed(KeyCode.Space); Tick();
+            input.KeyPressed(KeyCode.E); input.KeyPressed(KeyCode.Space); Tick();
+            Assert.AreEqual(1, interactions); Assert.AreEqual(0, advances);
+        }
+        [Test] public void DialogueBlocksMovementAndInteractions()
+        {
+            state.SetMode(GameMode.Dialogue); int interactions = 0;
+            input.InteractPressed += () => interactions++;
+            input.KeyPressed(KeyCode.W); input.KeyPressed(KeyCode.E); Tick();
+            Assert.AreEqual(Vector2.zero, input.Movement); Assert.AreEqual(0, interactions);
+        }
+        [Test] public void WASDReleasesWithoutStuckMovement()
+        {
+            state.SetMode(GameMode.Exploration); input.KeyPressed(KeyCode.D); Tick();
+            Assert.AreEqual(Vector2.right, input.Movement);
+            input.KeyReleased(KeyCode.D); Tick(); Assert.AreEqual(Vector2.zero, input.Movement);
+        }
+        [Test] public void ArrowKeysDoNotMovePlayer()
+        {
+            state.SetMode(GameMode.Exploration); input.KeyPressed(KeyCode.UpArrow); Tick();
+            Assert.AreEqual(Vector2.zero, input.Movement);
+        }
+        [Test] public void FocusLossClearsPendingKeysAndTouchInput()
+        {
+            state.SetMode(GameMode.Exploration); int interactions = 0;
+            input.InteractPressed += () => interactions++;
+            input.KeyPressed(KeyCode.W); input.TouchInteract(); input.ReleaseAll(); Tick();
+            Assert.AreEqual(Vector2.zero, input.Movement); Assert.AreEqual(0, interactions);
+        }
+        [Test] public void TouchAdvanceAndKeyboardInSameFrameAreOneAction()
+        {
+            state.SetMode(GameMode.Dialogue); int advances = 0;
+            input.AdvancePressed += () => advances++;
+            input.TouchAdvance(); input.KeyPressed(KeyCode.Space); Tick();
+            Assert.AreEqual(1, advances);
+        }
+        [Test] public void BriefTapBetweenPhysicsTicksMovesExactlyOneStep()
+        {
+            state.SetMode(GameMode.Exploration);
+            input.KeyPressed(KeyCode.D); input.KeyReleased(KeyCode.D); Tick();
+            Assert.AreEqual(Vector2.right, input.ConsumeStep());
+            Assert.AreEqual(Vector2.zero, input.ConsumeStep());
+        }
+        [Test] public void FocusLossDiscardsQueuedMovement()
+        {
+            state.SetMode(GameMode.Exploration); input.KeyPressed(KeyCode.D); input.ReleaseAll();
+            Assert.AreEqual(Vector2.zero, input.ConsumeStep());
+        }
         [Test] public void DiagonalInputResolvesToOneCardinalDirection() { Assert.AreEqual(Vector2.up, InputRules.Cardinal(Vector2.one)); }
         [Test] public void ZeroInputStops() { Assert.AreEqual(Vector2.zero, InputRules.Cardinal(Vector2.zero)); }
         [Test] public void NPCBehindCannotBeSelected() { Assert.IsFalse(InputRules.IsInFront(Vector2.zero, Vector2.up, Vector2.down, 2)); }

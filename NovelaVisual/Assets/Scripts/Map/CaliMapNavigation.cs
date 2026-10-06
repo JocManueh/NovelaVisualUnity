@@ -36,6 +36,7 @@ namespace CaliNature
         public void EndPointer(int id, Vector2 point)
         {
             if (id != pointerId) return;
+            MovePointer(id, point);
             bool click = gesture.End(point, dragThresholdPixels);
             pointerId = -1;
             if (!Available || !click || GameSession.Instance.UI.IsPointerBlocked(point)) return;

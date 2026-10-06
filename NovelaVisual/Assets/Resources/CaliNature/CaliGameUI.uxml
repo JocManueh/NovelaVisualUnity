@@ -21,6 +21,10 @@
       </ui:VisualElement>
     </ui:VisualElement>
     <ui:VisualElement name="map" class="screen hidden" picking-mode="Ignore">
+      <ui:Label name="marker-label-0" text="1 · Sequía" class="marker-label" picking-mode="Ignore" />
+      <ui:Label name="marker-label-1" text="2 · Inundación" class="marker-label" picking-mode="Ignore" />
+      <ui:Label name="marker-label-2" text="3 · Vendaval" class="marker-label" picking-mode="Ignore" />
+      <ui:Label name="marker-label-3" text="4 · Avenida torrencial" class="marker-label" picking-mode="Ignore" />
       <ui:VisualElement class="map-heading blocks-world">
         <ui:Label text="Cali · destinos del recorrido" class="heading" />
         <ui:Label name="map-progress" text="Capítulos completados: 0/4" />
@@ -29,7 +33,7 @@
       </ui:VisualElement>
       <ui:VisualElement name="zone-info" class="zone-card blocks-world hidden">
         <ui:Label name="zone-title" class="heading" /><ui:Label name="zone-progress" class="eyebrow" />
-        <ui:Label name="zone-description" class="body" /><ui:Button name="enter-zone" text="Entrar a la zona" class="primary" />
+        <ui:ScrollView class="zone-scroll"><ui:Label name="zone-description" class="body" /></ui:ScrollView><ui:Button name="enter-zone" text="Entrar a la zona" class="primary" />
       </ui:VisualElement>
       <ui:VisualElement class="legend blocks-world"><ui:Label text="LEYENDA · CAPÍTULOS&#10;1 Sequía · 2 Inundación · 3 Vendaval · 4 Avenida torrencial&#10;Simulación educativa: ubicación ilustrativa, sin niveles de amenaza oficiales.&#10;No representa rutas de evacuación ni puntos de encuentro oficiales." class="caption" /></ui:VisualElement>
       <ui:VisualElement class="zoom blocks-world"><ui:Button name="zoom-in" text="+" /><ui:Button name="zoom-out" text="−" /></ui:VisualElement>

@@ -17,7 +17,13 @@ namespace CaliNature
     }
     public sealed class GameSaveManager : MonoBehaviour
     {
+#if UNITY_EDITOR
+        // PlayMode tests have their own storage namespace; they never reset the player's save.
+        public static string TestSessionId { private get; set; }
+        private static string Key => string.IsNullOrEmpty(TestSessionId) ? "CaliNature.Save.v1" : "CaliNature.Tests." + TestSessionId;
+#else
         private const string Key = "CaliNature.Save.v1";
+#endif
         public SaveData Data { get; private set; } = new SaveData();
         public event Action Changed;
         public bool HasSave => PlayerPrefs.HasKey(Key);

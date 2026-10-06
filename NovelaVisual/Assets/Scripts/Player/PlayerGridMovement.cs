@@ -30,7 +30,7 @@ namespace CaliNature
             if (!state || !input || state.Mode != GameMode.Exploration) { Animate(false); return; }
             if (!IsStepping)
             {
-                Vector2 direction = input.Movement;
+                Vector2 direction = input.ConsumeStep();
                 if (direction == Vector2.zero) { Animate(false); return; }
                 Facing = direction;
                 if (Blocked(direction, cellSize)) { Animate(false); return; }
