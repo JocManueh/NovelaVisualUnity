@@ -33,6 +33,8 @@ namespace CaliNature
             if (root == null || root.Q("menu") == null) { Debug.LogError("Falta la interfaz CaliGameUI.uxml o CaliPanelSettings.asset."); return; }
             root.pickingMode = PickingMode.Position;
             root.focusable = true; root.tabIndex = -1;
+            root.RegisterCallback<GeometryChangedEvent>(_ => root.EnableInClassList("compact", root.layout.height < 650 || root.layout.width < 1000));
+            root.RegisterCallback<FocusOutEvent>(_ => session.Input.ReleaseAll());
             BindMapPointer();
             root.RegisterCallback<NavigationSubmitEvent>(e => e.StopImmediatePropagation(), TrickleDown.TrickleDown);
             root.RegisterCallback<KeyDownEvent>(e => { session.Input.KeyPressed(e.keyCode); if (e.keyCode == KeyCode.Space || e.keyCode == KeyCode.E) e.StopImmediatePropagation(); }, TrickleDown.TrickleDown);
@@ -59,11 +61,30 @@ namespace CaliNature
             root.Q<Toggle>("subtitles").RegisterValueChangedCallback(e => { session.Save.Data.subtitles = e.newValue; session.Save.Store(); RefreshDialogue(); });
             session.State.Changed += RefreshMode; session.Dialogue.Changed += RefreshDialogue;
             RefreshMode(session.State.Mode);
+            root.Focus();
         }
         private void OnDestroy()
         {
             if (session) { session.State.Changed -= RefreshMode; session.Dialogue.Changed -= RefreshDialogue; }
             if (player) player.PromptChanged -= UpdatePrompt;
+        }
+        private void LateUpdate()
+        {
+            if (!session || root == null || session.State.Mode != GameMode.Map || !Camera.main) return;
+            for (int i = 0; i < 4; i++) Show("marker-label-" + i, false);
+            foreach (var marker in FindObjectsByType<CaliMapZoneSelector>())
+            {
+                var label = root.Q<Label>("marker-label-" + marker.ChapterIndex);
+                if (label == null) continue;
+                bool completed = marker.IsCompleted;
+                label.style.backgroundColor = completed ? CaliMapZoneSelector.CompletedColor : CaliMapZoneSelector.IncompleteColor;
+                label.tooltip = completed ? "Misión completada" : "Misión incompleta";
+                Vector3 point = Camera.main.WorldToViewportPoint(marker.transform.position);
+                bool visible = point.z > 0 && point.x > 0 && point.x < 1 && point.y > 0 && point.y < 1;
+                label.style.display = visible ? DisplayStyle.Flex : DisplayStyle.None;
+                label.style.left = Mathf.Clamp(point.x * root.layout.width + 12, 0, root.layout.width - 190);
+                label.style.top = (1 - point.y) * root.layout.height + 24;
+            }
         }
         private void Bind(string name, Action action) { var button = root.Q<Button>(name); if (button != null) button.clicked += () => { action(); root.Focus(); }; }
         private Vector2 ScreenPoint(Vector2 panelPoint)
@@ -113,6 +134,7 @@ namespace CaliNature
             if (mode == GameMode.Menu) root.Q<Button>("continue").SetEnabled(session.Save.HasSave);
             if (mode == GameMode.Exploration) { Text("chapter-name", session.CurrentChapter?.title ?? "Exploración"); Text("objective", session.CurrentChapter?.objective ?? ""); }
             if (mode == GameMode.Dialogue) RefreshDialogue();
+            root.Focus();
         }
         public void RefreshMap() { Text("map-progress", "Capítulos completados: " + session.Save.Data.completedChapters.Count + "/4"); Show("zone-info", false); }
         private void FilterMap(int index)

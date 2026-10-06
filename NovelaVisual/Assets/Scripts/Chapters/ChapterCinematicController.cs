@@ -11,7 +11,7 @@ namespace CaliNature
         public void Play(ChapterData data)
         {
             chapter = data; index = 0; elapsed = 0;
-            if (data?.cinematic == null || data.cinematic.Length == 0) { GameSession.Instance.State.SetMode(GameMode.Exploration); return; }
+            if (data?.cinematic == null || data.cinematic.Length == 0) { Finish(); return; }
             active = true; GameSession.Instance.State.SetMode(GameMode.Cinematic); ShowCard();
         }
         private void ShowCard()
@@ -19,8 +19,7 @@ namespace CaliNature
             var session = GameSession.Instance;
             if (index >= chapter.cinematic.Length)
             {
-                active = false; session.Narration.Stop(); session.State.SetMode(GameMode.Exploration);
-                if (!session.Save.Data.tutorialSeen) session.UI.OpenHelp(true);
+                Finish();
                 return;
             }
             var card = chapter.cinematic[index];
@@ -36,6 +35,13 @@ namespace CaliNature
             session.UI.AnimateCinematic(Mathf.Clamp01(elapsed / duration));
             if (elapsed >= duration && !session.Narration.Playing) { elapsed = 0; index++; ShowCard(); }
         }
-        public void Skip() { if (!active) return; active = false; GameSession.Instance.Narration.Stop(); GameSession.Instance.State.SetMode(GameMode.Exploration); }
+        private void Finish()
+        {
+            active = false;
+            var session = GameSession.Instance;
+            session.Narration.Stop(); session.State.SetMode(GameMode.Exploration);
+            if (!session.Save.Data.tutorialSeen) session.UI.OpenHelp(true);
+        }
+        public void Skip() { if (active) Finish(); }
     }
 }
