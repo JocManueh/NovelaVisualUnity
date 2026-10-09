@@ -20,6 +20,16 @@ namespace CaliNature
         private readonly string[] screenNames = { "menu", "intro", "map", "hud", "dialogue", "cinematic", "loading", "summary" };
         private void Awake()
         {
+            // Al recargar una escena se crea un GameObject duplicado con su propia UI. Ese duplicado se
+            // autodestruye en GameSession.Awake, pero antes de hacerlo renderizaría el menú inicial (única
+            // pantalla visible por defecto en el UXML). Solo la interfaz de la sesión viva debe pintar.
+            if (GameSession.Instance != null && GameSession.Instance.UI != this)
+            {
+                var duplicate = GetComponent<UIDocument>();
+                if (duplicate) duplicate.enabled = false;
+                enabled = false;
+                return;
+            }
             document = GetComponent<UIDocument>();
             if (!layout) layout = Resources.Load<VisualTreeAsset>("CaliNature/CaliGameUI");
             if (!panelSettings) panelSettings = Resources.Load<PanelSettings>("CaliNature/CaliPanelSettings");

@@ -28,8 +28,6 @@ namespace CaliNature
                 else if (key == KeyCode.D) pendingStep = Vector2.right;
             }
         }
-        Debug.log("por favor funciona");
-        Debug.log("vvvvvvvv");
         public void KeyReleased(KeyCode key) { uiKeys.Remove(key); }
         private void Awake() { if (!state) state = GetComponent<GameStateController>(); }
         private void OnEnable() { if (state) state.Changed += ClearTransient; }
