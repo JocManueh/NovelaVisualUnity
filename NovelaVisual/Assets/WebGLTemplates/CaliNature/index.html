@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Cali ante la naturaleza</title>
+<style>html,body{margin:0;background:#182327;color:#f6f4eb;font:16px system-ui,sans-serif}main{max-width:1600px;margin:auto}header{padding:12px 20px;display:flex;justify-content:space-between;gap:16px}h1{font-size:18px;margin:0}#player{position:relative;width:100%;aspect-ratio:16/9;background:#f6f4eb}canvas{width:100%;height:100%;display:block;touch-action:none}#status{position:absolute;inset:0;display:grid;place-content:center;text-align:center;color:#182327;padding:24px;background:#f6f4eb}progress{width:min(75vw,500px)}button{padding:8px 16px;cursor:pointer}footer{padding:14px 20px;font-size:14px}#error{white-space:pre-wrap;max-width:70ch}button:focus-visible{outline:3px solid #ebc36c}</style></head>
+<body><main><header><h1>Cali ante la naturaleza</h1><button id="fullscreen" disabled>Pantalla completa</button></header><section id="player" aria-label="Juego Unity"><canvas id="unity-canvas" tabindex="0" aria-label="Exploración: W A S D. Interactuar: E. Diálogo: Espacio."></canvas><div id="status"><p id="message">Cargando el juego…</p><progress id="progress" max="1" value="0"></progress><p id="error" role="alert"></p></div></section><footer>W/A/S/D: moverse · E: interactuar · Espacio: diálogo · Clic: respuestas y mapa. Simulación educativa; consulta información oficial vigente. El guardado se conserva en este navegador.</footer></main>
+<script>
+const canvas=document.getElementById('unity-canvas'),statusPanel=document.getElementById('status'),progress=document.getElementById('progress'),error=document.getElementById('error');
+const buildUrl='Build';
+const config={dataUrl:buildUrl+'/{{{ DATA_FILENAME }}}',frameworkUrl:buildUrl+'/{{{ FRAMEWORK_FILENAME }}}',codeUrl:buildUrl+'/{{{ CODE_FILENAME }}}',streamingAssetsUrl:'StreamingAssets',companyName: {{{ JSON.stringify(COMPANY_NAME) }}},productName: {{{ JSON.stringify(PRODUCT_NAME) }}},productVersion: {{{ JSON.stringify(PRODUCT_VERSION) }}},showBanner:(message,type)=>{if(type==='error')fail(message);}};
+function fail(message){statusPanel.style.display='grid';document.getElementById('message').textContent='No se pudo cargar el juego.';progress.hidden=true;error.textContent=String(message)+' Revisa la conexión y recarga la página.';}
+const script=document.createElement('script');script.src=buildUrl+'/{{{ LOADER_FILENAME }}}';script.onerror=()=>fail('No se encontró el cargador de Unity.');
+script.onload=()=>createUnityInstance(canvas,config,value=>progress.value=value).then(instance=>{statusPanel.style.display='none';const full=document.getElementById('fullscreen');full.disabled=false;full.onclick=()=>instance.SetFullscreen(1);canvas.focus();}).catch(fail);
+document.body.appendChild(script);
+</script></body></html>
