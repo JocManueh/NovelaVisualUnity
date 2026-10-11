@@ -207,7 +207,7 @@ namespace CaliNature
         }
         public void OpenHelp(bool firstTime) { tutorial = firstTime; OpenModal(firstTime ? "Tu primera visita · Controles" : "Ayuda · Controles", ControlsHelpContent.Text, "help"); }
         public void ShowNotice(string text) { OpenModal("Libreta de campo", text, "notice"); }
-        private void OpenReset() { OpenModal("¿Reiniciar el recorrido?", "Se borrarán las decisiones, las pistas y los capítulos completados de esta partida. Los ajustes se conservarán.", "reset"); }
+        private void OpenReset() { OpenModal("¿Reiniciar todo el progreso?", "Se borrarán las decisiones, las pistas y los casos completados de esta partida. Los ajustes se conservarán.", "reset"); }
         private void OpenSettings()
         {
             OpenModal("Ajustes", "Configura el sonido y la lectura. Las respuestas siempre se seleccionan con clic o toque.", "settings");
@@ -232,7 +232,6 @@ namespace CaliNature
             Show("modal", false);
             if (tutorial) { tutorial = false; session.Save.Data.tutorialSeen = true; session.Save.Store(); }
             session.State.Resume();
-            if (modalKind == "notice") session.CheckChapterCompletion();
         }
         public void ShowCinematic(CinematicCard card) { Text("cinematic-title", card.title); Text("cinematic-text", card.text); }
         public void AnimateCinematic(float progress)
@@ -243,7 +242,7 @@ namespace CaliNature
         {
             var text = new StringBuilder(chapter.summary + "\n\nTUS DECISIONES\n");
             foreach (var item in session.Save.Data.decisions) if (item.key.StartsWith(chapter.id + "/", StringComparison.Ordinal)) text.AppendLine("• " + item.consequence);
-            Text("summary-title", chapter.title + " · recorrido completado"); Text("summary-text", text.ToString());
+            Text("summary-title", chapter.title + " · caso completado"); Text("summary-text", text.ToString());
         }
         public void SetLoading(float progress) { var bar = root?.Q<ProgressBar>("load-progress"); if (bar != null) bar.value = progress * 100; }
         public void ShowLoadError(string error) { session.State.SetMode(GameMode.Map); ShowNotice("No se pudo abrir la zona. " + error); }

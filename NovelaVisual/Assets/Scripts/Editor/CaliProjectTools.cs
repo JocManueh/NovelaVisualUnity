@@ -38,10 +38,56 @@ namespace CaliNature.Editor
             {
                 if (chapter.clues?.Length != 3 || chapter.conversations?.Length != 3) problems.Add(chapter.id + ": se requieren tres pistas y tres conversaciones.");
                 if (!File.Exists("Assets/Scenes/" + chapter.sceneName + ".unity")) warnings.Add("Montaje pendiente: " + chapter.sceneName);
+                // Cada pista debe poder leerse según la rama: una variante para Bx y otra
+                // para By. Si falta alguna, el jugador examina el mismo documento en los dos
+                // caminos y no puede saber cuál le sirve.
+                var branchNodes = new HashSet<string>(chapter.conversations[1].routes
+                    .Where(r => r.decisionKey.EndsWith("/a", StringComparison.Ordinal))
+                    .Select(r => r.node));
+                foreach (var clue in chapter.clues)
+                {
+                    var declared = (clue.variants ?? Array.Empty<ClueVariant>()).Select(v => v.branch).ToHashSet();
+                    foreach (var branch in branchNodes)
+                        if (!declared.Contains(branch))
+                            problems.Add(chapter.id + "/" + clue.id + ": falta la variante para la rama " + branch + ".");
+                }
+                // ── Validación del árbol de diálogo ─────────────────────────────────
+                // Contadores de TODO el capítulo: las ramas de cierre viven en la
+                // conversación del NPC C, así que se acumulan y se comprueban al final.
+                int closingWins = 0, closingTotal = 0, alwaysWin = 0;
                 foreach (var dialogue in chapter.conversations)
                 {
                     var ids = new HashSet<string>(); foreach (var node in dialogue.nodes) if (!ids.Add(node.id)) problems.Add("Nodo repetido: " + dialogue.id + "/" + node.id);
+                    // firstNode debe existir, y cada regla de `routes` debe apuntar a un
+                    // nodo real de ESTA MISMA conversación (una ruta nunca salta de NPC).
                     if (!ids.Contains(dialogue.firstNode)) problems.Add("Inicio inválido: " + dialogue.id);
+                    foreach (var route in dialogue.routes ?? Array.Empty<RouteRule>())
+                    {
+                        if (!ids.Contains(route.node)) problems.Add("Ruta inválida hacia '" + route.node + "' en " + dialogue.id);
+                        if (string.IsNullOrEmpty(route.decisionKey)) problems.Add("Ruta sin decisionKey en " + dialogue.id);
+                    }
+
+                    // Un nodo con outcome debe declarar SOLO "win"/"lose" en todas sus
+                    // opciones: es un nodo de cierre y se resuelve entero de una vez.
+                    var closing = dialogue.nodes.Where(n => (n.choices ?? Array.Empty<DialogueChoice>()).Any(c => !string.IsNullOrEmpty(c.outcome))).ToArray();
+                    foreach (var node in closing)
+                    {
+                        foreach (var choice in node.choices)
+                        {
+                            if (choice.outcome != GameSession.OutcomeWin && choice.outcome != GameSession.OutcomeLose)
+                                problems.Add("Desenlace desconocido '" + choice.outcome + "' en " + dialogue.id + "/" + choice.id);
+                            if (!ids.Contains(choice.next)) problems.Add("Destino de opción inválido: " + choice.next);
+                        }
+                        // Solo se exige que una rama sea netamente favorable o netamente
+                        // desfavorable; una mezcla 1/2 es válida pero debe ser intencionada.
+                        // Lo que NO puede pasar es que el capítulo se quede sin ninguna
+                        // rama favorable: entonces el juego sería imposible de ganar.
+                        // Ninguna rama puede ganar siempre: con la pista en la mano el jugador debe
+                        // poder seguir perdiendo, o la pista dejaría de tener riesgo.
+                        int wins = node.choices.Count(c => c.outcome == GameSession.OutcomeWin);
+                        closingWins += wins; closingTotal += node.choices.Length;
+                        if (wins == node.choices.Length) alwaysWin++;
+                    }
                     foreach (var node in dialogue.nodes)
                     {
                         if (!string.IsNullOrEmpty(node.next) && !ids.Contains(node.next)) problems.Add("Siguiente inválido: " + node.next);
@@ -53,6 +99,17 @@ namespace CaliNature.Editor
                         if (!string.IsNullOrEmpty(node.voiceResource) && !Resources.Load<AudioClip>(node.voiceResource)) warnings.Add("Grabación pendiente: " + node.voiceResource);
                     }
                 }
+                // Balance del capítulo: se busca paridad entre ganar y perder (6/6 con
+                // cuatro ramas de cierre de tres opciones). Un capítulo donde
+                // siempre se gana no tiene consecuencias; uno donde nunca se gana
+                // sería imposible de completar.
+                int closingLosses = closingTotal - closingWins;
+                if (closingWins == 0) problems.Add(chapter.id + ": no hay ninguna opción ganadora; el caso sería imposible de ganar.");
+                if (closingLosses == 0) problems.Add(chapter.id + ": no hay ninguna opción perdedora; se podría ganar siempre.");
+                // Con la pista en la mano el jugador todavía puede perder.
+                if (alwaysWin > 0) problems.Add(chapter.id + ": hay " + alwaysWin + " rama(s) que ganan siempre; ninguna debe hacerlo.");
+                if (closingWins != closingLosses)
+                    warnings.Add(chapter.id + ": el balance es " + closingWins + " ganar / " + closingLosses + " perder; se recomienda paridad.");
             }
             foreach (var root in UnityEngine.SceneManagement.SceneManager.GetActiveScene().GetRootGameObjects())
                 foreach (var transform in root.GetComponentsInChildren<Transform>(true))

@@ -53,6 +53,24 @@ namespace CaliNature
         }
         public void MarkHeard(string id) { if (!string.IsNullOrEmpty(id) && !Data.heardNarrations.Contains(id)) { Data.heardNarrations.Add(id); Store(); } }
         public void Complete(string id) { if (!Data.completedChapters.Contains(id)) { Data.completedChapters.Add(id); Store(); } }
+        // ── REINICIO DE UN CAPÍTULO ─────────────────────────────────────────
+        // Borra pistas y decisiones de un capítulo para poder reintentarlo desde cero.
+        // Se usa al perder (GameSession.FailChapter).
+        //
+        // Todo lo del capítulo vive bajo el prefijo "idDeCapítulo/" (clue/0, a, b, c...),
+        // así que un RemoveAll por prefijo es suficiente y no toca los demás capítulos.
+        //
+        // IMPORTANTE: completedChapters NO se borra. Si el jugador ya ganó este caso y
+        // más tarde reintenta y pierde, el mapa sigue mostrándolo como completado:
+        // perder un reintento no deshace un logro anterior.
+        public void ClearChapter(string chapterId)
+        {
+            if (string.IsNullOrEmpty(chapterId)) return;
+            string prefix = chapterId + "/";
+            Data.clues.RemoveAll(id => id != null && id.StartsWith(prefix, StringComparison.Ordinal));
+            Data.decisions.RemoveAll(x => x.key != null && x.key.StartsWith(prefix, StringComparison.Ordinal));
+            Store();
+        }
         public void ResetProgress() { Data = new SaveData { volume = Data.volume, textSpeed = Data.textSpeed, muted = Data.muted, subtitles = Data.subtitles }; Store(); }
         private void OnApplicationPause(bool paused) { if (paused) Store(); }
         private void OnApplicationQuit() { Store(); }
