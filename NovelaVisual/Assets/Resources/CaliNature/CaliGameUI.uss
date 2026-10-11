@@ -1,65 +1,182 @@
-:root { --ink: rgb(24, 35, 39); --paper: rgb(246, 244, 235); --accent: rgb(25, 102, 86); --line: rgb(184, 195, 184); color: var(--ink); font-size: 18px; }
+:root {
+  --ink: rgb(24, 35, 39);
+  --paper: rgb(246, 244, 235);
+  --accent: rgb(25, 102, 86);
+  --line: rgb(184, 195, 184);
+
+  /* Palatino Linotype: serif caligráfico con aire de manuscrito y expedición. */
+  --font-regular: url("/Assets/Fonts/CaliPalatino-Regular.ttf");
+  --font-bold: url("/Assets/Fonts/CaliPalatino-Bold.ttf");
+  --font-italic: url("/Assets/Fonts/CaliPalatino-Italic.ttf");
+  --font-bold-italic: url("/Assets/Fonts/CaliPalatino-BoldItalic.ttf");
+
+  color: var(--ink);
+  font-size: 20px;
+  -unity-font-definition: var(--font-regular);
+  -unity-font: var(--font-regular);
+}
+
 #app { flex-grow: 1; }
 .screen { position: absolute; left: 0; top: 0; right: 0; bottom: 0; }
 .hidden { display: none; }
 .opaque { background-color: var(--paper); }
 .centered { align-items: center; justify-content: center; }
-.hero { margin-left: 9%; margin-top: 8%; width: 70%; max-width: 840px; }
-.title { font-size: 64px; -unity-font-style: bold; white-space: normal; margin-top: 12px; margin-bottom: 22px; }
-.heading { font-size: 27px; -unity-font-style: bold; white-space: normal; margin-bottom: 12px; }
-.eyebrow { font-size: 14px; -unity-font-style: bold; color: var(--accent); letter-spacing: 2px; margin-bottom: 10px; }
-.lead { font-size: 23px; white-space: normal; margin-bottom: 24px; }
-.body { white-space: normal; font-size: 20px; margin-bottom: 18px; }
-.caption { white-space: normal; font-size: 15px; color: rgb(64, 81, 83); margin-top: 8px; margin-bottom: 8px; }
-Button { background-color: rgb(231, 234, 223); color: var(--ink); border-width: 1px; border-color: var(--line); border-radius: 7px; padding: 12px 20px; min-height: 48px; font-size: 18px; margin: 4px; white-space: normal; }
+
+/* ---------- MENÚ INICIAL: todo centrado y con jerarquía clara ---------- */
+#menu { align-items: center; justify-content: center; padding: 40px; }
+
+.hero {
+  width: 82%;
+  max-width: 940px;
+  align-items: center;
+  margin: 0;
+}
+
+.hero .eyebrow {
+  -unity-font-definition: var(--font-bold);
+  -unity-font-style: bold;
+  -unity-text-align: middle-center;
+  font-size: 16px;
+  letter-spacing: 5px;
+  color: var(--accent);
+  margin-bottom: 22px;
+}
+
+.hero .title {
+  -unity-font-definition: var(--font-bold);
+  -unity-font-style: bold;
+  -unity-text-align: middle-center;
+  font-size: 74px;
+  letter-spacing: 1px;
+  white-space: normal;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.hero .lead {
+  -unity-font-definition: var(--font-italic);
+  -unity-font-style: italic;
+  -unity-text-align: middle-center;
+  font-size: 27px;
+  white-space: normal;
+  margin-top: 0;
+  margin-bottom: 14px;
+  max-width: 760px;
+}
+
+.hero .row { justify-content: center; margin-top: 14px; }
+
+.hero .caption {
+  -unity-text-align: middle-center;
+  font-size: 16px;
+  margin-top: 30px;
+  margin-bottom: 0;
+  max-width: 720px;
+}
+
+.compact .hero { width: 92%; }
+.compact .hero .title { font-size: 46px; }
+.compact .hero .lead { font-size: 20px; }
+.compact .hero .eyebrow { font-size: 13px; letter-spacing: 3px; margin-bottom: 12px; }
+
+/* ---------- ESCALAS DE TEXTO GLOBALES (tamaño aumentado) ---------- */
+.title {
+  -unity-font-definition: var(--font-bold);
+  -unity-font-style: bold;
+  font-size: 72px;
+  white-space: normal;
+  margin-top: 12px;
+  margin-bottom: 22px;
+}
+
+.heading {
+  -unity-font-definition: var(--font-bold);
+  -unity-font-style: bold;
+  font-size: 30px;
+  white-space: normal;
+  margin-bottom: 12px;
+}
+
+.eyebrow {
+  -unity-font-definition: var(--font-bold);
+  -unity-font-style: bold;
+  font-size: 16px;
+  color: var(--accent);
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.lead { font-size: 26px; white-space: normal; margin-bottom: 24px; }
+.body { white-space: normal; font-size: 22px; margin-bottom: 18px; }
+.caption { white-space: normal; font-size: 17px; color: rgb(64, 81, 83); margin-top: 8px; margin-bottom: 8px; }
+
+Button {
+  -unity-font-definition: var(--font-bold);
+  -unity-font-style: bold;
+  background-color: rgb(231, 234, 223);
+  color: var(--ink);
+  border-width: 1px;
+  border-color: var(--line);
+  border-radius: 7px;
+  padding: 12px 20px;
+  min-height: 48px;
+  font-size: 20px;
+  margin: 4px;
+  white-space: normal;
+}
 Button:hover { background-color: rgb(211, 227, 213); }
 Button:active { background-color: rgb(191, 215, 194); }
 Button:disabled { opacity: 0.5; }
+
 .primary { background-color: var(--accent); color: white; border-color: var(--accent); }
 .primary:hover { background-color: rgb(18, 80, 70); }
 .row { flex-direction: row; align-items: center; flex-wrap: wrap; }
 .topbar { position: absolute; right: 24px; top: 18px; flex-direction: row; }
+
 .reading-card { width: 78%; max-width: 980px; max-height: 82%; padding: 40px; background-color: rgb(255, 254, 249); border-radius: 16px; }
 .map-heading { position: absolute; top: 82px; left: 25px; padding: 20px; background-color: var(--paper); border-radius: 10px; max-width: 690px; }
-.map-heading Button { font-size: 16px; padding: 8px 12px; min-height: 40px; }
+.map-heading Button { font-size: 18px; padding: 8px 12px; min-height: 40px; }
 .zone-card { position: absolute; top: 90px; bottom: 165px; right: 25px; width: 330px; background-color: var(--paper); padding: 24px; border-radius: 12px; }
 .zone-scroll { flex-grow: 1; flex-shrink: 1; min-height: 0; }
-.marker-label { position: absolute; background-color: rgb(20, 57, 49); color: white; padding: 5px 10px; border-radius: 5px; font-size: 16px; -unity-font-style: bold; }
+.marker-label { position: absolute; background-color: rgb(20, 57, 49); color: white; padding: 5px 10px; border-radius: 5px; font-size: 18px; -unity-font-style: bold; }
 #enter-zone { flex-shrink: 0; }
 .zone-card .heading, .zone-card .eyebrow { flex-shrink: 0; }
+
 .compact .zone-card { top: 76px; bottom: 90px; right: 12px; width: 280px; padding: 12px; }
-.compact .zone-card .heading { font-size: 20px; margin-bottom: 5px; }
-.compact .zone-card .body { font-size: 16px; }
+.compact .zone-card .heading { font-size: 22px; margin-bottom: 5px; }
+.compact .zone-card .body { font-size: 18px; }
 .compact .map-heading { top: 76px; left: 12px; max-width: 48%; padding: 10px; }
-.compact .map-heading .heading { font-size: 20px; }
-.compact .map-heading Button { font-size: 13px; padding: 4px 8px; min-height: 30px; }
+.compact .map-heading .heading { font-size: 22px; }
+.compact .map-heading Button { font-size: 14px; padding: 4px 8px; min-height: 30px; }
 .compact .legend { max-width: 60%; bottom: 6px; padding: 6px; }
-.compact .legend .caption { font-size: 11px; }
+.compact .legend .caption { font-size: 12px; }
 .compact .zoom { bottom: 28px; right: 12px; flex-direction: row; }
 .compact .zoom Button { min-height: 38px; padding: 4px 12px; }
 .compact .objective { top: 75px; width: 270px; padding: 10px; }
-.compact .objective .body { font-size: 14px; }
-.compact .title { font-size: 40px; }
-.compact .lead { font-size: 18px; }
+.compact .objective .body { font-size: 15px; }
+.compact .title { font-size: 44px; }
+.compact .lead { font-size: 20px; }
 .compact .reading-card { padding: 18px; }
-.compact .hero { margin-top: 6%; }
 .compact .hero Button { min-height: 36px; padding: 6px 12px; }
+
 .legend { position: absolute; bottom: 18px; left: 24px; max-width: 420px; padding: 12px; background-color: var(--paper); border-radius: 8px; }
 .zoom { position: absolute; bottom: 30px; right: 28px; }
-.zoom Button { width: 62px; font-size: 26px; }
+.zoom Button { width: 62px; font-size: 30px; }
 .objective { position: absolute; left: 24px; top: 24px; width: 350px; background-color: rgba(246, 244, 235, 0.94); padding: 18px; border-radius: 10px; }
-.objective .heading { font-size: 22px; }
-.objective .body { font-size: 17px; }
+.objective .heading { font-size: 25px; }
+.objective .body { font-size: 19px; }
 .interaction { position: absolute; bottom: 170px; align-self: center; background-color: var(--paper); padding: 12px; border-radius: 6px; }
 .touch-controls { position: absolute; left: 26px; bottom: 26px; align-items: center; }
 .touch-controls Button { min-width: 68px; min-height: 58px; }
 .touch-interact { position: absolute; right: 28px; bottom: 32px; min-height: 64px; }
+
 .conversation-backdrop { background-color: rgba(9, 22, 24, 0.6); justify-content: flex-end; padding: 30px 5%; }
 .dialogue-card { background-color: var(--paper); border-radius: 16px; padding: 24px 30px; min-height: 250px; max-height: 84%; }
-.dialogue-text { font-size: 24px; min-height: 95px; white-space: normal; margin-top: 10px; margin-bottom: 14px; }
+.dialogue-text { font-size: 27px; min-height: 110px; white-space: normal; margin-top: 10px; margin-bottom: 14px; }
 #speaker { flex-grow: 1; color: var(--accent); }
 #choices { flex-direction: column; }
 .choice { -unity-text-align: middle-left; }
+
 .modal-shade { background-color: rgba(8, 18, 22, 0.85); }
 .modal-card { background-color: var(--paper); width: 84%; max-width: 1060px; height: 86%; border-radius: 12px; padding: 25px; }
 .modal-scroll { flex-grow: 1; }
@@ -68,4 +185,4 @@ Button:disabled { opacity: 0.5; }
 .cinematic-skip { position: absolute; right: 28px; bottom: 24px; }
 #load-progress { width: 70%; margin-top: 30px; height: 35px; }
 
-.map-attribution { position: absolute; bottom: 4px; right: 8px; background-color: white; color: rgb(45, 45, 45); font-size: 12px; padding: 3px 8px; }
+.map-attribution { position: absolute; bottom: 4px; right: 8px; background-color: white; color: rgb(45, 45, 45); font-size: 13px; padding: 3px 8px; }

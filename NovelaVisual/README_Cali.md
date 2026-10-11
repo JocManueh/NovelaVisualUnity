@@ -45,7 +45,7 @@ Las referencias vacías de servicios se resuelven entre componentes del mismo ob
 | PF Player, en cada zona | PlayerGridMovement + PlayerInteraction, Rigidbody2D cinemático, collider y Animator del recurso existente. TopDownCharacterController de Cainos desactivado. |
 | NPC_Lucia / NPC_Mateo / NPC_Ines | NPCDialogueController, NPC Index 0/1/2; movimiento e interacción del clon desactivados. |
 | Pista_1 / Pista_2 / Pista_3 | ClueInteractable, Clue Index 0/1/2; objetos existentes del paquete. |
-| MainEntry | ZoneEntryPoint + ZoneChapterController. Transform colocado manualmente. El controlador busca únicamente un jugador habilitado. |
+| MainEntry | ZoneEntryPoint + ZoneChapterController. Transform colocado manualmente. El controlador busca únicamente un jugador habilitado. En 05_RiverFloodChapter también lleva AmbientAudioPlayer + AudioSource: ambiente continuo que carga `CaliNature/Ambient/river_flood` de Resources (o el clip asignado en el Inspector), respeta volumen/silencio y se detiene al salir de la escena. |
 
 `CaliGameUI` usa `Assets/Resources/CaliNature/CaliGameUI.uxml`, `.uss`, `CaliPanelSettings.asset` y `CaliDefaultTheme.tss`. `GameSession` carga `CaliNature/StoryCatalog`. Los nombres de escena en ese catálogo deben coincidir con Build Profiles.
 
@@ -71,7 +71,9 @@ Todos están en `Assets/Scripts`:
 - Entradas: mover MainEntry en la escena. Cada visita desde el mapa coloca al jugador allí. Terminar diálogo no recoloca al jugador.
 - Narrativa: editar `Assets/Resources/CaliNature/StoryCatalog.json`. Mantener IDs estables; `next` y `choices[].next` apuntan a nodos de la misma conversación. `requiredClue` condiciona respuestas. `decisionKey` corresponde a capítulo/before, capítulo/during o capítulo/after.
 - Voz: `voiceResource` es una ruta relativa a Resources sin extensión. Los 60 WAV actuales son narración sintética provisional, no grabaciones humanas. Véase inventario.
-- Estilo: colores, tamaños y espaciados en CaliGameUI.uss. Identidad UAO pendiente de aprobación y aplicación del manual.
+- Tipografía: Palatino Linotype (copia de Windows en `Assets/Fonts`, cuatro variantes Regular/Bold/Italic/BoldItalic). `:root` en `CaliGameUI.uss` declara las variables `--font-regular`, `--font-bold`, `--font-italic` y `--font-bold-italic`; cada clase que usa `-unity-font-style: bold` asigna además la variante real, para evitar negrita sintética. Sin estas fuentes el proyecto cae en la fuente integrada de Unity y el texto se ve borroso.
+- Resolución del texto: el atlas dinámico de `CaliPanelSettings` usa `m_MinAtlasSize` 128 y `m_MaxSubTextureSize` 1024 para evitar el pixelado; referencia 1600×900 con `ScaleWithScreenSize`.
+- Estilo: colores, tamaños y espaciados en CaliGameUI.uss. Identidad UAO pendiente de aprobación y aplicación del manual. El menú inicial es el único bloque con distribución propia (`.hero`, centrada); el resto de pantallas mantiene su composición.
 - Antes de integrar: salir de Play, guardar, comprobar que GitHub Desktop está en esta misma raíz, commit de Assets/Packages/ProjectSettings y sus metas; no Library/Temp/Logs. Fetch + Pull de la rama antes de mezclar. Un merge no modifica una copia diferente que Unity tenga abierta.
 
 ## Guardado

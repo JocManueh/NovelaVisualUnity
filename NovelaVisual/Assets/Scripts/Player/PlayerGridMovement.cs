@@ -42,7 +42,7 @@ namespace CaliNature
             if (distance > 0 && Blocked(delta.normalized, distance)) { IsStepping = false; Animate(false); return; }
             Vector2 next = Vector2.MoveTowards(body.position, target, distance);
             body.MovePosition(next);
-            if ((next - target).sqrMagnitude < 0.00001f) IsStepping = false;
+            if ((next - target).sqrMagnitude < 0.00001f) { IsStepping = false; body.position = target; transform.position = target; }
             Animate(true);
         }
         private bool Blocked(Vector2 direction, float distance)

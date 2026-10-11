@@ -26,7 +26,16 @@ namespace CaliNature
         public ChapterData SelectedChapter { get; private set; }
         private void Awake()
         {
-            if (Instance && Instance != this) { Destroy(gameObject); return; }
+            if (Instance && Instance != this)
+            {
+                // Escena duplicada (p. ej. al recargar el mapa). Su EventSystem hijo, si llegara a
+                // activarse, tomaría activeEventSystem y al destruirse lo dejaría en null, provocando
+                // NullReferenceException en PanelEventHandler al procesar navegación. Se apagan antes
+                // de destruirse; además su UIDocument crearía un panel que se destruye en el mismo frame.
+                foreach (var system in GetComponentsInChildren<UnityEngine.EventSystems.EventSystem>(true)) system.enabled = false;
+                foreach (var doc in GetComponentsInChildren<UnityEngine.UIElements.UIDocument>(true)) doc.enabled = false;
+                Destroy(gameObject); return;
+            }
             Instance = this; DontDestroyOnLoad(gameObject);
             State = GetComponent<GameStateController>(); Input = GetComponent<GameInputRouter>(); Save = GetComponent<GameSaveManager>();
             Dialogue = GetComponent<DialogueController>(); Narration = GetComponent<DialogueNarrationPlayer>(); UI = GetComponent<CaliGameUI>(); Cinematic = GetComponent<ChapterCinematicController>();
@@ -74,7 +83,16 @@ namespace CaliNature
             catch (Exception ex) { UI.ShowLoadError(ex.Message); }
             if (operation == null) yield break;
             while (!operation.isDone) { UI.SetLoading(Mathf.Clamp01(operation.progress / 0.9f)); yield return null; }
+            ClaimEventSystem();
             if (toMap) { CurrentChapter = null; State.SetMode(GameMode.Map); UI.RefreshMap(); }
+        }
+        // La escena que se descarga trae un EventSystem duplicado que, al enabled=true en su OnEnable,
+        // se registra como activeEventSystem de UI Toolkit; al destruirse lo deja en null y el próximo
+        // PanelEventHandler.OnMove lanza NullReferenceException. El EventSystem vivo debe reafirmarse.
+        private void ClaimEventSystem()
+        {
+            foreach (var system in GetComponentsInChildren<UnityEngine.EventSystems.EventSystem>(true))
+                if (system && system.isActiveAndEnabled) { system.enabled = false; system.enabled = true; break; }
         }
         public void CheckChapterCompletion()
         {
