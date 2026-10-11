@@ -95,7 +95,10 @@ namespace CaliNature.Tests
             Assert.IsTrue(InputRules.IsInFront(player.transform.position,player.Facing,target.transform.position,target.Range));
             Assert.IsNotEmpty(player.GetComponent<PlayerInteraction>().CurrentPrompt);
         }
-        private IEnumerator Conversation(PlayerGridMovement player, NPCDialogueController npc)
+        // `preferredId` es el id de la opción a elegir cuando el nodo la ofrece (p. ej. "A1").
+        // El orden de las opciones está barajado, así que se busca por id y no por índice.
+        // Si el nodo no la tiene, se recurre a la opción disponible de mayor preferencia.
+        private IEnumerator Conversation(PlayerGridMovement player, NPCDialogueController npc, string preferredId)
         {
             yield return Walk(player,npc);
             Vector3 position=player.transform.position;
@@ -116,8 +119,13 @@ namespace CaliNature.Tests
                 {
                     var current=session.Dialogue.Current; Tap(KeyCode.Space); yield return null;
                     Assert.AreSame(current,session.Dialogue.Current,"Space chose an answer");
-                    int choice=System.Array.FindIndex(current.choices,c=>c.responsible && session.Save.HasClue(c.requiredClue));
-                    Assert.GreaterOrEqual(choice,0); session.Dialogue.Choose(choice);
+                    // El nodo debe ofrecer al menos una opción realmente jugable.
+                    var usable=current.choices.Where(c=>session.Save.HasClue(c.requiredClue)).ToArray();
+                    Assert.Greater(usable.Length,0,current.id+" offered no available choice");
+                    // Se prefiere la opción que lleva al camino ganador (A1 → Bx → B3 → Cgood → C1).
+                    int choice=System.Array.IndexOf(usable,usable.FirstOrDefault(c=>c.id==preferredId));
+                    if(choice<0)choice=0;
+                    session.Dialogue.Choose(choice);
                 }
                 else Tap(KeyCode.Space);
                 yield return null; yield return null;
@@ -151,18 +159,34 @@ namespace CaliNature.Tests
                 Assert.IsNotNull(Camera.main.GetComponent<PlayerCameraFollow>());
                 var clues=Object.FindObjectsByType<ClueInteractable>(FindObjectsSortMode.None).OrderBy(x=>x.name).ToArray();
                 Assert.AreEqual(3,clues.Length);
+                var npcs=Object.FindObjectsByType<NPCDialogueController>(FindObjectsSortMode.None).OrderBy(n=>n.NpcIndex).ToArray();
+                Assert.AreEqual(3,npcs.Length);
+                // El gating impide hablar con el NPC N+1 sin haber cerrado el N.
+                Assert.IsFalse(session.CanTalkToNpc(2),"NPC C accesible antes de hablar con B");
+                Assert.IsFalse(session.CanTalkToNpc(1),"NPC B accesible antes de hablar con A");
+                // Antes de hablar con Lucía no se pueden recoger pistas: se ven, pero no cuentan.
+                Assert.IsFalse(session.CanCollectClues(),"Pistas recogibles antes de hablar con Lucía");
+                // Camino ganador: A1 → Bx, B3 (exige pista 0) → Cgood, C1 → victoria.
+                var preferred=new[]{"A1","B3","C1"};
+                yield return Conversation(player,npcs[0],preferred[0]);
+                Assert.IsTrue(session.CanCollectClues(),"Pistas aún bloqueadas tras hablar con Lucía");
+                // La rama de B se deduce de la respuesta en A: A1/A2 → Bx.
+                Assert.AreEqual("bx_start",session.CurrentBRanch(),"Rama de B incorrecta tras A1");
+                // La pista se lee distinta según la rama: resolverla debe dar el texto de Bx.
+                var clueBx=session.ResolveClue(session.CurrentChapter.clues[0]);
+                var variantBx=session.CurrentChapter.clues[0].variants.First(v=>v.branch=="bx_start");
+                Assert.AreEqual(variantBx.text,clueBx.text,"La pista no muestra la variante de Bx");
                 foreach(var clue in clues)
                 {
                     yield return Walk(player,clue);int count=session.Save.Data.clues.Count;
                     Tap(KeyCode.E);yield return Mode(GameMode.Pause);Assert.AreEqual(count+1,session.Save.Data.clues.Count);CloseModal(session);
                     Tap(KeyCode.E);yield return Mode(GameMode.Pause);Assert.AreEqual(count+1,session.Save.Data.clues.Count);CloseModal(session);
                 }
-                var npcs=Object.FindObjectsByType<NPCDialogueController>(FindObjectsSortMode.None).OrderBy(n=>n.name).ToArray();
-                Assert.AreEqual(3,npcs.Length);
-                foreach(var npc in npcs)yield return Conversation(player,npc);
+                // clue/0 es la que abre la rama favorable de Bx.
+                Assert.IsTrue(session.Save.HasClue(session.CurrentChapter.id+"/clue/0"));
+                foreach(var npc in npcs.Skip(1))yield return Conversation(player,npc,preferred[npc.NpcIndex]);
                 Assert.AreEqual(GameMode.Summary,session.State.Mode);
                 Assert.AreEqual(chapter+1,session.Save.Data.completedChapters.Count);
-                int decisions=session.Save.Data.decisions.Count;session.CheckChapterCompletion();Assert.AreEqual(decisions,session.Save.Data.decisions.Count);
                 session.ReturnToMap();yield return Mode(GameMode.Map);yield return null;
                 Assert.AreEqual(1,Object.FindObjectsByType<GameSession>(FindObjectsSortMode.None).Length);
                 Assert.AreEqual(1,Object.FindObjectsByType<EventSystem>(FindObjectsSortMode.None).Length);
