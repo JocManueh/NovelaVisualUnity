@@ -964,484 +964,261 @@
     },
     {
       "id": "wind",
-      "title": "Cuando cambia el viento",
-      "subtitle": "Vendavales",
-      "phenomenon": "Vendaval · fenómeno meteorológico",
-      "period": "Caso de estudio · jornada de vientos fuertes ficticia",
-      "description": "En una jornada distinta, la comunidad revisa qué hacer con información sobre vientos fuertes. El capítulo diferencia un vendaval de una tormenta eléctrica, aunque pueden presentarse asociados.",
-      "summary": "Los vientos fuertes pueden afectar techos, árboles e infraestructura. Una tormenta eléctrica se caracteriza por actividad eléctrica; no es sinónimo de vendaval. La preparación exige información vigente y evitar exponerse para registrar el fenómeno.",
+      "title": "03 · El fuego se previene",
+      "subtitle": "Incendios forestales",
+      "phenomenon": "Incendio forestal · fenómeno asociado a condiciones climáticas y factores de ignición",
+      "period": "Momento 3 · episodio ficticio",
+      "description": "En una temporada seca ficticia en los cerros de Cali, Alex participa en una conversación sobre los incendios forestales. La sequía y la vegetación seca pueden favorecer la propagación del fuego, y el viento puede dificultar su control. Prevenir las igniciones y avisar a las autoridades ayuda a reducir los riesgos.",
+      "summary": "La sequía puede dejar vegetación seca que facilita la propagación de un incendio forestal. El viento puede ayudar a extender el fuego y dificultar las labores para controlarlo. Evitar las quemas al aire libre, las fogatas y la pólvora en zonas con vegetación ayuda a prevenir incendios. Si se observa una emergencia, es importante avisar a las autoridades sin acercarse al fuego y seguir las indicaciones oficiales.",
       "objective": "Escucha tres perspectivas, reúne tres pistas y decide antes, durante y después.",
       "sceneName": "06_WindstormChapter",
       "sources": [
-        "https://ideam.gov.co/fenomeno-del-nino",
-        "https://www.ideam.gov.co/sites/default/files/prensa/boletines/2024-08-23/capitulo_7_alteraciones_del_regimen_hidrologico_y_de_la_oferta_hidrica_por_varibilidad_y_cambio_climatico.pdf",
-        "https://www.cali.gov.co/gestiondelriesgo/publicaciones/182650/estudios-de-escenarios-de-riesgo/",
-        "https://www.cali.gov.co/gestiondelriesgo/publicaciones/184329/precaucion-en-el-primer-puente-de-2025-medidas-clave-ante-riesgos-por-lluvias/",
-        "https://www.ideam.gov.co/file-download/download/public/18906"
+        "https://www.cali.gov.co/salud/publicaciones/188060/porque-la-prevencion-es-de-todos-asi-se-alista-cali-ante-la-segunda-temporada-seca-del-ano/",
+        "https://www.cali.gov.co/gestiondelriesgo/publicaciones/177354/rapidamente-la-comunidad-alerto-sobre-conflagracion-en-la-via-a-las-tres-cruces/"
       ],
       "clues": [
         {
           "id": "wind/clue/0",
-          "title": "Lista de observación",
-          "text": "Lista de qué se puede mirar desde fuera y desde dónde.",
-          "variants": [
-            {
-              "branch": "bx_start",
-              "title": "Lista de observación (Bx)",
-              "text": "Lo que anotaron tras la ventisca, con horas y lugares."
-            },
-            {
-              "branch": "by_start",
-              "title": "Lista de observación (By)",
-              "text": "El papel donde cada uno escribió dónde se guardó al final."
-            }
-          ]
+          "title": "Prevenir igniciones",
+          "text": "Evitar las quemas al aire libre, las fogatas y la pólvora en zonas con vegetación reduce el riesgo de iniciar un incendio forestal. Esta pista es material educativo ficticio y no reemplaza las recomendaciones oficiales."
         },
         {
           "id": "wind/clue/1",
-          "title": "Dos fenómenos",
-          "text": "Nota que separa viento fuerte de actividad eléctrica.",
-          "variants": [
-            {
-              "branch": "bx_start",
-              "title": "Dos fenómenos (Bx)",
-              "text": "La conversación del barrio que mezclaba los dos conceptos."
-            },
-            {
-              "branch": "by_start",
-              "title": "Dos fenómenos (By)",
-              "text": "Lo que quedó aclarado después de la charla."
-            }
-          ]
+          "title": "Reportar emergencia",
+          "text": "Al reportar un incendio, comunica la ubicación con un punto de referencia, lo que observas, si hay personas en peligro y un contacto. En Cali, las líneas indicadas para avisar son 123 y 119; esta pista educativa no reemplaza las instrucciones oficiales."
         },
         {
           "id": "wind/clue/2",
-          "title": "Canal de información",
-          "text": "Acuerdo de verificar el emisor antes de reenviar algo.",
-          "variants": [
-            {
-              "branch": "bx_start",
-              "title": "Canal de información (Bx)",
-              "text": "El aviso que circulaba sin origen y terminó mal."
-            },
-            {
-              "branch": "by_start",
-              "title": "Canal de información (By)",
-              "text": "La lista de a quién le avisaron y a quién no."
-            }
-          ]
+          "title": "Protegerse del humo",
+          "text": "Aléjate del fuego y del humo, sigue las indicaciones oficiales y no regreses hasta recibir autorización. Esta pista es un recurso educativo ficticio y no reemplaza las recomendaciones de las autoridades."
         }
       ],
       "conversations": [
         {
-          "id": "wind/a",
-          "firstNode": "a_start",
+          "id": "wind/before",
+          "firstNode": "start",
+          "speaker": "Lucía",
           "nodes": [
             {
-              "id": "a_start",
-              "speaker": "Lucía",
-              "text": "Soy Lucía. Caso de estudio: vientos fuertes y vendaval. Estás en el nodo A. Escoge entre A1, A2 y A3.",
+              "id": "start",
+              "text": "Soy Lucía, y estoy repasando cómo prevenir los incendios forestales durante esta temporada seca ficticia. Alex, ¿qué decisión ayuda a reducir el riesgo antes de que empiece un incendio?",
               "next": "",
+              "portraitResource": "",
+              "voiceResource": "",
               "choices": [
                 {
-                  "id": "A2",
-                  "label": "Soy A2 y te llevo a la rama Bx.",
-                  "next": "a_end",
-                  "requiredClue": "",
-                  "decisionKey": "wind/a",
-                  "outcome": "",
+                  "id": "verified",
+                  "label": "Evitar quemas, fogatas y pólvora en zonas con vegetación.",
                   "responsible": true,
-                  "consequence": "Anotas A2 en la libreta."
+                  "requiredClue": "",
+                  "next": "good",
+                  "decisionKey": "wind/before",
+                  "consequence": "Evitar quemas, fogatas y pólvora en zonas con vegetación ayuda a prevenir incendios forestales."
                 },
                 {
-                  "id": "A1",
-                  "label": "Soy A1 y te llevo a la rama Bx.",
-                  "next": "a_end",
+                  "id": "impulsive",
+                  "label": "Dejar una fogata pequeña encendida porque parece controlada.",
+                  "responsible": false,
                   "requiredClue": "",
-                  "decisionKey": "wind/a",
-                  "outcome": "",
+                  "next": "reconsider",
+                  "decisionKey": "wind/before",
+                  "consequence": "Se eligió una opción que requería corrección. Evitar quemas, fogatas y pólvora en zonas con vegetación ayuda a prevenir incendios forestales."
+                },
+                {
+                  "id": "evidence",
+                  "label": "Usar la pista «Prevenir igniciones» para justificar mi respuesta.",
                   "responsible": true,
-                  "consequence": "Anotas A1 en la libreta."
-                },
-                {
-                  "id": "A3",
-                  "label": "Soy A3 y te llevo a la rama By.",
-                  "next": "a_end",
-                  "requiredClue": "",
-                  "decisionKey": "wind/a",
-                  "outcome": "",
-                  "responsible": false,
-                  "consequence": "Anotas A3 en la libreta."
-                }
-              ],
-              "portraitResource": "",
-              "voiceResource": ""
-            },
-            {
-              "id": "a_end",
-              "speaker": "Lucía",
-              "text": "Terminaste el diálogo A. Lo que necesites saber se lee distinto según por dónde me preguntaste.",
-              "next": "",
-              "choices": [],
-              "portraitResource": "",
-              "voiceResource": ""
-            }
-          ]
-        },
-        {
-          "id": "wind/b",
-          "firstNode": "bx_start",
-          "routes": [
-            {
-              "decisionKey": "wind/a",
-              "choice": "A1",
-              "node": "bx_start"
-            },
-            {
-              "decisionKey": "wind/a",
-              "choice": "A2",
-              "node": "bx_start"
-            },
-            {
-              "decisionKey": "wind/a",
-              "choice": "A3",
-              "node": "by_start"
-            }
-          ],
-          "nodes": [
-            {
-              "id": "bx_start",
-              "speaker": "Mateo",
-              "text": "Soy Mateo. Estás en Bx, llegaste por A1 o A2. Caso: vientos fuertes y vendaval. Escoge entre B1, B2 y B3.",
-              "next": "",
-              "choices": [
-                {
-                  "id": "B2",
-                  "label": "Soy B2 y te llevo a la rama Cbad.",
-                  "next": "b_end",
-                  "requiredClue": "",
-                  "decisionKey": "wind/b",
-                  "outcome": "",
-                  "responsible": false,
-                  "consequence": "Anotas B2 en la libreta."
-                },
-                {
-                  "id": "B3",
-                  "label": "Soy B3 y te llevo a la rama Cgood · requiere la pista.",
-                  "next": "b_end",
                   "requiredClue": "wind/clue/0",
-                  "decisionKey": "wind/b",
-                  "outcome": "",
-                  "responsible": true,
-                  "consequence": "Anotas B3 en la libreta."
-                },
-                {
-                  "id": "B1",
-                  "label": "Soy B1 y te llevo a la rama Cmid.",
-                  "next": "b_end",
-                  "requiredClue": "",
-                  "decisionKey": "wind/b",
-                  "outcome": "",
-                  "responsible": true,
-                  "consequence": "Anotas B1 en la libreta."
+                  "next": "evidence",
+                  "decisionKey": "wind/before",
+                  "consequence": "Evitar quemas, fogatas y pólvora en zonas con vegetación ayuda a prevenir incendios forestales."
                 }
-              ],
-              "portraitResource": "",
-              "voiceResource": ""
+              ]
             },
             {
-              "id": "by_start",
-              "speaker": "Mateo",
-              "text": "Soy Mateo. Estás en By, llegaste por A3. Caso: vientos fuertes y vendaval. Escoge entre B4, B5 y B6.",
+              "id": "good",
+              "text": "Evitar quemas, fogatas y pólvora en zonas con vegetación ayuda a prevenir incendios forestales.",
               "next": "",
-              "choices": [
-                {
-                  "id": "B4",
-                  "label": "Soy B4 y te llevo a la rama Cdead.",
-                  "next": "b_end",
-                  "requiredClue": "",
-                  "decisionKey": "wind/b",
-                  "outcome": "",
-                  "responsible": false,
-                  "consequence": "Anotas B4 en la libreta."
-                },
-                {
-                  "id": "B6",
-                  "label": "Soy B6 y te llevo a la rama Cgood · requiere la pista.",
-                  "next": "b_end",
-                  "requiredClue": "wind/clue/1",
-                  "decisionKey": "wind/b",
-                  "outcome": "",
-                  "responsible": true,
-                  "consequence": "Anotas B6 en la libreta."
-                },
-                {
-                  "id": "B5",
-                  "label": "Soy B5 y te llevo a la rama Cbad.",
-                  "next": "b_end",
-                  "requiredClue": "",
-                  "decisionKey": "wind/b",
-                  "outcome": "",
-                  "responsible": true,
-                  "consequence": "Anotas B5 en la libreta."
-                }
-              ],
               "portraitResource": "",
-              "voiceResource": ""
+              "voiceResource": "",
+              "choices": []
             },
             {
-              "id": "b_end",
-              "speaker": "Mateo",
-              "text": "Terminaste el diálogo B. Ahora ya puedes hablar con Inés.",
+              "id": "reconsider",
+              "text": "Revisemos esa idea. Evitar quemas, fogatas y pólvora en zonas con vegetación ayuda a prevenir incendios forestales. Tu elección queda en la libreta para reflexionar sobre ella.",
               "next": "",
-              "choices": [],
               "portraitResource": "",
-              "voiceResource": ""
+              "voiceResource": "",
+              "choices": []
+            },
+            {
+              "id": "evidence",
+              "text": "Has relacionado una pista con una decisión. Evitar quemas, fogatas y pólvora en zonas con vegetación ayuda a prevenir incendios forestales.",
+              "next": "",
+              "portraitResource": "",
+              "voiceResource": "",
+              "choices": []
             }
           ]
         },
         {
-          "id": "wind/c",
-          "firstNode": "cmid_start",
-          "routes": [
-            {
-              "decisionKey": "wind/b",
-              "choice": "B1",
-              "node": "cmid_start"
-            },
-            {
-              "decisionKey": "wind/b",
-              "choice": "B2",
-              "node": "cbad_start"
-            },
-            {
-              "decisionKey": "wind/b",
-              "choice": "B3",
-              "node": "cgood_start"
-            },
-            {
-              "decisionKey": "wind/b",
-              "choice": "B4",
-              "node": "cdead_start"
-            },
-            {
-              "decisionKey": "wind/b",
-              "choice": "B5",
-              "node": "cbad_start"
-            },
-            {
-              "decisionKey": "wind/b",
-              "choice": "B6",
-              "node": "cgood_start"
-            }
-          ],
+          "id": "wind/during",
+          "firstNode": "start",
+          "speaker": "Mateo",
           "nodes": [
             {
-              "id": "cgood_start",
-              "speaker": "Inés",
-              "text": "Soy Inés. Estás en Cgood. Caso: vientos fuertes y vendaval. Escoge entre C1, C2 y C3.",
+              "id": "start",
+              "text": "Soy Mateo, y estoy revisando qué hacer si alguien observa un incendio forestal. Alex, ¿cómo puedes ayudar a reportarlo sin exponerte al peligro?",
               "next": "",
+              "portraitResource": "",
+              "voiceResource": "",
               "choices": [
                 {
-                  "id": "C3",
-                  "label": "Soy C3 y te hago perder.",
-                  "next": "c_end",
+                  "id": "verified",
+                  "label": "Avisar al 123 o al 119 e indicar la ubicación, lo que se observa y si hay personas en peligro.",
+                  "responsible": true,
                   "requiredClue": "",
-                  "decisionKey": "wind/c",
-                  "outcome": "lose",
+                  "next": "good",
+                  "decisionKey": "wind/during",
+                  "consequence": "Al reportar un incendio, comunica la ubicación con un punto de referencia, lo que observas, si hay personas en peligro y un contacto, sin acercarte al fuego."
+                },
+                {
+                  "id": "impulsive",
+                  "label": "Acercarme para grabar un video antes de avisar.",
                   "responsible": false,
-                  "consequence": "Pierdes el caso y vuelves al menú principal."
+                  "requiredClue": "",
+                  "next": "reconsider",
+                  "decisionKey": "wind/during",
+                  "consequence": "Se eligió una opción que requería corrección. Al reportar un incendio, comunica la ubicación con un punto de referencia, lo que observas, si hay personas en peligro y un contacto, sin acercarte al fuego."
                 },
                 {
-                  "id": "C1",
-                  "label": "Soy C1 y te hago ganar.",
-                  "next": "c_end",
-                  "requiredClue": "",
-                  "decisionKey": "wind/c",
-                  "outcome": "win",
+                  "id": "evidence",
+                  "label": "Usar la pista «Reportar emergencia» para justificar mi respuesta.",
                   "responsible": true,
-                  "consequence": "Ganas el caso: la comunidad acepta tu cierre."
-                },
-                {
-                  "id": "C2",
-                  "label": "Soy C2 y te hago ganar.",
-                  "next": "c_end",
-                  "requiredClue": "",
-                  "decisionKey": "wind/c",
-                  "outcome": "win",
-                  "responsible": true,
-                  "consequence": "Ganas el caso: la comunidad acepta tu cierre."
+                  "requiredClue": "wind/clue/1",
+                  "next": "evidence",
+                  "decisionKey": "wind/during",
+                  "consequence": "Al reportar un incendio, comunica la ubicación con un punto de referencia, lo que observas, si hay personas en peligro y un contacto, sin acercarte al fuego."
                 }
-              ],
-              "portraitResource": "",
-              "voiceResource": ""
+              ]
             },
             {
-              "id": "cmid_start",
-              "speaker": "Inés",
-              "text": "Soy Inés. Estás en Cmid. Caso: vientos fuertes y vendaval. Escoge entre C1, C2 y C3.",
+              "id": "good",
+              "text": "Al reportar un incendio, comunica la ubicación con un punto de referencia, lo que observas, si hay personas en peligro y un contacto, sin acercarte al fuego.",
               "next": "",
+              "portraitResource": "",
+              "voiceResource": "",
+              "choices": []
+            },
+            {
+              "id": "reconsider",
+              "text": "Revisemos esa idea. Al reportar un incendio, comunica la ubicación con un punto de referencia, lo que observas, si hay personas en peligro y un contacto, sin acercarte al fuego. Tu elección queda en la libreta para reflexionar sobre ella.",
+              "next": "",
+              "portraitResource": "",
+              "voiceResource": "",
+              "choices": []
+            },
+            {
+              "id": "evidence",
+              "text": "Has relacionado una pista con una decisión. Al reportar un incendio, comunica la ubicación con un punto de referencia, lo que observas, si hay personas en peligro y un contacto, sin acercarte al fuego.",
+              "next": "",
+              "portraitResource": "",
+              "voiceResource": "",
+              "choices": []
+            }
+          ]
+        },
+        {
+          "id": "wind/after",
+          "firstNode": "start",
+          "speaker": "Inés",
+          "nodes": [
+            {
+              "id": "start",
+              "text": "Soy Inés, y estoy pensando en cómo protegerme después de que se reporte un incendio forestal. Alex, ¿qué debes hacer si parece que el fuego ya se apagó?",
+              "next": "",
+              "portraitResource": "",
+              "voiceResource": "",
               "choices": [
                 {
-                  "id": "C3",
-                  "label": "Soy C3 y te hago perder.",
-                  "next": "c_end",
+                  "id": "verified",
+                  "label": "Alejarme del fuego y del humo, seguir las indicaciones oficiales y esperar autorización antes de volver.",
+                  "responsible": true,
                   "requiredClue": "",
-                  "decisionKey": "wind/c",
-                  "outcome": "lose",
+                  "next": "good",
+                  "decisionKey": "wind/after",
+                  "consequence": "Para protegerte, aléjate del fuego y del humo, sigue las indicaciones oficiales y no regreses hasta recibir autorización."
+                },
+                {
+                  "id": "impulsive",
+                  "label": "Regresar a observar el lugar cuando parezca que el fuego se apagó.",
                   "responsible": false,
-                  "consequence": "Pierdes el caso y vuelves al menú principal."
+                  "requiredClue": "",
+                  "next": "reconsider",
+                  "decisionKey": "wind/after",
+                  "consequence": "Se eligió una opción que requería corrección. Para protegerte, aléjate del fuego y del humo, sigue las indicaciones oficiales y no regreses hasta recibir autorización."
                 },
                 {
-                  "id": "C1",
-                  "label": "Soy C1 y te hago ganar.",
-                  "next": "c_end",
-                  "requiredClue": "",
-                  "decisionKey": "wind/c",
-                  "outcome": "win",
+                  "id": "evidence",
+                  "label": "Usar la pista «Protegerse del humo» para justificar mi respuesta.",
                   "responsible": true,
-                  "consequence": "Ganas el caso: la comunidad acepta tu cierre."
-                },
-                {
-                  "id": "C2",
-                  "label": "Soy C2 y te hago ganar.",
-                  "next": "c_end",
-                  "requiredClue": "",
-                  "decisionKey": "wind/c",
-                  "outcome": "win",
-                  "responsible": true,
-                  "consequence": "Ganas el caso: la comunidad acepta tu cierre."
+                  "requiredClue": "wind/clue/2",
+                  "next": "evidence",
+                  "decisionKey": "wind/after",
+                  "consequence": "Para protegerte, aléjate del fuego y del humo, sigue las indicaciones oficiales y no regreses hasta recibir autorización."
                 }
-              ],
-              "portraitResource": "",
-              "voiceResource": ""
+              ]
             },
             {
-              "id": "cbad_start",
-              "speaker": "Inés",
-              "text": "Soy Inés. Estás en Cbad. Caso: vientos fuertes y vendaval. Escoge entre C1, C2 y C3.",
+              "id": "good",
+              "text": "Para protegerte, aléjate del fuego y del humo, sigue las indicaciones oficiales y no regreses hasta recibir autorización.",
               "next": "",
-              "choices": [
-                {
-                  "id": "C2",
-                  "label": "Soy C2 y te hago perder.",
-                  "next": "c_end",
-                  "requiredClue": "",
-                  "decisionKey": "wind/c",
-                  "outcome": "lose",
-                  "responsible": false,
-                  "consequence": "Pierdes el caso y vuelves al menú principal."
-                },
-                {
-                  "id": "C3",
-                  "label": "Soy C3 y te hago perder.",
-                  "next": "c_end",
-                  "requiredClue": "",
-                  "decisionKey": "wind/c",
-                  "outcome": "lose",
-                  "responsible": false,
-                  "consequence": "Pierdes el caso y vuelves al menú principal."
-                },
-                {
-                  "id": "C1",
-                  "label": "Soy C1 y te hago ganar.",
-                  "next": "c_end",
-                  "requiredClue": "",
-                  "decisionKey": "wind/c",
-                  "outcome": "win",
-                  "responsible": true,
-                  "consequence": "Ganas el caso: la comunidad acepta tu cierre."
-                }
-              ],
               "portraitResource": "",
-              "voiceResource": ""
+              "voiceResource": "",
+              "choices": []
             },
             {
-              "id": "cdead_start",
-              "speaker": "Inés",
-              "text": "Soy Inés. Estás en Cdead. Caso: vientos fuertes y vendaval. Escoge entre C1, C2 y C3.",
+              "id": "reconsider",
+              "text": "Revisemos esa idea. Para protegerte, aléjate del fuego y del humo, sigue las indicaciones oficiales y no regreses hasta recibir autorización. Tu elección queda en la libreta para reflexionar sobre ella.",
               "next": "",
-              "choices": [
-                {
-                  "id": "C3",
-                  "label": "Soy C3 y te hago perder.",
-                  "next": "c_end",
-                  "requiredClue": "",
-                  "decisionKey": "wind/c",
-                  "outcome": "lose",
-                  "responsible": false,
-                  "consequence": "Pierdes el caso y vuelves al menú principal."
-                },
-                {
-                  "id": "C1",
-                  "label": "Soy C1 y te hago ganar.",
-                  "next": "c_end",
-                  "requiredClue": "",
-                  "decisionKey": "wind/c",
-                  "outcome": "win",
-                  "responsible": true,
-                  "consequence": "Ganas el caso: la comunidad acepta tu cierre."
-                },
-                {
-                  "id": "C2",
-                  "label": "Soy C2 y te hago perder.",
-                  "next": "c_end",
-                  "requiredClue": "",
-                  "decisionKey": "wind/c",
-                  "outcome": "lose",
-                  "responsible": false,
-                  "consequence": "Pierdes el caso y vuelves al menú principal."
-                }
-              ],
               "portraitResource": "",
-              "voiceResource": ""
+              "voiceResource": "",
+              "choices": []
             },
             {
-              "id": "c_end",
-              "speaker": "Inés",
-              "text": "Terminaste el diálogo C.",
+              "id": "evidence",
+              "text": "Has relacionado una pista con una decisión. Para protegerte, aléjate del fuego y del humo, sigue las indicaciones oficiales y no regreses hasta recibir autorización.",
               "next": "",
-              "choices": [],
               "portraitResource": "",
-              "voiceResource": ""
+              "voiceResource": "",
+              "choices": []
             }
           ]
         }
       ],
       "cinematic": [
         {
-          "title": "Una visita distinta",
-          "text": "En una jornada de fuertes vientos, Alex participa en un encuentro comunitario. La conversación de hoy trata sobre vendavales.",
+          "title": "Temporada seca",
+          "text": "Alex observa desde un lugar seguro los cerros de Cali durante una temporada seca ficticia. La vegetación seca y el viento le ayudan a comprender por qué el fuego puede propagarse.",
           "seconds": 7,
           "imageResource": "",
-          "voiceResource": "CaliNature/Voices/wind_cinematic_0"
+          "voiceResource": ""
         },
         {
-          "title": "Dos palabras, dos fenómenos",
-          "text": "Mateo distingue dos palabras que suelen usarse como si fueran iguales: vendaval y tormenta eléctrica.",
-          "seconds": 7,
+          "title": "Prevenir y reportar",
+          "text": "Alex repasa las formas de evitar una ignición y cómo comunicar una emergencia sin acercarse al fuego. La prevención y un reporte claro ayudan a orientar la respuesta.",
+          "seconds": 8,
           "imageResource": "",
-          "voiceResource": "CaliNature/Voices/wind_cinematic_1"
+          "voiceResource": ""
         },
         {
-          "title": "Decidir sin exponerse",
-          "text": "La tarea universitaria sigue siendo aprender. Ninguna fotografía justifica ponerse en peligro.",
+          "title": "Protegerse primero",
+          "text": "Alex se mantiene lejos del fuego y del humo mientras espera las indicaciones oficiales. No regresa a la zona hasta que las autoridades lo autorizan.",
           "seconds": 7,
           "imageResource": "",
-          "voiceResource": "CaliNature/Voices/wind_cinematic_2"
+          "voiceResource": ""
         }
-      ],
-      "npcSprites": [
-        "",
-        "",
-        ""
-      ],
-      "clueSprites": [
-        "",
-        "",
-        ""
-      ],
-      "mapSprite": ""
+      ]
     },
     {
       "id": "flash",
