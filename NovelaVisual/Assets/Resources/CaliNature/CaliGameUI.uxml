@@ -1,5 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
   <Style src="CaliGameUI.uss" />
+  <Style src="CaliMapUI.uss" />
   <ui:VisualElement name="app" picking-mode="Ignore">
     <ui:VisualElement name="menu" class="screen opaque blocks-world">
       <ui:VisualElement class="hero">
@@ -21,22 +22,25 @@
       </ui:VisualElement>
     </ui:VisualElement>
     <ui:VisualElement name="map" class="screen hidden" picking-mode="Ignore">
-      <ui:Label name="marker-label-0" text="Sequía" class="marker-label" picking-mode="Ignore" />
-      <ui:Label name="marker-label-1" text="Inundación" class="marker-label" picking-mode="Ignore" />
-      <ui:Label name="marker-label-2" text="Vendaval" class="marker-label" picking-mode="Ignore" />
-      <ui:Label name="marker-label-3" text="Avenida torrencial" class="marker-label" picking-mode="Ignore" />
+      <ui:Button name="marker-label-0" text="Sequía" class="marker-label blocks-world" />
+      <ui:Button name="marker-label-1" text="Inundación" class="marker-label blocks-world" />
+      <ui:Button name="marker-label-2" text="Vendaval" class="marker-label blocks-world" />
+      <ui:Button name="marker-label-3" text="Avenida torrencial" class="marker-label blocks-world" />
       <ui:VisualElement class="map-heading blocks-world">
-        <ui:Label text="Cali · casos de estudio" class="heading" />
-        <ui:Label name="map-progress" text="Capítulos completados: 0/4" />
-        <ui:Label text="Clic: seleccionar · Arrastrar: desplazar · Rueda: zoom" class="caption" />
-        <ui:VisualElement class="row"><ui:Button name="filter-all" text="Todos" /><ui:Button name="filter-0" text="Sequía" /><ui:Button name="filter-1" text="Inundación" /><ui:Button name="filter-2" text="Vendaval" /><ui:Button name="filter-3" text="Torrencial" /></ui:VisualElement>
+        <ui:Label text="TU CIUDAD, TUS HISTORIAS" class="eyebrow map-eyebrow" />
+        <ui:Label text="Descubre Cali" class="heading" />
+        <ui:Label text="Cuatro historias para cuidar nuestra ciudad." class="map-welcome" />
+        <ui:Label name="map-progress" text="0 de 4 casos completados" /><ui:VisualElement class="map-progress-track"><ui:VisualElement name="map-progress-fill" /></ui:VisualElement>
+        <ui:Label text="Elige un punto · Arrastra el mapa · Acércate con la rueda" class="caption" />
+        <ui:VisualElement class="row"><ui:Button name="filter-all" text="Todos" class="filter-active" /><ui:Button name="filter-0" text="Sequía" /><ui:Button name="filter-1" text="Inundación" /><ui:Button name="filter-2" text="Vendaval" /><ui:Button name="filter-3" text="Torrencial" /></ui:VisualElement>
       </ui:VisualElement>
       <ui:VisualElement name="zone-info" class="zone-card blocks-world hidden">
+        <ui:Button name="close-zone" text="Volver al mapa" />
         <ui:Label name="zone-title" class="heading" /><ui:Label name="zone-progress" class="eyebrow" />
-        <ui:ScrollView class="zone-scroll"><ui:Label name="zone-description" class="body" /></ui:ScrollView><ui:Button name="enter-zone" text="Entrar a la zona" class="primary" />
+        <ui:ScrollView class="zone-scroll"><ui:Label name="zone-description" class="body" /></ui:ScrollView><ui:Button name="enter-zone" text="Vamos a descubrirla" class="primary" />
       </ui:VisualElement>
-      <ui:VisualElement class="legend blocks-world"><ui:Label text="LEYENDA · CASOS&#10;Rojo: incompleta · Verde: completada&#10;Sequía · Inundación · Vendaval · Avenida torrencial&#10;Simulación educativa: ubicación ilustrativa, sin niveles de amenaza oficiales.&#10;No representa rutas de evacuación ni puntos de encuentro oficiales." class="caption" /></ui:VisualElement>
-      <ui:Label text="Google Maps · Datos del mapa ©2026 Google" class="map-attribution" picking-mode="Ignore" />
+      <ui:VisualElement class="legend blocks-world"><ui:Label text="Explora a tu ritmo" class="map-legend-title" /><ui:VisualElement class="row"><ui:Label text="● Pendiente" class="status-pending" /><ui:Label text="● Completada" class="status-done" /></ui:VisualElement><ui:Label text="Cada punto guarda una historia. Tú eliges por dónde empezar.&#10;Ubicaciones ilustrativas; no son rutas de evacuación." class="caption" /></ui:VisualElement>
+      <ui:Label text="Google Maps · ©2026 Google · adaptación visual" class="map-attribution" picking-mode="Ignore" />
       <ui:VisualElement class="zoom blocks-world"><ui:Button name="zoom-in" text="+" /><ui:Button name="zoom-out" text="−" /></ui:VisualElement>
     </ui:VisualElement>
     <ui:VisualElement name="hud" class="screen hidden" picking-mode="Ignore">

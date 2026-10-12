@@ -17,6 +17,8 @@ namespace CaliNature
         private string modalKind;
         private bool tutorial;
         private DialogueNode displayedNode;
+        private CaliMapConnections mapConnections;
+        private readonly string[] mapNames = { "Sequía", "Inundación", "Vendaval", "Avenida torrencial" };
         private readonly string[] screenNames = { "menu", "intro", "map", "hud", "dialogue", "cinematic", "loading", "summary" };
         private void Awake()
         {
@@ -46,6 +48,18 @@ namespace CaliNature
             root.RegisterCallback<GeometryChangedEvent>(_ => root.EnableInClassList("compact", root.layout.height < 650 || root.layout.width < 1000));
             root.RegisterCallback<FocusOutEvent>(_ => session.Input.ReleaseAll());
             BindMapPointer();
+            mapConnections = new CaliMapConnections();
+            root.Q("map").Insert(0, mapConnections);
+            for (int i = 0; i < 4; i++)
+            {
+                int index = i;
+                var markerButton = root.Q<Button>("marker-label-" + i);
+                Bind("marker-label-" + i, () => session.SelectChapter(index));
+                markerButton.RegisterCallback<PointerEnterEvent>(_ => mapConnections.Hovered = index);
+                markerButton.RegisterCallback<PointerLeaveEvent>(_ => mapConnections.Hovered = -1);
+                markerButton.style.borderLeftColor = CaliMapConnections.Accents[i];
+            }
+            Bind("close-zone", () => { Show("zone-info", false); mapConnections.Selected = -1; });
             root.RegisterCallback<NavigationSubmitEvent>(e => e.StopImmediatePropagation(), TrickleDown.TrickleDown);
             root.RegisterCallback<KeyDownEvent>(e => { session.Input.KeyPressed(e.keyCode); if (e.keyCode == KeyCode.Space || e.keyCode == KeyCode.E) e.StopImmediatePropagation(); }, TrickleDown.TrickleDown);
             root.RegisterCallback<KeyUpEvent>(e => session.Input.KeyReleased(e.keyCode), TrickleDown.TrickleDown);
@@ -81,20 +95,32 @@ namespace CaliNature
         private void LateUpdate()
         {
             if (!session || root == null || session.State.Mode != GameMode.Map || !Camera.main) return;
-            for (int i = 0; i < 4; i++) Show("marker-label-" + i, false);
+            for (int i = 0; i < 4; i++) { Show("marker-label-" + i, false); mapConnections.Active[i] = false; }
             foreach (var marker in FindObjectsByType<CaliMapZoneSelector>())
             {
-                var label = root.Q<Label>("marker-label-" + marker.ChapterIndex);
+                int index = marker.ChapterIndex;
+                if (index < 0 || index >= 4) continue;
+                var label = root.Q<Button>("marker-label-" + index);
                 if (label == null) continue;
                 bool completed = marker.IsCompleted;
-                label.style.backgroundColor = completed ? CaliMapZoneSelector.CompletedColor : CaliMapZoneSelector.IncompleteColor;
+                label.text = mapNames[index] + (completed ? "\nCompletada · volver a visitar" : "\nDescubre esta historia");
+                label.EnableInClassList("mission-complete", completed);
+                label.EnableInClassList("mission-selected", mapConnections.Selected == index);
                 label.tooltip = completed ? "Misión completada" : "Misión incompleta";
                 Vector3 point = Camera.main.WorldToViewportPoint(marker.transform.position);
+                var sprite = marker.GetComponent<SpriteRenderer>();
+                Vector3 edge = Camera.main.WorldToViewportPoint(marker.transform.position + Vector3.right * (sprite ? sprite.bounds.extents.x : .5f));
+                float radius = Mathf.Abs(edge.x - point.x) * root.layout.width;
+                mapConnections.Points[index] = new Vector2(point.x * root.layout.width, (1 - point.y) * root.layout.height);
+                mapConnections.Radii[index] = radius;
+                mapConnections.StatusColors[index] = completed ? CaliMapZoneSelector.CompletedColor : CaliMapZoneSelector.IncompleteColor;
+                mapConnections.Active[index] = point.z > 0;
                 bool visible = point.z > 0 && point.x > 0 && point.x < 1 && point.y > 0 && point.y < 1;
                 label.style.display = visible ? DisplayStyle.Flex : DisplayStyle.None;
-                label.style.left = Mathf.Clamp(point.x * root.layout.width + 12, 0, root.layout.width - 190);
-                label.style.top = (1 - point.y) * root.layout.height + 24;
+                label.style.left = Mathf.Clamp(point.x * root.layout.width - 99, 8, Mathf.Max(8, root.layout.width - 206));
+                label.style.top = Mathf.Clamp((1 - point.y) * root.layout.height + radius + 14, 8, Mathf.Max(8, root.layout.height - 82));
             }
+            mapConnections.MarkDirtyRepaint();
         }
         private void Bind(string name, Action action) { var button = root.Q<Button>(name); if (button != null) button.clicked += () => { action(); root.Focus(); }; }
         private Vector2 ScreenPoint(Vector2 panelPoint)
@@ -110,7 +136,12 @@ namespace CaliNature
                 var map = FindAnyObjectByType<CaliMapNavigation>();
                 if (map && map.BeginPointer(e.pointerId, ScreenPoint(e.position))) root.CapturePointer(e.pointerId);
             }, TrickleDown.TrickleDown);
-            root.RegisterCallback<PointerMoveEvent>(e => FindAnyObjectByType<CaliMapNavigation>()?.MovePointer(e.pointerId, ScreenPoint(e.position)), TrickleDown.TrickleDown);
+            root.RegisterCallback<PointerMoveEvent>(e =>
+            {
+                FindAnyObjectByType<CaliMapNavigation>()?.MovePointer(e.pointerId, ScreenPoint(e.position));
+                if (session.State.Mode == GameMode.Map && mapConnections != null && !IsPointerBlocked(ScreenPoint(e.position)))
+                    mapConnections.Hovered = mapConnections.Hit(root.WorldToLocal(e.position));
+            }, TrickleDown.TrickleDown);
             root.RegisterCallback<PointerUpEvent>(e =>
             {
                 if (e.button != 0) return;
@@ -137,6 +168,7 @@ namespace CaliNature
         {
             if (root == null) return;
             if (mode == GameMode.Pause) return;
+            root.EnableInClassList("map-active", mode == GameMode.Map);
             foreach (string screen in screenNames) Show(screen, false);
             string target = mode switch { GameMode.Menu => "menu", GameMode.Introduction => "intro", GameMode.Map => "map", GameMode.Exploration => "hud", GameMode.Dialogue => "dialogue", GameMode.Cinematic => "cinematic", GameMode.Loading => "loading", GameMode.Summary => "summary", _ => "menu" };
             Show(target, true); Show("topbar", mode != GameMode.Loading && mode != GameMode.Cinematic);
@@ -146,14 +178,27 @@ namespace CaliNature
             if (mode == GameMode.Dialogue) RefreshDialogue();
             root.Focus();
         }
-        public void RefreshMap() { Text("map-progress", "Capítulos completados: " + session.Save.Data.completedChapters.Count + "/4"); Show("zone-info", false); }
+        public void RefreshMap()
+        {
+            int count = session.Save.Data.completedChapters.Count;
+            Text("map-progress", "Tu recorrido · " + count + " de 4 historias completadas");
+            var fill = root.Q("map-progress-fill");
+            if (fill != null) fill.style.width = Length.Percent(Mathf.Clamp01(count / 4f) * 100);
+            Show("zone-info", false);
+            if (mapConnections != null) { mapConnections.Selected = -1; mapConnections.Hovered = -1; }
+        }
         private void FilterMap(int index)
         {
             foreach (var marker in FindObjectsByType<CaliMapZoneSelector>(FindObjectsInactive.Include)) marker.gameObject.SetActive(index < 0 || marker.ChapterIndex == index);
             Show("zone-info", false);
+            if (mapConnections != null) { mapConnections.Selected = -1; mapConnections.Hovered = -1; }
+            root.Q<Button>("filter-all").EnableInClassList("filter-active", index < 0);
+            for (int i = 0; i < 4; i++) root.Q<Button>("filter-" + i).EnableInClassList("filter-active", i == index);
         }
         public void ShowZone(ChapterData data)
         {
+            if (mapConnections != null)
+                mapConnections.Selected = Array.FindIndex(session.Catalog.chapters, chapter => chapter.id == data.id);
             Text("zone-title", data.title); Text("zone-description", data.period + "\n\n" + data.description + "\n\n" + data.objective);
             Text("zone-progress", session.Save.Data.completedChapters.Contains(data.id) ? "Completado · puedes volver a explorar" : "Disponible"); Show("zone-info", true);
         }
