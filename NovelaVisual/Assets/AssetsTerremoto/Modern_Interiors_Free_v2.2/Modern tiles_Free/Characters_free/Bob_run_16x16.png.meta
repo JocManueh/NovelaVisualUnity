@@ -103,7 +103,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -117,7 +117,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -194,221 +194,221 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bob_run_16x16_0
+      name: Bob_run_16x16_00
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 15
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7079c167c44109980800000000000000
-      internalID: -8534298975235434745
+      spriteID: 5af86ba10324af04f9c0456d383bafb3
+      internalID: -140951015
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bob_run_16x16_1
+      name: Bob_run_16x16_01
       rect:
         serializedVersion: 2
         x: 16
         y: 0
         width: 16
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e24f80b0508cb9090800000000000000
-      internalID: -8026601986872249298
+      spriteID: f8e94f809a21e2849b23e44fb82bf843
+      internalID: 1082832916
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bob_run_16x16_2
+      name: Bob_run_16x16_02
       rect:
         serializedVersion: 2
         x: 32
         y: 0
-        width: 15
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0be253e097e784f90800000000000000
-      internalID: -6969181364961333584
+      spriteID: 9d91e560f9013844981768e8eca2fcc3
+      internalID: -1958469295
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bob_run_16x16_3
+      name: Bob_run_16x16_03
       rect:
         serializedVersion: 2
         x: 48
         y: 0
-        width: 15
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 98ebbbd1277c048d0800000000000000
-      internalID: -2864070070068593015
+      spriteID: a70fa143d4b751642b949aab138a6aa9
+      internalID: 1193196540
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bob_run_16x16_4
+      name: Bob_run_16x16_04
       rect:
         serializedVersion: 2
         x: 64
         y: 0
-        width: 15
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 3e84dbddf9ba23f30800000000000000
-      internalID: 4553890876333312227
+      spriteID: ade697863b6d1ae47828510321a6f040
+      internalID: 2114834480
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bob_run_16x16_5
+      name: Bob_run_16x16_05
       rect:
         serializedVersion: 2
         x: 80
         y: 0
-        width: 15
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2d491f5cc27e32370800000000000000
-      internalID: 8296729118032106706
+      spriteID: 7993daf8b962a1c41b410a055e2010ce
+      internalID: 2123637544
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bob_run_16x16_6
+      name: Bob_run_16x16_06
       rect:
         serializedVersion: 2
-        x: 95
+        x: 96
         y: 0
-        width: 17
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a7c758b74a06f03e0800000000000000
-      internalID: -2085341842886001542
+      spriteID: 1beb339f76e485e4aac356bbfeff703e
+      internalID: -1033785993
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bob_run_16x16_7
+      name: Bob_run_16x16_07
       rect:
         serializedVersion: 2
-        x: 111
+        x: 112
         y: 0
-        width: 18
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4e99298e41e6b5470800000000000000
-      internalID: 8384416167360633316
+      spriteID: db0d86481e6adaa4fac48de521b97c33
+      internalID: 1562496857
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bob_run_16x16_8
+      name: Bob_run_16x16_08
       rect:
         serializedVersion: 2
-        x: 127
+        x: 128
         y: 0
-        width: 17
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 49ffa0d84ac98c950800000000000000
-      internalID: 6469593095272595348
+      spriteID: 1dd2bfd97ab9b384faa3c2fbe8a26c20
+      internalID: -438165449
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bob_run_16x16_9
+      name: Bob_run_16x16_09
       rect:
         serializedVersion: 2
         x: 144
         y: 0
-        width: 17
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b7b21503136c6bf80800000000000000
-      internalID: -8091061765958194309
+      spriteID: 8317dcaa407b64a47b89b8d8175cebbd
+      internalID: -573986770
       vertices: []
       indices: 
       edges: []
@@ -417,19 +417,19 @@ TextureImporter:
       name: Bob_run_16x16_10
       rect:
         serializedVersion: 2
-        x: 159
+        x: 160
         y: 0
-        width: 18
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2b2f29dd716408ee0800000000000000
+      spriteID: fa6c56d30b1478148bb139e66384346e
       internalID: -1260930827348151630
       vertices: []
       indices: 
@@ -441,17 +441,17 @@ TextureImporter:
         serializedVersion: 2
         x: 176
         y: 0
-        width: 17
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: fc11d0c7136d5bc50800000000000000
+      spriteID: 73f5b161dcc5b024db51bcc45d1cb8e2
       internalID: 6680481130296971727
       vertices: []
       indices: 
@@ -461,19 +461,19 @@ TextureImporter:
       name: Bob_run_16x16_12
       rect:
         serializedVersion: 2
-        x: 193
+        x: 192
         y: 0
-        width: 15
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 1bed12aa7cf3ee270800000000000000
+      spriteID: b1b57efc0e537f847ac06da414da7fa0
       internalID: 8281626891566309041
       vertices: []
       indices: 
@@ -486,16 +486,16 @@ TextureImporter:
         x: 208
         y: 0
         width: 16
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f7a1fb30abfeb8b80800000000000000
+      spriteID: 79f4d4df5b840a24ba7b5de81c8cd473
       internalID: -8391349898468976001
       vertices: []
       indices: 
@@ -505,19 +505,19 @@ TextureImporter:
       name: Bob_run_16x16_14
       rect:
         serializedVersion: 2
-        x: 225
+        x: 224
         y: 0
-        width: 15
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 53b08a0255b0a7480800000000000000
+      spriteID: 69b501bcb4dc59f428fa9f1fdd73b5f8
       internalID: -8900789253296354507
       vertices: []
       indices: 
@@ -527,19 +527,19 @@ TextureImporter:
       name: Bob_run_16x16_15
       rect:
         serializedVersion: 2
-        x: 241
+        x: 240
         y: 0
-        width: 15
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 230fec5d20b3f8940800000000000000
+      spriteID: fee54c01eaabdfa4eafc45b4d2b42ecd
       internalID: 5300520169801445426
       vertices: []
       indices: 
@@ -549,19 +549,19 @@ TextureImporter:
       name: Bob_run_16x16_16
       rect:
         serializedVersion: 2
-        x: 257
+        x: 256
         y: 0
-        width: 15
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 900eb85df5bd20190800000000000000
+      spriteID: 589a7d0dd953b1742b66b61d88d6ef25
       internalID: -7997588783605489655
       vertices: []
       indices: 
@@ -571,19 +571,19 @@ TextureImporter:
       name: Bob_run_16x16_17
       rect:
         serializedVersion: 2
-        x: 273
+        x: 272
         y: 0
-        width: 15
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 5dc19b712cfea7c40800000000000000
+      spriteID: 144e55d26035687458638ce2f95a5068
       internalID: 5510980710941924565
       vertices: []
       indices: 
@@ -595,17 +595,17 @@ TextureImporter:
         serializedVersion: 2
         x: 288
         y: 0
-        width: 17
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 1745f8a4e4cb9be30800000000000000
+      spriteID: 02199bd6b46c57f45bfa0b12a61f4e52
       internalID: 4519850745487381617
       vertices: []
       indices: 
@@ -617,17 +617,17 @@ TextureImporter:
         serializedVersion: 2
         x: 304
         y: 0
-        width: 17
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f69d97bc46f8c5be0800000000000000
+      spriteID: e0283d8e5e193d1498f40a84c125c3c3
       internalID: -1487156113865844369
       vertices: []
       indices: 
@@ -639,17 +639,17 @@ TextureImporter:
         serializedVersion: 2
         x: 320
         y: 0
-        width: 32
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: efb5e64dae15f5330800000000000000
+      spriteID: d223dfe3d09e29d449216ef34f99f195
       internalID: 3701767487750036478
       vertices: []
       indices: 
@@ -659,19 +659,19 @@ TextureImporter:
       name: Bob_run_16x16_21
       rect:
         serializedVersion: 2
-        x: 351
+        x: 336
         y: 0
-        width: 17
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0e576a59f4a4414a0800000000000000
+      spriteID: 2351c16afd16acd44b8c7e0ce6a5174c
       internalID: -6623587446281570848
       vertices: []
       indices: 
@@ -681,20 +681,42 @@ TextureImporter:
       name: Bob_run_16x16_22
       rect:
         serializedVersion: 2
-        x: 367
+        x: 352
         y: 0
-        width: 17
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 1788d2a13a9ad6840800000000000000
+      spriteID: 644a9aeefed23834a8df62782f7e458e
       internalID: 5219014061176227953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bob_run_16x16_23
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 0
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a15039cdb47f0034dbbe0986d3200ba1
+      internalID: -1718429915
       vertices: []
       indices: 
       edges: []
@@ -703,7 +725,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e5d38966f8a67384ab60643f8592f5b3
     internalID: 0
     vertices: []
     indices: 
@@ -714,6 +736,16 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Bob_run_16x16_0: -8534298975235434745
+      Bob_run_16x16_00: -140951015
+      Bob_run_16x16_01: 1082832916
+      Bob_run_16x16_02: -1958469295
+      Bob_run_16x16_03: 1193196540
+      Bob_run_16x16_04: 2114834480
+      Bob_run_16x16_05: 2123637544
+      Bob_run_16x16_06: -1033785993
+      Bob_run_16x16_07: 1562496857
+      Bob_run_16x16_08: -438165449
+      Bob_run_16x16_09: -573986770
       Bob_run_16x16_1: -8026601986872249298
       Bob_run_16x16_10: -1260930827348151630
       Bob_run_16x16_11: 6680481130296971727
@@ -729,6 +761,7 @@ TextureImporter:
       Bob_run_16x16_20: 3701767487750036478
       Bob_run_16x16_21: -6623587446281570848
       Bob_run_16x16_22: 5219014061176227953
+      Bob_run_16x16_23: -1718429915
       Bob_run_16x16_3: -2864070070068593015
       Bob_run_16x16_4: 4553890876333312227
       Bob_run_16x16_5: 8296729118032106706

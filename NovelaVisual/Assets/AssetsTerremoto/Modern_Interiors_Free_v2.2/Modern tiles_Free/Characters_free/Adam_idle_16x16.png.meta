@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -128,23 +128,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Adam_idle_16x16_0
+      name: Adam_idle_16x16_00
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e7ca5406a9b8645c0800000000000000
-      internalID: -4231541304711598978
+      spriteID: 40ffd412bc70f5242b11777343790f2c
+      internalID: -404743047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adam_idle_16x16_01
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6ccde0fba1869f40b2f60ea82956fd8
+      internalID: 1851381693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adam_idle_16x16_02
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d20b44a50cc34264cb1ac0dcb060bea7
+      internalID: -266125762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adam_idle_16x16_03
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d5e517c20dff1b4898bc24c48cd66a5
+      internalID: 796096749
       vertices: []
       indices: 
       edges: []
@@ -153,7 +219,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: dcc6e979cd73ffe448b1c07d53e98d43
     internalID: 0
     vertices: []
     indices: 
@@ -164,6 +230,13 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Adam_idle_16x16_0: -4231541304711598978
+      Adam_idle_16x16_00: -404743047
+      Adam_idle_16x16_01: 1851381693
+      Adam_idle_16x16_02: -266125762
+      Adam_idle_16x16_03: 796096749
+      Adam_idle_16x16_1: 528944698
+      Adam_idle_16x16_2: -500118954
+      Adam_idle_16x16_3: 1972260396
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
