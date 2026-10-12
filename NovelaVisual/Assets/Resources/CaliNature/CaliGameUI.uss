@@ -186,3 +186,41 @@ Button:disabled { opacity: 0.5; }
 #load-progress { width: 70%; margin-top: 30px; height: 35px; }
 
 .map-attribution { position: absolute; bottom: 4px; right: 8px; background-color: white; color: rgb(45, 45, 45); font-size: 13px; padding: 3px 8px; }
+
+/* Connected destinations: the underlying Google map remains unchanged. */
+#map { overflow: hidden; }
+.map-heading { top: 28px; left: 24px; max-width: 570px; padding: 22px; background-color: rgba(248, 254, 251, 0.97); border-width: 1px; border-color: rgb(180, 222, 217); border-top-width: 5px; border-top-color: rgb(15, 173, 155); border-radius: 18px; }
+.map-heading .heading { color: rgb(18, 61, 73); font-size: 30px; margin-bottom: 10px; }
+.map-eyebrow { color: rgb(17, 142, 143); font-size: 12px; letter-spacing: 2px; margin-top: 0; }
+#map-progress { color: rgb(47, 93, 101); font-size: 15px; }
+.map-progress-track { height: 6px; margin-top: 10px; margin-bottom: 4px; background-color: rgb(216, 236, 229); border-radius: 4px; }
+#map-progress-fill { width: 0; height: 6px; background-color: rgb(24, 162, 103); border-radius: 4px; }
+.map-heading Button { font-size: 14px; padding: 7px 10px; min-height: 34px; border-radius: 18px; border-color: rgb(196, 218, 220); background-color: rgb(236, 246, 244); }
+.map-heading Button:hover { background-color: rgb(198, 238, 231); border-color: rgb(32, 162, 162); }
+.map-heading Button.filter-active { background-color: rgb(21, 100, 115); border-color: rgb(21, 100, 115); color: white; }
+#filter-0 { border-bottom-color: rgb(237, 165, 43); border-bottom-width: 3px; }
+#filter-1 { border-bottom-color: rgb(37, 166, 225); border-bottom-width: 3px; }
+#filter-2 { border-bottom-color: rgb(157, 105, 221); border-bottom-width: 3px; }
+#filter-3 { border-bottom-color: rgb(15, 173, 155); border-bottom-width: 3px; }
+Button.marker-label { position: absolute; width: 184px; height: 62px; min-height: 62px; margin: 0; padding: 8px 10px; border-radius: 12px; border-width: 2px; border-color: white; border-left-width: 6px; color: rgb(155, 30, 42); background-color: rgba(255, 251, 248, 0.98); font-size: 14px; -unity-font-style: bold; -unity-text-align: middle-left; transition-property: background-color, border-top-color, border-right-color, border-bottom-color; transition-duration: 0.15s; }
+Button.marker-label:hover { background-color: rgb(255, 240, 192); border-top-color: rgb(238, 178, 62); border-right-color: rgb(238, 178, 62); border-bottom-color: rgb(238, 178, 62); }
+Button.marker-label.mission-complete { color: rgb(13, 109, 59); background-color: rgb(232, 253, 238); }
+Button.marker-label.mission-selected { background-color: rgb(22, 65, 80); color: white; border-top-color: rgb(244, 188, 64); border-right-color: rgb(244, 188, 64); border-bottom-color: rgb(244, 188, 64); }
+.legend { max-width: 350px; padding: 15px; background-color: rgba(248, 254, 251, 0.97); border-radius: 14px; border-left-width: 4px; border-left-color: rgb(21, 165, 171); }
+.map-legend-title { font-size: 13px; letter-spacing: 2px; -unity-font-style: bold; color: rgb(22, 100, 114); margin-bottom: 6px; }
+.status-pending { color: rgb(194, 42, 48); font-size: 14px; margin-right: 18px; }
+.status-done { color: rgb(19, 132, 75); font-size: 14px; }
+.legend .caption { font-size: 12px; margin-bottom: 0; }
+.zone-card { background-color: rgb(248, 254, 251); border-radius: 18px; border-top-width: 5px; border-top-color: rgb(241, 177, 51); }
+.zone-card .heading { color: rgb(22, 65, 80); }
+#close-zone { align-self: flex-start; min-height: 30px; font-size: 13px; padding: 4px 8px; margin-bottom: 10px; }
+.zoom Button { background-color: rgb(22, 83, 98); color: white; border-color: rgb(64, 147, 157); border-radius: 15px; }
+.zoom Button:hover { background-color: rgb(22, 140, 147); }
+.compact .map-heading { top: 74px; left: 12px; padding: 12px; max-width: 48%; }
+.compact .map-heading .heading { font-size: 20px; }
+.compact .map-heading Button { font-size: 12px; padding: 4px 7px; min-height: 28px; }
+.compact .map-eyebrow { font-size: 10px; }
+.compact .legend { max-width: 270px; padding: 8px; bottom: 26px; }
+.compact .legend .caption { font-size: 10px; }
+.compact .map-legend-title { font-size: 11px; }
+.compact .status-pending, .compact .status-done { font-size: 11px; }
