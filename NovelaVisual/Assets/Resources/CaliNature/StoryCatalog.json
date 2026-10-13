@@ -10,7 +10,7 @@
       "summary": "La sequía se relaciona con un déficit prolongado de precipitación. Puede reducir la disponibilidad de agua y afectar ecosistemas y actividades humanas. El Niño es un factor de variabilidad climática, no una causa única. Observar, verificar fuentes y acordar hábitos responsables fortalece la preparación.",
       "objective": "Escucha tres perspectivas, reúne tres pistas y decide antes, durante y después.",
       "sceneName": "04_DroughtChapter",
-      "endingWin": "esto es un texto final",
+      "endingWin": "Te cubriste, revisaste si había heridos, cerraste la llave del gas, usaste las escaleras y llegaste al punto de encuentro. Actuar en el orden correcto mantiene a salvo a toda la comunidad.",
       "endingLose": "esto es un texto final",
       "sources": [
         "https://ideam.gov.co/fenomeno-del-nino",
@@ -79,50 +79,21 @@
           "nodes": [
             {
               "id": "a_start",
-              "speaker": "Lucía",
-              "text": "Soy Lucía. Caso de estudio: sequía y disminución del caudal. Estás en el nodo A. Escoge entre A1, A2 y A3.",
+              "speaker": "Amelia",
+              "text": "Este edificio es muy antiguo. Si sientes un temblor, cúbrete bajo algo sólido, lejos de las ventanas.",
               "next": "",
               "choices": [
                 {
-                  "id": "A1",
-                  "label": "Soy A1 y te llevo a la rama Bx.",
-                  "next": "a_end",
+                  "id": "a_ack",
+                  "label": "Entendido. Me cubriré bajo algo sólido, lejos de las ventanas.",
+                  "next": "",
                   "requiredClue": "",
                   "decisionKey": "drought/a",
                   "outcome": "",
                   "responsible": true,
-                  "consequence": "Anotas A1 en la libreta."
-                },
-                {
-                  "id": "A3",
-                  "label": "Soy A3 y te llevo a la rama By.",
-                  "next": "a_end",
-                  "requiredClue": "",
-                  "decisionKey": "drought/a",
-                  "outcome": "",
-                  "responsible": false,
-                  "consequence": "Anotas A3 en la libreta."
-                },
-                {
-                  "id": "A2",
-                  "label": "Soy A2 y te llevo a la rama Bx.",
-                  "next": "a_end",
-                  "requiredClue": "",
-                  "decisionKey": "drought/a",
-                  "outcome": "",
-                  "responsible": true,
-                  "consequence": "Anotas A2 en la libreta."
+                  "consequence": "Anotado: cubrirse bajo algo sólido y lejos de las ventanas."
                 }
               ],
-              "portraitResource": "",
-              "voiceResource": ""
-            },
-            {
-              "id": "a_end",
-              "speaker": "Lucía",
-              "text": "Terminaste el diálogo A. Lucía deja la libreta sobre la mesa y te dice que el que trae la razón se la sabe.",
-              "next": "",
-              "choices": [],
               "portraitResource": "",
               "voiceResource": ""
             }
@@ -130,109 +101,64 @@
         },
         {
           "id": "drought/b",
-          "firstNode": "bx_start",
+          "firstNode": "b_start",
           "routes": [
             {
-              "decisionKey": "drought/a",
-              "choice": "A1",
-              "node": "bx_start"
+              "decisionKey": "drought/puzzle2",
+              "choice": "",
+              "node": "b_after2"
             },
             {
-              "decisionKey": "drought/a",
-              "choice": "A2",
-              "node": "bx_start"
-            },
-            {
-              "decisionKey": "drought/a",
-              "choice": "A3",
-              "node": "by_start"
+              "decisionKey": "drought/puzzle1",
+              "choice": "",
+              "node": "b_after"
             }
           ],
           "nodes": [
             {
-              "id": "bx_start",
-              "speaker": "Mateo",
-              "text": "Soy Mateo. Estás en Bx, llegaste por A1 o A2. Caso: sequía y disminución del caudal. Escoge entre B1, B2 y B3.",
+              "id": "b_start",
+              "speaker": "Bob",
+              "text": "Necesito que me ayudes a recordar qué hacer después de un sismo.",
               "next": "",
               "choices": [
                 {
-                  "id": "B2",
-                  "label": "Soy B2 y te llevo a la rama Cbad.",
-                  "next": "b_end",
-                  "requiredClue": "",
-                  "decisionKey": "drought/b",
-                  "outcome": "",
-                  "responsible": false,
-                  "consequence": "Anotas B2 en la libreta."
-                },
-                {
-                  "id": "B1",
-                  "label": "Soy B1 y te llevo a la rama Cmid.",
-                  "next": "b_end",
+                  "id": "b_ack",
+                  "label": "Claro. Vamos paso a paso.",
+                  "next": "",
                   "requiredClue": "",
                   "decisionKey": "drought/b",
                   "outcome": "",
                   "responsible": true,
-                  "consequence": "Anotas B1 en la libreta."
-                },
-                {
-                  "id": "B3",
-                  "label": "Soy B3 y te llevo a la rama Cgood · requiere la pista.",
-                  "next": "b_end",
-                  "requiredClue": "drought/clue/0",
-                  "decisionKey": "drought/b",
-                  "outcome": "",
-                  "responsible": true,
-                  "consequence": "Anotas B3 en la libreta."
+                  "consequence": "Anotado: ayudar a Bob a ordenar los pasos tras un sismo."
                 }
               ],
               "portraitResource": "",
               "voiceResource": ""
             },
             {
-              "id": "by_start",
-              "speaker": "Mateo",
-              "text": "Soy Mateo. Estás en By, llegaste por A3. Caso: sequía y disminución del caudal. Escoge entre B4, B5 y B6.",
+              "id": "b_after",
+              "speaker": "Bob",
+              "text": "Hay que actuar rápido pero con calma. ¿Recuerdas el orden correcto?",
               "next": "",
               "choices": [
                 {
-                  "id": "B6",
-                  "label": "Soy B6 y te llevo a la rama Cgood · requiere la pista.",
-                  "next": "b_end",
-                  "requiredClue": "drought/clue/1",
-                  "decisionKey": "drought/b",
+                  "id": "b2_ok",
+                  "label": "Sí. Vamos a ordenarlo.",
+                  "next": "",
+                  "requiredClue": "",
+                  "decisionKey": "drought/b2",
                   "outcome": "",
                   "responsible": true,
-                  "consequence": "Anotas B6 en la libreta."
-                },
-                {
-                  "id": "B5",
-                  "label": "Soy B5 y te llevo a la rama Cbad.",
-                  "next": "b_end",
-                  "requiredClue": "",
-                  "decisionKey": "drought/b",
-                  "outcome": "",
-                  "responsible": true,
-                  "consequence": "Anotas B5 en la libreta."
-                },
-                {
-                  "id": "B4",
-                  "label": "Soy B4 y te llevo a la rama Cdead.",
-                  "next": "b_end",
-                  "requiredClue": "",
-                  "decisionKey": "drought/b",
-                  "outcome": "",
-                  "responsible": false,
-                  "consequence": "Anotas B4 en la libreta."
+                  "consequence": "Anotado: ordenar las acciones clave tras un sismo."
                 }
               ],
               "portraitResource": "",
               "voiceResource": ""
             },
             {
-              "id": "b_end",
-              "speaker": "Mateo",
-              "text": "Terminaste el diálogo B. Mateo señala que Inés está en la puerta con la libreta.",
+              "id": "b_after2",
+              "speaker": "Bob",
+              "text": "Muy bien. Ahora ve al punto de encuentro: allí se reúne el grupo.",
               "next": "",
               "choices": [],
               "portraitResource": "",
@@ -242,195 +168,24 @@
         },
         {
           "id": "drought/c",
-          "firstNode": "cmid_start",
-          "routes": [
-            {
-              "decisionKey": "drought/b",
-              "choice": "B1",
-              "node": "cmid_start"
-            },
-            {
-              "decisionKey": "drought/b",
-              "choice": "B2",
-              "node": "cbad_start"
-            },
-            {
-              "decisionKey": "drought/b",
-              "choice": "B3",
-              "node": "cgood_start"
-            },
-            {
-              "decisionKey": "drought/b",
-              "choice": "B4",
-              "node": "cdead_start"
-            },
-            {
-              "decisionKey": "drought/b",
-              "choice": "B5",
-              "node": "cbad_start"
-            },
-            {
-              "decisionKey": "drought/b",
-              "choice": "B6",
-              "node": "cgood_start"
-            }
-          ],
+          "firstNode": "c_start",
+          "routes": [],
           "nodes": [
             {
-              "id": "cgood_start",
-              "speaker": "Inés",
-              "text": "Soy Inés. Estás en Cgood. Caso: sequía y disminución del caudal. Escoge entre C1, C2 y C3.",
+              "id": "c_start",
+              "speaker": "Coordinadora",
+              "text": "Llegaste al punto de encuentro. ¿Qué hiciste apenas tembló?",
               "next": "",
               "choices": [
                 {
-                  "id": "C2",
-                  "label": "Soy C2 y te hago ganar.",
+                  "id": "c_safe",
+                  "label": "Me cubrí bajo la mesa y luego ordené todo: heridos, gas, escaleras y punto de encuentro.",
                   "next": "c_end",
                   "requiredClue": "",
                   "decisionKey": "drought/c",
                   "outcome": "win",
                   "responsible": true,
-                  "consequence": "Ganas el caso: la comunidad acepta tu cierre."
-                },
-                {
-                  "id": "C3",
-                  "label": "Soy C3 y te hago perder.",
-                  "next": "c_end",
-                  "requiredClue": "",
-                  "decisionKey": "drought/c",
-                  "outcome": "lose",
-                  "responsible": false,
-                  "consequence": "Pierdes el caso y vuelves al menú principal."
-                },
-                {
-                  "id": "C1",
-                  "label": "Soy C1 y te hago ganar.",
-                  "next": "c_end",
-                  "requiredClue": "",
-                  "decisionKey": "drought/c",
-                  "outcome": "win",
-                  "responsible": true,
-                  "consequence": "Ganas el caso: la comunidad acepta tu cierre."
-                }
-              ],
-              "portraitResource": "",
-              "voiceResource": ""
-            },
-            {
-              "id": "cmid_start",
-              "speaker": "Inés",
-              "text": "Soy Inés. Estás en Cmid. Caso: sequía y disminución del caudal. Escoge entre C1, C2 y C3.",
-              "next": "",
-              "choices": [
-                {
-                  "id": "C1",
-                  "label": "Soy C1 y te hago ganar.",
-                  "next": "c_end",
-                  "requiredClue": "",
-                  "decisionKey": "drought/c",
-                  "outcome": "win",
-                  "responsible": true,
-                  "consequence": "Ganas el caso: la comunidad acepta tu cierre."
-                },
-                {
-                  "id": "C3",
-                  "label": "Soy C3 y te hago perder.",
-                  "next": "c_end",
-                  "requiredClue": "",
-                  "decisionKey": "drought/c",
-                  "outcome": "lose",
-                  "responsible": false,
-                  "consequence": "Pierdes el caso y vuelves al menú principal."
-                },
-                {
-                  "id": "C2",
-                  "label": "Soy C2 y te hago ganar.",
-                  "next": "c_end",
-                  "requiredClue": "",
-                  "decisionKey": "drought/c",
-                  "outcome": "win",
-                  "responsible": true,
-                  "consequence": "Ganas el caso: la comunidad acepta tu cierre."
-                }
-              ],
-              "portraitResource": "",
-              "voiceResource": ""
-            },
-            {
-              "id": "cbad_start",
-              "speaker": "Inés",
-              "text": "Soy Inés. Estás en Cbad. Caso: sequía y disminución del caudal. Escoge entre C1, C2 y C3.",
-              "next": "",
-              "choices": [
-                {
-                  "id": "C2",
-                  "label": "Soy C2 y te hago perder.",
-                  "next": "c_end",
-                  "requiredClue": "",
-                  "decisionKey": "drought/c",
-                  "outcome": "lose",
-                  "responsible": false,
-                  "consequence": "Pierdes el caso y vuelves al menú principal."
-                },
-                {
-                  "id": "C1",
-                  "label": "Soy C1 y te hago ganar.",
-                  "next": "c_end",
-                  "requiredClue": "",
-                  "decisionKey": "drought/c",
-                  "outcome": "win",
-                  "responsible": true,
-                  "consequence": "Ganas el caso: la comunidad acepta tu cierre."
-                },
-                {
-                  "id": "C3",
-                  "label": "Soy C3 y te hago perder.",
-                  "next": "c_end",
-                  "requiredClue": "",
-                  "decisionKey": "drought/c",
-                  "outcome": "lose",
-                  "responsible": false,
-                  "consequence": "Pierdes el caso y vuelves al menú principal."
-                }
-              ],
-              "portraitResource": "",
-              "voiceResource": ""
-            },
-            {
-              "id": "cdead_start",
-              "speaker": "Inés",
-              "text": "Soy Inés. Estás en Cdead. Caso: sequía y disminución del caudal. Escoge entre C1, C2 y C3.",
-              "next": "",
-              "choices": [
-                {
-                  "id": "C2",
-                  "label": "Soy C2 y te hago perder.",
-                  "next": "c_end",
-                  "requiredClue": "",
-                  "decisionKey": "drought/c",
-                  "outcome": "lose",
-                  "responsible": false,
-                  "consequence": "Pierdes el caso y vuelves al menú principal."
-                },
-                {
-                  "id": "C1",
-                  "label": "Soy C1 y te hago ganar.",
-                  "next": "c_end",
-                  "requiredClue": "",
-                  "decisionKey": "drought/c",
-                  "outcome": "win",
-                  "responsible": true,
-                  "consequence": "Ganas el caso: la comunidad acepta tu cierre."
-                },
-                {
-                  "id": "C3",
-                  "label": "Soy C3 y te hago perder.",
-                  "next": "c_end",
-                  "requiredClue": "",
-                  "decisionKey": "drought/c",
-                  "outcome": "lose",
-                  "responsible": false,
-                  "consequence": "Pierdes el caso y vuelves al menú principal."
+                  "consequence": "El grupo confirma que seguiste el orden correcto."
                 }
               ],
               "portraitResource": "",
@@ -438,8 +193,8 @@
             },
             {
               "id": "c_end",
-              "speaker": "Inés",
-              "text": "Terminaste el diálogo C. Inés cierra la libreta.",
+              "speaker": "Coordinadora",
+              "text": "Bien hecho. Recordar el orden correcto es lo que mantiene a salvo a la comunidad.",
               "next": "",
               "choices": [],
               "portraitResource": "",
