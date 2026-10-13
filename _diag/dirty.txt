@@ -1,1 +1,0 @@
-scene=04_DroughtChapter dirty=True
