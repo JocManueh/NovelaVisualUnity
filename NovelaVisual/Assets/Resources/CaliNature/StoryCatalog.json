@@ -968,16 +968,16 @@
     },
     {
       "id": "wind",
-      "title": "03 · El fuego se previene",
+      "title": "El fuego se previene",
       "subtitle": "Incendios forestales",
       "phenomenon": "Incendio forestal · fenómeno asociado a condiciones climáticas y factores de ignición",
-      "period": "Momento 3 · episodio ficticio",
+      "period": "Caso de estudio · temporada seca ficticia",
       "description": "En una temporada seca ficticia en los cerros de Cali, Alex participa en una conversación sobre los incendios forestales. La sequía y la vegetación seca pueden favorecer la propagación del fuego, y el viento puede dificultar su control. Prevenir las igniciones y avisar a las autoridades ayuda a reducir los riesgos.",
       "summary": "La sequía puede dejar vegetación seca que facilita la propagación de un incendio forestal. El viento puede ayudar a extender el fuego y dificultar las labores para controlarlo. Evitar las quemas al aire libre, las fogatas y la pólvora en zonas con vegetación ayuda a prevenir incendios. Si se observa una emergencia, es importante avisar a las autoridades sin acercarse al fuego y seguir las indicaciones oficiales.",
       "objective": "Escucha tres perspectivas, reúne tres pistas y decide antes, durante y después.",
       "sceneName": "06_WindstormChapter",
-      "endingWin": "esto es un texto final",
-      "endingLose": "esto es un texto final",
+      "endingWin": "Cerraste el caso con decisiones que cuidan a la comunidad: evitar las igniciones, avisar a las autoridades sin acercarte al fuego y esperar sus indicaciones antes de volver. Este relato es ficticio y no reemplaza las instrucciones de las autoridades.",
+      "endingLose": "En este caso, tus decisiones retrasaron el aviso o te acercaron al fuego y al humo. Revisa la libreta y vuelve a intentarlo: prevenir, avisar sin acercarte y esperar las indicaciones oficiales protege a todos. Este relato es ficticio y no reemplaza las instrucciones de las autoridades.",
       "sources": [
         "https://www.cali.gov.co/salud/publicaciones/188060/porque-la-prevencion-es-de-todos-asi-se-alista-cali-ante-la-segunda-temporada-seca-del-ano/",
         "https://www.cali.gov.co/gestiondelriesgo/publicaciones/177354/rapidamente-la-comunidad-alerto-sobre-conflagracion-en-la-via-a-las-tres-cruces/"
@@ -986,218 +986,427 @@
         {
           "id": "wind/clue/0",
           "title": "Prevenir igniciones",
-          "text": "Evitar las quemas al aire libre, las fogatas y la pólvora en zonas con vegetación reduce el riesgo de iniciar un incendio forestal. Esta pista es material educativo ficticio y no reemplaza las recomendaciones oficiales."
+          "text": "Evitar las quemas al aire libre, las fogatas y la pólvora en zonas con vegetación reduce el riesgo de iniciar un incendio forestal. Esta pista es material educativo ficticio y no reemplaza las recomendaciones oficiales.",
+          "variants": [
+            {
+              "branch": "bx_start",
+              "title": "Prevenir igniciones",
+              "text": "El cartel que la junta pegó en el mirador: en temporada seca no se hacen quemas ni fogatas, ni se usa pólvora cerca de la vegetación. Es un cartel del relato, no un aviso oficial."
+            },
+            {
+              "branch": "by_start",
+              "title": "Prevenir igniciones",
+              "text": "La nota que Lucía guardó después de la quema del pasto: lo que parecía una limpieza se salió de control con el viento. Es un registro ficticio."
+            }
+          ]
         },
         {
           "id": "wind/clue/1",
           "title": "Reportar emergencia",
-          "text": "Al reportar un incendio, comunica la ubicación con un punto de referencia, lo que observas, si hay personas en peligro y un contacto. En Cali, las líneas indicadas para avisar son 123 y 119; esta pista educativa no reemplaza las instrucciones oficiales."
+          "text": "Al reportar un incendio, comunica la ubicación con un punto de referencia, lo que observas, si hay personas en peligro y un contacto. En Cali, las líneas indicadas para avisar son 123 y 119; esta pista educativa no reemplaza las instrucciones oficiales.",
+          "variants": [
+            {
+              "branch": "bx_start",
+              "title": "Reportar emergencia",
+              "text": "La ficha de reporte que Mateo lleva en el bolsillo: lugar con punto de referencia, qué se ve, si hay personas en peligro y un contacto. Es una ficha del relato."
+            },
+            {
+              "branch": "by_start",
+              "title": "Reportar emergencia",
+              "text": "La misma ficha, con una nota al margen: llamar primero y no acercarse a mirar. Es una ficha del relato."
+            }
+          ]
         },
         {
           "id": "wind/clue/2",
           "title": "Protegerse del humo",
-          "text": "Aléjate del fuego y del humo, sigue las indicaciones oficiales y no regreses hasta recibir autorización. Esta pista es un recurso educativo ficticio y no reemplaza las recomendaciones de las autoridades."
+          "text": "Aléjate del fuego y del humo, sigue las indicaciones oficiales y no regreses hasta recibir autorización. Si el humo te alcanza, usa tapabocas. Esta pista es un recurso educativo ficticio y no reemplaza las recomendaciones de las autoridades.",
+          "variants": [
+            {
+              "branch": "bx_start",
+              "title": "Protegerse del humo",
+              "text": "La tarjeta que repartió la junta: alejarse del humo, seguir las indicaciones de las autoridades y esperar autorización para volver. Es una tarjeta del relato."
+            },
+            {
+              "branch": "by_start",
+              "title": "Protegerse del humo",
+              "text": "La tarjeta de la junta, con una nota: no subir con baldes ni a mirar de cerca. Es una tarjeta del relato."
+            }
+          ]
         }
       ],
       "conversations": [
         {
-          "id": "wind/before",
-          "firstNode": "start",
-          "speaker": "Lucía",
+          "id": "wind/a",
+          "firstNode": "a_start",
           "nodes": [
             {
-              "id": "start",
-              "text": "Soy Lucía, y estoy repasando cómo prevenir los incendios forestales durante esta temporada seca ficticia. Alex, ¿qué decisión ayuda a reducir el riesgo antes de que empiece un incendio?",
+              "id": "a_start",
+              "speaker": "Lucía",
+              "text": "Soy Lucía, de la junta del sector. Es temporada seca y desde el mirador se ve el pasto amarillento en los cerros. Hace viento, y algunos vecinos proponen limpiar el pasto del borde del camino quemándolo. ¿Qué propones?",
               "next": "",
-              "portraitResource": "",
-              "voiceResource": "",
               "choices": [
                 {
-                  "id": "verified",
-                  "label": "Evitar quemas, fogatas y pólvora en zonas con vegetación.",
-                  "responsible": true,
+                  "id": "A2",
+                  "label": "Llamar a la junta y explicar que limpiar el pasto con fuego es una quema que puede salirse de control.",
+                  "next": "a_end",
                   "requiredClue": "",
-                  "next": "good",
-                  "decisionKey": "wind/before",
-                  "consequence": "Evitar quemas, fogatas y pólvora en zonas con vegetación ayuda a prevenir incendios forestales."
+                  "decisionKey": "wind/a",
+                  "outcome": "",
+                  "responsible": true,
+                  "consequence": "Anotas que no se debe usar fuego para limpiar el pasto en temporada seca."
                 },
                 {
-                  "id": "impulsive",
-                  "label": "Dejar una fogata pequeña encendida porque parece controlada.",
+                  "id": "A3",
+                  "label": "Dejar que cada vecino decida si limpia su borde del camino como quiera.",
+                  "next": "a_end",
+                  "requiredClue": "",
+                  "decisionKey": "wind/a",
+                  "outcome": "",
                   "responsible": false,
-                  "requiredClue": "",
-                  "next": "reconsider",
-                  "decisionKey": "wind/before",
-                  "consequence": "Se eligió una opción que requería corrección. Evitar quemas, fogatas y pólvora en zonas con vegetación ayuda a prevenir incendios forestales."
+                  "consequence": "Anotas que dejar la decisión al azar puede normalizar las quemas al aire libre."
                 },
                 {
-                  "id": "evidence",
-                  "label": "Usar la pista «Prevenir igniciones» para justificar mi respuesta.",
+                  "id": "A1",
+                  "label": "Proponer limpiar el pasto con herramientas y avisar a la junta, sin usar fuego.",
+                  "next": "a_end",
+                  "requiredClue": "",
+                  "decisionKey": "wind/a",
+                  "outcome": "",
                   "responsible": true,
-                  "requiredClue": "wind/clue/0",
-                  "next": "evidence",
-                  "decisionKey": "wind/before",
-                  "consequence": "Evitar quemas, fogatas y pólvora en zonas con vegetación ayuda a prevenir incendios forestales."
+                  "consequence": "Anotas que limpiar sin fuego y avisar a la junta ayuda a prevenir igniciones."
                 }
-              ]
+              ],
+              "portraitResource": "",
+              "voiceResource": ""
             },
             {
-              "id": "good",
-              "text": "Evitar quemas, fogatas y pólvora en zonas con vegetación ayuda a prevenir incendios forestales.",
+              "id": "a_end",
+              "speaker": "Lucía",
+              "text": "Lucía anota tu respuesta en la libreta y señala el mirador: Mateo está ahí, mirando hacia el cerro.",
               "next": "",
+              "choices": [],
               "portraitResource": "",
-              "voiceResource": "",
-              "choices": []
-            },
-            {
-              "id": "reconsider",
-              "text": "Revisemos esa idea. Evitar quemas, fogatas y pólvora en zonas con vegetación ayuda a prevenir incendios forestales. Tu elección queda en la libreta para reflexionar sobre ella.",
-              "next": "",
-              "portraitResource": "",
-              "voiceResource": "",
-              "choices": []
-            },
-            {
-              "id": "evidence",
-              "text": "Has relacionado una pista con una decisión. Evitar quemas, fogatas y pólvora en zonas con vegetación ayuda a prevenir incendios forestales.",
-              "next": "",
-              "portraitResource": "",
-              "voiceResource": "",
-              "choices": []
+              "voiceResource": ""
             }
           ]
         },
         {
-          "id": "wind/during",
-          "firstNode": "start",
-          "speaker": "Mateo",
+          "id": "wind/b",
+          "firstNode": "bx_start",
+          "routes": [
+            {
+              "decisionKey": "wind/a",
+              "choice": "A1",
+              "node": "bx_start"
+            },
+            {
+              "decisionKey": "wind/a",
+              "choice": "A2",
+              "node": "bx_start"
+            },
+            {
+              "decisionKey": "wind/a",
+              "choice": "A3",
+              "node": "by_start"
+            }
+          ],
           "nodes": [
             {
-              "id": "start",
-              "text": "Soy Mateo, y estoy revisando qué hacer si alguien observa un incendio forestal. Alex, ¿cómo puedes ayudar a reportarlo sin exponerte al peligro?",
+              "id": "bx_start",
+              "speaker": "Mateo",
+              "text": "Soy Mateo. Desde el mirador veo una columna de humo en la ladera de enfrente, y el viento la empuja hacia las casas de arriba. No sé si ya avisó alguien. ¿Qué hacemos?",
               "next": "",
-              "portraitResource": "",
-              "voiceResource": "",
               "choices": [
                 {
-                  "id": "verified",
-                  "label": "Avisar al 123 o al 119 e indicar la ubicación, lo que se observa y si hay personas en peligro.",
-                  "responsible": true,
+                  "id": "B2",
+                  "label": "Esperar un rato a ver si el humo crece; tal vez alguien ya avisó.",
+                  "next": "b_end",
                   "requiredClue": "",
-                  "next": "good",
-                  "decisionKey": "wind/during",
-                  "consequence": "Al reportar un incendio, comunica la ubicación con un punto de referencia, lo que observas, si hay personas en peligro y un contacto, sin acercarte al fuego."
-                },
-                {
-                  "id": "impulsive",
-                  "label": "Acercarme para grabar un video antes de avisar.",
+                  "decisionKey": "wind/b",
+                  "outcome": "",
                   "responsible": false,
-                  "requiredClue": "",
-                  "next": "reconsider",
-                  "decisionKey": "wind/during",
-                  "consequence": "Se eligió una opción que requería corrección. Al reportar un incendio, comunica la ubicación con un punto de referencia, lo que observas, si hay personas en peligro y un contacto, sin acercarte al fuego."
+                  "consequence": "Anotas esperar sin avisar: un incendio puede crecer con el viento mientras se espera."
                 },
                 {
-                  "id": "evidence",
-                  "label": "Usar la pista «Reportar emergencia» para justificar mi respuesta.",
-                  "responsible": true,
+                  "id": "B3",
+                  "label": "Llamar al 123 o al 119 con la ficha del reporte: punto de referencia, lo que se ve, si hay personas en peligro y un contacto.",
+                  "next": "b_end",
                   "requiredClue": "wind/clue/1",
-                  "next": "evidence",
-                  "decisionKey": "wind/during",
-                  "consequence": "Al reportar un incendio, comunica la ubicación con un punto de referencia, lo que observas, si hay personas en peligro y un contacto, sin acercarte al fuego."
+                  "decisionKey": "wind/b",
+                  "outcome": "",
+                  "responsible": true,
+                  "consequence": "El reporte sale completo: lugar con punto de referencia, lo que se ve, personas en peligro y un contacto."
+                },
+                {
+                  "id": "B1",
+                  "label": "Llamar enseguida al 123 o al 119 y decir que hay humo en el cerro.",
+                  "next": "b_end",
+                  "requiredClue": "",
+                  "decisionKey": "wind/b",
+                  "outcome": "",
+                  "responsible": true,
+                  "consequence": "Avisas rápido a las autoridades, aunque con pocos datos."
                 }
-              ]
+              ],
+              "portraitResource": "",
+              "voiceResource": ""
             },
             {
-              "id": "good",
-              "text": "Al reportar un incendio, comunica la ubicación con un punto de referencia, lo que observas, si hay personas en peligro y un contacto, sin acercarte al fuego.",
+              "id": "by_start",
+              "speaker": "Mateo",
+              "text": "Soy Mateo. La quema del pasto se salió de control con el viento y ya hay humo y llamas subiendo por el monte. Hay quien quiere subir con baldes. ¿Qué haces?",
               "next": "",
+              "choices": [
+                {
+                  "id": "B5",
+                  "label": "Avisar a los vecinos de arriba por el grupo de mensajes y esperar respuesta antes de llamar.",
+                  "next": "b_end",
+                  "requiredClue": "",
+                  "decisionKey": "wind/b",
+                  "outcome": "",
+                  "responsible": false,
+                  "consequence": "Anotas avisar solo por mensajes: se pierde tiempo antes de llamar a emergencias."
+                },
+                {
+                  "id": "B4",
+                  "label": "Subir con los baldes para apagarlo antes de que crezca.",
+                  "next": "b_end",
+                  "requiredClue": "",
+                  "decisionKey": "wind/b",
+                  "outcome": "",
+                  "responsible": false,
+                  "consequence": "Anotas subir a apagarlo: acercarse al fuego pone en peligro a quien lo hace."
+                },
+                {
+                  "id": "B6",
+                  "label": "Alejarnos de la ladera, dejar los baldes y llamar al 123 o al 119 diciendo dónde estamos y qué vemos.",
+                  "next": "b_end",
+                  "requiredClue": "wind/clue/2",
+                  "decisionKey": "wind/b",
+                  "outcome": "",
+                  "responsible": true,
+                  "consequence": "Te alejas del fuego y avisas a las autoridades con el lugar y lo que se ve."
+                }
+              ],
               "portraitResource": "",
-              "voiceResource": "",
-              "choices": []
+              "voiceResource": ""
             },
             {
-              "id": "reconsider",
-              "text": "Revisemos esa idea. Al reportar un incendio, comunica la ubicación con un punto de referencia, lo que observas, si hay personas en peligro y un contacto, sin acercarte al fuego. Tu elección queda en la libreta para reflexionar sobre ella.",
+              "id": "b_end",
+              "speaker": "Mateo",
+              "text": "Mateo guarda el teléfono y señala el camino: Inés está abajo, en la caseta de la junta, con la libreta.",
               "next": "",
+              "choices": [],
               "portraitResource": "",
-              "voiceResource": "",
-              "choices": []
-            },
-            {
-              "id": "evidence",
-              "text": "Has relacionado una pista con una decisión. Al reportar un incendio, comunica la ubicación con un punto de referencia, lo que observas, si hay personas en peligro y un contacto, sin acercarte al fuego.",
-              "next": "",
-              "portraitResource": "",
-              "voiceResource": "",
-              "choices": []
+              "voiceResource": ""
             }
           ]
         },
         {
-          "id": "wind/after",
-          "firstNode": "start",
-          "speaker": "Inés",
+          "id": "wind/c",
+          "firstNode": "cmid_start",
+          "routes": [
+            {
+              "decisionKey": "wind/b",
+              "choice": "B1",
+              "node": "cmid_start"
+            },
+            {
+              "decisionKey": "wind/b",
+              "choice": "B2",
+              "node": "cbad_start"
+            },
+            {
+              "decisionKey": "wind/b",
+              "choice": "B3",
+              "node": "cgood_start"
+            },
+            {
+              "decisionKey": "wind/b",
+              "choice": "B4",
+              "node": "cdead_start"
+            },
+            {
+              "decisionKey": "wind/b",
+              "choice": "B5",
+              "node": "cbad_start"
+            },
+            {
+              "decisionKey": "wind/b",
+              "choice": "B6",
+              "node": "cgood_start"
+            }
+          ],
           "nodes": [
             {
-              "id": "start",
-              "text": "Soy Inés, y estoy pensando en cómo protegerme después de que se reporte un incendio forestal. Alex, ¿qué debes hacer si parece que el fuego ya se apagó?",
+              "id": "cgood_start",
+              "speaker": "Inés",
+              "text": "Soy Inés. Las autoridades ya llegaron a la ladera y piden que la comunidad se mantenga lejos. El humo ya se huele en la caseta. ¿Qué hacemos mientras tanto?",
               "next": "",
-              "portraitResource": "",
-              "voiceResource": "",
               "choices": [
                 {
-                  "id": "verified",
-                  "label": "Alejarme del fuego y del humo, seguir las indicaciones oficiales y esperar autorización antes de volver.",
-                  "responsible": true,
+                  "id": "C2",
+                  "label": "Informar a los vecinos solo con lo que digan las autoridades y pedir que nadie suba a mirar.",
+                  "next": "c_end",
                   "requiredClue": "",
-                  "next": "good",
-                  "decisionKey": "wind/after",
-                  "consequence": "Para protegerte, aléjate del fuego y del humo, sigue las indicaciones oficiales y no regreses hasta recibir autorización."
+                  "decisionKey": "wind/c",
+                  "outcome": "win",
+                  "responsible": true,
+                  "consequence": "La libreta queda con indicaciones oficiales y con la petición de no subir a mirar."
                 },
                 {
-                  "id": "impulsive",
-                  "label": "Regresar a observar el lugar cuando parezca que el fuego se apagó.",
+                  "id": "C3",
+                  "label": "Subir a la ladera a mirar de cerca, ahora que ya llegaron los bomberos.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "wind/c",
+                  "outcome": "lose",
                   "responsible": false,
-                  "requiredClue": "",
-                  "next": "reconsider",
-                  "decisionKey": "wind/after",
-                  "consequence": "Se eligió una opción que requería corrección. Para protegerte, aléjate del fuego y del humo, sigue las indicaciones oficiales y no regreses hasta recibir autorización."
+                  "consequence": "Subir a mirar expone al humo y estorba a quienes atienden la emergencia."
                 },
                 {
-                  "id": "evidence",
-                  "label": "Usar la pista «Protegerse del humo» para justificar mi respuesta.",
+                  "id": "C1",
+                  "label": "Alejarnos del humo, seguir las indicaciones de las autoridades y usar tapabocas si el humo nos alcanza.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "wind/c",
+                  "outcome": "win",
                   "responsible": true,
-                  "requiredClue": "wind/clue/2",
-                  "next": "evidence",
-                  "decisionKey": "wind/after",
-                  "consequence": "Para protegerte, aléjate del fuego y del humo, sigue las indicaciones oficiales y no regreses hasta recibir autorización."
+                  "consequence": "La libreta anota alejarse del humo, seguir las indicaciones oficiales y usar tapabocas si el humo llega."
                 }
-              ]
+              ],
+              "portraitResource": "",
+              "voiceResource": ""
             },
             {
-              "id": "good",
-              "text": "Para protegerte, aléjate del fuego y del humo, sigue las indicaciones oficiales y no regreses hasta recibir autorización.",
+              "id": "cmid_start",
+              "speaker": "Inés",
+              "text": "Soy Inés. Llamaste enseguida, pero con pocos datos: dijiste solo \"humo en el cerro\". Los operadores siguen preguntando dónde. ¿Qué hacemos?",
               "next": "",
+              "choices": [
+                {
+                  "id": "C3",
+                  "label": "Dejar así el reporte; ya avisamos y ellos sabrán encontrarlo.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "wind/c",
+                  "outcome": "lose",
+                  "responsible": false,
+                  "consequence": "Un reporte sin ubicación clara puede demorar la respuesta."
+                },
+                {
+                  "id": "C1",
+                  "label": "Volver a llamar con un punto de referencia, lo que se ve y un teléfono de contacto.",
+                  "next": "c_end",
+                  "requiredClue": "wind/clue/1",
+                  "decisionKey": "wind/c",
+                  "outcome": "win",
+                  "responsible": true,
+                  "consequence": "El reporte se completa con lugar, lo que se ve y un contacto."
+                },
+                {
+                  "id": "C2",
+                  "label": "Alejar a los vecinos del humo y esperar las indicaciones de las autoridades.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "wind/c",
+                  "outcome": "win",
+                  "responsible": true,
+                  "consequence": "La comunidad se aleja del humo y espera las indicaciones oficiales."
+                }
+              ],
               "portraitResource": "",
-              "voiceResource": "",
-              "choices": []
+              "voiceResource": ""
             },
             {
-              "id": "reconsider",
-              "text": "Revisemos esa idea. Para protegerte, aléjate del fuego y del humo, sigue las indicaciones oficiales y no regreses hasta recibir autorización. Tu elección queda en la libreta para reflexionar sobre ella.",
+              "id": "cbad_start",
+              "speaker": "Inés",
+              "text": "Soy Inés. Pasó casi una hora y el humo cubre la ladera. Alguien por fin llamó, pero la gente pregunta si puede subir a ver o a ayudar. Tengo que escribir algo hoy. ¿Qué pongo?",
               "next": "",
+              "choices": [
+                {
+                  "id": "C3",
+                  "label": "Pongo que cada quien decida si sube a ayudar con baldes.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "wind/c",
+                  "outcome": "lose",
+                  "responsible": false,
+                  "consequence": "Dejar que cada quien suba pone a más personas cerca del fuego."
+                },
+                {
+                  "id": "C1",
+                  "label": "Pongo que no hay de qué preocuparse: el humo se ve peor de lo que es.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "wind/c",
+                  "outcome": "lose",
+                  "responsible": false,
+                  "consequence": "Restar importancia al humo retrasa las medidas de protección."
+                },
+                {
+                  "id": "C2",
+                  "label": "Pongo que nadie sube, que se aleja de la ladera y que se espera lo que indiquen las autoridades.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "wind/c",
+                  "outcome": "win",
+                  "responsible": true,
+                  "consequence": "La libreta indica no subir, alejarse y esperar las indicaciones oficiales."
+                }
+              ],
               "portraitResource": "",
-              "voiceResource": "",
-              "choices": []
+              "voiceResource": ""
             },
             {
-              "id": "evidence",
-              "text": "Has relacionado una pista con una decisión. Para protegerte, aléjate del fuego y del humo, sigue las indicaciones oficiales y no regreses hasta recibir autorización.",
+              "id": "cdead_start",
+              "speaker": "Inés",
+              "text": "Soy Inés. Subiste con los baldes y tuviste que bajar rápido por el humo. Estás bien, pero tosiendo. Los bomberos ya llegaron y piden despejar el camino. ¿Qué haces?",
               "next": "",
+              "choices": [
+                {
+                  "id": "C1",
+                  "label": "Volver a subir por los baldes que dejé arriba.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "wind/c",
+                  "outcome": "lose",
+                  "responsible": false,
+                  "consequence": "Volver a subir expone de nuevo al humo y estorba el trabajo de los bomberos."
+                },
+                {
+                  "id": "C3",
+                  "label": "Alejarme del humo, dejar el camino libre y contarles lo que vi sin volver a subir.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "wind/c",
+                  "outcome": "win",
+                  "responsible": true,
+                  "consequence": "Te alejas, dejas el camino libre y compartes lo que viste desde un lugar seguro."
+                },
+                {
+                  "id": "C2",
+                  "label": "Quedarme en el camino mirando cómo trabajan.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "wind/c",
+                  "outcome": "lose",
+                  "responsible": false,
+                  "consequence": "Quedarte en el camino estorba el paso y te mantiene cerca del humo."
+                }
+              ],
               "portraitResource": "",
-              "voiceResource": "",
-              "choices": []
+              "voiceResource": ""
+            },
+            {
+              "id": "c_end",
+              "speaker": "Inés",
+              "text": "Inés cierra la libreta y anota la última línea: nadie vuelve a la ladera hasta que las autoridades lo autoricen.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": ""
             }
           ]
         }
@@ -1224,7 +1433,18 @@
           "imageResource": "",
           "voiceResource": ""
         }
-      ]
+      ],
+      "npcSprites": [
+        "",
+        "",
+        ""
+      ],
+      "clueSprites": [
+        "",
+        "",
+        ""
+      ],
+      "mapSprite": ""
     },
     {
       "id": "flash",
