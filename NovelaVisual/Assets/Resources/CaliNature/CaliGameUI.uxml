@@ -1,38 +1,41 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
   <Style src="CaliGameUI.uss" />
   <Style src="CaliMapUI.uss" />
+  <Style src="CaliMenuUI.uss" />
   <ui:VisualElement name="app" picking-mode="Ignore">
     <ui:VisualElement name="menu" class="screen opaque blocks-world">
+      <ui:VisualElement class="menu-stripe" picking-mode="Ignore"><ui:VisualElement class="stripe-blue" /><ui:VisualElement class="stripe-red" /><ui:VisualElement class="stripe-white" /><ui:VisualElement class="stripe-red" /><ui:VisualElement class="stripe-green" /></ui:VisualElement>
+      <ui:Label text="CALI · UN TERRITORIO QUE APRENDEMOS A CUIDAR" class="menu-brand" />
       <ui:VisualElement class="hero">
-        <ui:Label text="BITÁCORA INTERACTIVA · CALI" class="eyebrow" />
+        <ui:Label text="NOVELA GRÁFICA INTERACTIVA · CALI, COLOMBIA" class="eyebrow" />
         <ui:Label text="Cali ante&#10;la naturaleza" class="title" />
-        <ui:Label text="Cuatro momentos. Una comunidad.&#10;Aprende a observar, escuchar y decidir." class="lead" />
+        <ui:Label text="Explora el territorio, descubre sus desafíos y aprende a cuidarnos.&#10;Cuatro historias. Una misma ciudad." class="lead" />
         <ui:Button name="new-game" text="Comenzar recorrido" class="primary" />
         <ui:Button name="continue" text="Continuar partida" />
         <ui:Button name="menu-help" text="Tutorial y controles" />
-        <ui:Label text="Proyecto universitario · protagonista estudiante de la UAO&#10;Simulación educativa. Consulta siempre la información oficial vigente." class="caption" />
+        <ui:Label text="Santiago de Cali, Colombia · Proyecto universitario UAO&#10;Simulación educativa. Consulta la información oficial vigente." class="caption" />
       </ui:VisualElement>
     </ui:VisualElement>
     <ui:VisualElement name="intro" class="screen opaque blocks-world hidden centered">
       <ui:VisualElement class="reading-card">
         <ui:Label text="CUATRO CASOS INDEPENDIENTES" class="eyebrow" />
         <ui:Label text="Tu libreta empieza aquí" class="heading" />
-        <ui:Label text="Eres Alex, estudiante de la UAO. Junto a una iniciativa comunitaria, conoces cuatro fenómenos que pueden afectar a Cali.&#10;&#10;Cada capítulo es un caso de estudio autónomo: puedes entrar a cualquiera de ellos, en cualquier orden, sin haber visto los demás.&#10;&#10;En cada zona escuchas a sus habitantes, reunes pistas y tomas decisiones responsables.&#10;&#10;No eres rescatista. Aprender también significa reconocer cuándo alejarse de una situación peligrosa y atender las indicaciones de las autoridades." class="body" />
+        <ui:ScrollView class="intro-scroll"><ui:Label text="Eres Alex, estudiante de la UAO. Junto a una iniciativa comunitaria, conoces cuatro fenómenos que pueden afectar a Cali.&#10;&#10;Cada capítulo es un caso de estudio autónomo: puedes entrar a cualquiera de ellos, en cualquier orden, sin haber visto los demás.&#10;&#10;En cada zona escuchas a sus habitantes, reunes pistas y tomas decisiones responsables.&#10;&#10;No eres rescatista. Aprender también significa reconocer cuándo alejarse de una situación peligrosa y atender las indicaciones de las autoridades." class="body" /></ui:ScrollView>
         <ui:Button name="intro-map" text="Ir al mapa de Cali" class="primary" />
       </ui:VisualElement>
     </ui:VisualElement>
     <ui:VisualElement name="map" class="screen hidden" picking-mode="Ignore">
-      <ui:Button name="marker-label-0" text="Sequía" class="marker-label blocks-world" />
+      <ui:Button name="marker-label-0" text="Terremoto" class="marker-label blocks-world" />
       <ui:Button name="marker-label-1" text="Inundación" class="marker-label blocks-world" />
-      <ui:Button name="marker-label-2" text="Vendaval" class="marker-label blocks-world" />
-      <ui:Button name="marker-label-3" text="Avenida torrencial" class="marker-label blocks-world" />
+      <ui:Button name="marker-label-2" text="Incendio forestal" class="marker-label blocks-world" />
+      <ui:Button name="marker-label-3" text="Deslizamientos" class="marker-label blocks-world" />
       <ui:VisualElement class="map-heading blocks-world">
         <ui:Label text="TU CIUDAD, TUS HISTORIAS" class="eyebrow map-eyebrow" />
         <ui:Label text="Descubre Cali" class="heading" />
         <ui:Label text="Cuatro historias para cuidar nuestra ciudad." class="map-welcome" />
         <ui:Label name="map-progress" text="0 de 4 casos completados" /><ui:VisualElement class="map-progress-track"><ui:VisualElement name="map-progress-fill" /></ui:VisualElement>
         <ui:Label text="Elige un punto · Arrastra el mapa · Acércate con la rueda" class="caption" />
-        <ui:VisualElement class="row"><ui:Button name="filter-all" text="Todos" class="filter-active" /><ui:Button name="filter-0" text="Sequía" /><ui:Button name="filter-1" text="Inundación" /><ui:Button name="filter-2" text="Vendaval" /><ui:Button name="filter-3" text="Torrencial" /></ui:VisualElement>
+        <ui:VisualElement class="row"><ui:Button name="filter-all" text="Todos" class="filter-active" /><ui:Button name="filter-0" text="Terremoto" /><ui:Button name="filter-1" text="Inundación" /><ui:Button name="filter-2" text="Incendio forestal" /><ui:Button name="filter-3" text="Deslizamientos" /></ui:VisualElement>
       </ui:VisualElement>
       <ui:VisualElement name="zone-info" class="zone-card blocks-world hidden">
         <ui:Button name="close-zone" text="Volver al mapa" />

@@ -18,7 +18,7 @@ namespace CaliNature
         private bool tutorial;
         private DialogueNode displayedNode;
         private CaliMapConnections mapConnections;
-        private readonly string[] mapNames = { "Sequía", "Inundación", "Vendaval", "Avenida torrencial" };
+        private readonly string[] mapNames = { "Terremoto", "Inundación", "Incendio forestal", "Deslizamientos" };
         private readonly string[] screenNames = { "menu", "intro", "map", "hud", "dialogue", "cinematic", "loading", "summary" };
         private void Awake()
         {
@@ -169,6 +169,8 @@ namespace CaliNature
             if (root == null) return;
             if (mode == GameMode.Pause) return;
             root.EnableInClassList("map-active", mode == GameMode.Map);
+            root.EnableInClassList("menu-active", mode == GameMode.Menu);
+            root.EnableInClassList("intro-active", mode == GameMode.Introduction);
             foreach (string screen in screenNames) Show(screen, false);
             string target = mode switch { GameMode.Menu => "menu", GameMode.Introduction => "intro", GameMode.Map => "map", GameMode.Exploration => "hud", GameMode.Dialogue => "dialogue", GameMode.Cinematic => "cinematic", GameMode.Loading => "loading", GameMode.Summary => "summary", _ => "menu" };
             Show(target, true); Show("topbar", mode != GameMode.Loading && mode != GameMode.Cinematic);
@@ -197,9 +199,27 @@ namespace CaliNature
         }
         public void ShowZone(ChapterData data)
         {
-            if (mapConnections != null)
-                mapConnections.Selected = Array.FindIndex(session.Catalog.chapters, chapter => chapter.id == data.id);
-            Text("zone-title", data.title); Text("zone-description", data.period + "\n\n" + data.description + "\n\n" + data.objective);
+            int index = Array.FindIndex(session.Catalog.chapters, chapter => chapter.id == data.id);
+            if (mapConnections != null) mapConnections.Selected = index;
+            // Map presentation is independent of chapter IDs, gameplay content and saved progress.
+            string title = data.title;
+            string description = data.period + "\n\n" + data.description + "\n\n" + data.objective;
+            switch (index)
+            {
+                case 0:
+                    title = "Terremoto";
+                    description = "CUANDO LA TIERRA HABLA\nOrigen geológico · La ciudad y sus edificaciones\n\nUna sacudida cambia la rutina. Reconoce el entorno y acompaña a los personajes de la historia mientras toman decisiones.\n\nExplora la preparación del hogar, los espacios de protección y la organización de la comunidad después del sismo.";
+                    break;
+                case 2:
+                    title = "Incendio forestal";
+                    description = "UN BOSQUE QUE NOS NECESITA\nCerros y cobertura vegetal de Cali\n\nLos cerros son parte de nuestra casa compartida. Descubre el cuidado de la vegetación y las decisiones de una comunidad frente a un incendio forestal.\n\nReconoce situaciones de riesgo, organiza la información para reportar un evento y reflexiona sobre la recuperación del entorno.";
+                    break;
+                case 3:
+                    title = "Deslizamientos";
+                    description = "LAS SEÑALES DE LA MONTAÑA\nMovimientos en masa · Laderas del occidente de Cali\n\nEl paisaje también cuenta una historia. Observa las laderas, conversa con sus habitantes y descubre por qué reconocer los cambios del terreno importa.\n\nExplora las señales del terreno, las decisiones de la comunidad y la importancia del acompañamiento de las autoridades.";
+                    break;
+            }
+            Text("zone-title", title); Text("zone-description", description);
             Text("zone-progress", session.Save.Data.completedChapters.Contains(data.id) ? "Completado · puedes volver a explorar" : "Disponible"); Show("zone-info", true);
         }
         public bool IsPointerBlocked(Vector2 screenPoint)
