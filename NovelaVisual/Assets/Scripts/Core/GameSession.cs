@@ -291,18 +291,24 @@ namespace CaliNature
 
         private void CompleteChapter(ChapterData chapter)
         {
-            Save.Complete(chapter.id); State.SetMode(GameMode.Summary); UI.ShowSummary(chapter);
+            Save.Complete(chapter.id);
+            State.SetMode(GameMode.Summary);
+            UI.ShowSummary(chapter, true);
         }
 
         // Al perder se borra lo hecho en el capítulo para poder volver a intentarlo
         // desde cero (ClearChapter quita pistas y decisiones con prefijo "capitulo/").
         // completedChapters NO se toca: un caso ya ganado sigue marcado en el mapa
         // aunque en un reintento posterior el jugador pierda.
+        //
+        // Antes de perder se volvía al mapa automáticamente con un simple aviso.
+        // Ahora se muestra la pantalla de cierre y el jugador decide cuándo salir,
+        // igual que al ganar.
         private void FailChapter(ChapterData chapter)
         {
             Save.ClearChapter(chapter.id);
-            UI.ShowNotice("Has perdido este caso. Se borra lo que hiciste en él.");
-            StartCoroutine(ReturnToMapRoutine());
+            State.SetMode(GameMode.Summary);
+            UI.ShowSummary(chapter, false);
         }
     }
 }

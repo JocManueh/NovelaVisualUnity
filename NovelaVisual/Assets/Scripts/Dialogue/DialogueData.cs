@@ -50,6 +50,17 @@ namespace CaliNature
         public ConversationData[] conversations;
         public CinematicCard[] cinematic;
 
+        // ── TEXTO DE CIERRE ──────────────────────────────────────────────────
+        // Lo que se lee en la pantalla final, justo después de la última
+        // conversación y antes de volver al mapa. El título lo pone el juego
+        // ("Ganaste el capítulo" / "Perdiste el capítulo"); el cuerpo es estos
+        // campos, que son de escritura de cada capítulo.
+        //
+        // Hoy están en texto de relleno: cada equipo debe escribir el suyo.
+        // Si vienen vacíos, la pantalla cae al `summary` del capítulo.
+        public string endingWin;
+        public string endingLose;
+
         // ── SPRITES POR CAPÍTULO ────────────────────────────────────────────
         // Rutas de asset en Resources, SIN extensión (p. ej. "CaliNature/NPCs/lucia_sequia").
         // Cadena vacía = "deja el que ya hay en la escena".
