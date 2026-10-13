@@ -176,7 +176,13 @@ namespace CaliNature
             Show(target, true); Show("topbar", mode != GameMode.Loading && mode != GameMode.Cinematic);
             Show("modal", false); session.Input.SetTouchDirection(Vector2.zero);
             if (mode == GameMode.Menu) root.Q<Button>("continue").SetEnabled(session.Save.HasSave);
-            if (mode == GameMode.Exploration) { Text("chapter-name", session.CurrentChapter?.title ?? "Exploración"); Text("objective", session.CurrentChapter?.objective ?? ""); }
+            if (mode == GameMode.Exploration)
+            {
+                var chapter = session.CurrentChapter;
+                Text("chapter-name", chapter?.title ?? "Exploración");
+                Text("objective", chapter?.objective ?? "");
+                Text("objective-hint", string.IsNullOrEmpty(chapter?.objectiveHint) ? "Reúne 3 pistas y conversa con 3 personas. Puedes elegir el orden." : chapter.objectiveHint);
+            }
             if (mode == GameMode.Dialogue) RefreshDialogue();
             root.Focus();
         }

@@ -2,13 +2,14 @@
   "chapters": [
     {
       "id": "drought",
-      "title": "Cuando el agua escasea",
-      "subtitle": "Sequía y disminución del caudal",
-      "phenomenon": "Sequía · fenómeno hidroclimático",
-      "period": "Caso de estudio · temporada seca ficticia",
-      "description": "Una comunidad conversa sobre la disponibilidad del agua y el cuidado de sus usos cotidianos. El Niño puede favorecer condiciones secas en regiones de Colombia; no explica por sí solo cada sequía.",
-      "summary": "La sequía se relaciona con un déficit prolongado de precipitación. Puede reducir la disponibilidad de agua y afectar ecosistemas y actividades humanas. El Niño es un factor de variabilidad climática, no una causa única. Observar, verificar fuentes y acordar hábitos responsables fortalece la preparación.",
-      "objective": "Escucha tres perspectivas, reúne tres pistas y decide antes, durante y después.",
+      "title": "Cuando la tierra tiembla",
+      "subtitle": "Sismos y respuesta comunitaria",
+      "phenomenon": "Sismo · fenómeno geológico",
+      "period": "Caso de estudio · sismo ficticio",
+      "description": "Una sacudida interrumpe la rutina del barrio. Mientras el suelo se mueve, Alex descubre cómo protegerse y, al terminar, qué hacer y en qué orden para cuidar de todos.",
+      "summary": "Un sismo ocurre sin avisar. Durante el movimiento, agacharse, cubrirse bajo algo sólido y sujetarse, lejos de ventanas y objetos que puedan caer, reduce el riesgo de lesiones. Cuando termina, revisar si hay heridos, cerrar la llave del gas, usar las escaleras en vez del ascensor y dirigirse al punto de encuentro ayuda a proteger a toda la comunidad. La preparación y la calma también salvan vidas.",
+      "objective": "Aprende a protegerte durante un sismo y a actuar en el orden correcto.",
+      "objectiveHint": "Escucha a los personajes y realiza las acciones en el orden correcto.",
       "sceneName": "04_DroughtChapter",
       "endingWin": "Te cubriste, revisaste si había heridos, cerraste la llave del gas, usaste las escaleras y llegaste al punto de encuentro. Actuar en el orden correcto mantiene a salvo a toda la comunidad.",
       "endingLose": "esto es un texto final",
@@ -205,22 +206,22 @@
       ],
       "cinematic": [
         {
-          "title": "El cuaderno de Alex",
-          "text": "En una comunidad de Cali, Alex participa en una reunión sobre la disponibilidad del agua. En la mesa hay notas de días distintos. Nadie quiere sacar conclusiones a partir de una sola imagen.",
+          "title": "Una mañana que se movió",
+          "text": "Alex visita un edificio antiguo del barrio para conocer cómo se preparan sus vecinos. De pronto, el suelo tiembla: los objetos se mueven y todos buscan dónde protegerse.",
           "seconds": 8.117647058823529,
           "imageResource": "",
           "voiceResource": "CaliNature/Voices/drought_cinematic_0"
         },
         {
-          "title": "Una mañana distinta",
-          "text": "Antes de compartir una afirmación sobre el agua, Lucía propone comprobar de dónde viene y qué periodo describe.",
+          "title": "Cubrirse a tiempo",
+          "text": "Amelia explica que, durante un sismo, lo más seguro es agacharse, cubrirse bajo algo sólido y sujetarse, lejos de las ventanas. Después vendrá el momento de actuar con calma.",
           "seconds": 7,
           "imageResource": "",
           "voiceResource": "CaliNature/Voices/drought_cinematic_1"
         },
         {
-          "title": "Un acuerdo posible",
-          "text": "La comunidad revisará sus acuerdos y anotará lo que falta comprobar. El recorrido no termina con una respuesta: empieza con una pregunta mejor.",
+          "title": "Un orden que salva",
+          "text": "Cuando el movimiento termina, la comunidad revisa heridos, cierra el gas y baja por las escaleras hasta el punto de encuentro. Recordar el orden correcto mantiene a todos a salvo.",
           "seconds": 7.411764705882353,
           "imageResource": "",
           "voiceResource": "CaliNature/Voices/drought_cinematic_2"
