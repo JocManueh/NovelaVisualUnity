@@ -77,50 +77,21 @@
           "nodes": [
             {
               "id": "a_start",
-              "speaker": "Lucía",
-              "text": "Soy Lucía. Caso de estudio: sequía y disminución del caudal. Estás en el nodo A. Escoge entre A1, A2 y A3.",
+              "speaker": "Amelia",
+              "text": "Este edificio es muy antiguo. Si sientes un temblor, cúbrete bajo algo sólido, lejos de las ventanas.",
               "next": "",
               "choices": [
                 {
-                  "id": "A1",
-                  "label": "Soy A1 y te llevo a la rama Bx.",
-                  "next": "a_end",
+                  "id": "a_ack",
+                  "label": "Entendido, gracias.",
+                  "next": "",
                   "requiredClue": "",
                   "decisionKey": "drought/a",
                   "outcome": "",
                   "responsible": true,
-                  "consequence": "Anotas A1 en la libreta."
-                },
-                {
-                  "id": "A3",
-                  "label": "Soy A3 y te llevo a la rama By.",
-                  "next": "a_end",
-                  "requiredClue": "",
-                  "decisionKey": "drought/a",
-                  "outcome": "",
-                  "responsible": false,
-                  "consequence": "Anotas A3 en la libreta."
-                },
-                {
-                  "id": "A2",
-                  "label": "Soy A2 y te llevo a la rama Bx.",
-                  "next": "a_end",
-                  "requiredClue": "",
-                  "decisionKey": "drought/a",
-                  "outcome": "",
-                  "responsible": true,
-                  "consequence": "Anotas A2 en la libreta."
+                  "consequence": "Amelia te advirtió: ante un temblor, cúbrete bajo algo sólido y lejos de las ventanas."
                 }
               ],
-              "portraitResource": "",
-              "voiceResource": ""
-            },
-            {
-              "id": "a_end",
-              "speaker": "Lucía",
-              "text": "Terminaste el diálogo A. Lo que necesites saber se lee distinto según por dónde me preguntaste.",
-              "next": "",
-              "choices": [],
               "portraitResource": "",
               "voiceResource": ""
             }
@@ -128,111 +99,26 @@
         },
         {
           "id": "drought/b",
-          "firstNode": "bx_start",
-          "routes": [
-            {
-              "decisionKey": "drought/a",
-              "choice": "A1",
-              "node": "bx_start"
-            },
-            {
-              "decisionKey": "drought/a",
-              "choice": "A2",
-              "node": "bx_start"
-            },
-            {
-              "decisionKey": "drought/a",
-              "choice": "A3",
-              "node": "by_start"
-            }
-          ],
+          "firstNode": "b_start",
+          "routes": [],
           "nodes": [
             {
-              "id": "bx_start",
-              "speaker": "Mateo",
-              "text": "Soy Mateo. Estás en Bx, llegaste por A1 o A2. Caso: sequía y disminución del caudal. Escoge entre B1, B2 y B3.",
+              "id": "b_start",
+              "speaker": "Bob",
+              "text": "Necesito que me ayudes a recordar qué hacer después de un sismo.",
               "next": "",
               "choices": [
                 {
-                  "id": "B2",
-                  "label": "Soy B2 y te llevo a la rama Cbad.",
-                  "next": "b_end",
-                  "requiredClue": "",
-                  "decisionKey": "drought/b",
-                  "outcome": "",
-                  "responsible": false,
-                  "consequence": "Anotas B2 en la libreta."
-                },
-                {
-                  "id": "B1",
-                  "label": "Soy B1 y te llevo a la rama Cmid.",
-                  "next": "b_end",
+                  "id": "b_ack",
+                  "label": "Vamos a repasarlo.",
+                  "next": "",
                   "requiredClue": "",
                   "decisionKey": "drought/b",
                   "outcome": "",
                   "responsible": true,
-                  "consequence": "Anotas B1 en la libreta."
-                },
-                {
-                  "id": "B3",
-                  "label": "Soy B3 y te llevo a la rama Cgood · requiere la pista.",
-                  "next": "b_end",
-                  "requiredClue": "drought/clue/0",
-                  "decisionKey": "drought/b",
-                  "outcome": "",
-                  "responsible": true,
-                  "consequence": "Anotas B3 en la libreta."
+                  "consequence": "Aceptaste ayudar a Bob a repasar qué hacer después de un sismo."
                 }
               ],
-              "portraitResource": "",
-              "voiceResource": ""
-            },
-            {
-              "id": "by_start",
-              "speaker": "Mateo",
-              "text": "Soy Mateo. Estás en By, llegaste por A3. Caso: sequía y disminución del caudal. Escoge entre B4, B5 y B6.",
-              "next": "",
-              "choices": [
-                {
-                  "id": "B6",
-                  "label": "Soy B6 y te llevo a la rama Cgood · requiere la pista.",
-                  "next": "b_end",
-                  "requiredClue": "drought/clue/1",
-                  "decisionKey": "drought/b",
-                  "outcome": "",
-                  "responsible": true,
-                  "consequence": "Anotas B6 en la libreta."
-                },
-                {
-                  "id": "B5",
-                  "label": "Soy B5 y te llevo a la rama Cbad.",
-                  "next": "b_end",
-                  "requiredClue": "",
-                  "decisionKey": "drought/b",
-                  "outcome": "",
-                  "responsible": true,
-                  "consequence": "Anotas B5 en la libreta."
-                },
-                {
-                  "id": "B4",
-                  "label": "Soy B4 y te llevo a la rama Cdead.",
-                  "next": "b_end",
-                  "requiredClue": "",
-                  "decisionKey": "drought/b",
-                  "outcome": "",
-                  "responsible": false,
-                  "consequence": "Anotas B4 en la libreta."
-                }
-              ],
-              "portraitResource": "",
-              "voiceResource": ""
-            },
-            {
-              "id": "b_end",
-              "speaker": "Mateo",
-              "text": "Terminaste el diálogo B. Ahora ya puedes hablar con Inés.",
-              "next": "",
-              "choices": [],
               "portraitResource": "",
               "voiceResource": ""
             }
