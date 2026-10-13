@@ -1,0 +1,71 @@
+/* Visual reference: uao.edu.co/estudiante/. Limited to menu, intro and map. */
+#menu *, #intro *, #map *, .menu-active #topbar *, .intro-active #topbar *, .map-active #topbar *,
+.menu-active #modal *, .intro-active #modal *, .map-active #modal * {
+    -unity-font-definition: url("/Assets/Fonts/UAO/Roboto-Regular.ttf");
+    -unity-font: url("/Assets/Fonts/UAO/Roboto-Regular.ttf");
+    -unity-font-style: normal;
+}
+#menu .title, #intro .heading, #map .heading, #map .map-legend-title,
+#menu Button, #intro Button, #map Button {
+    -unity-font-definition: url("/Assets/Fonts/UAO/Roboto-Bold.ttf");
+    -unity-font: url("/Assets/Fonts/UAO/Roboto-Bold.ttf");
+}
+#menu, #intro { background-color: rgb(247,245,239); color: rgb(54,54,54); }
+#menu .menu-stripe { height: 9px; background-color: rgb(123,21,34); }
+#menu .menu-stripe > VisualElement { background-color: rgb(123,21,34); }
+#menu .menu-brand { color: rgb(123,21,34); font-size: 13px; }
+#menu .hero {
+    width: 92%; max-width: 1120px; align-items: flex-start; padding: 36px 46px;
+    background-color: rgb(32,43,51); background-image: url("/Assets/Resources/CaliNature/CaliGoogleMaps.png");
+    -unity-background-scale-mode: scale-and-crop; -unity-background-image-tint-color: rgb(50,59,66);
+    border-radius: 0; border-width: 0; border-bottom-width: 5px; border-bottom-color: rgb(227,24,55);
+}
+#menu .hero .eyebrow { color: white; background-color: rgb(227,24,55); padding: 7px 14px; font-size: 12px; border-radius: 18px; letter-spacing: 1px; margin-bottom: 18px; }
+#menu .hero .title { color: white; -unity-text-align: middle-left; font-size: 56px; letter-spacing: 0; margin-bottom: 14px; padding-bottom: 10px; border-bottom-width: 3px; border-bottom-color: rgb(227,24,55); }
+#menu .hero .lead { color: white; -unity-text-align: middle-left; font-size: 18px; -unity-font-definition: url("/Assets/Fonts/UAO/RobotoSlab-Regular.ttf"); -unity-font: url("/Assets/Fonts/UAO/RobotoSlab-Regular.ttf"); }
+#menu .hero .caption { color: rgb(242,242,242); -unity-text-align: middle-left; font-size: 12px; }
+#menu .hero Button { border-radius: 3px; font-size: 16px; }
+#menu #new-game { background-color: rgb(227,24,55); border-color: rgb(227,24,55); color: white; }
+#menu #continue { background-color: rgb(123,21,34); border-color: rgb(123,21,34); color: white; }
+#menu #menu-help { background-color: rgb(247,245,239); border-color: rgb(247,245,239); color: rgb(123,21,34); }
+#menu #new-game:hover, #menu #continue:hover { background-color: rgb(158,11,15); }
+#menu #menu-help:hover { background-color: rgb(235,222,222); }
+#intro .reading-card { background-color: white; border-color: rgb(225,222,220); border-top-color: rgb(227,24,55); border-radius: 3px; }
+#intro .eyebrow { color: rgb(158,11,15); }
+#intro .heading { color: rgb(54,54,54); }
+#intro .body { color: rgb(54,54,54); -unity-font-definition: url("/Assets/Fonts/UAO/RobotoSlab-Regular.ttf"); -unity-font: url("/Assets/Fonts/UAO/RobotoSlab-Regular.ttf"); }
+#intro #intro-map { background-color: rgb(227,24,55); border-color: rgb(227,24,55); border-radius: 3px; }
+#intro #intro-map:hover { background-color: rgb(158,11,15); }
+#map { background-color: rgba(20,25,30,0.08); }
+#map .map-heading, #map .zone-card, #map .legend { background-color: rgb(255,255,255); border-color: rgb(220,216,212); border-radius: 3px; }
+#map .map-heading, #map .zone-card { border-top-color: rgb(227,24,55); }
+#map .legend { border-left-color: rgb(227,24,55); }
+#map .heading, #map .map-heading .heading, #map .zone-card .heading, #map .map-legend-title { color: rgb(54,54,54); }
+#map .map-eyebrow, #map #zone-progress { color: rgb(158,11,15); }
+#map .map-welcome, #map #map-progress, #map .zone-card .body { color: rgb(54,54,54); }
+#map .caption, #map .map-heading .caption, #map .legend .caption { color: rgb(90,90,90); }
+#map .map-progress-track { background-color: rgb(230,226,223); }
+#map #map-progress-fill { background-color: rgb(227,24,55); }
+#map #filter-all, #map #filter-0, #map #filter-1, #map #filter-2, #map #filter-3 { background-color: rgb(247,245,239); color: rgb(123,21,34); border-color: rgb(207,191,191); border-radius: 3px; }
+#map #filter-all.filter-active, #map #filter-0.filter-active, #map #filter-1.filter-active, #map #filter-2.filter-active, #map #filter-3.filter-active { background-color: rgb(227,24,55); color: white; border-color: rgb(227,24,55); }
+#map .map-heading Button:hover { color: rgb(123,21,34); opacity: 0.85; }
+#map #marker-label-0, #map #marker-label-1, #map #marker-label-2, #map #marker-label-3 { background-color: white; color: rgb(123,21,34); border-top-color: rgb(207,191,191); border-right-color: rgb(207,191,191); border-bottom-color: rgb(207,191,191); border-radius: 3px; }
+#map #marker-label-0.mission-complete, #map #marker-label-1.mission-complete, #map #marker-label-2.mission-complete, #map #marker-label-3.mission-complete { background-color: rgb(236,249,239); color: rgb(24,112,60); }
+#map #marker-label-0.mission-selected, #map #marker-label-1.mission-selected, #map #marker-label-2.mission-selected, #map #marker-label-3.mission-selected { background-color: rgb(123,21,34); color: white; border-top-color: rgb(227,24,55); border-right-color: rgb(227,24,55); border-bottom-color: rgb(227,24,55); }
+#map .status-pending { color: rgb(190,24,43); }
+#map .status-done { color: rgb(24,112,60); }
+#map #enter-zone, #map .zoom Button { background-color: rgb(227,24,55); border-color: rgb(227,24,55); color: white; border-radius: 3px; }
+#map #enter-zone:hover, #map .zoom Button:hover { background-color: rgb(158,11,15); }
+#map #close-zone { background-color: rgb(123,21,34); border-color: rgb(123,21,34); color: white; border-radius: 3px; }
+#map #close-zone:hover { background-color: rgb(158,11,15); }
+#map .map-attribution { background-color: rgb(247,245,239); color: rgb(70,70,70); }
+.menu-active #topbar Button, .intro-active #topbar Button, .map-active #topbar Button { background-color: rgb(247,245,239); color: rgb(123,21,34); border-color: rgb(207,191,191); border-radius: 3px; }
+.menu-active #topbar Button:hover, .intro-active #topbar Button:hover, .map-active #topbar Button:hover { background-color: rgb(123,21,34); color: white; }
+.menu-active #modal .modal-card, .intro-active #modal .modal-card, .map-active #modal .modal-card { background-color: white; border-color: rgb(207,191,191); border-top-width: 4px; border-top-color: rgb(227,24,55); border-radius: 3px; }
+.menu-active #modal Label, .intro-active #modal Label, .map-active #modal Label { color: rgb(54,54,54); }
+.menu-active #modal Button, .intro-active #modal Button, .map-active #modal Button { background-color: rgb(123,21,34); border-color: rgb(123,21,34); color: white; }
+.compact #menu .hero { padding: 22px 28px; }
+.compact #menu .hero .title { font-size: 36px; }
+.compact #menu .hero .lead { font-size: 15px; }
+
+#menu .hero .title, #menu .hero Button { -unity-font-definition: url("/Assets/Fonts/UAO/Roboto-Bold.ttf"); -unity-font: url("/Assets/Fonts/UAO/Roboto-Bold.ttf"); }

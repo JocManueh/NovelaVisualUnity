@@ -2,6 +2,7 @@
   <Style src="CaliGameUI.uss" />
   <Style src="CaliMapUI.uss" />
   <Style src="CaliMenuUI.uss" />
+  <Style src="CaliUAO.uss" />
   <ui:VisualElement name="app" picking-mode="Ignore">
     <ui:VisualElement name="menu" class="screen opaque blocks-world">
       <ui:VisualElement class="menu-stripe" picking-mode="Ignore"><ui:VisualElement class="stripe-blue" /><ui:VisualElement class="stripe-red" /><ui:VisualElement class="stripe-white" /><ui:VisualElement class="stripe-red" /><ui:VisualElement class="stripe-green" /></ui:VisualElement>
