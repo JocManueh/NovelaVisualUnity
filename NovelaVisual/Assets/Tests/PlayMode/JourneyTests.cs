@@ -185,8 +185,13 @@ namespace CaliNature.Tests
                 // clue/0 es la que abre la rama favorable de Bx.
                 Assert.IsTrue(session.Save.HasClue(session.CurrentChapter.id+"/clue/0"));
                 foreach(var npc in npcs.Skip(1))yield return Conversation(player,npc,preferred[npc.NpcIndex]);
+                // Tras la última conversación se muestra la pantalla de cierre: ni al mapa
+                // directo ni al estado de exploración. El texto dice qué pasó.
                 Assert.AreEqual(GameMode.Summary,session.State.Mode);
                 Assert.AreEqual(chapter+1,session.Save.Data.completedChapters.Count);
+                // El cierre se queda en pantalla hasta que el jugador pulse el botón.
+                yield return new WaitForSeconds(.5f);
+                Assert.AreEqual(GameMode.Summary,session.State.Mode,"La pantalla de cierre se cerró sola.");
                 session.ReturnToMap();yield return Mode(GameMode.Map);yield return null;
                 Assert.AreEqual(1,Object.FindObjectsByType<GameSession>(FindObjectsSortMode.None).Length);
                 Assert.AreEqual(1,Object.FindObjectsByType<EventSystem>(FindObjectsSortMode.None).Length);

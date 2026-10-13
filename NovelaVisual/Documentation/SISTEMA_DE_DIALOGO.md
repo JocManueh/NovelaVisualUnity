@@ -95,6 +95,23 @@ En este orden: `a_start`, `a_end`, `bx_start`, `by_start`, `b_end`, `cgood_start
 - Varía el orden en el que escribes las opciones.
 - Textos en español, segunda persona.
 
+### 4.1 El texto de cierre
+
+Hay **dos campos por capítulo**, en `StoryCatalog.json`, junto a `sceneName`:
+
+```json
+"endingWin":  "esto es un texto final",
+"endingLose": "esto es un texto final"
+```
+
+Se muestran en la pantalla final, **después de la última conversación y antes de
+volver al mapa**. El título lo pone el juego: "Ganaste el capítulo" o "Perdiste el
+capítulo". El cuerpo es lo que escribas aquí.
+
+Hoy los cuatro están en relleno: **escribe los de tu capítulo** (los dos). Se
+recomienda que el de perder no sea un castigo, sino una lectura distinta del mismo
+caso: qué se perdió y por qué, sin reproche.
+
 ## 5. Sprites (opcional)
 
 Si ya tienes arte, se declara en tu capítulo. **Cadena vacía = conservar el actual.**

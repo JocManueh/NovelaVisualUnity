@@ -10,6 +10,8 @@
       "summary": "La sequía se relaciona con un déficit prolongado de precipitación. Puede reducir la disponibilidad de agua y afectar ecosistemas y actividades humanas. El Niño es un factor de variabilidad climática, no una causa única. Observar, verificar fuentes y acordar hábitos responsables fortalece la preparación.",
       "objective": "Escucha tres perspectivas, reúne tres pistas y decide antes, durante y después.",
       "sceneName": "04_DroughtChapter",
+      "endingWin": "esto es un texto final",
+      "endingLose": "esto es un texto final",
       "sources": [
         "https://ideam.gov.co/fenomeno-del-nino",
         "https://www.ideam.gov.co/sites/default/files/prensa/boletines/2024-08-23/capitulo_7_alteraciones_del_regimen_hidrologico_y_de_la_oferta_hidrica_por_varibilidad_y_cambio_climatico.pdf",
@@ -77,21 +79,50 @@
           "nodes": [
             {
               "id": "a_start",
-              "speaker": "Amelia",
-              "text": "Este edificio es muy antiguo. Si sientes un temblor, cúbrete bajo algo sólido, lejos de las ventanas.",
+              "speaker": "Lucía",
+              "text": "Soy Lucía. Caso de estudio: sequía y disminución del caudal. Estás en el nodo A. Escoge entre A1, A2 y A3.",
               "next": "",
               "choices": [
                 {
-                  "id": "a_ack",
-                  "label": "Entendido, gracias.",
-                  "next": "",
+                  "id": "A1",
+                  "label": "Soy A1 y te llevo a la rama Bx.",
+                  "next": "a_end",
                   "requiredClue": "",
                   "decisionKey": "drought/a",
                   "outcome": "",
                   "responsible": true,
-                  "consequence": "Amelia te advirtió: ante un temblor, cúbrete bajo algo sólido y lejos de las ventanas."
+                  "consequence": "Anotas A1 en la libreta."
+                },
+                {
+                  "id": "A3",
+                  "label": "Soy A3 y te llevo a la rama By.",
+                  "next": "a_end",
+                  "requiredClue": "",
+                  "decisionKey": "drought/a",
+                  "outcome": "",
+                  "responsible": false,
+                  "consequence": "Anotas A3 en la libreta."
+                },
+                {
+                  "id": "A2",
+                  "label": "Soy A2 y te llevo a la rama Bx.",
+                  "next": "a_end",
+                  "requiredClue": "",
+                  "decisionKey": "drought/a",
+                  "outcome": "",
+                  "responsible": true,
+                  "consequence": "Anotas A2 en la libreta."
                 }
               ],
+              "portraitResource": "",
+              "voiceResource": ""
+            },
+            {
+              "id": "a_end",
+              "speaker": "Lucía",
+              "text": "Terminaste el diálogo A. Lucía deja la libreta sobre la mesa y te dice que el que trae la razón se la sabe.",
+              "next": "",
+              "choices": [],
               "portraitResource": "",
               "voiceResource": ""
             }
@@ -99,26 +130,111 @@
         },
         {
           "id": "drought/b",
-          "firstNode": "b_start",
-          "routes": [],
+          "firstNode": "bx_start",
+          "routes": [
+            {
+              "decisionKey": "drought/a",
+              "choice": "A1",
+              "node": "bx_start"
+            },
+            {
+              "decisionKey": "drought/a",
+              "choice": "A2",
+              "node": "bx_start"
+            },
+            {
+              "decisionKey": "drought/a",
+              "choice": "A3",
+              "node": "by_start"
+            }
+          ],
           "nodes": [
             {
-              "id": "b_start",
-              "speaker": "Bob",
-              "text": "Necesito que me ayudes a recordar qué hacer después de un sismo.",
+              "id": "bx_start",
+              "speaker": "Mateo",
+              "text": "Soy Mateo. Estás en Bx, llegaste por A1 o A2. Caso: sequía y disminución del caudal. Escoge entre B1, B2 y B3.",
               "next": "",
               "choices": [
                 {
-                  "id": "b_ack",
-                  "label": "Vamos a repasarlo.",
-                  "next": "",
+                  "id": "B2",
+                  "label": "Soy B2 y te llevo a la rama Cbad.",
+                  "next": "b_end",
+                  "requiredClue": "",
+                  "decisionKey": "drought/b",
+                  "outcome": "",
+                  "responsible": false,
+                  "consequence": "Anotas B2 en la libreta."
+                },
+                {
+                  "id": "B1",
+                  "label": "Soy B1 y te llevo a la rama Cmid.",
+                  "next": "b_end",
                   "requiredClue": "",
                   "decisionKey": "drought/b",
                   "outcome": "",
                   "responsible": true,
-                  "consequence": "Aceptaste ayudar a Bob a repasar qué hacer después de un sismo."
+                  "consequence": "Anotas B1 en la libreta."
+                },
+                {
+                  "id": "B3",
+                  "label": "Soy B3 y te llevo a la rama Cgood · requiere la pista.",
+                  "next": "b_end",
+                  "requiredClue": "drought/clue/0",
+                  "decisionKey": "drought/b",
+                  "outcome": "",
+                  "responsible": true,
+                  "consequence": "Anotas B3 en la libreta."
                 }
               ],
+              "portraitResource": "",
+              "voiceResource": ""
+            },
+            {
+              "id": "by_start",
+              "speaker": "Mateo",
+              "text": "Soy Mateo. Estás en By, llegaste por A3. Caso: sequía y disminución del caudal. Escoge entre B4, B5 y B6.",
+              "next": "",
+              "choices": [
+                {
+                  "id": "B6",
+                  "label": "Soy B6 y te llevo a la rama Cgood · requiere la pista.",
+                  "next": "b_end",
+                  "requiredClue": "drought/clue/1",
+                  "decisionKey": "drought/b",
+                  "outcome": "",
+                  "responsible": true,
+                  "consequence": "Anotas B6 en la libreta."
+                },
+                {
+                  "id": "B5",
+                  "label": "Soy B5 y te llevo a la rama Cbad.",
+                  "next": "b_end",
+                  "requiredClue": "",
+                  "decisionKey": "drought/b",
+                  "outcome": "",
+                  "responsible": true,
+                  "consequence": "Anotas B5 en la libreta."
+                },
+                {
+                  "id": "B4",
+                  "label": "Soy B4 y te llevo a la rama Cdead.",
+                  "next": "b_end",
+                  "requiredClue": "",
+                  "decisionKey": "drought/b",
+                  "outcome": "",
+                  "responsible": false,
+                  "consequence": "Anotas B4 en la libreta."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": ""
+            },
+            {
+              "id": "b_end",
+              "speaker": "Mateo",
+              "text": "Terminaste el diálogo B. Mateo señala que Inés está en la puerta con la libreta.",
+              "next": "",
+              "choices": [],
               "portraitResource": "",
               "voiceResource": ""
             }
@@ -323,7 +439,7 @@
             {
               "id": "c_end",
               "speaker": "Inés",
-              "text": "Terminaste el diálogo C.",
+              "text": "Terminaste el diálogo C. Inés cierra la libreta.",
               "next": "",
               "choices": [],
               "portraitResource": "",
@@ -377,6 +493,8 @@
       "summary": "Una inundación fluvial ocurre cuando el agua desborda su cauce y ocupa áreas aledañas. La lluvia y las condiciones del territorio importan. La Niña puede favorecer situaciones lluviosas, pero no es condición necesaria. Amenaza, exposición y riesgo no significan lo mismo.",
       "objective": "Escucha tres perspectivas, reúne tres pistas y decide antes, durante y después.",
       "sceneName": "05_RiverFloodChapter",
+      "endingWin": "esto es un texto final",
+      "endingLose": "esto es un texto final",
       "sources": [
         "https://ideam.gov.co/fenomeno-del-nino",
         "https://www.ideam.gov.co/sites/default/files/prensa/boletines/2024-08-23/capitulo_7_alteraciones_del_regimen_hidrologico_y_de_la_oferta_hidrica_por_varibilidad_y_cambio_climatico.pdf",
@@ -387,52 +505,52 @@
       "clues": [
         {
           "id": "flood/clue/0",
-          "title": "Mapa de demostración",
-          "text": "Un mapa con escala y fecha: sirve si se lee con contexto.",
+          "title": "Croquis a mano",
+          "text": "Un croquis a mano: marca dónde dobla el cauce, pero no trae alturas ni fecha. Sirve para ubicarse, no para decidir.",
           "variants": [
             {
               "branch": "bx_start",
-              "title": "Mapa de demostración (Bx)",
-              "text": "La marca que alguien hizo a tiza en el muro y nadie borró."
+              "title": "Croquis a mano",
+              "text": "El croquis que llevaba Lucía. Además de dónde dobla el cauce tiene una raya de dos inviernos atrás. No dice a qué altura, pero sí dónde mirar primero."
             },
             {
               "branch": "by_start",
-              "title": "Mapa de demostración (By)",
-              "text": "La foto del aviso, con el emisor y el día en el pie."
+              "title": "Croquis a mano",
+              "text": "El mismo croquis, pero hoy la raya que marca el agua queda rodeada de casas nuevas. Dónde mirar ya no es la pregunta: es quién vive ahí."
             }
           ]
         },
         {
           "id": "flood/clue/1",
           "title": "Boletín con fecha",
-          "text": "Boletín oficial: quién lo emitió, cuándo y para qué zona.",
+          "text": "Antes de usar un aviso, comprueba quién lo mandó, de qué día es y para qué zona. La vigencia es la mitad del dato.",
           "variants": [
             {
               "branch": "bx_start",
-              "title": "Boletín con fecha (Bx)",
-              "text": "Lo que el vecino anotó en el cuaderno al volver del recorrido."
+              "title": "Boletín con fecha",
+              "text": "El boletín del martes: viene firmado y con fecha, pero solo cubre dos cuadras. Para el resto del barrio no dice nada."
             },
             {
               "branch": "by_start",
-              "title": "Boletín con fecha (By)",
-              "text": "La hoja con las casillas de las casas vacías."
+              "title": "Boletín con fecha",
+              "text": "El boletín de la mañana, ya vencido. Dice qué hacer, pero la parte de las alturas es de la temporada pasada."
             }
           ]
         },
         {
           "id": "flood/clue/2",
           "title": "Testimonio de Lucía",
-          "text": "Su experiencia contada con detalle: ayuda a preguntar, no a concluir.",
+          "text": "Su experiencia ayuda a preguntar mejor; no sustituye un estudio ni una instrucción oficial.",
           "variants": [
             {
               "branch": "bx_start",
-              "title": "Testimonio de Lucía (Bx)",
-              "text": "La conversación que se repitió en la puerta, con lo que faltaba."
+              "title": "Testimonio de Lucía",
+              "text": "Lo que Lucía cuenta del día que se fue el agua: empezó por la calle de arriba, no por el río."
             },
             {
               "branch": "by_start",
-              "title": "Testimonio de Lucía (By)",
-              "text": "Lo que quedó escrito después de escucharla."
+              "title": "Testimonio de Lucía",
+              "text": "La misma tarde, contada por el vecino que cerró a tiempo: el agua nunca llegó a su cuadra."
             }
           ]
         }
@@ -445,38 +563,38 @@
             {
               "id": "a_start",
               "speaker": "Lucía",
-              "text": "Soy Lucía. Caso de estudio: inundación fluvial por desbordamiento. Estás en el nodo A. Escoge entre A1, A2 y A3.",
+              "text": "Soy Lucía, de la iniciativa del barrio. El río volvió a subir y ya circulan tres versiones de lo que pasó. Una foto de la margen mojada anda como si probara que la zona se inundó. ¿Por dónde empezamos?",
               "next": "",
               "choices": [
                 {
                   "id": "A2",
-                  "label": "Soy A2 y te llevo a la rama Bx.",
+                  "label": "Separemos tres cosas: dónde está el cauce, qué construimos en sus márgenes y qué está pasando hoy.",
                   "next": "a_end",
                   "requiredClue": "",
                   "decisionKey": "flood/a",
                   "outcome": "",
                   "responsible": true,
-                  "consequence": "Anotas A2 en la libreta."
+                  "consequence": "Anotas el cauce, los márgenes y el día de hoy como tres asuntos distintos."
                 },
                 {
                   "id": "A1",
-                  "label": "Soy A1 y te llevo a la rama Bx.",
+                  "label": "Antes de repetir nada, revisemos quién publicó esa foto y de qué día es.",
                   "next": "a_end",
                   "requiredClue": "",
                   "decisionKey": "flood/a",
                   "outcome": "",
                   "responsible": true,
-                  "consequence": "Anotas A1 en la libreta."
+                  "consequence": "Anotas que la foto necesita fuente y fecha antes de volver a circular."
                 },
                 {
                   "id": "A3",
-                  "label": "Soy A3 y te llevo a la rama By.",
+                  "label": "Avisemos ya, mientras la gente todavía pueda sacar lo suyo de ahí.",
                   "next": "a_end",
                   "requiredClue": "",
                   "decisionKey": "flood/a",
                   "outcome": "",
-                  "responsible": false,
-                  "consequence": "Anotas A3 en la libreta."
+                  "responsible": true,
+                  "consequence": "Anotas que conviene avisar temprano, aunque la información esté incompleta."
                 }
               ],
               "portraitResource": "",
@@ -485,7 +603,7 @@
             {
               "id": "a_end",
               "speaker": "Lucía",
-              "text": "Terminaste el diálogo A. Lo que necesites saber se lee distinto según por dónde me preguntaste.",
+              "text": "Terminaste el diálogo A. Lucía deja la libreta sobre la mesa y te dice que el que trae la razón se la sabe.",
               "next": "",
               "choices": [],
               "portraitResource": "",
@@ -517,38 +635,38 @@
             {
               "id": "bx_start",
               "speaker": "Mateo",
-              "text": "Soy Mateo. Estás en Bx, llegaste por A1 o A2. Caso: inundación fluvial por desbordamiento. Escoge entre B1, B2 y B3.",
+              "text": "Soy Mateo, de la cuadra de abajo. Lucía me contó por dónde ibas a empezar. Yo no tengo ni el plano ni el aviso; lo que tengo es lo que vi desde el patio.",
               "next": "",
               "choices": [
                 {
                   "id": "B2",
-                  "label": "Soy B2 y te llevo a la rama Cbad.",
+                  "label": "Digamos desde ya que la zona dejó de ser transitable y cerremos el paso de abajo. Es preferible pasarnos de cautions que quedarnos cortos.",
                   "next": "b_end",
                   "requiredClue": "",
                   "decisionKey": "flood/b",
                   "outcome": "",
                   "responsible": false,
-                  "consequence": "Anotas B2 en la libreta."
+                  "consequence": "Queda acordado cerrar el paso de la margen antes de evaluar nada."
                 },
                 {
                   "id": "B3",
-                  "label": "Soy B3 y te llevo a la rama Cgood · requiere la pista.",
+                  "label": "El croquis ese no sirve para nada serio, pero sí para algo: dónde mirar primero y a quién preguntarle por el nivel.",
                   "next": "b_end",
                   "requiredClue": "flood/clue/0",
                   "decisionKey": "flood/b",
                   "outcome": "",
                   "responsible": true,
-                  "consequence": "Anotas B3 en la libreta."
+                  "consequence": "Anotas para qué sirve el croquis y para qué no."
                 },
                 {
                   "id": "B1",
-                  "label": "Soy B1 y te llevo a la rama Cmid.",
+                  "label": "Cada cuadra anote hasta dónde le llegó el agua. Ese dato no sale de un plano: sale de nosotros.",
                   "next": "b_end",
                   "requiredClue": "",
                   "decisionKey": "flood/b",
                   "outcome": "",
                   "responsible": true,
-                  "consequence": "Anotas B1 en la libreta."
+                  "consequence": "Queda acordada una medición casera de alturas, cuadra por cuadra."
                 }
               ],
               "portraitResource": "",
@@ -557,38 +675,38 @@
             {
               "id": "by_start",
               "speaker": "Mateo",
-              "text": "Soy Mateo. Estás en By, llegaste por A3. Caso: inundación fluvial por desbordamiento. Escoge entre B4, B5 y B6.",
+              "text": "Soy Mateo. Lucía ya avisó y media cuadra sacó cajas al patio. Yo no vi subir el agua; vi a la gente mover cosas. ¿Qué hacemos ahora?",
               "next": "",
               "choices": [
                 {
                   "id": "B4",
-                  "label": "Soy B4 y te llevo a la rama Cdead.",
+                  "label": "Bajo a la orilla a mirar hasta dónde llegó. Así hablamos con un dato propio y no con el rumor.",
                   "next": "b_end",
                   "requiredClue": "",
                   "decisionKey": "flood/b",
                   "outcome": "",
                   "responsible": false,
-                  "consequence": "Anotas B4 en la libreta."
+                  "consequence": "Anotas bajar a la orilla a comprobarlo."
                 },
                 {
                   "id": "B6",
-                  "label": "Soy B6 y te llevo a la rama Cgood · requiere la pista.",
+                  "label": "Revisemos el emisor y la fecha del aviso. Si sigue vigente, ya tenemos en qué basarnos.",
                   "next": "b_end",
                   "requiredClue": "flood/clue/1",
                   "decisionKey": "flood/b",
                   "outcome": "",
                   "responsible": true,
-                  "consequence": "Anotas B6 en la libreta."
+                  "consequence": "Anotas que el aviso sirve si se confirma su vigencia."
                 },
                 {
                   "id": "B5",
-                  "label": "Soy B5 y te llevo a la rama Cbad.",
+                  "label": "Pidamos que se despeje la zona de la margen. Antes que lamentar, exagerar.",
                   "next": "b_end",
                   "requiredClue": "",
                   "decisionKey": "flood/b",
                   "outcome": "",
-                  "responsible": true,
-                  "consequence": "Anotas B5 en la libreta."
+                  "responsible": false,
+                  "consequence": "Anotas pedir el despeje de la margen."
                 }
               ],
               "portraitResource": "",
@@ -597,7 +715,7 @@
             {
               "id": "b_end",
               "speaker": "Mateo",
-              "text": "Terminaste el diálogo B. Ahora ya puedes hablar con Inés.",
+              "text": "Terminaste el diálogo B. Mateo señala que Inés está en la puerta con la libreta.",
               "next": "",
               "choices": [],
               "portraitResource": "",
@@ -644,38 +762,38 @@
             {
               "id": "cgood_start",
               "speaker": "Inés",
-              "text": "Soy Inés. Estás en Cgood. Caso: inundación fluvial por desbordamiento. Escoge entre C1, C2 y C3.",
+              "text": "Soy Inés. Llevo la libreta del proyecto. Escribamos lo que le sirva a la gente mañana, no lo que nos quede bien a nosotros.",
               "next": "",
               "choices": [
                 {
-                  "id": "C1",
-                  "label": "Soy C1 y te hago ganar.",
-                  "next": "c_end",
-                  "requiredClue": "",
-                  "decisionKey": "flood/c",
-                  "outcome": "win",
-                  "responsible": true,
-                  "consequence": "Ganas el caso: la comunidad acepta tu cierre."
-                },
-                {
                   "id": "C2",
-                  "label": "Soy C2 y te hago ganar.",
+                  "label": "Anoto qué se puede usar: dónde mirar, a quién preguntarle y qué está sin confirmar.",
                   "next": "c_end",
                   "requiredClue": "",
                   "decisionKey": "flood/c",
                   "outcome": "win",
                   "responsible": true,
-                  "consequence": "Ganas el caso: la comunidad acepta tu cierre."
+                  "consequence": "La libreta queda con criterios que la comunidad puede comprobar por su cuenta."
                 },
                 {
                   "id": "C3",
-                  "label": "Soy C3 y te hago perder.",
+                  "label": "Anoto que no se puede afirmar nada sin un estudio oficial. Es lo más prudente.",
                   "next": "c_end",
                   "requiredClue": "",
                   "decisionKey": "flood/c",
                   "outcome": "lose",
                   "responsible": false,
-                  "consequence": "Pierdes el caso y vuelves al menú principal."
+                  "consequence": "La libreta queda con una advertencia y nada que hacer."
+                },
+                {
+                  "id": "C1",
+                  "label": "Anoto una versión corta: qué sabemos, qué no, y quién trae lo que falta.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "flood/c",
+                  "outcome": "win",
+                  "responsible": true,
+                  "consequence": "La libreta queda con un resumen corto y un pendiente con nombre."
                 }
               ],
               "portraitResource": "",
@@ -684,38 +802,38 @@
             {
               "id": "cmid_start",
               "speaker": "Inés",
-              "text": "Soy Inés. Estás en Cmid. Caso: inundación fluvial por desbordamiento. Escoge entre C1, C2 y C3.",
+              "text": "Soy Inés. Llegaron las alturas que anotó cada cuadra. Salieron desigualadas, pero son nuestras. ¿Cómo las dejamos?",
               "next": "",
               "choices": [
                 {
-                  "id": "C1",
-                  "label": "Soy C1 y te hago ganar.",
+                  "id": "C3",
+                  "label": "Dejo constancia de quién anotó qué y en qué fecha, para que se pueda revisar.",
                   "next": "c_end",
                   "requiredClue": "",
                   "decisionKey": "flood/c",
                   "outcome": "win",
                   "responsible": true,
-                  "consequence": "Ganas el caso: la comunidad acepta tu cierre."
+                  "consequence": "Cada dato queda con autor y fecha, y se puede auditar."
                 },
                 {
                   "id": "C2",
-                  "label": "Soy C2 y te hago ganar.",
-                  "next": "c_end",
-                  "requiredClue": "",
-                  "decisionKey": "flood/c",
-                  "outcome": "win",
-                  "responsible": true,
-                  "consequence": "Ganas el caso: la comunidad acepta tu cierre."
-                },
-                {
-                  "id": "C3",
-                  "label": "Soy C3 y te hago perder.",
+                  "label": "Mejor las dejamos en el cuaderno de cada cuadra, sin juntarlas. Nadie va a leer un mapa raro.",
                   "next": "c_end",
                   "requiredClue": "",
                   "decisionKey": "flood/c",
                   "outcome": "lose",
                   "responsible": false,
-                  "consequence": "Pierdes el caso y vuelves al menú principal."
+                  "consequence": "Los registros quedan dispersos y no se pueden comparar entre sí."
+                },
+                {
+                  "id": "C1",
+                  "label": "Las ordenamos y publicamos un mapa de la comunidad, aunque sea un borrador.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "flood/c",
+                  "outcome": "win",
+                  "responsible": true,
+                  "consequence": "Se publica un mapa colaborativo, todavía en borrador."
                 }
               ],
               "portraitResource": "",
@@ -724,38 +842,38 @@
             {
               "id": "cbad_start",
               "speaker": "Inés",
-              "text": "Soy Inés. Estás en Cbad. Caso: inundación fluvial por desbordamiento. Escoge entre C1, C2 y C3.",
+              "text": "Soy Inés. Ya está cerrado el paso y la gente pregunta si se puede volver a la casa. Tengo que escribir algo hoy. ¿Qué pongo?",
               "next": "",
               "choices": [
                 {
-                  "id": "C2",
-                  "label": "Soy C2 y te hago perder.",
+                  "id": "C3",
+                  "label": "Pongo 'zona cerrada temporalmente'. Es lo más prudente y no compromete a nadie.",
                   "next": "c_end",
                   "requiredClue": "",
                   "decisionKey": "flood/c",
                   "outcome": "lose",
                   "responsible": false,
-                  "consequence": "Pierdes el caso y vuelves al menú principal."
+                  "consequence": "La libreta cierra sin decir cómo se vuelve a entrar."
                 },
                 {
                   "id": "C1",
-                  "label": "Soy C1 y te hago ganar.",
+                  "label": "Pongo que el barrio es zona de riesgo. Es lo que todos esperan leer.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "flood/c",
+                  "outcome": "lose",
+                  "responsible": false,
+                  "consequence": "La libreta declara riesgo una zona que nadie evaluó."
+                },
+                {
+                  "id": "C2",
+                  "label": "Pongo qué se cerró, desde cuándo, y a quién llamar para reabrirlo.",
                   "next": "c_end",
                   "requiredClue": "",
                   "decisionKey": "flood/c",
                   "outcome": "win",
                   "responsible": true,
-                  "consequence": "Ganas el caso: la comunidad acepta tu cierre."
-                },
-                {
-                  "id": "C3",
-                  "label": "Soy C3 y te hago perder.",
-                  "next": "c_end",
-                  "requiredClue": "",
-                  "decisionKey": "flood/c",
-                  "outcome": "lose",
-                  "responsible": false,
-                  "consequence": "Pierdes el caso y vuelves al menú principal."
+                  "consequence": "La libreta dice cuándo se reabre y a quién llamar."
                 }
               ],
               "portraitResource": "",
@@ -764,38 +882,38 @@
             {
               "id": "cdead_start",
               "speaker": "Inés",
-              "text": "Soy Inés. Estás en Cdead. Caso: inundación fluvial por desbordamiento. Escoge entre C1, C2 y C3.",
+              "text": "Soy Inés. Tú y Mateo bajaron a la orilla. Nadie los vio cruzar, pero ya corre el rumor de que el agua llegó a la calle. ¿Qué escribo?",
               "next": "",
               "choices": [
                 {
-                  "id": "C3",
-                  "label": "Soy C3 y te hago perder.",
+                  "id": "C1",
+                  "label": "Escribo que la margen se inundó. Es lo que todos quieren oír y lo van a decir igual.",
                   "next": "c_end",
                   "requiredClue": "",
                   "decisionKey": "flood/c",
                   "outcome": "lose",
                   "responsible": false,
-                  "consequence": "Pierdes el caso y vuelves al menú principal."
+                  "consequence": "La libreta convierte una observación en un aviso."
                 },
                 {
-                  "id": "C1",
-                  "label": "Soy C1 y te hago ganar.",
+                  "id": "C3",
+                  "label": "Anoto lo que se vio, con la hora, y que fue un punto de observación y no un aviso.",
                   "next": "c_end",
                   "requiredClue": "",
                   "decisionKey": "flood/c",
                   "outcome": "win",
                   "responsible": true,
-                  "consequence": "Ganas el caso: la comunidad acepta tu cierre."
+                  "consequence": "La libreta separa lo observado de lo que se afirma, con hora y autoria."
                 },
                 {
                   "id": "C2",
-                  "label": "Soy C2 y te hago perder.",
+                  "label": "Lo dejo correr. Si alguien lo vio de verdad, ya lo va a contar.",
                   "next": "c_end",
                   "requiredClue": "",
                   "decisionKey": "flood/c",
                   "outcome": "lose",
                   "responsible": false,
-                  "consequence": "Pierdes el caso y vuelves al menú principal."
+                  "consequence": "No queda registro, y el rumor sigue siendo lo único que circula."
                 }
               ],
               "portraitResource": "",
@@ -804,7 +922,7 @@
             {
               "id": "c_end",
               "speaker": "Inés",
-              "text": "Terminaste el diálogo C.",
+              "text": "Terminaste el diálogo C. Inés cierra la libreta.",
               "next": "",
               "choices": [],
               "portraitResource": "",
@@ -858,6 +976,8 @@
       "summary": "La sequía puede dejar vegetación seca que facilita la propagación de un incendio forestal. El viento puede ayudar a extender el fuego y dificultar las labores para controlarlo. Evitar las quemas al aire libre, las fogatas y la pólvora en zonas con vegetación ayuda a prevenir incendios. Si se observa una emergencia, es importante avisar a las autoridades sin acercarse al fuego y seguir las indicaciones oficiales.",
       "objective": "Escucha tres perspectivas, reúne tres pistas y decide antes, durante y después.",
       "sceneName": "06_WindstormChapter",
+      "endingWin": "esto es un texto final",
+      "endingLose": "esto es un texto final",
       "sources": [
         "https://www.cali.gov.co/salud/publicaciones/188060/porque-la-prevencion-es-de-todos-asi-se-alista-cali-ante-la-segunda-temporada-seca-del-ano/",
         "https://www.cali.gov.co/gestiondelriesgo/publicaciones/177354/rapidamente-la-comunidad-alerto-sobre-conflagracion-en-la-via-a-las-tres-cruces/"
@@ -1116,6 +1236,8 @@
       "summary": "Una avenida torrencial puede desarrollarse rápidamente y transportar agua, sedimentos y otros materiales. Se diferencia de inundaciones de evolución más lenta. No necesita una tormenta eléctrica como condición obligatoria. Los mapas y planes oficiales aportan el contexto local.",
       "objective": "Escucha tres perspectivas, reúne tres pistas y decide antes, durante y después.",
       "sceneName": "07_FlashFloodChapter",
+      "endingWin": "esto es un texto final",
+      "endingLose": "esto es un texto final",
       "sources": [
         "https://ideam.gov.co/fenomeno-del-nino",
         "https://www.ideam.gov.co/sites/default/files/prensa/boletines/2024-08-23/capitulo_7_alteraciones_del_regimen_hidrologico_y_de_la_oferta_hidrica_por_varibilidad_y_cambio_climatico.pdf",
@@ -1224,7 +1346,7 @@
             {
               "id": "a_end",
               "speaker": "Lucía",
-              "text": "Terminaste el diálogo A. Lo que necesites saber se lee distinto según por dónde me preguntaste.",
+              "text": "Terminaste el diálogo A. Lucía deja la libreta sobre la mesa y te dice que el que trae la razón se la sabe.",
               "next": "",
               "choices": [],
               "portraitResource": "",
@@ -1336,7 +1458,7 @@
             {
               "id": "b_end",
               "speaker": "Mateo",
-              "text": "Terminaste el diálogo B. Ahora ya puedes hablar con Inés.",
+              "text": "Terminaste el diálogo B. Mateo señala que Inés está en la puerta con la libreta.",
               "next": "",
               "choices": [],
               "portraitResource": "",
@@ -1543,7 +1665,7 @@
             {
               "id": "c_end",
               "speaker": "Inés",
-              "text": "Terminaste el diálogo C.",
+              "text": "Terminaste el diálogo C. Inés cierra la libreta.",
               "next": "",
               "choices": [],
               "portraitResource": "",
