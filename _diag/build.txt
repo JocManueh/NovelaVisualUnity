@@ -1,0 +1,27 @@
+spritesLoaded=272
+PropsRoot=True TriggersRoot=True
+
+=== PROPS ===
+Mesa <- INT32_23 pos=(5.500, 6.656, 0.000) w=2,38 h=2,31 col=size(2,14,0,69) off y=-0,81
+Repisa_Inestable <- INT32_37 pos=(3.000, 13.000, 0.000) w=2,00 h=4,00 col=size(1,80,0,90) off y=-1,55
+Cocina_Estufa <- INT32_268 pos=(16.500, 11.250, 0.000) w=2,00 h=2,50 col=size(1,80,0,75) off y=-0,88
+Cocina_Meson <- INT32_206 pos=(14.300, 10.656, 0.000) w=1,56 h=1,31 col=size(1,41,0,39) off y=-0,46
+Ventana_1 <- INT32_36 pos=(5.000, 12.469, 0.000) w=1,56 h=0,94 col=none
+Ventana_2 <- INT32_36 pos=(8.000, 12.469, 0.000) w=1,56 h=0,94 col=none
+Ventana_3 <- INT32_36 pos=(15.000, 12.469, 0.000) w=1,56 h=0,94 col=none
+Puerta <- INT32_65 pos=(10.000, 0.875, 0.000) w=2,00 h=1,75 col=none
+Ascensor_Decorativo <- INT32_72 pos=(11.500, 18.781, 0.000) w=2,38 h=1,56 col=size(2,14,0,47) off y=-0,55
+Armario_Decorativo <- INT32_194 pos=(3.000, 18.219, 0.000) w=1,69 h=2,44 col=size(1,52,0,73) off y=-0,85
+ascensor children cleared
+deleted Cama
+deleted Cocina_ValvulaGas
+
+=== ZONAS ===
+Zona_RepisaPeligrosa -> (5.50, 11.00, 0.00)
+Zona_ValvulaGas -> (16.00, 9.00, 0.00)
+Zona_Ventana -> (8.00, 11.50, 0.00)
+Zona_MesaSegura (sin cambios) -> (5.50, 4.50, 0.00)
+
+=== CAPTURAS ===
+capture props_edificio.png 1000x1250
+capture props_planta1.png 1100x825

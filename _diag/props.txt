@@ -1,0 +1,76 @@
+total GameObject=44
+ROOT [Amelia] active=True pos=(8.50, 3.50, 0.00)
+ROOT [Adam] active=True pos=(5.81, 2.56, 0.00)
+ROOT [Bob] active=True pos=(6.50, 18.50, 0.00)
+ROOT [NPC_PuntoDeEncuentro] active=True pos=(9.50, -5.50, 0.00)
+ROOT [SCENE] active=True pos=(0.00, 0.00, 0.00)
+ROOT [MainEntry] active=True pos=(5.81, 2.56, 0.00)
+ROOT [RENDERING] active=True pos=(0.00, 0.00, 0.00)
+
+=== INTERESTING OBJECTS ===
+[Mesa] pos=(5.500, 5.500, 0.000) active=True parent=Props
+    SpriteRenderer sprite=INT_4_22 layer=Layer 1 order=1 enabled=True size=16x16
+    BoxCollider2D offset=(0.00, 0.00) size=(0.90, 0.70) trigger=False
+[Repisa_Inestable] pos=(17.500, 6.500, 0.000) active=True parent=Props
+    SpriteRenderer sprite=INT_10_31 layer=Layer 1 order=1 enabled=True size=16x16
+    BoxCollider2D offset=(0.00, 0.00) size=(0.90, 0.70) trigger=False
+[Cocina_ValvulaGas] pos=(1.500, 8.500, 0.000) active=True parent=Props
+    SpriteRenderer sprite=INT_4_36 layer=Layer 1 order=1 enabled=True size=16x16
+    BoxCollider2D offset=(0.00, 0.00) size=(0.90, 0.70) trigger=False
+[Ascensor_Decorativo] pos=(11.000, 21.000, 0.000) active=True parent=Props
+    BoxCollider2D offset=(0.50, 0.50) size=(2.00, 2.00) trigger=False
+    child[0] asc_0 localPos=(0.00, 0.00, 0.00)
+    child[1] asc_1 localPos=(1.00, 0.00, 0.00)
+    child[2] asc_2 localPos=(0.00, 1.00, 0.00)
+    child[3] asc_3 localPos=(1.00, 1.00, 0.00)
+[Punto_Encuentro_Marca] pos=(9.500, -5.500, 0.000) active=True parent=Props
+    SpriteRenderer sprite=INT_0_28 layer=Layer 1 order=1 enabled=True size=16x16
+    BoxCollider2D offset=(0.00, 0.00) size=(0.90, 0.70) trigger=False
+[Cama] pos=(2.500, 16.500, 0.000) active=True parent=Props
+    SpriteRenderer sprite=INT_6_26 layer=Layer 1 order=1 enabled=True size=16x16
+    BoxCollider2D offset=(0.00, 0.00) size=(0.90, 0.70) trigger=False
+[Puerta] NOT FOUND
+[Zona_MesaSegura] pos=(5.500, 4.500, 0.000) active=True parent=Triggers
+    BoxCollider2D offset=(0.00, 0.00) size=(3.00, 2.00) trigger=True
+[Zona_RepisaPeligrosa] pos=(17.500, 6.500, 0.000) active=True parent=Triggers
+    BoxCollider2D offset=(0.00, 0.00) size=(3.00, 3.00) trigger=True
+[Zona_ValvulaGas] pos=(1.500, 8.500, 0.000) active=True parent=Triggers
+    BoxCollider2D offset=(0.00, 0.00) size=(3.00, 3.00) trigger=True
+[Zona_Ventana] pos=(3.500, 11.500, 0.000) active=True parent=Triggers
+    BoxCollider2D offset=(0.00, 0.00) size=(3.00, 2.00) trigger=True
+[Escaleras] pos=(9.500, 12.500, 0.000) active=True parent=Triggers
+    BoxCollider2D offset=(0.00, 0.00) size=(2.00, 2.00) trigger=True
+[PuntoDeEncuentro] pos=(9.500, -5.500, 0.000) active=True parent=Triggers
+    BoxCollider2D offset=(0.00, 0.00) size=(4.00, 4.00) trigger=True
+[Zona_PuntoEncuentro] NOT FOUND
+[Adam] pos=(5.810, 2.560, 0.000) active=True parent=-
+    SpriteRenderer sprite=Adam_idle_16x16_03 layer=Layer 2 order=0 enabled=True size=16x32
+    Rigidbody2D
+    BoxCollider2D offset=(0.00, 0.20) size=(0.60, 0.40) trigger=False
+    Animator
+    PlayerGridMovement
+    PlayerInteraction
+[Amelia] pos=(8.500, 3.500, 0.000) active=True parent=-
+    SpriteRenderer sprite=Amelia_idle_16x16_03 layer=Layer 2 order=0 enabled=True size=16x32
+    Rigidbody2D
+    BoxCollider2D offset=(0.00, 0.20) size=(0.60, 0.40) trigger=False
+    Animator
+    NPCDialogueController
+[Bob] pos=(6.500, 18.500, 0.000) active=True parent=-
+    SpriteRenderer sprite=Bob_idle_16x16_03 layer=Layer 2 order=0 enabled=True size=16x32
+    Rigidbody2D
+    BoxCollider2D offset=(0.00, 0.20) size=(0.60, 0.40) trigger=False
+    Animator
+    NPCDialogueController
+
+=== INTERIORS 32x32 SPRITES ===
+PPU=32
+INT32_268: rect=(x:288.00, y:16.00, width:64.00, height:80.00) px=2,00x2,50 pivot=(32.00, 40.00) bounds=(2.00, 2.50, 0.20)
+INT32_194: rect=(x:324.00, y:938.00, width:54.00, height:78.00) px=1,69x2,44 pivot=(27.00, 39.00) bounds=(1.69, 2.44, 0.20)
+INT32_206: rect=(x:104.00, y:908.00, width:50.00, height:42.00) px=1,56x1,31 pivot=(25.00, 21.00) bounds=(1.56, 1.31, 0.20)
+INT32_23: rect=(x:26.00, y:2452.00, width:76.00, height:74.00) px=2,38x2,31 pivot=(38.00, 37.00) bounds=(2.38, 2.31, 0.20)
+INT32_36: rect=(x:104.00, y:2384.00, width:50.00, height:30.00) px=1,56x0,94 pivot=(25.00, 15.00) bounds=(1.56, 0.94, 0.20)
+INT32_37: rect=(x:160.00, y:2272.00, width:64.00, height:128.00) px=2,00x4,00 pivot=(32.00, 64.00) bounds=(2.00, 4.00, 0.20)
+INT32_65: rect=(x:352.00, y:2018.00, width:64.00, height:56.00) px=2,00x1,75 pivot=(32.00, 28.00) bounds=(2.00, 1.75, 0.20)
+INT32_72: rect=(x:26.00, y:1952.00, width:76.00, height:50.00) px=2,38x1,56 pivot=(38.00, 25.00) bounds=(2.38, 1.56, 0.20)
+INT32_81: rect=(x:228.00, y:1892.00, width:56.00, height:42.00) px=1,75x1,31 pivot=(28.00, 21.00) bounds=(1.75, 1.31, 0.20)

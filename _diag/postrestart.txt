@@ -1,0 +1,13 @@
+scene=04_DroughtChapter dirty=False playing=False
+Mesa -> OK sprite=INT32_23 pos=(5.50, 6.66, 0.00)
+Repisa_Inestable -> OK sprite=INT32_37 pos=(3.00, 13.00, 0.00)
+Cocina_Estufa -> OK sprite=INT32_268 pos=(16.50, 11.25, 0.00)
+Cocina_Meson -> OK sprite=INT32_206 pos=(14.30, 10.66, 0.00)
+Ventana_1 -> OK sprite=INT32_36 pos=(5.00, 12.47, 0.00)
+Ventana_2 -> OK sprite=INT32_36 pos=(8.00, 12.47, 0.00)
+Ventana_3 -> OK sprite=INT32_36 pos=(15.00, 12.47, 0.00)
+Puerta -> OK sprite=INT32_65 pos=(10.00, 0.88, 0.00)
+Ascensor_Decorativo -> OK sprite=INT32_72 pos=(11.50, 18.78, 0.00)
+Armario_Decorativo -> OK sprite=INT32_194 pos=(3.00, 18.22, 0.00)
+Cama -> MISSING
+Cocina_ValvulaGas -> MISSING
