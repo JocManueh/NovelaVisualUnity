@@ -1,73 +1,85 @@
-/* This sheet is scoped to the map; other screens keep their existing design. */
-#map, #map *, .map-active #topbar, .map-active #topbar * {
-    -unity-font-definition: url("/Assets/Fonts/Map/Nunito-Regular.ttf");
-    -unity-font: url("/Assets/Fonts/Map/Nunito-Regular.ttf");
-    -unity-font-style: normal;
-    letter-spacing: 0;
+/* Shared visual language with Pagina_Juego and the main menu; map only. */
+#map, #map *, .map-active #topbar *, .map-active #modal * {
+    -unity-font-definition: url("/Assets/Fonts/Menu/Poppins-Regular.ttf");
+    -unity-font: url("/Assets/Fonts/Menu/Poppins-Regular.ttf");
+    -unity-font-style: normal; letter-spacing: 0;
 }
+#map { background-color: rgba(17,24,28,0.25); }
 #map .heading, #map Button, #map .map-legend-title, .map-active #topbar Button {
-    -unity-font-definition: url("/Assets/Fonts/Map/Nunito-Bold.ttf");
-    -unity-font: url("/Assets/Fonts/Map/Nunito-Bold.ttf");
+    -unity-font-definition: url("/Assets/Fonts/Menu/Poppins-SemiBold.ttf");
+    -unity-font: url("/Assets/Fonts/Menu/Poppins-SemiBold.ttf");
     -unity-font-style: normal;
 }
 #map .map-heading {
-    top: 28px; left: 28px; max-width: 560px; padding: 26px;
-    background-color: rgb(255, 252, 245); border-radius: 24px;
-    border-color: rgb(244, 218, 187); border-top-color: rgb(239, 131, 48); border-top-width: 6px;
+    top: 28px; left: 28px; max-width: 560px; padding: 23px;
+    background-color: rgb(26,26,26); border-radius: 9px;
+    border-width: 2px; border-color: rgb(51,51,51); border-top-color: rgb(0,103,120); border-top-width: 5px;
 }
-#map .map-heading .heading { font-size: 40px; color: rgb(27, 69, 107); margin-bottom: 4px; }
-#map .map-eyebrow { font-size: 12px; color: rgb(192, 81, 31); letter-spacing: 1.4px; margin-bottom: 8px; }
-#map .map-welcome { font-size: 17px; color: rgb(78, 95, 110); white-space: normal; margin-bottom: 15px; }
-#map #map-progress { font-size: 15px; color: rgb(58, 96, 123); }
-#map .map-progress-track { background-color: rgb(234, 227, 213); height: 7px; margin-top: 8px; margin-bottom: 8px; }
-#map #map-progress-fill { background-color: rgb(241, 142, 54); height: 7px; }
-#map .map-heading .caption { font-size: 12px; color: rgb(100, 115, 122); margin: 4px 0 9px; }
-#map .map-heading .row { flex-shrink: 0; }
-#map .map-heading Button { border-radius: 16px; padding: 7px 9px; margin: 3px; min-height: 38px; font-size: 13px; }
-#map #filter-all { color: rgb(33, 93, 137); background-color: rgb(229, 241, 251); border-color: rgb(192, 220, 239); }
-#map #filter-0 { color: rgb(159, 78, 20); background-color: rgb(255, 234, 207); border-color: rgb(247, 197, 135); }
-#map #filter-1 { color: rgb(24, 102, 160); background-color: rgb(217, 239, 255); border-color: rgb(146, 202, 238); }
-#map #filter-2 { color: rgb(113, 68, 154); background-color: rgb(239, 227, 253); border-color: rgb(207, 173, 235); }
-#map #filter-3 { color: rgb(165, 56, 48); background-color: rgb(255, 226, 217); border-color: rgb(240, 164, 149); }
-#map .map-heading Button:hover { opacity: 0.8; }
-#map #filter-all.filter-active { background-color: rgb(36, 106, 165); color: white; border-color: rgb(36, 106, 165); }
-#map #filter-0.filter-active { background-color: rgb(208, 108, 25); color: white; border-color: rgb(208, 108, 25); }
-#map #filter-1.filter-active { background-color: rgb(31, 119, 181); color: white; border-color: rgb(31, 119, 181); }
-#map #filter-2.filter-active { background-color: rgb(121, 79, 165); color: white; border-color: rgb(121, 79, 165); }
-#map #filter-3.filter-active { background-color: rgb(205, 71, 55); color: white; border-color: rgb(205, 71, 55); }
+#map .map-heading .heading { font-size: 34px; color: rgb(246,246,246); margin: 3px 0 8px; }
+#map .map-eyebrow { font-size: 11px; color: rgb(134,214,228); letter-spacing: 1.4px; margin: 0 0 9px; }
+#map .map-welcome { font-size: 15px; color: rgb(226,226,226); white-space: normal; margin-bottom: 16px; }
+#map #map-progress { font-size: 13px; color: rgb(196,196,196); }
+#map .map-progress-track { background-color: rgb(51,51,51); height: 6px; margin: 9px 0; }
+#map #map-progress-fill { background-color: rgb(112,194,140); height: 6px; }
+#map .map-heading .caption { font-size: 11px; color: rgb(180,180,180); margin: 3px 0 9px; }
+#map .map-heading .row { flex-shrink: 0; height: 88px; min-height: 0; max-height: 88px; }
+#map .map-heading Button { border-radius: 5px; padding: 8px 10px; margin: 3px; min-height: 36px; font-size: 12px; border-width: 1px; color: white; }
+#map #filter-all { background-color: rgb(40,40,40); border-color: rgb(90,90,90); }
+#map #filter-0 { background-color: rgb(122,48,44); border-color: rgb(163,77,71); }
+#map #filter-1 { background-color: rgb(0,94,112); border-color: rgb(21,133,152); }
+#map #filter-2 { background-color: rgb(35,75,112); border-color: rgb(64,122,162); }
+#map #filter-3 { background-color: rgb(36,86,60); border-color: rgb(71,138,93); }
+#map #filter-all.filter-active { background-color: rgb(0,103,120); border-color: rgb(143,233,255); }
+#map #filter-0.filter-active { border-color: rgb(247,125,118); }
+#map #filter-1.filter-active { border-color: rgb(34,197,223); }
+#map #filter-2.filter-active { border-color: rgb(88,171,220); }
+#map #filter-3.filter-active { border-color: rgb(112,194,140); }
+#map .map-heading Button:hover { color: white; opacity: 0.85; }
 #map Button.marker-label {
-    width: 198px; height: 68px; min-height: 68px; padding: 10px 13px; font-size: 15px;
-    color: rgb(35, 65, 89); background-color: rgb(255, 253, 249); border-radius: 16px;
-    border-width: 2px; border-color: white; border-left-width: 6px;
+    width: 198px; height: 68px; min-height: 68px; padding: 10px 12px; font-size: 13px;
+    color: rgb(246,246,246); border-radius: 8px; border-width: 2px;
+    border-color: rgb(70,70,70); border-left-width: 5px;
 }
-#map #marker-label-0 { background-color: rgb(255, 240, 218); }
-#map #marker-label-1 { background-color: rgb(229, 244, 255); }
-#map #marker-label-2 { background-color: rgb(245, 234, 255); }
-#map #marker-label-3 { background-color: rgb(255, 233, 225); }
-#map Button.marker-label:hover { background-color: rgb(255, 224, 161); border-top-color: rgb(236, 140, 55); border-right-color: rgb(236, 140, 55); border-bottom-color: rgb(236, 140, 55); }
-#map Button.marker-label.mission-complete { background-color: rgb(230, 251, 235); color: rgb(22, 110, 63); }
-#map Button.marker-label.mission-selected { background-color: rgb(36, 93, 139); color: white; border-top-color: rgb(247, 176, 75); border-right-color: rgb(247, 176, 75); border-bottom-color: rgb(247, 176, 75); }
-#map .legend { max-width: 330px; padding: 16px 18px; background-color: rgb(255, 252, 245); border-radius: 20px; border-left-color: rgb(233, 100, 65); }
-#map .map-legend-title { color: rgb(30, 81, 119); font-size: 20px; margin-bottom: 5px; }
-#map .status-pending { color: rgb(195, 61, 49); font-size: 13px; }
-#map .status-done { color: rgb(18, 125, 65); font-size: 13px; }
-#map .legend .caption { font-size: 12px; color: rgb(90, 103, 110); }
-#map .zone-card { background-color: rgb(255, 252, 245); border-radius: 24px; border-top-color: rgb(239, 131, 48); padding: 23px; }
-#map .zone-card .heading { color: rgb(29, 75, 111); font-size: 28px; }
-#map .zone-card .body { color: rgb(54, 74, 89); font-size: 18px; }
-#map #zone-progress { color: rgb(195, 83, 33); font-size: 14px; }
-#map #enter-zone { background-color: rgb(222, 97, 47); border-color: rgb(222, 97, 47); color: white; font-size: 18px; border-radius: 16px; }
-#map #enter-zone:hover { background-color: rgb(193, 73, 32); }
-#map #close-zone { background-color: rgb(228, 240, 248); color: rgb(42, 96, 136); border-color: rgb(201, 223, 237); font-size: 13px; border-radius: 12px; }
-#map .zoom Button { background-color: rgb(35, 109, 164); border-color: rgb(35, 109, 164); color: white; border-radius: 18px; font-size: 30px; }
-#map .zoom Button:hover { background-color: rgb(225, 114, 42); border-color: rgb(225, 114, 42); }
-.map-active #topbar Button { border-radius: 16px; padding: 10px 17px; font-size: 16px; background-color: rgb(255, 252, 245); color: rgb(33, 88, 127); border-color: rgb(218, 229, 233); }
-.map-active #topbar Button:hover { background-color: rgb(224, 240, 253); }
-#map .map-attribution { font-size: 11px; color: rgb(73, 85, 94); }
+#map #marker-label-0 { background-color: rgb(122,48,44); }
+#map #marker-label-1 { background-color: rgb(0,94,112); }
+#map #marker-label-2 { background-color: rgb(35,75,112); }
+#map #marker-label-3 { background-color: rgb(36,86,60); }
+#map Button.marker-label:hover { border-top-color: rgb(143,233,255); border-right-color: rgb(143,233,255); border-bottom-color: rgb(143,233,255); }
+#map #marker-label-0.mission-complete, #map #marker-label-1.mission-complete,
+#map #marker-label-2.mission-complete, #map #marker-label-3.mission-complete { background-color: rgb(30,81,53); color: rgb(180,240,197); }
+#map #marker-label-0.mission-selected, #map #marker-label-1.mission-selected,
+#map #marker-label-2.mission-selected, #map #marker-label-3.mission-selected { background-color: rgb(0,103,120); color: white; border-top-color: rgb(143,233,255); border-right-color: rgb(143,233,255); border-bottom-color: rgb(143,233,255); }
+#map .legend { max-width: 330px; padding: 16px 18px; background-color: rgb(26,26,26); border-radius: 9px; border-width: 1px; border-color: rgb(51,51,51); border-left-width: 4px; border-left-color: rgb(137,58,53); }
+#map .map-legend-title { color: rgb(246,246,246); font-size: 17px; margin-bottom: 7px; }
+#map .status-pending { color: rgb(247,125,118); font-size: 12px; }
+#map .status-done { color: rgb(112,194,140); font-size: 12px; }
+#map .legend .caption { font-size: 11px; color: rgb(180,180,180); }
+#map .zone-card { background-color: rgb(26,26,26); border-radius: 9px; border-width: 2px; border-color: rgb(51,51,51); border-top-width: 5px; border-top-color: rgb(137,58,53); padding: 23px; width: 350px; bottom: 165px; }
+#map .zone-card .heading { color: rgb(246,246,246); font-size: 26px; margin-bottom: 12px; }
+#map .zone-card .body { color: rgb(226,226,226); font-size: 16px; }
+#map #zone-progress { color: rgb(134,214,228); font-size: 12px; margin-bottom: 14px; }
+#map #enter-zone { background-color: rgb(137,58,53); border-color: rgb(161,75,69); color: white; font-size: 16px; border-radius: 5px; }
+#map #enter-zone:hover { background-color: rgb(164,70,64); }
+#map #close-zone { background-color: rgb(0,103,120); color: white; border-color: rgb(15,127,144); font-size: 12px; border-radius: 5px; }
+#map #close-zone:hover { background-color: rgb(8,126,145); }
+#map .zoom Button { background-color: rgb(0,103,120); border-color: rgb(15,127,144); color: white; border-radius: 5px; font-size: 27px; }
+#map .zoom Button:hover { background-color: rgb(8,126,145); }
+.map-active #topbar Button { border-radius: 5px; padding: 9px 16px; font-size: 13px; background-color: rgb(26,26,26); color: rgb(226,226,226); border-color: rgb(61,61,61); min-height: 38px; }
+.map-active #topbar Button:hover { background-color: rgb(0,103,120); color: white; }
+#map .map-attribution { font-size: 10px; color: rgb(196,196,196); background-color: rgb(26,26,26); padding: 4px 8px; }
+.map-active #modal .modal-card { background-color: rgb(26,26,26); border-width: 1px; border-color: rgb(61,61,61); border-radius: 9px; }
+.map-active #modal Label { color: rgb(226,226,226); }
+.map-active #modal Button { background-color: rgb(0,103,120); border-color: rgb(15,127,144); color: white; border-radius: 5px; }
+.map-active #modal Button:hover { background-color: rgb(8,126,145); }
+.map-active #modal Button.primary { background-color: rgb(137,58,53); border-color: rgb(161,75,69); }
 .compact #map .map-heading { top: 74px; left: 12px; padding: 14px; max-width: 48%; }
 .compact #map .map-heading .heading { font-size: 26px; }
 .compact #map .map-welcome { font-size: 13px; margin-bottom: 7px; }
 .compact #map .map-heading Button { font-size: 11px; padding: 5px 7px; min-height: 29px; }
+.compact #map .map-heading .row { height: 72px; min-height: 0; max-height: 72px; }
 .compact #map .map-eyebrow { font-size: 9px; }
 .compact #map .legend { max-width: 250px; padding: 10px; }
 .compact #map .map-legend-title { font-size: 16px; }
+.compact #map .zone-card { top: 76px; bottom: 90px; right: 12px; width: 280px; padding: 12px; }
+.compact #map .zone-card .heading { font-size: 22px; }
+.compact #map .zone-card .body { font-size: 15px; }
