@@ -8,4 +8,20 @@ AnimatorOverrideController:
   m_PrefabAsset: {fileID: 0}
   m_Name: AO Adam
   m_Controller: {fileID: 9100000, guid: 138f7263da02a1940a682952ecb58cf0, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 5947fb9eae112cd42bcb93026fbadc2e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5947fb9eae112cd42bcb93026fbadc2e, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 3fe9467b64d07f945bef59693593ebf2, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 3fe9467b64d07f945bef59693593ebf2, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 6b94a1e23b2f6f5418875780e38e6fb7, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6b94a1e23b2f6f5418875780e38e6fb7, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 56b3bb461d161b448adb57f81d044d40, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 56b3bb461d161b448adb57f81d044d40, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 6482efca3ad4e9f4e9a441df2b7ed293, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6482efca3ad4e9f4e9a441df2b7ed293, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: ea7d8bb6fc1bb544089f195075d707da, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ea7d8bb6fc1bb544089f195075d707da, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 390a0dd556abb504dbb5562150612908, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 390a0dd556abb504dbb5562150612908, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: dc896ceac1e2b20498b6ed84427880c9, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: dc896ceac1e2b20498b6ed84427880c9, type: 2}

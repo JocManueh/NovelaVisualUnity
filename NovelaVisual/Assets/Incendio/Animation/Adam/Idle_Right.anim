@@ -21,7 +21,7 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 8784962720938247716, guid: 7b20bd3112fb21e4a9832549dc52d1eb, type: 3}
+      value: {fileID: -4231541304711598978, guid: 7b20bd3112fb21e4a9832549dc52d1eb, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
