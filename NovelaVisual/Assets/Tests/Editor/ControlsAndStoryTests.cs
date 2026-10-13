@@ -135,6 +135,47 @@ namespace CaliNature.Tests
 //   B4 → Cdead · B5 → Cbad · B6 → Cgood (exige clue/1, la pista de la rama By)
 // Ramas: Cgood 2/3 · Cmid 2/3 · Cbad 1/3 · Cdead 1/3. Ninguna gana siempre: con la
         // pista en la mano el jugador todavía puede perder.
+        // El test de abajo solo mira el TOTAL de resultados: 6 ganar y 6 perder.
+        // Eso NO alcanza. Con 6/6 se puede tener una opcion que gane 4 de 4 ramas
+        // (elegir siempre la misma = victoria garantizada) y aun asi cumplir el
+        // reparto. Ese fue el exploit real que hubo en el catalogo.
+        //
+        // Aqui se exige el reparto por opcion: cada choice.id debe ganar en la
+        // mitad de las ramas de cierre (2 de 4). Asi ninguna estrategia fija
+        // sirve y el jugador tiene que leer la rama en la que esta.
+        [Test] public void NoClosingChoiceIsADominantStrategy()
+        {
+            var data = JsonUtility.FromJson<StoryCatalog>(Resources.Load<TextAsset>("CaliNature/StoryCatalog").text);
+            foreach (var chapter in data.chapters)
+            {
+                // Las ramas de cierre son los nodos que empiezan por "c" (cgood_start,
+                // cmid_start, cbad_start, cdead_start). a_start/bx_start/by_start no.
+                var closingNodes = chapter.conversations
+                    .SelectMany(c => c.nodes ?? new DialogueNode[0])
+                    .Where(n => !string.IsNullOrEmpty(n.id) && n.id[0] == 'c' && n.id.EndsWith("_start"))
+                    .ToArray();
+                Assert.AreEqual(4, closingNodes.Length, chapter.id + ": se esperaban cuatro ramas de cierre.");
+
+                var winsPerChoice = new Dictionary<string, int>();
+                foreach (var node in closingNodes)
+                    foreach (var choice in node.choices ?? new DialogueChoice[0])
+                    {
+                        if (!string.Equals(choice.outcome, "win", System.StringComparison.OrdinalIgnoreCase)) continue;
+                        winsPerChoice.TryGetValue(choice.id, out var soFar);
+                        winsPerChoice[choice.id] = soFar + 1;
+                    }
+
+                Assert.AreEqual(3, winsPerChoice.Count, chapter.id + ": se esperaban tres opciones de cierre.");
+                foreach (var pair in winsPerChoice.OrderBy(p => p.Key, System.StringComparer.Ordinal))
+                {
+                    bool dominant = pair.Value > closingNodes.Length / 2;
+                    Assert.IsFalse(dominant, chapter.id + ": la opcion " + pair.Key + " gana en "
+                        + pair.Value + " de " + closingNodes.Length
+                        + " ramas de cierre. Es una estrategia dominante: el jugador puede repetirla siempre.");
+                }
+            }
+        }
+
         [Test] public void EveryChapterHasTheSameBranchingTreeAndABalancedSixSixSplit()
         {
             var data = JsonUtility.FromJson<StoryCatalog>(Resources.Load<TextAsset>("CaliNature/StoryCatalog").text);
@@ -343,6 +384,21 @@ namespace CaliNature.Tests
                     Assert.IsTrue(chapter.clues.Any(c => c.id == match.requiredClue),
                         chapter.id + "/" + branchNodeId + ": la pista '" + match.requiredClue + "' no existe en el catálogo.");
                 }
+            }
+        }
+
+        // Cada capítulo declara sus dos textos de cierre, que se muestran justo después
+        // de la última conversación y antes de volver al mapa. Están en texto de
+        // relleno: cada equipo debe escribir el suyo.
+        [Test] public void EveryChapterDeclaresBothClosingTexts()
+        {
+            var data = JsonUtility.FromJson<StoryCatalog>(Resources.Load<TextAsset>("CaliNature/StoryCatalog").text);
+            foreach (var chapter in data.chapters)
+            {
+                Assert.IsFalse(string.IsNullOrWhiteSpace(chapter.endingWin),
+                    chapter.id + ": falta el texto de cierre al ganar.");
+                Assert.IsFalse(string.IsNullOrWhiteSpace(chapter.endingLose),
+                    chapter.id + ": falta el texto de cierre al perder.");
             }
         }
 

@@ -283,11 +283,30 @@ namespace CaliNature
         {
             var card = root?.Q("cinematic-card"); if (card != null) { card.style.opacity = Mathf.Clamp01(progress * 8); card.style.translate = new Translate(0, Mathf.Lerp(24, 0, progress)); }
         }
-        public void ShowSummary(ChapterData chapter)
+        // Pantalla de cierre del capítulo. Se muestra DESPUÉS de la última conversación
+        // y ANTES de volver al mapa, tanto si se ganó como si se perdió: el título
+        // dice qué pasó y el cuerpo es el texto de cierre que escribe cada capítulo
+        // (endingWin / endingLose), con el summary del capítulo como respaldo.
+        //
+        // En una derrota ya no se listan decisiones: ClearChapter las borró al perder.
+        public void ShowSummary(ChapterData chapter, bool won)
         {
-            var text = new StringBuilder(chapter.summary + "\n\nTUS DECISIONES\n");
-            foreach (var item in session.Save.Data.decisions) if (item.key.StartsWith(chapter.id + "/", StringComparison.Ordinal)) text.AppendLine("• " + item.consequence);
-            Text("summary-title", chapter.title + " · caso completado"); Text("summary-text", text.ToString());
+            string closing = won ? chapter.endingWin : chapter.endingLose;
+            if (string.IsNullOrWhiteSpace(closing)) closing = chapter.summary;
+
+            var text = new StringBuilder(closing);
+            if (won)
+            {
+                text.AppendLine();
+                text.AppendLine(chapter.summary);
+                text.AppendLine();
+                text.AppendLine("TUS DECISIONES");
+                foreach (var item in session.Save.Data.decisions)
+                    if (item.key.StartsWith(chapter.id + "/", StringComparison.Ordinal))
+                        text.AppendLine("• " + item.consequence);
+            }
+            Text("summary-title", won ? "Ganaste el capítulo" : "Perdiste el capítulo");
+            Text("summary-text", text.ToString());
         }
         public void SetLoading(float progress) { var bar = root?.Q<ProgressBar>("load-progress"); if (bar != null) bar.value = progress * 100; }
         public void ShowLoadError(string error) { session.State.SetMode(GameMode.Map); ShowNotice("No se pudo abrir la zona. " + error); }

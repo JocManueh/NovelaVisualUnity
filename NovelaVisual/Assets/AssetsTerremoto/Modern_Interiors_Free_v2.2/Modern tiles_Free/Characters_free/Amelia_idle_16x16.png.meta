@@ -46,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -57,10 +57,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -86,7 +86,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -137,89 +137,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Amelia_idle_16x16_0
+      name: Amelia_idle_16x16_00
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 16
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 5c937e92bb0c5c300800000000000000
-      internalID: 271835262620219845
+      spriteID: 65ea87128d6001b4e8d039ddca8030e8
+      internalID: -315151124
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Amelia_idle_16x16_1
+      name: Amelia_idle_16x16_01
       rect:
         serializedVersion: 2
-        x: 15
+        x: 16
         y: 0
-        width: 18
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f2d438fa779904500800000000000000
-      internalID: 378471108023897391
+      spriteID: fb622d345387e3e489355ea0176392d7
+      internalID: 728863151
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Amelia_idle_16x16_2
+      name: Amelia_idle_16x16_02
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 16
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 15af178377fe8c560800000000000000
-      internalID: 7334375288499993169
+      spriteID: dc45c9b8f76a43a47820e306b38f0a8a
+      internalID: 204499966
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Amelia_idle_16x16_3
+      name: Amelia_idle_16x16_03
       rect:
         serializedVersion: 2
-        x: 47
+        x: 48
         y: 0
-        width: 17
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b51c09670b19a0240800000000000000
-      internalID: 4758776143359820123
+      spriteID: 9191f1045a77e174ba5cf91265754860
+      internalID: -1976491495
       vertices: []
       indices: 
       edges: []
@@ -228,7 +228,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 48cfbeff950f7ab4ba6efc802d58bf78
     internalID: 0
     vertices: []
     indices: 
@@ -239,6 +239,10 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Amelia_idle_16x16_0: 271835262620219845
+      Amelia_idle_16x16_00: -315151124
+      Amelia_idle_16x16_01: 728863151
+      Amelia_idle_16x16_02: 204499966
+      Amelia_idle_16x16_03: -1976491495
       Amelia_idle_16x16_1: 378471108023897391
       Amelia_idle_16x16_2: 7334375288499993169
       Amelia_idle_16x16_3: 4758776143359820123
