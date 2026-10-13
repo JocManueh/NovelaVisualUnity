@@ -39,6 +39,10 @@ namespace CaliNature
         // Se dispara al terminar la secuencia (o de inmediato si ya estaba hecha).
         public event Action Finished;
 
+        // Marca de "el sismo ya ocurrió" (pista guardada). La usa el puzzle para
+        // saber si debe retomarse al volver a entrar en la zona.
+        public string DoneFlag => doneFlag;
+
         private EarthquakeOverlayUI overlay;
         private GameSession session;
         private bool running;
@@ -53,6 +57,9 @@ namespace CaliNature
         {
             session = GameSession.Instance;
             if (session) session.Dialogue.Ended += OnDialogueEnded;
+            // Si el jugador salió a medias (diálogo de Bob hecho pero sismo sin
+            // ocurrir, p. ej. cerró el juego durante la cuenta), se retoma al entrar.
+            StartCoroutine(Retake());
         }
 
         private void OnDisable()
@@ -60,7 +67,16 @@ namespace CaliNature
             if (session) session.Dialogue.Ended -= OnDialogueEnded;
         }
 
-        private void OnDialogueEnded()
+        // Un frame de margen para que ZoneChapterController deje el capítulo listo.
+        private IEnumerator Retake()
+        {
+            yield return null;
+            TryRun();
+        }
+
+        private void OnDialogueEnded() { TryRun(); }
+
+        private void TryRun()
         {
             if (!session || running) return;
             var chapter = session.CurrentChapter;
@@ -83,15 +99,18 @@ namespace CaliNature
             yield return new WaitForSeconds(shakeDuration);
 
             if (shake) shake.Stop();
-            session.State.Resume();
             overlay.Hide();
 
             // Se marca como hecho al final: si se sale de la zona a medias, el
             // evento vuelve a dispararse al reabrir el diálogo de Bob.
             session.Save.AddClue(doneFlag);
 
+            // Si hay un puzzle enganchado NO se reanuda el input: el puzzle mantiene
+            // el bloqueo (su panel es modal) y lo devuelve al terminar. Sin puzzle,
+            // el control vuelve aquí mismo.
             if (puzzleOne && !puzzleOne.activeSelf) puzzleOne.SetActive(true);
             Finished?.Invoke();
+            if (puzzleOne == null) session.State.Resume();
             running = false;
         }
 

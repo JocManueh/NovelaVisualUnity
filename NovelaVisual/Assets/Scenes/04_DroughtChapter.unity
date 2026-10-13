@@ -5020,7 +5020,7 @@ MonoBehaviour:
   quakeSource: {fileID: 577631467}
   volumeScale: 1
   quakeClip: {fileID: 8300000, guid: 9f5183e43c3cf3840a971324e31713c8, type: 3}
-  puzzleOne: {fileID: 0}
+  puzzleOne: {fileID: 1122680936}
 --- !u!82 &577631467
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5272,6 +5272,56 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!1 &653895402
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 653895403}
+  - component: {fileID: 653895404}
+  m_Layer: 0
+  m_Name: Punto_Repisa
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &653895403
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653895402}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3, y: 10.6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1122680938}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &653895404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653895402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe32b49271d8ecc409a0ee99b91d4946, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CaliNature.HideSpot
+  prompt: "Esconderse aqu\xED"
+  range: 1.8
+  label: Bajo la repisa
+  correct: 0
+  wrongReason: Los objetos de la repisa pueden caerte encima.
+  hideOffset: {x: 0, y: 0.3}
 --- !u!1 &686527109
 GameObject:
   m_ObjectHideFlags: 0
@@ -5678,7 +5728,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &936547458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5992,6 +6042,68 @@ Transform:
   - {fileID: 1487263561}
   m_Father: {fileID: 512197684}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1122680936
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1122680938}
+  - component: {fileID: 1122680939}
+  m_Layer: 0
+  m_Name: Terremoto_Puzzle1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1122680938
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122680936}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1244714604}
+  - {fileID: 1242410492}
+  - {fileID: 653895403}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1122680939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122680936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64a03691eec8aca419f64d0d47c7def5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CaliNature.HidePlacePuzzle
+  quake: {fileID: 0}
+  chapterId: drought
+  solvedDecisionKey: drought/puzzle1
+  spots: []
+  title: "\xA1ESC\xD3NDETE!"
+  hint: Corre a un lugar seguro y pulsa E.
+  successMessage: "\xA1Muy bien! Bajo la mesa resistente est\xE1s a salvo."
+  revealMessage: "La respuesta correcta es \xABBajo la mesa resistente\xBB."
+  wrongFallback: Ese no es un buen lugar para esconderse.
+  maxAttempts: 3
+  feedbackSeconds: 2
+  revealSeconds: 3
+  fadeSeconds: 0.2
+  markerRadius: 0.75
+  unlockNotice: Habla con Bob.
 --- !u!1 &1156015009
 GameObject:
   m_ObjectHideFlags: 0
@@ -8254,6 +8366,106 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &1242410491
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1242410492}
+  - component: {fileID: 1242410493}
+  m_Layer: 0
+  m_Name: Punto_Ventana
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1242410492
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242410491}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8, y: 12.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1122680938}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1242410493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242410491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe32b49271d8ecc409a0ee99b91d4946, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CaliNature.HideSpot
+  prompt: "Esconderse aqu\xED"
+  range: 1.8
+  label: Junto a la ventana
+  correct: 0
+  wrongReason: Las ventanas pueden romperse durante un sismo.
+  hideOffset: {x: 0, y: 0.3}
+--- !u!1 &1244714603
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1244714604}
+  - component: {fileID: 1244714605}
+  m_Layer: 0
+  m_Name: Punto_Mesa
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1244714604
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244714603}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.5, y: 4.9, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1122680938}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1244714605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244714603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe32b49271d8ecc409a0ee99b91d4946, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CaliNature.HideSpot
+  prompt: "Esconderse aqu\xED"
+  range: 1.8
+  label: Bajo la mesa
+  correct: 1
+  wrongReason: 
+  hideOffset: {x: 0, y: 0.7}
 --- !u!1 &1271485399
 GameObject:
   m_ObjectHideFlags: 0
@@ -8335,6 +8547,69 @@ Transform:
   - {fileID: 1271485400}
   - {fileID: 1630782004}
   m_Father: {fileID: 1622312051}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1357566748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1357566750}
+  - component: {fileID: 1357566749}
+  m_Layer: 0
+  m_Name: Terremoto_Puzzle2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1357566749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357566748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d059d27c3d2e5d543b75fffe0a023c5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CaliNature.ActionOrderPuzzle
+  chapterId: drought
+  triggerDecision: drought/b2
+  solvedDecisionKey: drought/puzzle2
+  npcToActivate: {fileID: 936547457}
+  steps:
+  - Revisar si hay heridos.
+  - Cerrar la llave del gas.
+  - Usar las escaleras, no el ascensor.
+  - Ir al punto de encuentro.
+  reasons:
+  - "lo primero es saber qui\xE9n necesita ayuda"
+  - cortar el gas evita incendios o explosiones antes de moverse
+  - tras un sismo el ascensor puede fallar o quedar atrapado
+  - "al final, re\xFAnete donde el grupo acord\xF3"
+  title: "\xBFRecuerdas el orden correcto?"
+  fadeSeconds: 0.15
+  wrongSeconds: 1.8
+  wrongPrefix: Ese no es el siguiente paso.
+  unlockNotice: Ve al punto de encuentro.
+--- !u!4 &1357566750
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357566748}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1376734719
 GameObject:
@@ -12836,3 +13111,5 @@ SceneRoots:
   - {fileID: 1503534741}
   - {fileID: 936547461}
   - {fileID: 577631468}
+  - {fileID: 1122680938}
+  - {fileID: 1357566750}
