@@ -55,6 +55,7 @@
     </ui:VisualElement>
     <ui:VisualElement name="dialogue" class="screen hidden conversation-backdrop blocks-world">
       <ui:VisualElement class="dialogue-card"><ui:VisualElement class="row"><ui:Label name="speaker" class="heading" /><ui:Label name="voice-status" class="caption" /></ui:VisualElement><ui:Label name="dialogue-text" class="dialogue-text" /><ui:VisualElement name="choices" /><ui:Label name="dialogue-hint" class="caption" /><ui:VisualElement class="row"><ui:Button name="history" text="Historial" /><ui:Button name="touch-advance" text="Espacio · Avanzar" class="primary" /></ui:VisualElement></ui:VisualElement>
+      <ui:VisualElement name="portrait-frame" class="portrait-frame hidden" picking-mode="Ignore"><ui:Image name="portrait" class="portrait" scale-mode="ScaleToFit" /></ui:VisualElement>
     </ui:VisualElement>
     <ui:VisualElement name="cinematic" class="screen hidden opaque blocks-world centered"><ui:VisualElement name="cinematic-card" class="reading-card"><ui:Label text="UNA HISTORIA DE LA COMUNIDAD" class="eyebrow" /><ui:Label name="cinematic-title" class="title" /><ui:Label name="cinematic-text" class="lead" /></ui:VisualElement><ui:Button name="skip-cinematic" text="Continuar a la exploración" class="cinematic-skip" /></ui:VisualElement>
     <ui:VisualElement name="loading" class="screen hidden opaque blocks-world centered"><ui:Label text="Preparando tu visita…" class="heading" /><ui:ProgressBar name="load-progress" title="Cargando zona" low-value="0" high-value="100" /></ui:VisualElement>

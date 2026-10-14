@@ -38,6 +38,10 @@ namespace CaliNature
 
         // Se dispara al terminar la secuencia (o de inmediato si ya estaba hecha).
         public event Action Finished;
+        // Se dispara al INICIAR el temblor (después del contador, junto con la
+        // sacudida y el audio): de aquí cuelgan el rattle de la puerta y el pánico
+        // de los personajes.
+        public event Action Started;
 
         // Marca de "el sismo ya ocurrió" (pista guardada). La usa el puzzle para
         // saber si debe retomarse al volver a entrar en la zona.
@@ -95,9 +99,15 @@ namespace CaliNature
             session.State.Pause();
             CameraShake shake = BeginShake();
             PlayQuake();
+            // El temblor empieza AQUÍ: la reacción de los personajes (QuakePanic) y
+            // el rattle de la puerta arrancan al mismo tiempo que la sacudida y el
+            // audio, no durante la cuenta atrás.
+            Started?.Invoke();
 
             yield return new WaitForSeconds(shakeDuration);
 
+            // Audio del sismo debe seguir reproduciéndose hasta que se meta debajo de la mesa
+            // No se para aquí
             if (shake) shake.Stop();
             overlay.Hide();
 
@@ -111,6 +121,7 @@ namespace CaliNature
             if (puzzleOne && !puzzleOne.activeSelf) puzzleOne.SetActive(true);
             Finished?.Invoke();
             if (puzzleOne == null) session.State.Resume();
+            // Nota: el audio continúa; se detendrá cuando HidePlacePuzzle lo pare
             running = false;
         }
 
@@ -147,7 +158,10 @@ namespace CaliNature
             quakeSource.playOnAwake = false;
             quakeSource.volume = (session ? session.Save.Data.volume : 1f) * volumeScale;
             quakeSource.mute = session ? session.Save.Data.muted : false;
-            quakeSource.PlayOneShot(quakeClip);
+            if (quakeSource.isPlaying) return;
+            quakeSource.clip = quakeClip;
+            quakeSource.loop = true;
+            quakeSource.Play();
         }
     }
 }
