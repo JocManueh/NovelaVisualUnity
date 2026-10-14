@@ -38,7 +38,9 @@ namespace CaliNature
 
         // Se dispara al terminar la secuencia (o de inmediato si ya estaba hecha).
         public event Action Finished;
-        // Se dispara al iniciar la secuencia (antes del contador).
+        // Se dispara al INICIAR el temblor (después del contador, junto con la
+        // sacudida y el audio): de aquí cuelgan el rattle de la puerta y el pánico
+        // de los personajes.
         public event Action Started;
 
         // Marca de "el sismo ya ocurrió" (pista guardada). La usa el puzzle para
@@ -91,13 +93,16 @@ namespace CaliNature
         private IEnumerator Run()
         {
             running = true;
-            Started?.Invoke();
 
             yield return Countdown();
 
             session.State.Pause();
             CameraShake shake = BeginShake();
             PlayQuake();
+            // El temblor empieza AQUÍ: la reacción de los personajes (QuakePanic) y
+            // el rattle de la puerta arrancan al mismo tiempo que la sacudida y el
+            // audio, no durante la cuenta atrás.
+            Started?.Invoke();
 
             yield return new WaitForSeconds(shakeDuration);
 

@@ -184,6 +184,9 @@ namespace CaliNature
             if (qsrc2) qsrc2.Stop();
             var door2 = FindAnyObjectByType<DoorRattle>();
             if (door2) door2.enabled = false;
+            // Detener pánico al terminar sismo
+            var panics = FindObjectsByType<QuakePanic>();
+            for (int i=0;i<panics.Length;i++) panics[i].enabled = false;
             ui.MarkCorrect(spot);
             ui.SetMessage(successMessage);
             yield return new WaitForSecondsRealtime(feedbackSeconds);

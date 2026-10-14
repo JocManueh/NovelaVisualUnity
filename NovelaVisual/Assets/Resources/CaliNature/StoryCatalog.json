@@ -87,7 +87,7 @@
                 {
                   "id": "a_ack",
                   "label": "Entendido. Me cubriré bajo algo sólido, lejos de las ventanas.",
-                  "next": "",
+                  "next": "a_ok",
                   "requiredClue": "",
                   "decisionKey": "drought/a",
                   "outcome": "",
@@ -97,7 +97,7 @@
                 {
                   "id": "a_bad1",
                   "label": "Me refugiaré bajo la ventana.",
-                  "next": "",
+                  "next": "a_no_ventana",
                   "requiredClue": "",
                   "decisionKey": "drought/a_wrong",
                   "outcome": "",
@@ -107,7 +107,7 @@
                 {
                   "id": "a_bad2",
                   "label": "Me pararé en medio de la habitación.",
-                  "next": "",
+                  "next": "a_no_centro",
                   "requiredClue": "",
                   "decisionKey": "drought/a_wrong",
                   "outcome": "",
@@ -117,7 +117,7 @@
                 {
                   "id": "a_bad3",
                   "label": "Subiré las escaleras a toda prisa.",
-                  "next": "",
+                  "next": "a_no_escaleras",
                   "requiredClue": "",
                   "decisionKey": "drought/a_wrong",
                   "outcome": "",
@@ -125,6 +125,42 @@
                   "consequence": "Respuesta incorrecta: durante el temblor, lo primero es protegerse. Las escaleras se usan cuando ya terminó."
                 }
               ],
+              "portraitResource": "",
+              "voiceResource": ""
+            },
+            {
+              "id": "a_ok",
+              "speaker": "Amelia",
+              "text": "Perfecto. Agacharse, cubrirse bajo algo sólido y sujetarse, lejos de las ventanas: eso es lo que salva vidas durante un sismo.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": ""
+            },
+            {
+              "id": "a_no_ventana",
+              "speaker": "Amelia",
+              "text": "Mejor no. Las ventanas pueden romperse con el movimiento. Agáchate, cúbrete bajo algo sólido y sujétate, lejos de ellas.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": ""
+            },
+            {
+              "id": "a_no_centro",
+              "speaker": "Amelia",
+              "text": "No es seguro quedarse de pie en medio de la habitación: algo puede caer encima. Agáchate, cúbrete bajo algo sólido y sujétate, lejos de las ventanas.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": ""
+            },
+            {
+              "id": "a_no_escaleras",
+              "speaker": "Amelia",
+              "text": "Durante el temblor no corras a las escaleras: primero protégéte. Agáchate, cúbrete bajo algo sólido y sujétate. Las escaleras se usan cuando el movimiento termina.",
+              "next": "",
+              "choices": [],
               "portraitResource": "",
               "voiceResource": ""
             }
