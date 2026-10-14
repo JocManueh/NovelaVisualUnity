@@ -1223,18 +1223,52 @@
       "clues": [
         {
           "id": "flash/clue/0",
-          "title": "Secuencia del relato",
-          "text": "Las viñetas del caso, con el tiempo que tarda cada cosa.",
+          "title": "Señales de alerta",
+          "text": "Grietas nuevas en el terreno, árboles o postes inclinados, agua turbia en la quebrada y ruido de piedras son señales de que la ladera puede moverse. Esta pista es material educativo ficticio y no reemplaza las instrucciones de las autoridades.",
           "variants": [
             {
               "branch": "bx_start",
-              "title": "Secuencia del relato (Bx)",
-              "text": "Lo que quedó después de la crecida, en orden."
+              "title": "Señales de alerta",
+              "text": "La lista que Lucía anotó en la libreta: grieta en la ladera, agua turbia, árbol inclinado, piedras rodando. Es una lista del relato."
             },
             {
               "branch": "by_start",
-              "title": "Secuencia del relato (By)",
-              "text": "El croquis que rehízo el grupo con la hora de cada punto."
+              "title": "Señales de alerta",
+              "text": "La misma lista, con una nota al margen: las señales se anotan desde lejos, no se comprueban subiendo. Es una lista del relato."
+            }
+          ]
+        },
+        {
+          "id": "flash/clue/1",
+          "title": "Reportar y qué se mueve",
+          "text": "Al avisar al 123, di dónde estás con un punto de referencia, qué ves (tierra, rocas, agua), si hay casas o personas cerca y un teléfono de contacto. Esta pista es material educativo ficticio y no reemplaza las instrucciones oficiales.",
+          "variants": [
+            {
+              "branch": "bx_start",
+              "title": "Reportar y qué se mueve",
+              "text": "La ficha de reporte que Mateo lleva en el bolsillo: lugar con punto de referencia, qué material se mueve, quién está cerca y un contacto. Es una ficha del relato."
+            },
+            {
+              "branch": "by_start",
+              "title": "Reportar y qué se mueve",
+              "text": "La misma ficha, con una nota: llamar primero y alejarse, sin quedarse a mirar. Es una ficha del relato."
+            }
+          ]
+        },
+        {
+          "id": "flash/clue/2",
+          "title": "Después del deslizamiento",
+          "text": "Después de un deslizamiento puede haber nuevos desprendimientos. No regreses hasta que las autoridades lo autoricen, y no te acerques a los escombros. Esta pista es material educativo ficticio y no reemplaza las instrucciones oficiales.",
+          "variants": [
+            {
+              "branch": "bx_start",
+              "title": "Después del deslizamiento",
+              "text": "La tarjeta que repartió la junta: esperar la autorización oficial, no acercarse a los escombros y avisar si falta alguien. Es una tarjeta del relato."
+            },
+            {
+              "branch": "by_start",
+              "title": "Después del deslizamiento",
+              "text": "La tarjeta de la junta, con una nota: ninguna pertenencia vale volver a la ladera. Es una tarjeta del relato."
             }
           ]
         },
@@ -1281,38 +1315,38 @@
             {
               "id": "a_start",
               "speaker": "Lucía",
-              "text": "Soy Lucía. Caso de estudio: avenida torrencial y crecida rápida. Estás en el nodo A. Escoge entre A1, A2 y A3.",
+              "text": "Soy Lucía, de la junta del barrio. Esta mañana apareció una grieta en la ladera que está sobre la vía, y el agua de la quebrada baja turbia. Algunos vecinos dicen que es normal con las lluvias. ¿Qué hacemos?",
               "next": "",
               "choices": [
                 {
                   "id": "A3",
-                  "label": "Soy A3 y te llevo a la rama By.",
+                  "label": "Subir a la ladera a mirar las grietas de cerca, para saber si son peligrosas.",
                   "next": "a_end",
                   "requiredClue": "",
                   "decisionKey": "flash/a",
                   "outcome": "",
                   "responsible": false,
-                  "consequence": "Anotas A3 en la libreta."
+                  "consequence": "Anotas que acercarse a una ladera con grietas expone a un desprendimiento."
                 },
                 {
                   "id": "A2",
-                  "label": "Soy A2 y te llevo a la rama Bx.",
+                  "label": "Marcar la zona para que nadie pase por ahí y avisar a la junta y a las autoridades.",
                   "next": "a_end",
                   "requiredClue": "",
                   "decisionKey": "flash/a",
                   "outcome": "",
                   "responsible": true,
-                  "consequence": "Anotas A2 en la libreta."
+                  "consequence": "Anotas que señalizar la zona y avisar a las autoridades es un buen primer paso."
                 },
                 {
                   "id": "A1",
-                  "label": "Soy A1 y te llevo a la rama Bx.",
+                  "label": "Avisar a la gestión del riesgo y a los vecinos de las casas cercanas a la ladera, y alejarnos de ahí.",
                   "next": "a_end",
                   "requiredClue": "",
                   "decisionKey": "flash/a",
                   "outcome": "",
                   "responsible": true,
-                  "consequence": "Anotas A1 en la libreta."
+                  "consequence": "Anotas que las grietas y el agua turbia son señales de alerta: hay que avisar y alejarse."
                 }
               ],
               "portraitResource": "",
@@ -1321,7 +1355,7 @@
             {
               "id": "a_end",
               "speaker": "Lucía",
-              "text": "Terminaste el diálogo A. Lucía deja la libreta sobre la mesa y te dice que el que trae la razón se la sabe.",
+              "text": "Lucía anota tu respuesta en la libreta y señala la cuadra de abajo: Mateo está ahí, mirando hacia la ladera.",
               "next": "",
               "choices": [],
               "portraitResource": "",
@@ -1353,38 +1387,38 @@
             {
               "id": "bx_start",
               "speaker": "Mateo",
-              "text": "Soy Mateo. Estás en Bx, llegaste por A1 o A2. Caso: avenida torrencial y crecida rápida. Escoge entre B1, B2 y B3.",
+              "text": "Soy Mateo. Se oyen piedras rodando por la ladera y un árbol se inclinó hacia la vía. En las casas de abajo hay familias. ¿Qué hacemos?",
               "next": "",
               "choices": [
                 {
                   "id": "B3",
-                  "label": "Soy B3 y te llevo a la rama Cgood · requiere la pista.",
+                  "label": "Con la secuencia de señales que anotamos (grieta, agua turbia, piedras), llamar al 123 y llevar a las familias al punto de encuentro, lejos de la ladera y de la quebrada.",
                   "next": "b_end",
                   "requiredClue": "flash/clue/0",
                   "decisionKey": "flash/b",
                   "outcome": "",
                   "responsible": true,
-                  "consequence": "Anotas B3 en la libreta."
+                  "consequence": "Las señales anotadas permiten dar un aviso claro y evacuar a tiempo hacia un sitio seguro."
                 },
                 {
                   "id": "B1",
-                  "label": "Soy B1 y te llevo a la rama Cmid.",
+                  "label": "Llamar al 123 y ayudar a las familias a salir hacia un sitio alejado de la ladera, sin cargar muchas cosas.",
                   "next": "b_end",
                   "requiredClue": "",
                   "decisionKey": "flash/b",
                   "outcome": "",
                   "responsible": true,
-                  "consequence": "Anotas B1 en la libreta."
+                  "consequence": "Avisas y evacúas rápido, aunque sin tener claro a dónde ir."
                 },
                 {
                   "id": "B2",
-                  "label": "Soy B2 y te llevo a la rama Cbad.",
+                  "label": "Esperar a ver si dejan de caer piedras antes de molestar a nadie.",
                   "next": "b_end",
                   "requiredClue": "",
                   "decisionKey": "flash/b",
                   "outcome": "",
                   "responsible": false,
-                  "consequence": "Anotas B2 en la libreta."
+                  "consequence": "Esperar con señales de alerta le quita tiempo a la evacuación."
                 }
               ],
               "portraitResource": "",
@@ -1393,38 +1427,38 @@
             {
               "id": "by_start",
               "speaker": "Mateo",
-              "text": "Soy Mateo. Estás en By, llegaste por A3. Caso: avenida torrencial y crecida rápida. Escoge entre B4, B5 y B6.",
+              "text": "Soy Mateo. Subiste a mirar la grieta y se soltó tierra cerca de ti; bajaste corriendo. Estás bien, pero la ladera sigue soltando material y hay curiosos mirando desde la vía. ¿Qué hacemos?",
               "next": "",
               "choices": [
                 {
                   "id": "B5",
-                  "label": "Soy B5 y te llevo a la rama Cbad.",
-                  "next": "b_end",
-                  "requiredClue": "",
-                  "decisionKey": "flash/b",
-                  "outcome": "",
-                  "responsible": true,
-                  "consequence": "Anotas B5 en la libreta."
-                },
-                {
-                  "id": "B6",
-                  "label": "Soy B6 y te llevo a la rama Cgood · requiere la pista.",
-                  "next": "b_end",
-                  "requiredClue": "flash/clue/1",
-                  "decisionKey": "flash/b",
-                  "outcome": "",
-                  "responsible": true,
-                  "consequence": "Anotas B6 en la libreta."
-                },
-                {
-                  "id": "B4",
-                  "label": "Soy B4 y te llevo a la rama Cdead.",
+                  "label": "Pedirle a la gente que se aleje, pero esperar unos minutos antes de llamar.",
                   "next": "b_end",
                   "requiredClue": "",
                   "decisionKey": "flash/b",
                   "outcome": "",
                   "responsible": false,
-                  "consequence": "Anotas B4 en la libreta."
+                  "consequence": "Alejar a la gente ayuda, pero retrasar la llamada demora la respuesta de emergencia."
+                },
+                {
+                  "id": "B6",
+                  "label": "Alejarnos de la ladera y de la vía, y llamar al 123 contando que el terreno arrastra tierra y rocas y que hay casas cerca.",
+                  "next": "b_end",
+                  "requiredClue": "flash/clue/1",
+                  "decisionKey": "flash/b",
+                  "outcome": "",
+                  "responsible": true,
+                  "consequence": "El reporte explica qué se está moviendo y quién está en riesgo, y te alejas de la zona."
+                },
+                {
+                  "id": "B4",
+                  "label": "Volver a subir por el celular que se me cayó; será solo un momento.",
+                  "next": "b_end",
+                  "requiredClue": "",
+                  "decisionKey": "flash/b",
+                  "outcome": "",
+                  "responsible": false,
+                  "consequence": "Volver a una ladera que se está desprendiendo es muy peligroso."
                 }
               ],
               "portraitResource": "",
@@ -1433,7 +1467,7 @@
             {
               "id": "b_end",
               "speaker": "Mateo",
-              "text": "Terminaste el diálogo B. Mateo señala que Inés está en la puerta con la libreta.",
+              "text": "Mateo guarda el teléfono y señala la puerta: Inés espera abajo con la libreta.",
               "next": "",
               "choices": [],
               "portraitResource": "",
@@ -1480,38 +1514,38 @@
             {
               "id": "cgood_start",
               "speaker": "Inés",
-              "text": "Soy Inés. Estás en Cgood. Caso: avenida torrencial y crecida rápida. Escoge entre C1, C2 y C3.",
+              "text": "Soy Inés. La ladera cedió sobre la vía, pero todos alcanzamos a llegar al punto de encuentro. Las autoridades ya cerraron el paso. Hay vecinos que quieren volver a sus casas por sus cosas. ¿Qué hacemos?",
               "next": "",
               "choices": [
                 {
                   "id": "C1",
-                  "label": "Soy C1 y te hago ganar.",
+                  "label": "Esperar la autorización oficial para volver y no acercarnos a la zona del deslizamiento ni a los escombros.",
                   "next": "c_end",
                   "requiredClue": "",
                   "decisionKey": "flash/c",
                   "outcome": "win",
                   "responsible": true,
-                  "consequence": "Ganas el caso: la comunidad acepta tu cierre."
+                  "consequence": "La libreta anota esperar la autorización oficial y mantenerse lejos de los escombros."
                 },
                 {
                   "id": "C3",
-                  "label": "Soy C3 y te hago perder.",
+                  "label": "Volver rápido por lo más importante; el deslizamiento ya pasó.",
                   "next": "c_end",
                   "requiredClue": "",
                   "decisionKey": "flash/c",
                   "outcome": "lose",
                   "responsible": false,
-                  "consequence": "Pierdes el caso y vuelves al menú principal."
+                  "consequence": "Después de un deslizamiento puede haber nuevos desprendimientos: volver sin permiso es peligroso."
                 },
                 {
                   "id": "C2",
-                  "label": "Soy C2 y te hago ganar.",
+                  "label": "Contar quién falta y avisar a los rescatistas si alguien quedó atrapado, sin entrar a buscarlo nosotros.",
                   "next": "c_end",
                   "requiredClue": "",
                   "decisionKey": "flash/c",
                   "outcome": "win",
                   "responsible": true,
-                  "consequence": "Ganas el caso: la comunidad acepta tu cierre."
+                  "consequence": "La libreta anota hacer el conteo y dejar la búsqueda a los rescatistas."
                 }
               ],
               "portraitResource": "",
@@ -1520,38 +1554,38 @@
             {
               "id": "cmid_start",
               "speaker": "Inés",
-              "text": "Soy Inés. Estás en Cmid. Caso: avenida torrencial y crecida rápida. Escoge entre C1, C2 y C3.",
+              "text": "Soy Inés. Llamaron a tiempo y las familias salieron, pero la ladera sigue inestable y hay vecinos que quieren regresar a las casas más cercanas. ¿Qué hacemos?",
               "next": "",
               "choices": [
                 {
                   "id": "C3",
-                  "label": "Soy C3 y te hago perder.",
+                  "label": "Dejar que regresen de a poco, si ya no se oyen piedras.",
                   "next": "c_end",
                   "requiredClue": "",
                   "decisionKey": "flash/c",
                   "outcome": "lose",
                   "responsible": false,
-                  "consequence": "Pierdes el caso y vuelves al menú principal."
+                  "consequence": "Que no se oigan piedras no significa que la ladera esté estable."
                 },
                 {
                   "id": "C1",
-                  "label": "Soy C1 y te hago ganar.",
+                  "label": "Mantener a todos lejos hasta que las autoridades evalúen la ladera y autoricen el regreso.",
                   "next": "c_end",
                   "requiredClue": "",
                   "decisionKey": "flash/c",
                   "outcome": "win",
                   "responsible": true,
-                  "consequence": "Ganas el caso: la comunidad acepta tu cierre."
+                  "consequence": "La libreta anota que solo las autoridades pueden decir cuándo es seguro volver."
                 },
                 {
                   "id": "C2",
-                  "label": "Soy C2 y te hago ganar.",
+                  "label": "Hacer un conteo de personas y avisar si falta alguien, sin acercarnos a la ladera.",
                   "next": "c_end",
                   "requiredClue": "",
                   "decisionKey": "flash/c",
                   "outcome": "win",
                   "responsible": true,
-                  "consequence": "Ganas el caso: la comunidad acepta tu cierre."
+                  "consequence": "La libreta anota el conteo de personas y el aviso a los rescatistas."
                 }
               ],
               "portraitResource": "",
@@ -1560,38 +1594,38 @@
             {
               "id": "cbad_start",
               "speaker": "Inés",
-              "text": "Soy Inés. Estás en Cbad. Caso: avenida torrencial y crecida rápida. Escoge entre C1, C2 y C3.",
+              "text": "Soy Inés. Pasó una hora antes de que se avisara, y la ladera cedió sobre la vía. Que sepamos nadie salió herido, pero hay gente cerca de los escombros. ¿Qué hacemos?",
               "next": "",
               "choices": [
                 {
                   "id": "C3",
-                  "label": "Soy C3 y te hago perder.",
+                  "label": "Mover los escombros con las manos, por si hay alguien debajo.",
                   "next": "c_end",
                   "requiredClue": "",
                   "decisionKey": "flash/c",
                   "outcome": "lose",
                   "responsible": false,
-                  "consequence": "Pierdes el caso y vuelves al menú principal."
+                  "consequence": "Remover escombros sin equipo ni permiso puede provocar nuevos derrumbes."
                 },
                 {
                   "id": "C2",
-                  "label": "Soy C2 y te hago perder.",
+                  "label": "Quedarnos en las casas cercanas hasta que pase todo.",
                   "next": "c_end",
                   "requiredClue": "",
                   "decisionKey": "flash/c",
                   "outcome": "lose",
                   "responsible": false,
-                  "consequence": "Pierdes el caso y vuelves al menú principal."
+                  "consequence": "Las casas cerca de la ladera siguen en riesgo de nuevos desprendimientos."
                 },
                 {
                   "id": "C1",
-                  "label": "Soy C1 y te hago ganar.",
+                  "label": "Alejar a todos de los escombros y la ladera, llamar al 123 para reportar si hay atrapados y esperar a los rescatistas.",
                   "next": "c_end",
                   "requiredClue": "",
                   "decisionKey": "flash/c",
                   "outcome": "win",
                   "responsible": true,
-                  "consequence": "Ganas el caso: la comunidad acepta tu cierre."
+                  "consequence": "La libreta anota alejarse, reportar a posibles atrapados y esperar a los rescatistas."
                 }
               ],
               "portraitResource": "",
@@ -1600,38 +1634,38 @@
             {
               "id": "cdead_start",
               "speaker": "Inés",
-              "text": "Soy Inés. Estás en Cdead. Caso: avenida torrencial y crecida rápida. Escoge entre C1, C2 y C3.",
+              "text": "Soy Inés. Volviste a subir por el celular y te alcanzó tierra suelta; lograste bajar con raspones. Los rescatistas piden despejar la vía. ¿Qué haces?",
               "next": "",
               "choices": [
                 {
                   "id": "C2",
-                  "label": "Soy C2 y te hago perder.",
+                  "label": "Quedarme en la vía mirando el deslizamiento.",
                   "next": "c_end",
                   "requiredClue": "",
                   "decisionKey": "flash/c",
                   "outcome": "lose",
                   "responsible": false,
-                  "consequence": "Pierdes el caso y vuelves al menú principal."
+                  "consequence": "Quedarte en la vía estorba a los rescatistas y te mantiene en peligro."
                 },
                 {
                   "id": "C1",
-                  "label": "Soy C1 y te hago ganar.",
+                  "label": "Alejarme, dejar la vía libre y contarles a los rescatistas lo que vi, sin volver a subir.",
                   "next": "c_end",
                   "requiredClue": "",
                   "decisionKey": "flash/c",
                   "outcome": "win",
                   "responsible": true,
-                  "consequence": "Ganas el caso: la comunidad acepta tu cierre."
+                  "consequence": "Te alejas, dejas el paso libre y compartes lo que viste desde un lugar seguro."
                 },
                 {
                   "id": "C3",
-                  "label": "Soy C3 y te hago perder.",
+                  "label": "Volver a subir a buscar mi celular antes de que lo cubra la tierra.",
                   "next": "c_end",
                   "requiredClue": "",
                   "decisionKey": "flash/c",
                   "outcome": "lose",
                   "responsible": false,
-                  "consequence": "Pierdes el caso y vuelves al menú principal."
+                  "consequence": "Volver a la ladera te expone otra vez: ninguna pertenencia vale ese riesgo."
                 }
               ],
               "portraitResource": "",
@@ -1640,7 +1674,7 @@
             {
               "id": "c_end",
               "speaker": "Inés",
-              "text": "Terminaste el diálogo C. Inés cierra la libreta.",
+              "text": "Inés cierra la libreta y anota la última línea: nadie vuelve a la zona hasta que las autoridades lo autoricen.",
               "next": "",
               "choices": [],
               "portraitResource": "",
