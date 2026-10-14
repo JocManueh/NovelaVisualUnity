@@ -38,6 +38,8 @@ namespace CaliNature
 
         // Se dispara al terminar la secuencia (o de inmediato si ya estaba hecha).
         public event Action Finished;
+        // Se dispara al iniciar la secuencia (antes del contador).
+        public event Action Started;
 
         // Marca de "el sismo ya ocurrió" (pista guardada). La usa el puzzle para
         // saber si debe retomarse al volver a entrar en la zona.
@@ -89,6 +91,7 @@ namespace CaliNature
         private IEnumerator Run()
         {
             running = true;
+            Started?.Invoke();
 
             yield return Countdown();
 
@@ -98,6 +101,8 @@ namespace CaliNature
 
             yield return new WaitForSeconds(shakeDuration);
 
+            // Audio del sismo debe seguir reproduciéndose hasta que se meta debajo de la mesa
+            // No se para aquí
             if (shake) shake.Stop();
             overlay.Hide();
 
@@ -111,6 +116,7 @@ namespace CaliNature
             if (puzzleOne && !puzzleOne.activeSelf) puzzleOne.SetActive(true);
             Finished?.Invoke();
             if (puzzleOne == null) session.State.Resume();
+            // Nota: el audio continúa; se detendrá cuando HidePlacePuzzle lo pare
             running = false;
         }
 
@@ -147,7 +153,10 @@ namespace CaliNature
             quakeSource.playOnAwake = false;
             quakeSource.volume = (session ? session.Save.Data.volume : 1f) * volumeScale;
             quakeSource.mute = session ? session.Save.Data.muted : false;
-            quakeSource.PlayOneShot(quakeClip);
+            if (quakeSource.isPlaying) return;
+            quakeSource.clip = quakeClip;
+            quakeSource.loop = true;
+            quakeSource.Play();
         }
     }
 }

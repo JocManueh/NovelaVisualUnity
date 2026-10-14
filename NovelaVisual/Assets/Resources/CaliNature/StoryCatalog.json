@@ -93,6 +93,36 @@
                   "outcome": "",
                   "responsible": true,
                   "consequence": "Anotado: cubrirse bajo algo sólido y lejos de las ventanas."
+                },
+                {
+                  "id": "a_bad1",
+                  "label": "Me refugiaré bajo la ventana.",
+                  "next": "",
+                  "requiredClue": "",
+                  "decisionKey": "drought/a_wrong",
+                  "outcome": "",
+                  "responsible": false,
+                  "consequence": "Respuesta incorrecta: las ventanas pueden romperse durante un sismo."
+                },
+                {
+                  "id": "a_bad2",
+                  "label": "Me pararé en medio de la habitación.",
+                  "next": "",
+                  "requiredClue": "",
+                  "decisionKey": "drought/a_wrong",
+                  "outcome": "",
+                  "responsible": false,
+                  "consequence": "Respuesta incorrecta: lo seguro es cubrirse bajo algo sólido, lejos de ventanas y objetos que puedan caer."
+                },
+                {
+                  "id": "a_bad3",
+                  "label": "Subiré las escaleras a toda prisa.",
+                  "next": "",
+                  "requiredClue": "",
+                  "decisionKey": "drought/a_wrong",
+                  "outcome": "",
+                  "responsible": false,
+                  "consequence": "Respuesta incorrecta: durante el temblor, lo primero es protegerse. Las escaleras se usan cuando ya terminó."
                 }
               ],
               "portraitResource": "",
@@ -208,21 +238,21 @@
         {
           "title": "Una mañana que se movió",
           "text": "Alex visita un edificio antiguo del barrio para conocer cómo se preparan sus vecinos. De pronto, el suelo tiembla: los objetos se mueven y todos buscan dónde protegerse.",
-          "seconds": 8.117647058823529,
+          "seconds": 9.526,
           "imageResource": "",
           "voiceResource": "CaliNature/Voices/drought_cinematic_0"
         },
         {
           "title": "Cubrirse a tiempo",
           "text": "Amelia explica que, durante un sismo, lo más seguro es agacharse, cubrirse bajo algo sólido y sujetarse, lejos de las ventanas. Después vendrá el momento de actuar con calma.",
-          "seconds": 7,
+          "seconds": 6.607,
           "imageResource": "",
           "voiceResource": "CaliNature/Voices/drought_cinematic_1"
         },
         {
           "title": "Un orden que salva",
           "text": "Cuando el movimiento termina, la comunidad revisa heridos, cierra el gas y baja por las escaleras hasta el punto de encuentro. Recordar el orden correcto mantiene a todos a salvo.",
-          "seconds": 7.411764705882353,
+          "seconds": 9.071,
           "imageResource": "",
           "voiceResource": "CaliNature/Voices/drought_cinematic_2"
         }
