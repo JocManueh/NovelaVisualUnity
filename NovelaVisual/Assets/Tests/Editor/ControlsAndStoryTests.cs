@@ -133,9 +133,7 @@ namespace CaliNature.Tests
 //   A1/A2 → Bx · A3 → By
 //   B1 → Cmid · B2 → Cbad · B3 → Cgood (exige clue/0, la pista de la rama Bx)
 //   B4 → Cdead · B5 → Cbad · B6 → Cgood (exige clue/1, la pista de la rama By)
-// Ramas: Cgood 2/3 · Cmid 2/3 · Cbad 1/3 · Cdead 1/3. Ninguna gana siempre: con la
-        // pista en la mano el jugador todavía puede perder.
-        // El test de abajo solo mira el TOTAL de resultados: 6 ganar y 6 perder.
+// El test de abajo solo mira el TOTAL de resultados: 6 ganar y 6 perder.
         // Eso NO alcanza. Con 6/6 se puede tener una opcion que gane 4 de 4 ramas
         // (elegir siempre la misma = victoria garantizada) y aun asi cumplir el
         // reparto. Ese fue el exploit real que hubo en el catalogo.
@@ -156,13 +154,17 @@ namespace CaliNature.Tests
                     .ToArray();
                 Assert.AreEqual(4, closingNodes.Length, chapter.id + ": se esperaban cuatro ramas de cierre.");
 
+                // Se registran TODOS los ids, ganen o no. Contar solo los que ganan
+                // daria un falso "faltan opciones" cuando una nunca gana (que es
+                // justo el sintoma de una estrategia dominante).
                 var winsPerChoice = new Dictionary<string, int>();
                 foreach (var node in closingNodes)
                     foreach (var choice in node.choices ?? new DialogueChoice[0])
                     {
+                        if (string.IsNullOrEmpty(choice.id)) continue;
+                        if (!winsPerChoice.ContainsKey(choice.id)) winsPerChoice[choice.id] = 0;
                         if (!string.Equals(choice.outcome, "win", System.StringComparison.OrdinalIgnoreCase)) continue;
-                        winsPerChoice.TryGetValue(choice.id, out var soFar);
-                        winsPerChoice[choice.id] = soFar + 1;
+                        winsPerChoice[choice.id] = winsPerChoice[choice.id] + 1;
                     }
 
                 Assert.AreEqual(3, winsPerChoice.Count, chapter.id + ": se esperaban tres opciones de cierre.");

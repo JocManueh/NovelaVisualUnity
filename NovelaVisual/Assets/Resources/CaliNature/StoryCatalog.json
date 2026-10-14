@@ -297,12 +297,12 @@
             {
               "branch": "bx_start",
               "title": "Croquis a mano",
-              "text": "El croquis que llevaba Lucía. Además de dónde dobla el cauce tiene una raya de dos inviernos atrás. No dice a qué altura, pero sí dónde mirar primero."
+              "text": "El croquis que llevaba Ana. Además de dónde dobla el cauce tiene una raya de dos inviernos atrás. No dice a qué altura, pero sí dónde mirar primero."
             },
             {
               "branch": "by_start",
               "title": "Croquis a mano",
-              "text": "El mismo croquis, pero hoy la raya que marca el agua queda rodeada de casas nuevas. Dónde mirar ya no es la pregunta: es quién vive ahí."
+              "text": "Croquis de la iniciativa: señala dónde dobla el cauce y dónde había llegado el agua en tiempos pasados. Ese borde hoy queda rodeado de casas nuevas: ahí la pregunta ya no es dónde mirar, sino quién vive."
             }
           ]
         },
@@ -325,18 +325,18 @@
         },
         {
           "id": "flood/clue/2",
-          "title": "Testimonio de Lucía",
+          "title": "Testimonio de Ana",
           "text": "Su experiencia ayuda a preguntar mejor; no sustituye un estudio ni una instrucción oficial.",
           "variants": [
             {
               "branch": "bx_start",
-              "title": "Testimonio de Lucía",
-              "text": "Lo que Lucía cuenta del día que se fue el agua: empezó por la calle de arriba, no por el río."
+              "title": "Testimonio de Ana",
+              "text": "Lo que Ana cuenta del día que se fue el agua: empezó por la calle de arriba, no por el río."
             },
             {
               "branch": "by_start",
-              "title": "Testimonio de Lucía",
-              "text": "La misma tarde, contada por el vecino que cerró a tiempo: el agua nunca llegó a su cuadra."
+              "title": "Testimonio de Ana",
+              "text": "Un vecino que alcanzó a cerrar a tiempo cuenta la tarde de otra manera: a su cuadra el agua nunca llegó."
             }
           ]
         }
@@ -348,8 +348,8 @@
           "nodes": [
             {
               "id": "a_start",
-              "speaker": "Lucía",
-              "text": "Soy Lucía, de la iniciativa del barrio. El río volvió a subir y ya circulan tres versiones de lo que pasó. Una foto de la margen mojada anda como si probara que la zona se inundó. ¿Por dónde empezamos?",
+              "speaker": "Ana",
+              "text": "Soy Ana, de la iniciativa del barrio. El río volvió a subir y ya circulan tres versiones de lo que pasó. Una foto de la margen mojada anda como si probara que la zona se inundó. ¿Por dónde empezamos?",
               "next": "",
               "choices": [
                 {
@@ -388,8 +388,8 @@
             },
             {
               "id": "a_end",
-              "speaker": "Lucía",
-              "text": "Terminaste el diálogo A. Lucía deja la libreta sobre la mesa y te dice que el que trae la razón se la sabe.",
+              "speaker": "Ana",
+              "text": "Ana deja la libreta abierta sobre la mesa. Te pide que solo anotes lo que se pueda comprobar, aunque quede poco.",
               "next": "",
               "choices": [],
               "portraitResource": "",
@@ -420,8 +420,8 @@
           "nodes": [
             {
               "id": "bx_start",
-              "speaker": "Mateo",
-              "text": "Soy Mateo, de la cuadra de abajo. Lucía me contó por dónde ibas a empezar. Yo no tengo ni el plano ni el aviso; lo que tengo es lo que vi desde el patio.",
+              "speaker": "Santiago",
+              "text": "Soy Santiago, de la cuadra de abajo. Ana me contó por dónde ibas a empezar. Yo no tengo ni el plano ni el aviso; lo que tengo es lo que vi desde el patio.",
               "next": "",
               "choices": [
                 {
@@ -460,8 +460,8 @@
             },
             {
               "id": "by_start",
-              "speaker": "Mateo",
-              "text": "Soy Mateo. Lucía ya avisó y media cuadra sacó cajas al patio. Yo no vi subir el agua; vi a la gente mover cosas. ¿Qué hacemos ahora?",
+              "speaker": "Santiago",
+              "text": "Soy Santiago. Ana ya avisó y media cuadra sacó cajas al patio. Yo no vi subir el agua; vi a la gente mover cosas. ¿Qué hacemos ahora?",
               "next": "",
               "choices": [
                 {
@@ -500,8 +500,8 @@
             },
             {
               "id": "b_end",
-              "speaker": "Mateo",
-              "text": "Terminaste el diálogo B. Mateo señala que Inés está en la puerta con la libreta.",
+              "speaker": "Santiago",
+              "text": "Santiago dobla el papel y lo guarda en el bolsillo. Dice que Carmen está afuera con la libreta, esperando.",
               "next": "",
               "choices": [],
               "portraitResource": "",
@@ -547,8 +547,8 @@
           "nodes": [
             {
               "id": "cgood_start",
-              "speaker": "Inés",
-              "text": "Soy Inés. Llevo la libreta del proyecto. Escribamos lo que le sirva a la gente mañana, no lo que nos quede bien a nosotros.",
+              "speaker": "Carmen",
+              "text": "Soy Carmen. Llevo la libreta de la iniciativa. Escribamos lo que le sirva a la gente mañana, no lo que nos quede bien a nosotros.",
               "next": "",
               "choices": [
                 {
@@ -587,8 +587,8 @@
             },
             {
               "id": "cmid_start",
-              "speaker": "Inés",
-              "text": "Soy Inés. Llegaron las alturas que anotó cada cuadra. Salieron desigualadas, pero son nuestras. ¿Cómo las dejamos?",
+              "speaker": "Carmen",
+              "text": "Soy Carmen. Llegaron las alturas que anotó cada cuadra. Salieron desigualadas, pero son nuestras. ¿Cómo las dejamos?",
               "next": "",
               "choices": [
                 {
@@ -627,8 +627,8 @@
             },
             {
               "id": "cbad_start",
-              "speaker": "Inés",
-              "text": "Soy Inés. Ya está cerrado el paso y la gente pregunta si se puede volver a la casa. Tengo que escribir algo hoy. ¿Qué pongo?",
+              "speaker": "Carmen",
+              "text": "Soy Carmen. Ya está cerrado el paso y la gente pregunta si se puede volver a la casa. Tengo que escribir algo hoy. ¿Qué pongo?",
               "next": "",
               "choices": [
                 {
@@ -667,8 +667,8 @@
             },
             {
               "id": "cdead_start",
-              "speaker": "Inés",
-              "text": "Soy Inés. Tú y Mateo bajaron a la orilla. Nadie los vio cruzar, pero ya corre el rumor de que el agua llegó a la calle. ¿Qué escribo?",
+              "speaker": "Carmen",
+              "text": "Soy Carmen. Tú y Santiago bajaron a la orilla. Nadie los vio cruzar, pero ya corre el rumor de que el agua llegó a la calle. ¿Qué escribo?",
               "next": "",
               "choices": [
                 {
@@ -707,8 +707,8 @@
             },
             {
               "id": "c_end",
-              "speaker": "Inés",
-              "text": "Terminaste el diálogo C. Inés cierra la libreta.",
+              "speaker": "Carmen",
+              "text": "Carmen cierra la libreta y la deja encima de la mesa. Afuera ya está empezando a oscurecer.",
               "next": "",
               "choices": [],
               "portraitResource": "",
@@ -723,21 +723,21 @@
           "text": "La comunidad se reúne a partir de un episodio de lluvias. Las conversaciones se realizan lejos de las áreas expuestas.",
           "seconds": 7,
           "imageResource": "",
-          "voiceResource": "CaliNature/Voices/flood_cinematic_0"
+          "voiceResource": ""
         },
         {
           "title": "Escuchar desde un lugar seguro",
-          "text": "Lucía trae un boletín y una libreta. Alex compara sus fechas antes de compartirlos con el grupo.",
+          "text": "Ana trae un boletín y una libreta. Alex compara sus fechas antes de compartirlos con el grupo.",
           "seconds": 7,
           "imageResource": "",
-          "voiceResource": "CaliNature/Voices/flood_cinematic_1"
+          "voiceResource": ""
         },
         {
           "title": "El mapa no lo dice todo",
-          "text": "Un punto de color en un mapa puede parecer una respuesta definitiva. Inés recuerda que primero hay que entender qué representa.",
+          "text": "Un punto de color en un mapa puede parecer una respuesta definitiva. Carmen recuerda que primero hay que entender qué representa.",
           "seconds": 7.470588235294118,
           "imageResource": "",
-          "voiceResource": "CaliNature/Voices/flood_cinematic_2"
+          "voiceResource": ""
         }
       ],
       "npcSprites": [
