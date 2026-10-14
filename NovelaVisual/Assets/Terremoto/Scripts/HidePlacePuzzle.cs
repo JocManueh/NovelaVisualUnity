@@ -178,6 +178,12 @@ namespace CaliNature
         {
             HidePlayer(spot);
             FreezePlayer(true);
+            // Detener audio del sismo al meterse debajo de la mesa
+            var esc2 = FindAnyObjectByType<EarthquakeSequenceController>();
+            var qsrc2 = esc2 ? esc2.GetComponent<AudioSource>() : null;
+            if (qsrc2) qsrc2.Stop();
+            var door2 = FindAnyObjectByType<DoorRattle>();
+            if (door2) door2.enabled = false;
             ui.MarkCorrect(spot);
             ui.SetMessage(successMessage);
             yield return new WaitForSecondsRealtime(feedbackSeconds);

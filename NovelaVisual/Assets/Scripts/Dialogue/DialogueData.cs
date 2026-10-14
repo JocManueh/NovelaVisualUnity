@@ -44,6 +44,9 @@ namespace CaliNature
     [Serializable] public sealed class ChapterData
     {
         public string id, title, subtitle, phenomenon, period, objective, description, summary, sceneName;
+        // Línea de ayuda que acompaña al objetivo en el HUD (arriba a la izquierda).
+        // Vacía = el juego usa su texto genérico ("reúne pistas y conversa").
+        public string objectiveHint;
         public string[] sources;
         public ClueData[] clues;
         // SIEMPRE exactamente 3, en orden A, B, C. El índice lo usa npcIndex en la escena.

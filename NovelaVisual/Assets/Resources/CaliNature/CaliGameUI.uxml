@@ -48,7 +48,7 @@
       <ui:VisualElement class="zoom blocks-world"><ui:Button name="zoom-in" text="+" /><ui:Button name="zoom-out" text="−" /></ui:VisualElement>
     </ui:VisualElement>
     <ui:VisualElement name="hud" class="screen hidden" picking-mode="Ignore">
-      <ui:VisualElement class="objective blocks-world"><ui:Label name="chapter-name" class="heading" /><ui:Label name="objective" class="body" /><ui:Label text="Reúne 3 pistas y conversa con 3 personas. Puedes elegir el orden." class="caption" /><ui:Button name="back-map" text="Regresar al mapa" /></ui:VisualElement>
+      <ui:VisualElement class="objective blocks-world"><ui:Label name="chapter-name" class="heading" /><ui:Label name="objective" class="body" /><ui:Label name="objective-hint" text="Reúne 3 pistas y conversa con 3 personas. Puedes elegir el orden." class="caption" /><ui:Button name="back-map" text="Regresar al mapa" /></ui:VisualElement>
       <ui:Label name="interaction-prompt" class="interaction blocks-world" />
       <ui:VisualElement class="touch-controls blocks-world"><ui:Button name="move-up" text="W ↑" /><ui:VisualElement class="row"><ui:Button name="move-left" text="A ←" /><ui:Button name="move-down" text="S ↓" /><ui:Button name="move-right" text="D →" /></ui:VisualElement></ui:VisualElement>
       <ui:Button name="touch-interact" text="E · Interactuar" class="touch-interact blocks-world primary" />
