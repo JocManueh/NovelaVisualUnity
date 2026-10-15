@@ -14,7 +14,7 @@ namespace CaliNature
 
         private void Start()
         {
-            controller = FindFirstObjectByType<EarthquakeSequenceController>();
+            controller = FindAnyObjectByType<EarthquakeSequenceController>();
             if (controller == null) return;
             controller.Started += OnStarted;
             controller.Finished += OnFinished;

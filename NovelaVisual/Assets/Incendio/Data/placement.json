@@ -1,0 +1,1905 @@
+{
+ "ppu": {
+  "base_map": 40,
+  "sprites": 48
+ },
+ "map": {
+  "sprite": "Pixel-Art City Block and Park Map",
+  "width_units": 44.35,
+  "height_units": 22.175,
+  "center": [
+   0,
+   0
+  ]
+ },
+ "walkable": {
+  "x0": -20.23,
+  "x1": 20.38,
+  "y_top": 1.14,
+  "y_bottom": -8.01
+ },
+ "adam_and_mainentry": [
+  -12.0,
+  -3.0
+ ],
+ "npcs": {
+  "Lucia": [
+   -15.0,
+   -1.5
+  ],
+  "Mateo": [
+   0.0,
+   -3.5
+  ],
+  "Ines": [
+   14.0,
+   -3.5
+  ]
+ },
+ "clues": {
+  "Pista_1": [
+   -9.0,
+   -3.0
+  ],
+  "Pista_2": [
+   -6.0,
+   -3.0
+  ],
+  "Pista_3": [
+   -2.5,
+   -3.0
+  ]
+ },
+ "foci": [
+  {
+   "name": "Foco_Fuego_01",
+   "pos": [
+    -8.0,
+    -0.5
+   ],
+   "activeFromLevel": 1,
+   "groundPatch": "GroundPatches/burnt_patch_01"
+  },
+  {
+   "name": "Foco_Fuego_02",
+   "pos": [
+    6.0,
+    -0.5
+   ],
+   "activeFromLevel": 2,
+   "groundPatch": "GroundPatches/burnt_patch_02"
+  },
+  {
+   "name": "Foco_Fuego_03",
+   "pos": [
+    9.0,
+    -6.5
+   ],
+   "activeFromLevel": 3,
+   "groundPatch": "GroundPatches/burnt_patch_03"
+  },
+  {
+   "name": "Foco_Fuego_04",
+   "pos": [
+    -14.0,
+    -6.5
+   ],
+   "activeFromLevel": 3,
+   "groundPatch": "GroundPatches/burnt_patch_01"
+  }
+ ],
+ "burn": {
+  "dryRadius": [
+   0,
+   9,
+   13,
+   18
+  ],
+  "burnRadius": [
+   0,
+   4,
+   7,
+   10
+  ],
+  "dryTint": [
+   1.0,
+   0.86,
+   0.62
+  ]
+ },
+ "items": [
+  {
+   "name": "Arbusto_01",
+   "kind": "bush",
+   "pos": [
+    3.14,
+    -2.26
+   ],
+   "sprites": [
+    "Bushes/bush_big_01_ok",
+    "Bushes/bush_big_01_dry",
+    "Bushes/bush_big_01_burnt"
+   ],
+   "scales": [
+    1.0,
+    1.02,
+    1.0
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Arbusto_02",
+   "kind": "bush",
+   "pos": [
+    -6.2,
+    -0.61
+   ],
+   "sprites": [
+    "Bushes/bush_big_06_ok",
+    "Bushes/bush_big_06_dry",
+    "Bushes/bush_big_06_burnt"
+   ],
+   "scales": [
+    1.0,
+    0.99,
+    1.03
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Arbusto_03",
+   "kind": "bush",
+   "pos": [
+    1.84,
+    -0.11
+   ],
+   "sprites": [
+    "Bushes/bush_mid_05_ok",
+    "Bushes/bush_mid_05_dry",
+    "Bushes/bush_mid_05_burnt"
+   ],
+   "scales": [
+    1.0,
+    0.96,
+    0.89
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Arbusto_04",
+   "kind": "bush",
+   "pos": [
+    2.07,
+    -4.54
+   ],
+   "sprites": [
+    "Bushes/plant_03_ok",
+    "Bushes/plant_03_dry",
+    "Bushes/plant_03_burnt"
+   ],
+   "scales": [
+    1.0,
+    0.94,
+    0.98
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Arbusto_05",
+   "kind": "bush",
+   "pos": [
+    -9.73,
+    0.24
+   ],
+   "sprites": [
+    "Bushes/bush_big_03_ok",
+    "Bushes/bush_big_03_dry",
+    "Bushes/bush_big_03_burnt"
+   ],
+   "scales": [
+    1.0,
+    1.0,
+    1.02
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Arbusto_06",
+   "kind": "bush",
+   "pos": [
+    18.56,
+    0.53
+   ],
+   "sprites": [
+    "Bushes/bush_mid_02_ok",
+    "Bushes/bush_mid_02_dry",
+    "Bushes/bush_mid_02_burnt"
+   ],
+   "scales": [
+    1.0,
+    1.06,
+    1.06
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Arbusto_07",
+   "kind": "bush",
+   "pos": [
+    -3.59,
+    0.43
+   ],
+   "sprites": [
+    "Bushes/bush_mid_07_ok",
+    "Bushes/bush_mid_07_dry",
+    "Bushes/bush_mid_07_burnt"
+   ],
+   "scales": [
+    1.0,
+    1.04,
+    0.92
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Arbusto_08",
+   "kind": "bush",
+   "pos": [
+    1.39,
+    -1.99
+   ],
+   "sprites": [
+    "Bushes/plant_05_ok",
+    "Bushes/plant_05_dry",
+    "Bushes/plant_05_burnt"
+   ],
+   "scales": [
+    1.0,
+    0.93,
+    0.98
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Arbusto_09",
+   "kind": "bush",
+   "pos": [
+    7.46,
+    -5.44
+   ],
+   "sprites": [
+    "Bushes/bush_big_05_ok",
+    "Bushes/bush_big_05_dry",
+    "Bushes/bush_big_05_burnt"
+   ],
+   "scales": [
+    1.0,
+    1.04,
+    1.02
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Arbusto_10",
+   "kind": "bush",
+   "pos": [
+    15.47,
+    -7.34
+   ],
+   "sprites": [
+    "Bushes/bush_mid_04_ok",
+    "Bushes/bush_mid_04_dry",
+    "Bushes/bush_mid_04_burnt"
+   ],
+   "scales": [
+    1.0,
+    0.95,
+    0.92
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Arbusto_11",
+   "kind": "bush",
+   "pos": [
+    -14.43,
+    0.58
+   ],
+   "sprites": [
+    "Bushes/plant_02_ok",
+    "Bushes/plant_02_dry",
+    "Bushes/plant_02_burnt"
+   ],
+   "scales": [
+    1.0,
+    0.81,
+    0.86
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Arbusto_12",
+   "kind": "bush",
+   "pos": [
+    -7.42,
+    -4.44
+   ],
+   "sprites": [
+    "Bushes/bush_big_02_ok",
+    "Bushes/bush_big_02_dry",
+    "Bushes/bush_big_02_burnt"
+   ],
+   "scales": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Arbusto_13",
+   "kind": "bush",
+   "pos": [
+    16.18,
+    -3.53
+   ],
+   "sprites": [
+    "Bushes/bush_mid_01_ok",
+    "Bushes/bush_mid_01_dry",
+    "Bushes/bush_mid_01_burnt"
+   ],
+   "scales": [
+    1.0,
+    0.98,
+    0.92
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Arbusto_14",
+   "kind": "bush",
+   "pos": [
+    8.15,
+    0.12
+   ],
+   "sprites": [
+    "Bushes/bush_mid_06_ok",
+    "Bushes/bush_mid_06_dry",
+    "Bushes/bush_mid_06_burnt"
+   ],
+   "scales": [
+    1.0,
+    0.94,
+    0.95
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Arbusto_15",
+   "kind": "bush",
+   "pos": [
+    -13.1,
+    -4.59
+   ],
+   "sprites": [
+    "Bushes/plant_04_ok",
+    "Bushes/plant_04_dry",
+    "Bushes/plant_04_burnt"
+   ],
+   "scales": [
+    1.0,
+    1.0,
+    1.05
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Arbusto_16",
+   "kind": "bush",
+   "pos": [
+    -19.02,
+    0.49
+   ],
+   "sprites": [
+    "Bushes/bush_big_04_ok",
+    "Bushes/bush_big_04_dry",
+    "Bushes/bush_big_04_burnt"
+   ],
+   "scales": [
+    1.0,
+    1.06,
+    1.02
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Arbusto_17",
+   "kind": "bush",
+   "pos": [
+    10.76,
+    -7.25
+   ],
+   "sprites": [
+    "Bushes/bush_mid_03_ok",
+    "Bushes/bush_mid_03_dry",
+    "Bushes/bush_mid_03_burnt"
+   ],
+   "scales": [
+    1.0,
+    1.02,
+    0.94
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Arbusto_18",
+   "kind": "bush",
+   "pos": [
+    -10.3,
+    -1.6
+   ],
+   "sprites": [
+    "Bushes/plant_01_ok",
+    "Bushes/plant_01_dry",
+    "Bushes/plant_01_burnt"
+   ],
+   "scales": [
+    1.0,
+    1.08,
+    1.13
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Arbusto_19",
+   "kind": "bush",
+   "pos": [
+    4.4,
+    -4.9
+   ],
+   "sprites": [
+    "Bushes/bush_big_01_ok",
+    "Bushes/bush_big_01_dry",
+    "Bushes/bush_big_01_burnt"
+   ],
+   "scales": [
+    1.0,
+    1.02,
+    1.0
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Arbusto_20",
+   "kind": "bush",
+   "pos": [
+    -9.02,
+    -5.56
+   ],
+   "sprites": [
+    "Bushes/bush_big_06_ok",
+    "Bushes/bush_big_06_dry",
+    "Bushes/bush_big_06_burnt"
+   ],
+   "scales": [
+    1.0,
+    0.99,
+    1.03
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Arbusto_21",
+   "kind": "bush",
+   "pos": [
+    -1.39,
+    -7.31
+   ],
+   "sprites": [
+    "Bushes/bush_mid_05_ok",
+    "Bushes/bush_mid_05_dry",
+    "Bushes/bush_mid_05_burnt"
+   ],
+   "scales": [
+    1.0,
+    0.96,
+    0.89
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Tronco_01",
+   "kind": "log",
+   "pos": [
+    -4.85,
+    -5.43
+   ],
+   "sprites": [
+    "Logs/log_01_ok",
+    "Logs/log_01_ok",
+    "Logs/log_01_burnt"
+   ],
+   "scales": [
+    1.0,
+    1.0,
+    0.8
+   ],
+   "collider": null,
+   "tintDry": [
+    1.0,
+    0.86,
+    0.62
+   ]
+  },
+  {
+   "name": "Tronco_02",
+   "kind": "log",
+   "pos": [
+    -2.4,
+    -0.86
+   ],
+   "sprites": [
+    "Logs/log_02_ok",
+    "Logs/log_02_ok",
+    "Logs/log_02_burnt"
+   ],
+   "scales": [
+    1.0,
+    1.0,
+    0.8
+   ],
+   "collider": null,
+   "tintDry": [
+    1.0,
+    0.86,
+    0.62
+   ]
+  },
+  {
+   "name": "Tronco_03",
+   "kind": "log",
+   "pos": [
+    -4.45,
+    -1.44
+   ],
+   "sprites": [
+    "Logs/log_03_ok",
+    "Logs/log_03_ok",
+    "Logs/log_03_burnt"
+   ],
+   "scales": [
+    1.0,
+    1.0,
+    0.83
+   ],
+   "collider": null,
+   "tintDry": [
+    1.0,
+    0.86,
+    0.62
+   ]
+  },
+  {
+   "name": "Banca_Lucia",
+   "kind": "prop",
+   "pos": [
+    -17.44,
+    -3.37
+   ],
+   "sprites": [
+    "Props/bench"
+   ],
+   "scales": [
+    1.0
+   ],
+   "collider": {
+    "size": [
+     2.4,
+     0.35
+    ],
+    "offset": [
+     0,
+     0.2
+    ]
+   },
+   "tintDry": null
+  },
+  {
+   "name": "Barrera_Ines",
+   "kind": "prop",
+   "pos": [
+    11.88,
+    -5.8
+   ],
+   "sprites": [
+    "Props/barrier"
+   ],
+   "scales": [
+    1.0
+   ],
+   "collider": {
+    "size": [
+     1.8,
+     0.3
+    ],
+    "offset": [
+     0,
+     0.18
+    ]
+   },
+   "tintDry": null
+  },
+  {
+   "name": "CajaElectrica_Ines",
+   "kind": "prop",
+   "pos": [
+    17.98,
+    -5.3
+   ],
+   "sprites": [
+    "Props/electric_box"
+   ],
+   "scales": [
+    1.0
+   ],
+   "collider": {
+    "size": [
+     1.6,
+     0.45
+    ],
+    "offset": [
+     0,
+     0.22
+    ]
+   },
+   "tintDry": null
+  },
+  {
+   "name": "Caneca_Lucia",
+   "kind": "prop",
+   "pos": [
+    -18.98,
+    -2.75
+   ],
+   "sprites": [
+    "Props/trash_bin"
+   ],
+   "scales": [
+    1.0
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Cono_Ines_2",
+   "kind": "prop",
+   "pos": [
+    13.47,
+    -6.3
+   ],
+   "sprites": [
+    "Props/cone"
+   ],
+   "scales": [
+    1.0
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Hidrante_Ines",
+   "kind": "prop",
+   "pos": [
+    16.38,
+    -5.7
+   ],
+   "sprites": [
+    "Props/hydrant"
+   ],
+   "scales": [
+    1.0
+   ],
+   "collider": {
+    "size": [
+     0.5,
+     0.35
+    ],
+    "offset": [
+     0,
+     0.2
+    ]
+   },
+   "tintDry": null
+  },
+  {
+   "name": "Valla_Ines",
+   "kind": "prop",
+   "pos": [
+    17.75,
+    -1.12
+   ],
+   "sprites": [
+    "Props/fence_chainlink_long"
+   ],
+   "scales": [
+    1.0
+   ],
+   "collider": {
+    "size": [
+     4.8,
+     0.35
+    ],
+    "offset": [
+     0,
+     0.2
+    ]
+   },
+   "tintDry": null
+  },
+  {
+   "name": "Valla_Mateo",
+   "kind": "prop",
+   "pos": [
+    4.07,
+    -0.44
+   ],
+   "sprites": [
+    "Props/fence_chainlink_short"
+   ],
+   "scales": [
+    1.0
+   ],
+   "collider": {
+    "size": [
+     2.0,
+     0.35
+    ],
+    "offset": [
+     0,
+     0.2
+    ]
+   },
+   "tintDry": null
+  },
+  {
+   "name": "Roca_01",
+   "kind": "rock",
+   "pos": [
+    -2.3,
+    -5.55
+   ],
+   "sprites": [
+    "Rocks/rock_01"
+   ],
+   "scales": [
+    1.0
+   ],
+   "collider": {
+    "size": [
+     0.9,
+     0.35
+    ],
+    "offset": [
+     0,
+     0.18
+    ]
+   },
+   "tintDry": null
+  },
+  {
+   "name": "Roca_02",
+   "kind": "rock",
+   "pos": [
+    12.98,
+    -0.24
+   ],
+   "sprites": [
+    "Rocks/rock_02"
+   ],
+   "scales": [
+    1.0
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Roca_03",
+   "kind": "rock",
+   "pos": [
+    -12.58,
+    -0.19
+   ],
+   "sprites": [
+    "Rocks/rock_03"
+   ],
+   "scales": [
+    1.0
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Roca_04",
+   "kind": "rock",
+   "pos": [
+    11.91,
+    -2.78
+   ],
+   "sprites": [
+    "Rocks/rock_04"
+   ],
+   "scales": [
+    1.0
+   ],
+   "collider": {
+    "size": [
+     0.9,
+     0.35
+    ],
+    "offset": [
+     0,
+     0.18
+    ]
+   },
+   "tintDry": null
+  },
+  {
+   "name": "Roca_05",
+   "kind": "rock",
+   "pos": [
+    -17.63,
+    -0.7
+   ],
+   "sprites": [
+    "Rocks/rock_05"
+   ],
+   "scales": [
+    1.0
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Roca_06",
+   "kind": "rock",
+   "pos": [
+    9.85,
+    -0.14
+   ],
+   "sprites": [
+    "Rocks/rock_01"
+   ],
+   "scales": [
+    1.0
+   ],
+   "collider": {
+    "size": [
+     0.9,
+     0.35
+    ],
+    "offset": [
+     0,
+     0.18
+    ]
+   },
+   "tintDry": null
+  },
+  {
+   "name": "Arbol_01",
+   "kind": "tree",
+   "pos": [
+    -10.98,
+    -6.44
+   ],
+   "sprites": [
+    "Trees/tree_ok_01",
+    "Trees/tree_ok_01",
+    "BurntTrees/tree_burnt_02"
+   ],
+   "scales": [
+    1.0,
+    1.0,
+    0.9
+   ],
+   "collider": {
+    "size": [
+     0.8,
+     0.45
+    ],
+    "offset": [
+     0,
+     0.22
+    ]
+   },
+   "tintDry": [
+    1.0,
+    0.86,
+    0.62
+   ]
+  },
+  {
+   "name": "Arbol_02",
+   "kind": "tree",
+   "pos": [
+    -18.87,
+    -5.15
+   ],
+   "sprites": [
+    "Trees/palm_ok_01",
+    "Trees/palm_ok_01",
+    "BurntTrees/tree_burnt_04"
+   ],
+   "scales": [
+    1.0,
+    1.0,
+    0.89
+   ],
+   "collider": {
+    "size": [
+     0.5,
+     0.4
+    ],
+    "offset": [
+     0,
+     0.2
+    ]
+   },
+   "tintDry": [
+    1.0,
+    0.86,
+    0.62
+   ]
+  },
+  {
+   "name": "Arbol_03",
+   "kind": "tree",
+   "pos": [
+    -17.12,
+    -7.35
+   ],
+   "sprites": [
+    "Trees/tree_ok_03",
+    "Trees/tree_ok_03",
+    "BurntTrees/tree_burnt_06"
+   ],
+   "scales": [
+    1.0,
+    1.0,
+    0.93
+   ],
+   "collider": {
+    "size": [
+     0.8,
+     0.45
+    ],
+    "offset": [
+     0,
+     0.22
+    ]
+   },
+   "tintDry": [
+    1.0,
+    0.86,
+    0.62
+   ]
+  },
+  {
+   "name": "Arbol_04",
+   "kind": "tree",
+   "pos": [
+    -7.11,
+    -6.98
+   ],
+   "sprites": [
+    "Trees/palm_ok_02",
+    "Trees/palm_ok_02",
+    "BurntTrees/tree_burnt_02"
+   ],
+   "scales": [
+    1.0,
+    1.0,
+    0.85
+   ],
+   "collider": {
+    "size": [
+     0.5,
+     0.4
+    ],
+    "offset": [
+     0,
+     0.2
+    ]
+   },
+   "tintDry": [
+    1.0,
+    0.86,
+    0.62
+   ]
+  },
+  {
+   "name": "Arbol_05",
+   "kind": "tree",
+   "pos": [
+    -15.45,
+    -5.35
+   ],
+   "sprites": [
+    "Trees/tree_ok_05",
+    "Trees/tree_ok_05",
+    "BurntTrees/tree_burnt_04"
+   ],
+   "scales": [
+    1.0,
+    1.0,
+    0.87
+   ],
+   "collider": {
+    "size": [
+     0.8,
+     0.45
+    ],
+    "offset": [
+     0,
+     0.22
+    ]
+   },
+   "tintDry": [
+    1.0,
+    0.86,
+    0.62
+   ]
+  },
+  {
+   "name": "Arbol_06",
+   "kind": "tree",
+   "pos": [
+    -3.55,
+    -7.35
+   ],
+   "sprites": [
+    "Trees/tree_ok_06",
+    "Trees/tree_ok_06",
+    "BurntTrees/tree_burnt_06"
+   ],
+   "scales": [
+    1.0,
+    1.0,
+    0.87
+   ],
+   "collider": {
+    "size": [
+     0.8,
+     0.45
+    ],
+    "offset": [
+     0,
+     0.22
+    ]
+   },
+   "tintDry": [
+    1.0,
+    0.86,
+    0.62
+   ]
+  },
+  {
+   "name": "Arbol_07",
+   "kind": "tree",
+   "pos": [
+    2.79,
+    -6.95
+   ],
+   "sprites": [
+    "Trees/tree_ok_07",
+    "Trees/tree_ok_07",
+    "BurntTrees/tree_burnt_02"
+   ],
+   "scales": [
+    1.0,
+    1.0,
+    0.86
+   ],
+   "collider": {
+    "size": [
+     0.8,
+     0.45
+    ],
+    "offset": [
+     0,
+     0.22
+    ]
+   },
+   "tintDry": [
+    1.0,
+    0.86,
+    0.62
+   ]
+  },
+  {
+   "name": "Arbol_08",
+   "kind": "tree",
+   "pos": [
+    5.66,
+    -6.96
+   ],
+   "sprites": [
+    "Trees/tree_ok_01",
+    "Trees/tree_ok_01",
+    "BurntTrees/tree_burnt_04"
+   ],
+   "scales": [
+    1.0,
+    1.0,
+    0.87
+   ],
+   "collider": {
+    "size": [
+     0.8,
+     0.45
+    ],
+    "offset": [
+     0,
+     0.22
+    ]
+   },
+   "tintDry": [
+    1.0,
+    0.86,
+    0.62
+   ]
+  },
+  {
+   "name": "Arbol_09",
+   "kind": "tree",
+   "pos": [
+    6.38,
+    -2.42
+   ],
+   "sprites": [
+    "Trees/tree_ok_02",
+    "Trees/tree_ok_02",
+    "BurntTrees/tree_burnt_06"
+   ],
+   "scales": [
+    1.0,
+    1.0,
+    0.9
+   ],
+   "collider": {
+    "size": [
+     0.8,
+     0.45
+    ],
+    "offset": [
+     0,
+     0.22
+    ]
+   },
+   "tintDry": [
+    1.0,
+    0.86,
+    0.62
+   ]
+  },
+  {
+   "name": "Arbol_10",
+   "kind": "tree",
+   "pos": [
+    9.8,
+    -2.33
+   ],
+   "sprites": [
+    "Trees/tree_ok_03",
+    "Trees/tree_ok_03",
+    "BurntTrees/tree_burnt_02"
+   ],
+   "scales": [
+    1.0,
+    1.0,
+    0.93
+   ],
+   "collider": {
+    "size": [
+     0.8,
+     0.45
+    ],
+    "offset": [
+     0,
+     0.22
+    ]
+   },
+   "tintDry": [
+    1.0,
+    0.86,
+    0.62
+   ]
+  },
+  {
+   "name": "Arbol_11",
+   "kind": "tree",
+   "pos": [
+    18.93,
+    -7.38
+   ],
+   "sprites": [
+    "Trees/tree_ok_04",
+    "Trees/tree_ok_04",
+    "BurntTrees/tree_burnt_04"
+   ],
+   "scales": [
+    1.0,
+    1.0,
+    0.88
+   ],
+   "collider": {
+    "size": [
+     0.8,
+     0.45
+    ],
+    "offset": [
+     0,
+     0.22
+    ]
+   },
+   "tintDry": [
+    1.0,
+    0.86,
+    0.62
+   ]
+  },
+  {
+   "name": "Arbol_12",
+   "kind": "tree",
+   "pos": [
+    19.07,
+    -3.48
+   ],
+   "sprites": [
+    "Trees/tree_ok_05",
+    "Trees/tree_ok_05",
+    "BurntTrees/tree_burnt_06"
+   ],
+   "scales": [
+    1.0,
+    1.0,
+    0.9
+   ],
+   "collider": {
+    "size": [
+     0.8,
+     0.45
+    ],
+    "offset": [
+     0,
+     0.22
+    ]
+   },
+   "tintDry": [
+    1.0,
+    0.86,
+    0.62
+   ]
+  },
+  {
+   "name": "Hierba_01",
+   "kind": "tuft",
+   "pos": [
+    15.23,
+    -4.91
+   ],
+   "sprites": [
+    "Grass/tuft_01_ok",
+    "Grass/tuft_01_dry",
+    "Grass/tuft_01_burnt"
+   ],
+   "scales": [
+    1.0,
+    1.0,
+    0.9
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Hierba_02",
+   "kind": "tuft",
+   "pos": [
+    -7.86,
+    -2.34
+   ],
+   "sprites": [
+    "Grass/tuft_02_ok",
+    "Grass/tuft_02_dry",
+    "Grass/tuft_02_burnt"
+   ],
+   "scales": [
+    1.0,
+    1.02,
+    0.89
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Hierba_03",
+   "kind": "tuft",
+   "pos": [
+    -1.37,
+    0.28
+   ],
+   "sprites": [
+    "Grass/tuft_03_ok",
+    "Grass/tuft_03_dry",
+    "Grass/tuft_03_burnt"
+   ],
+   "scales": [
+    1.0,
+    1.03,
+    0.93
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Hierba_04",
+   "kind": "tuft",
+   "pos": [
+    17.16,
+    -2.71
+   ],
+   "sprites": [
+    "Grass/tuft_04_ok",
+    "Grass/tuft_04_dry",
+    "Grass/tuft_04_burnt"
+   ],
+   "scales": [
+    1.0,
+    1.21,
+    1.03
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Hierba_05",
+   "kind": "tuft",
+   "pos": [
+    13.34,
+    -4.91
+   ],
+   "sprites": [
+    "Grass/tuft_05_ok",
+    "Grass/tuft_05_dry",
+    "Grass/tuft_05_burnt"
+   ],
+   "scales": [
+    1.0,
+    1.11,
+    0.95
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Hierba_06",
+   "kind": "tuft",
+   "pos": [
+    11.57,
+    -1.02
+   ],
+   "sprites": [
+    "Grass/tuft_06_ok",
+    "Grass/tuft_06_dry",
+    "Grass/tuft_06_burnt"
+   ],
+   "scales": [
+    1.0,
+    0.97,
+    0.92
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Hierba_07",
+   "kind": "tuft",
+   "pos": [
+    -11.02,
+    -0.5
+   ],
+   "sprites": [
+    "Grass/tuft_07_ok",
+    "Grass/tuft_07_dry",
+    "Grass/tuft_07_burnt"
+   ],
+   "scales": [
+    1.0,
+    0.98,
+    0.86
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Hierba_08",
+   "kind": "tuft",
+   "pos": [
+    -4.87,
+    0.76
+   ],
+   "sprites": [
+    "Grass/tuft_01_ok",
+    "Grass/tuft_01_dry",
+    "Grass/tuft_01_burnt"
+   ],
+   "scales": [
+    1.0,
+    1.0,
+    0.9
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Hierba_09",
+   "kind": "tuft",
+   "pos": [
+    16.46,
+    -1.01
+   ],
+   "sprites": [
+    "Grass/tuft_02_ok",
+    "Grass/tuft_02_dry",
+    "Grass/tuft_02_burnt"
+   ],
+   "scales": [
+    1.0,
+    1.02,
+    0.89
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Hierba_10",
+   "kind": "tuft",
+   "pos": [
+    -3.55,
+    -3.02
+   ],
+   "sprites": [
+    "Grass/tuft_03_ok",
+    "Grass/tuft_03_dry",
+    "Grass/tuft_03_burnt"
+   ],
+   "scales": [
+    1.0,
+    1.03,
+    0.93
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Hierba_11",
+   "kind": "tuft",
+   "pos": [
+    -6.3,
+    -1.92
+   ],
+   "sprites": [
+    "Grass/tuft_04_ok",
+    "Grass/tuft_04_dry",
+    "Grass/tuft_04_burnt"
+   ],
+   "scales": [
+    1.0,
+    1.21,
+    1.03
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Hierba_12",
+   "kind": "tuft",
+   "pos": [
+    1.11,
+    -6.06
+   ],
+   "sprites": [
+    "Grass/tuft_05_ok",
+    "Grass/tuft_05_dry",
+    "Grass/tuft_05_burnt"
+   ],
+   "scales": [
+    1.0,
+    1.11,
+    0.95
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Hierba_13",
+   "kind": "tuft",
+   "pos": [
+    -13.7,
+    -1.55
+   ],
+   "sprites": [
+    "Grass/tuft_06_ok",
+    "Grass/tuft_06_dry",
+    "Grass/tuft_06_burnt"
+   ],
+   "scales": [
+    1.0,
+    0.97,
+    0.92
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Hierba_14",
+   "kind": "tuft",
+   "pos": [
+    14.21,
+    -1.68
+   ],
+   "sprites": [
+    "Grass/tuft_07_ok",
+    "Grass/tuft_07_dry",
+    "Grass/tuft_07_burnt"
+   ],
+   "scales": [
+    1.0,
+    0.98,
+    0.86
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Hierba_15",
+   "kind": "tuft",
+   "pos": [
+    12.97,
+    -1.66
+   ],
+   "sprites": [
+    "Grass/tuft_01_ok",
+    "Grass/tuft_01_dry",
+    "Grass/tuft_01_burnt"
+   ],
+   "scales": [
+    1.0,
+    1.0,
+    0.9
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Hierba_16",
+   "kind": "tuft",
+   "pos": [
+    -6.08,
+    -4.97
+   ],
+   "sprites": [
+    "Grass/tuft_02_ok",
+    "Grass/tuft_02_dry",
+    "Grass/tuft_02_burnt"
+   ],
+   "scales": [
+    1.0,
+    1.02,
+    0.89
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Hierba_17",
+   "kind": "tuft",
+   "pos": [
+    12.04,
+    -7.24
+   ],
+   "sprites": [
+    "Grass/tuft_03_ok",
+    "Grass/tuft_03_dry",
+    "Grass/tuft_03_burnt"
+   ],
+   "scales": [
+    1.0,
+    1.03,
+    0.93
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Hierba_18",
+   "kind": "tuft",
+   "pos": [
+    -8.96,
+    -6.92
+   ],
+   "sprites": [
+    "Grass/tuft_04_ok",
+    "Grass/tuft_04_dry",
+    "Grass/tuft_04_burnt"
+   ],
+   "scales": [
+    1.0,
+    1.21,
+    1.03
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Hierba_19",
+   "kind": "tuft",
+   "pos": [
+    8.12,
+    -2.88
+   ],
+   "sprites": [
+    "Grass/tuft_05_ok",
+    "Grass/tuft_05_dry",
+    "Grass/tuft_05_burnt"
+   ],
+   "scales": [
+    1.0,
+    1.11,
+    0.95
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Hierba_20",
+   "kind": "tuft",
+   "pos": [
+    11.3,
+    0.01
+   ],
+   "sprites": [
+    "Grass/tuft_06_ok",
+    "Grass/tuft_06_dry",
+    "Grass/tuft_06_burnt"
+   ],
+   "scales": [
+    1.0,
+    0.97,
+    0.92
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Hierba_21",
+   "kind": "tuft",
+   "pos": [
+    0.73,
+    0.8
+   ],
+   "sprites": [
+    "Grass/tuft_07_ok",
+    "Grass/tuft_07_dry",
+    "Grass/tuft_07_burnt"
+   ],
+   "scales": [
+    1.0,
+    0.98,
+    0.86
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Hierba_22",
+   "kind": "tuft",
+   "pos": [
+    13.24,
+    -2.72
+   ],
+   "sprites": [
+    "Grass/tuft_01_ok",
+    "Grass/tuft_01_dry",
+    "Grass/tuft_01_burnt"
+   ],
+   "scales": [
+    1.0,
+    1.0,
+    0.9
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Hierba_23",
+   "kind": "tuft",
+   "pos": [
+    -17.17,
+    -4.83
+   ],
+   "sprites": [
+    "Grass/tuft_02_ok",
+    "Grass/tuft_02_dry",
+    "Grass/tuft_02_burnt"
+   ],
+   "scales": [
+    1.0,
+    1.02,
+    0.89
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Hierba_24",
+   "kind": "tuft",
+   "pos": [
+    -17.75,
+    -2.03
+   ],
+   "sprites": [
+    "Grass/tuft_03_ok",
+    "Grass/tuft_03_dry",
+    "Grass/tuft_03_burnt"
+   ],
+   "scales": [
+    1.0,
+    1.03,
+    0.93
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Hierba_25",
+   "kind": "tuft",
+   "pos": [
+    -14.44,
+    -3.93
+   ],
+   "sprites": [
+    "Grass/tuft_04_ok",
+    "Grass/tuft_04_dry",
+    "Grass/tuft_04_burnt"
+   ],
+   "scales": [
+    1.0,
+    1.21,
+    1.03
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Hierba_26",
+   "kind": "tuft",
+   "pos": [
+    14.9,
+    -5.84
+   ],
+   "sprites": [
+    "Grass/tuft_05_ok",
+    "Grass/tuft_05_dry",
+    "Grass/tuft_05_burnt"
+   ],
+   "scales": [
+    1.0,
+    1.11,
+    0.95
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Hierba_27",
+   "kind": "tuft",
+   "pos": [
+    4.69,
+    -2.18
+   ],
+   "sprites": [
+    "Grass/tuft_06_ok",
+    "Grass/tuft_06_dry",
+    "Grass/tuft_06_burnt"
+   ],
+   "scales": [
+    1.0,
+    0.97,
+    0.92
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Hierba_28",
+   "kind": "tuft",
+   "pos": [
+    -1.06,
+    -0.54
+   ],
+   "sprites": [
+    "Grass/tuft_07_ok",
+    "Grass/tuft_07_dry",
+    "Grass/tuft_07_burnt"
+   ],
+   "scales": [
+    1.0,
+    0.98,
+    0.86
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Hierba_29",
+   "kind": "tuft",
+   "pos": [
+    14.76,
+    -4.21
+   ],
+   "sprites": [
+    "Grass/tuft_01_ok",
+    "Grass/tuft_01_dry",
+    "Grass/tuft_01_burnt"
+   ],
+   "scales": [
+    1.0,
+    1.0,
+    0.9
+   ],
+   "collider": null,
+   "tintDry": null
+  },
+  {
+   "name": "Hierba_30",
+   "kind": "tuft",
+   "pos": [
+    7.32,
+    -7.38
+   ],
+   "sprites": [
+    "Grass/tuft_02_ok",
+    "Grass/tuft_02_dry",
+    "Grass/tuft_02_burnt"
+   ],
+   "scales": [
+    1.0,
+    1.02,
+    0.89
+   ],
+   "collider": null,
+   "tintDry": null
+  }
+ ]
+}

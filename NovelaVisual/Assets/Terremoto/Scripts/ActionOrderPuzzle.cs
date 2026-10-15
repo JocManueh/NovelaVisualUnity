@@ -136,6 +136,7 @@ namespace CaliNature
                 int picked = pendingPick;
                 if (picked == correct)
                 {
+                    FeedbackAudioPlayer.Correct();
                     correct++;
                     if (correct >= steps.Length) break;      // orden completo
                     BuildPanel();
@@ -143,6 +144,7 @@ namespace CaliNature
                 }
                 else
                 {
+                    FeedbackAudioPlayer.Wrong();
                     panel.ShowFeedback(WrongMessage());
                     yield return new WaitForSecondsRealtime(wrongSeconds);
                     correct = 0;                              // se reinicia el orden

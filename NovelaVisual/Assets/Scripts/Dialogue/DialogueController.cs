@@ -124,6 +124,7 @@ namespace CaliNature
             // ya respondido, la PRIMERA respuesta es la que cuenta y no se pisa.
             save.RecordDecision(choice);
             history.Add("Tú: " + choice.label);
+            PlayAnswerFeedback(node, choice);
 
             // Si la opción trae "win"/"lose", se avisa a GameSession para que resuelva
             // el capítulo cuando este diálogo termine. Las opciones de A y B van con
@@ -133,6 +134,26 @@ namespace CaliNature
             lastAdvanceFrame = Time.frameCount;
             ShowNode(choice.next);
         }
+
+        // Sonido de acierto/fallo SOLO cuando el nodo es una PREGUNTA: tiene a
+        // la vez opciones correctas (responsible) e incorrectas. Un nodo cuyas
+        // opciones son todas "responsables" (p. ej. la confirmación de Bob) no
+        // es acertar ni fallar, así que no suena.
+        private void PlayAnswerFeedback(DialogueNode question, DialogueChoice chosen)
+        {
+            if (question == null || question.choices == null) return;
+            bool hasCorrect = false, hasWrong = false;
+            for (int i = 0; i < question.choices.Length; i++)
+            {
+                DialogueChoice option = question.choices[i];
+                if (option == null) continue;
+                if (option.responsible) hasCorrect = true; else hasWrong = true;
+            }
+            if (!hasCorrect || !hasWrong) return;
+            if (chosen != null && chosen.responsible) FeedbackAudioPlayer.Correct();
+            else FeedbackAudioPlayer.Wrong();
+        }
+
         private void Finish()
         {
             narration.Stop(); node = null; conversation = null;

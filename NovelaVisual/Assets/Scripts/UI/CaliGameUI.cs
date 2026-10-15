@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -18,6 +19,21 @@ namespace CaliNature
         private bool tutorial;
         private DialogueNode displayedNode;
         private CaliMapConnections mapConnections;
+        // ── RETRATO DEL INTERLOCUTOR ────────────────────────────────────────
+        // Ilustración que aparece a la derecha del cuadro mientras alguien habla.
+        // El nodo puede fijar su propia ruta en `portraitResource`; si viene vacía
+        // se resuelve por el nombre del hablante con este mapa. Un hablante sin
+        // retrato conserva el comportamiento actual: no se muestra ninguna imagen.
+        private VisualElement portraitFrame;
+        private UnityEngine.UIElements.Image portrait;
+        private string portraitPath;
+        private readonly Dictionary<string, Sprite> portraitCache = new Dictionary<string, Sprite>();
+        private static readonly Dictionary<string, string> portraitBySpeaker = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+        {
+            { "Amelia", "CaliNature/Portraits/amelia_portrait" },
+            { "Adam", "CaliNature/Portraits/adam_portrait" },
+            { "Bob", "CaliNature/Portraits/bob_portrait" },
+        };
         private readonly string[] mapNames = { "Terremoto", "Inundación", "Incendio forestal", "Deslizamientos" };
         private readonly string[] screenNames = { "menu", "intro", "map", "hud", "dialogue", "cinematic", "loading", "summary" };
         private void Awake()
@@ -43,6 +59,11 @@ namespace CaliNature
         {
             session = GetComponent<GameSession>(); root = document.rootVisualElement;
             if (root == null || root.Q("menu") == null) { Debug.LogError("Falta la interfaz CaliGameUI.uxml o CaliPanelSettings.asset."); return; }
+            portraitFrame = root.Q("portrait-frame");
+            portrait = root.Q<UnityEngine.UIElements.Image>("portrait");
+            // "Contain": la imagen se escala manteniendo su proporción, sin deformarse
+            // ni recortar al personaje. (También viene fijado en la UXML.)
+            if (portrait != null) portrait.scaleMode = ScaleMode.ScaleToFit;
             root.pickingMode = PickingMode.Position;
             root.focusable = true; root.tabIndex = -1;
             root.RegisterCallback<GeometryChangedEvent>(_ => root.EnableInClassList("compact", root.layout.height < 650 || root.layout.width < 1000));
@@ -63,6 +84,11 @@ namespace CaliNature
             root.RegisterCallback<NavigationSubmitEvent>(e => e.StopImmediatePropagation(), TrickleDown.TrickleDown);
             root.RegisterCallback<KeyDownEvent>(e => { session.Input.KeyPressed(e.keyCode); if (e.keyCode == KeyCode.Space || e.keyCode == KeyCode.E) e.StopImmediatePropagation(); }, TrickleDown.TrickleDown);
             root.RegisterCallback<KeyUpEvent>(e => session.Input.KeyReleased(e.keyCode), TrickleDown.TrickleDown);
+            // Sonido de clic en TODOS los botones de la UI: los del UXML y los
+            // creados en runtime (opciones de diálogo y del puzzle). Se captura
+            // en la raíz, en fase trickle-down, y se sube por los padres hasta
+            // encontrar el botón pulsado.
+            root.RegisterCallback<ClickEvent>(OnButtonClick, TrickleDown.TrickleDown);
             root.Query<Button>().ForEach(button => button.focusable = false);
             Bind("new-game", () => { session.Narration.UnlockAudio(); if (session.Save.HasSave) OpenReset(); else session.StartIntroduction(); });
             Bind("continue", () => session.OpenMap());
@@ -121,6 +147,19 @@ namespace CaliNature
                 label.style.top = Mathf.Clamp((1 - point.y) * root.layout.height + radius + 14, 8, Mathf.Max(8, root.layout.height - 82));
             }
             mapConnections.MarkDirtyRepaint();
+        }
+        // Reproduce el sonido de clic cuando el clic cae dentro de un botón
+        // habilitado. Cualquier clic que no sea sobre un botón se ignora.
+        private void OnButtonClick(ClickEvent evt)
+        {
+            for (VisualElement element = evt.target as VisualElement; element != null; element = element.parent)
+            {
+                if (element is Button button)
+                {
+                    if (button.enabledSelf) FeedbackAudioPlayer.Click();
+                    return;
+                }
+            }
         }
         private void Bind(string name, Action action) { var button = root.Q<Button>(name); if (button != null) button.clicked += () => { action(); root.Focus(); }; }
         private Vector2 ScreenPoint(Vector2 panelPoint)
@@ -248,6 +287,7 @@ namespace CaliNature
             if (root == null || !session) return;
             var dialogue = session.Dialogue; var node = dialogue.Current;
             if (node == null) return;
+            UpdatePortrait(node);
             Text("speaker", node.speaker);
             // Text remains visible when no recorded voice exists: never turn a missing recording into an inaccessible blank line.
             bool readable = session.Save.Data.subtitles || !session.Narration.HasClip;
@@ -269,6 +309,49 @@ namespace CaliNature
             }
             if (!dialogue.ShowingChoices) choices.Clear();
             root.Q<Button>("touch-advance").SetEnabled(!dialogue.ShowingChoices);
+        }
+        // ── RETRATO ─────────────────────────────────────────────────────────
+        // Prioridad: la ruta propia del nodo (portraitResource) y, si está vacía,
+        // el mapa por nombre de hablante. Devuelve "" cuando ese hablante no tiene
+        // retrato (p. ej. "Coordinadora"), en cuyo caso no se muestra nada.
+        private static string ResolvePortraitPath(DialogueNode node)
+        {
+            if (node == null) return "";
+            if (!string.IsNullOrEmpty(node.portraitResource)) return node.portraitResource;
+            string speaker = node.speaker == null ? "" : node.speaker.Trim();
+            return portraitBySpeaker.TryGetValue(speaker, out string path) ? path : "";
+        }
+        private void UpdatePortrait(DialogueNode node)
+        {
+            if (portraitFrame == null || portrait == null) return;
+            string path = ResolvePortraitPath(node);
+            if (path == portraitPath) return; // mismo interlocutor: no se toca la imagen
+            portraitPath = path;
+            portrait.sprite = null; portrait.image = null;
+            if (!string.IsNullOrEmpty(path))
+            {
+                Sprite sprite = LoadPortrait(path);
+                if (sprite != null) portrait.sprite = sprite;
+                else
+                {
+                    // Respaldo por si el PNG no está importado como Sprite.
+                    var texture = Resources.Load<Texture2D>(path);
+                    if (texture != null) portrait.image = texture;
+                    else Debug.LogWarning("Cali: falta el retrato '" + path + "'.");
+                }
+            }
+            bool visible = portrait.sprite != null || portrait.image != null;
+            portraitFrame.style.display = visible ? DisplayStyle.Flex : DisplayStyle.None;
+        }
+        private Sprite LoadPortrait(string resource)
+        {
+            if (portraitCache.TryGetValue(resource, out Sprite cached)) return cached;
+            // Los retratos se importan como Sprite (modo Multiple): LoadAll devuelve el
+            // sprite ajustado al personaje; Load cubre el caso de un sprite único.
+            var sprites = Resources.LoadAll<Sprite>(resource);
+            Sprite sprite = sprites != null && sprites.Length > 0 ? sprites[0] : Resources.Load<Sprite>(resource);
+            portraitCache[resource] = sprite;
+            return sprite;
         }
         private void OpenModal(string title, string text, string kind)
         {

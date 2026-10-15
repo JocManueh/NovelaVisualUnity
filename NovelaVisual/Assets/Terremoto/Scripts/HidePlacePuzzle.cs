@@ -103,8 +103,9 @@ namespace CaliNature
         {
             if (!active || busy || spot == null) return;
 
-            if (spot.IsCorrect) { busy = true; StartCoroutine(Win(spot)); return; }
+            if (spot.IsCorrect) { FeedbackAudioPlayer.Correct(); busy = true; StartCoroutine(Win(spot)); return; }
 
+            FeedbackAudioPlayer.Wrong();
             attempts++;
             if (attempts >= maxAttempts) { busy = true; StartCoroutine(Reveal()); return; }
 
@@ -184,6 +185,9 @@ namespace CaliNature
             if (qsrc2) qsrc2.Stop();
             var door2 = FindAnyObjectByType<DoorRattle>();
             if (door2) door2.enabled = false;
+            // Detener pánico al terminar sismo
+            var panics = FindObjectsByType<QuakePanic>();
+            for (int i=0;i<panics.Length;i++) panics[i].enabled = false;
             ui.MarkCorrect(spot);
             ui.SetMessage(successMessage);
             yield return new WaitForSecondsRealtime(feedbackSeconds);
