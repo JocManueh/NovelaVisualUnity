@@ -125,10 +125,24 @@ namespace CaliNature
         // final por calidad de decisión en lugar de por ruta.
         public bool responsible;
 
-        // "win" / "lose" / vacío (""). SOLO los nodos de cierre del NPC C (Cgood, Cmid,
-        // Cbad, Cdead) llevan valor. GameSession.ResolveOutcome lo lee al terminar
-        // el diálogo para completar o borrar el capítulo.
+        // "win" / "lose" / vacío (""). SOLO los nodos de cierre del NPC C llevan
+        // valor. GameSession.ResolveOutcome lo lee al terminar el diálogo para
+        // completar o borrar el capítulo.
         public string outcome;
+
+        // ── EL FINAL, UNO POR DECISIÓN ───────────────────────────────────────
+        // `consequence` es una línea: lo que hiciste. Estos dos campos son lo que
+        // pasó DESPUÉS, y son distintos en cada una de las doce decisiones de
+        // cierre. Es lo que el jugador lee al terminar el capítulo, así que cada
+        // final tiene que contar su propio desenlace y no uno genérico.
+        //
+        // endingTitle es el encabezado de la pantalla de cierre. Si va vacío se
+        // usa "Ganaste el capítulo" / "Perdiste el capítulo". Si endingText
+        // también va vacío se recurre a ChapterData.endingWin / endingLose.
+        //
+        // Solo las opciones de cierre los usan; en el resto van vacíos.
+        public string endingTitle;
+        public string endingText;
     }
 
     // ── CONVERSACIÓN ────────────────────────────────────────────────────────

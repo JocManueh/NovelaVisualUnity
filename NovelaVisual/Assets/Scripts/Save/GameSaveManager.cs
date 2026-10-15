@@ -4,7 +4,14 @@ using UnityEngine;
 
 namespace CaliNature
 {
-    [Serializable] public sealed class DecisionRecord { public string key, choice, consequence; public bool responsible; }
+    [Serializable] public sealed class DecisionRecord
+    {
+        public string key, choice, consequence;
+        // El desenlace propio de esa decisión. Se copia desde la opción para que
+        // la pantalla de cierre pueda mostrarlo aunque el catálogo cambie después.
+        public string endingTitle, endingText;
+        public bool responsible;
+    }
     [Serializable] public sealed class SaveData
     {
         public int version = 1;
@@ -48,7 +55,7 @@ namespace CaliNature
         public bool RecordDecision(DialogueChoice choice)
         {
             if (string.IsNullOrEmpty(choice.decisionKey) || Data.decisions.Exists(x => x.key == choice.decisionKey)) return false;
-            Data.decisions.Add(new DecisionRecord { key = choice.decisionKey, choice = choice.id, consequence = choice.consequence, responsible = choice.responsible });
+            Data.decisions.Add(new DecisionRecord { key = choice.decisionKey, choice = choice.id, consequence = choice.consequence, endingTitle = choice.endingTitle, endingText = choice.endingText, responsible = choice.responsible });
             Store(); return true;
         }
         public void MarkHeard(string id) { if (!string.IsNullOrEmpty(id) && !Data.heardNarrations.Contains(id)) { Data.heardNarrations.Add(id); Store(); } }
