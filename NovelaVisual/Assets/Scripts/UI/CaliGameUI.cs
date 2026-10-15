@@ -84,6 +84,11 @@ namespace CaliNature
             root.RegisterCallback<NavigationSubmitEvent>(e => e.StopImmediatePropagation(), TrickleDown.TrickleDown);
             root.RegisterCallback<KeyDownEvent>(e => { session.Input.KeyPressed(e.keyCode); if (e.keyCode == KeyCode.Space || e.keyCode == KeyCode.E) e.StopImmediatePropagation(); }, TrickleDown.TrickleDown);
             root.RegisterCallback<KeyUpEvent>(e => session.Input.KeyReleased(e.keyCode), TrickleDown.TrickleDown);
+            // Sonido de clic en TODOS los botones de la UI: los del UXML y los
+            // creados en runtime (opciones de diálogo y del puzzle). Se captura
+            // en la raíz, en fase trickle-down, y se sube por los padres hasta
+            // encontrar el botón pulsado.
+            root.RegisterCallback<ClickEvent>(OnButtonClick, TrickleDown.TrickleDown);
             root.Query<Button>().ForEach(button => button.focusable = false);
             Bind("new-game", () => { session.Narration.UnlockAudio(); if (session.Save.HasSave) OpenReset(); else session.StartIntroduction(); });
             Bind("continue", () => session.OpenMap());
@@ -142,6 +147,19 @@ namespace CaliNature
                 label.style.top = Mathf.Clamp((1 - point.y) * root.layout.height + radius + 14, 8, Mathf.Max(8, root.layout.height - 82));
             }
             mapConnections.MarkDirtyRepaint();
+        }
+        // Reproduce el sonido de clic cuando el clic cae dentro de un botón
+        // habilitado. Cualquier clic que no sea sobre un botón se ignora.
+        private void OnButtonClick(ClickEvent evt)
+        {
+            for (VisualElement element = evt.target as VisualElement; element != null; element = element.parent)
+            {
+                if (element is Button button)
+                {
+                    if (button.enabledSelf) FeedbackAudioPlayer.Click();
+                    return;
+                }
+            }
         }
         private void Bind(string name, Action action) { var button = root.Q<Button>(name); if (button != null) button.clicked += () => { action(); root.Focus(); }; }
         private Vector2 ScreenPoint(Vector2 panelPoint)

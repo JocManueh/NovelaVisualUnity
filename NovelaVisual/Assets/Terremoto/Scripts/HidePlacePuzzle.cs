@@ -103,8 +103,9 @@ namespace CaliNature
         {
             if (!active || busy || spot == null) return;
 
-            if (spot.IsCorrect) { busy = true; StartCoroutine(Win(spot)); return; }
+            if (spot.IsCorrect) { FeedbackAudioPlayer.Correct(); busy = true; StartCoroutine(Win(spot)); return; }
 
+            FeedbackAudioPlayer.Wrong();
             attempts++;
             if (attempts >= maxAttempts) { busy = true; StartCoroutine(Reveal()); return; }
 
