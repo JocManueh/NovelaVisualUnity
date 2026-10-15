@@ -279,8 +279,8 @@
       "summary": "Una inundación fluvial ocurre cuando el agua desborda su cauce y ocupa áreas aledañas. La lluvia y las condiciones del territorio importan. La Niña puede favorecer situaciones lluviosas, pero no es condición necesaria. Amenaza, exposición y riesgo no significan lo mismo.",
       "objective": "Escucha tres perspectivas, reúne tres pistas y decide antes, durante y después.",
       "sceneName": "05_RiverFloodChapter",
-      "endingWin": "esto es un texto final",
-      "endingLose": "esto es un texto final",
+      "endingWin": "La lluvia volvió el sábado y el río se desbordó a las cuatro de la tarde. Esta vez el aviso había llegado con nombre, hora y casa, y la ribera amaneció vacía. Las casas se llenaron de agua y de lodo, pero la gente no: en la libreta queda quién pidió la evacuación, quién la firmó y a qué hora. Este relato es ficticio y no reemplaza las indicaciones de las autoridades.",
+      "endingLose": "La lluvia volvió el sábado y el río se desbordó a las cuatro de la tarde. Nadie había avisado. Cuando el agua llegó a las casas, la gente salió corriendo a salvar lo que pudo: colchones, papeles, una gallina. Nadie anotó a quién se le había dicho y a quién no, así que después no hubo forma de saber a quién buscar. Este relato es ficticio y no reemplaza las indicaciones de las autoridades.",
       "sources": [
         "https://ideam.gov.co/fenomeno-del-nino",
         "https://www.ideam.gov.co/sites/default/files/prensa/boletines/2024-08-23/capitulo_7_alteraciones_del_regimen_hidrologico_y_de_la_oferta_hidrica_por_varibilidad_y_cambio_climatico.pdf",
@@ -289,54 +289,54 @@
         "https://www.ideam.gov.co/file-download/download/public/18906"
       ],
       "clues": [
-        {
+           {
           "id": "flood/clue/0",
-          "title": "Croquis a mano",
-          "text": "Un croquis a mano: marca dónde dobla el cauce, pero no trae alturas ni fecha. Sirve para ubicarse, no para decidir.",
+          "title": "La hoja de la secretaría",
+          "text": "La hoja de entradas y salidas de la secretaría. Solo dice algo si uno sabe qué se está mirando.",
           "variants": [
             {
               "branch": "bx_start",
-              "title": "Croquis a mano",
-              "text": "El croquis que llevaba Ana. Además de dónde dobla el cauce tiene una raya de dos inviernos atrás. No dice a qué altura, pero sí dónde mirar primero."
+              "title": "La hoja de la secretaría",
+              "text": "La hoja del martes: el alcalde entró a las diez y cuarenta, casi dos horas después de su horario, y no hay nota de dónde estuvo. Las dos hojas anteriores tienen el mismo hueco."
             },
             {
               "branch": "by_start",
-              "title": "Croquis a mano",
-              "text": "Croquis de la iniciativa: señala dónde dobla el cauce y dónde había llegado el agua en tiempos pasados. Ese borde hoy queda rodeado de casas nuevas: ahí la pregunta ya no es dónde mirar, sino quién vive."
+              "title": "La hoja de la secretaría",
+              "text": "La hoja de esta semana: el alcalde entra a su hora y sale a su hora. Alguien está anotando por orden suya. Nadie anota nada, en realidad, pero alguien lo hace."
             }
           ]
         },
         {
           "id": "flood/clue/1",
-          "title": "Boletín con fecha",
-          "text": "Antes de usar un aviso, comprueba quién lo mandó, de qué día es y para qué zona. La vigencia es la mitad del dato.",
+          "title": "La lista del festín",
+          "text": "La lista de quienes confirmaron para el festín. Sirve para ver quién va a estar arriba y quién no.",
           "variants": [
             {
               "branch": "bx_start",
-              "title": "Boletín con fecha",
-              "text": "El boletín del martes: viene firmado y con fecha, pero solo cubre dos cuadras. Para el resto del barrio no dice nada."
+              "title": "La lista del festín",
+              "text": "La lista del festín: fueron casi todos. Los que no aparecen son, justo, los que viven más abajo, en la margen."
             },
             {
               "branch": "by_start",
-              "title": "Boletín con fecha",
-              "text": "El boletín de la mañana, ya vencido. Dice qué hacer, pero la parte de las alturas es de la temporada pasada."
+              "title": "La lista del festín",
+              "text": "La lista del festín, colgada en la secretaría: faltan todas las casas de la ribera. Nadie los buscó para confirmar, que es distinto de que no quieran ir."
             }
           ]
         },
-        {
+          {
           "id": "flood/clue/2",
-          "title": "Testimonio de Ana",
-          "text": "Su experiencia ayuda a preguntar mejor; no sustituye un estudio ni una instrucción oficial.",
+          "title": "Un vecino de la margen",
+          "text": "Lo que cuenta un vecino encaja con otras cosas, pero no se puede anotar como hecho. Sirve para preguntar mejor, no para concluir.",
           "variants": [
             {
               "branch": "bx_start",
-              "title": "Testimonio de Ana",
-              "text": "Lo que Ana cuenta del día que se fue el agua: empezó por la calle de arriba, no por el río."
+              "title": "Un vecino de la margen",
+              "text": "El vecino cuenta que el agua primero se encharca en los patios traseros y mucho después aparece en la calle. Puede ser de hace años, o puede ser de esta semana."
             },
             {
               "branch": "by_start",
-              "title": "Testimonio de Ana",
-              "text": "Un vecino que alcanzó a cerrar a tiempo cuenta la tarde de otra manera: a su cuadra el agua nunca llegó."
+              "title": "Un vecino de la margen",
+              "text": "La vecina que vive más abajo dice que desde el martes no ha podido bajar a la playa del río. Lo cuenta como una molestia del barrio, no como una alerta."
             }
           ]
         }
@@ -349,38 +349,38 @@
             {
               "id": "a_start",
               "speaker": "Ana",
-              "text": "Soy Ana, de la iniciativa del barrio. El río volvió a subir y ya circulan tres versiones de lo que pasó. Una foto de la margen mojada anda como si probara que la zona se inundó. ¿Por dónde empezamos?",
+              "text": "Soy Ana, de la iniciativa del barrio. Llevo semanas anotando el río y creo que el cauce no va a dar más. Es una sospecha mía, no un hecho, y no se lo he dicho a nadie porque sin pruebas sería alarma y nada más. Necesito que alguien con más peso lo escuche. ¿Se lo decimos al alcalde, y cómo?",
               "next": "",
               "choices": [
                 {
                   "id": "A2",
-                  "label": "Separemos tres cosas: dónde está el cauce, qué construimos en sus márgenes y qué está pasando hoy.",
+                  "label": "Que lo diga Samuel. Es amigo del alcalde y no se le da rodeos: le dirá al grano, y si hay que mover algo, lo mueve antes que nadie.",
                   "next": "a_end",
                   "requiredClue": "",
                   "decisionKey": "flood/a",
                   "outcome": "",
                   "responsible": true,
-                  "consequence": "Anotas el cauce, los márgenes y el día de hoy como tres asuntos distintos."
-                },
-                {
-                  "id": "A1",
-                  "label": "Antes de repetir nada, revisemos quién publicó esa foto y de qué día es.",
-                  "next": "a_end",
-                  "requiredClue": "",
-                  "decisionKey": "flood/a",
-                  "outcome": "",
-                  "responsible": true,
-                  "consequence": "Anotas que la foto necesita fuente y fecha antes de volver a circular."
+                  "consequence": "Anotas que lo llevará Samuel: directo, con acceso, y probablemente sin escucharlo hasta el final."
                 },
                 {
                   "id": "A3",
-                  "label": "Avisemos ya, mientras la gente todavía pueda sacar lo suyo de ahí.",
+                  "label": "No le digamos nada del río. Iremos a pedir lo de siempre y, si el tema sale, lo dejamos caer.",
+                  "next": "a_end",
+                  "requiredClue": "",
+                  "decisionKey": "flood/a",
+                  "outcome": "",
+                  "responsible": false,
+                  "consequence": "Anotas que la cita es por otro asunto y que del río no se habla."
+                },
+                {
+                  "id": "A1",
+                  "label": "Que lo diga yo, pero sin afirmar nada: le muestro mis anotaciones y le pregunto qué haría si el cauce llegara al límite.",
                   "next": "a_end",
                   "requiredClue": "",
                   "decisionKey": "flood/a",
                   "outcome": "",
                   "responsible": true,
-                  "consequence": "Anotas que conviene avisar temprano, aunque la información esté incompleta."
+                  "consequence": "Anotas que Ana lo plantea como pregunta, para que lo escuche sin que parezca una alarma."
                 }
               ],
               "portraitResource": "",
@@ -389,7 +389,7 @@
             {
               "id": "a_end",
               "speaker": "Ana",
-              "text": "Ana deja la libreta abierta sobre la mesa. Te pide que solo anotes lo que se pueda comprobar, aunque quede poco.",
+              "text": "Ana deja la libreta abierta y te dice que ella no va a soltar su sospecha por nada: eso le toca decidirlo a él. Lo que queda por decidir es quién lo dice y con qué palabras.",
               "next": "",
               "choices": [],
               "portraitResource": "",
@@ -401,58 +401,46 @@
           "id": "flood/b",
           "firstNode": "bx_start",
           "routes": [
-            {
-              "decisionKey": "flood/a",
-              "choice": "A1",
-              "node": "bx_start"
-            },
-            {
-              "decisionKey": "flood/a",
-              "choice": "A2",
-              "node": "bx_start"
-            },
-            {
-              "decisionKey": "flood/a",
-              "choice": "A3",
-              "node": "by_start"
-            }
+            { "decisionKey": "flood/a", "choice": "A1", "node": "bx_start" },
+            { "decisionKey": "flood/a", "choice": "A2", "node": "bx_start" },
+            { "decisionKey": "flood/a", "choice": "A3", "node": "by_start" }
           ],
           "nodes": [
             {
               "id": "bx_start",
               "speaker": "Santiago",
-              "text": "Soy Santiago, de la cuadra de abajo. Ana me contó por dónde ibas a empezar. Yo no tengo ni el plano ni el aviso; lo que tengo es lo que vi desde el patio.",
+              "text": "Soy Santiago, el alcalde. Me dijeron que era sobre el río. Vengan, que tengo gente esperando y no me gusta que me hagan mover el orden del día.",
               "next": "",
               "choices": [
                 {
-                  "id": "B2",
-                  "label": "Digamos desde ya que la zona dejó de ser transitable y cerremos el paso de abajo. Es preferible pasarnos de cautions que quedarnos cortos.",
+                  "id": "B5",
+                  "label": "Le propongo no mover nada todavía. Si nos equivocamos, el barrio deja de creernos y no lo recuperamos.",
                   "next": "b_end",
                   "requiredClue": "",
                   "decisionKey": "flood/b",
                   "outcome": "",
                   "responsible": false,
-                  "consequence": "Queda acordado cerrar el paso de la margen antes de evaluar nada."
+                  "consequence": "Queda acordado esperar antes de decir nada."
                 },
                 {
-                  "id": "B3",
-                  "label": "El croquis ese no sirve para nada serio, pero sí para algo: dónde mirar primero y a quién preguntarle por el nivel.",
-                  "next": "b_end",
-                  "requiredClue": "flood/clue/0",
-                  "decisionKey": "flood/b",
-                  "outcome": "",
-                  "responsible": true,
-                  "consequence": "Anotas para qué sirve el croquis y para qué no."
-                },
-                {
-                  "id": "B1",
-                  "label": "Cada cuadra anote hasta dónde le llegó el agua. Ese dato no sale de un plano: sale de nosotros.",
+                  "id": "B2",
+                  "label": "Prepare la alerta desde hoy, alcalde. Después es más difícil: de una calle inundada no se saca a nadie.",
                   "next": "b_end",
                   "requiredClue": "",
                   "decisionKey": "flood/b",
                   "outcome": "",
                   "responsible": true,
-                  "consequence": "Queda acordada una medición casera de alturas, cuadra por cuadra."
+                  "consequence": "Santiago responde que no hay pruebas y que no se avisa a nadie hasta que las haya. La alerta no sale."
+                },
+                {
+                  "id": "B3",
+                  "label": "No le voy a pedir nada más. Con lo que sé de sus amaneceres, aquí no va a salir nada. Doy la vuelta y hablo con su hija.",
+                  "next": "b_end",
+                  "requiredClue": "flood/clue/0",
+                  "decisionKey": "flood/b",
+                  "outcome": "",
+                  "responsible": true,
+                  "consequence": "Decides saltarte la cadena y hablar directamente con Carmen."
                 }
               ],
               "portraitResource": "",
@@ -461,38 +449,38 @@
             {
               "id": "by_start",
               "speaker": "Santiago",
-              "text": "Soy Santiago. Ana ya avisó y media cuadra sacó cajas al patio. Yo no vi subir el agua; vi a la gente mover cosas. ¿Qué hacemos ahora?",
+              "text": "Soy Santiago, el alcalde. Hoy no venimos por el río: venimos por la fiesta. Díganme qué falta.",
               "next": "",
               "choices": [
                 {
                   "id": "B4",
-                  "label": "Bajo a la orilla a mirar hasta dónde llegó. Así hablamos con un dato propio y no con el rumor.",
+                  "label": "Bajemos la fiesta a la plaza del pueblo. Que baje la gente a bailar, que no siempre hay ocasión.",
                   "next": "b_end",
                   "requiredClue": "",
                   "decisionKey": "flood/b",
                   "outcome": "",
                   "responsible": false,
-                  "consequence": "Anotas bajar a la orilla a comprobarlo."
+                  "consequence": "Bajas la fiesta a la plaza del pueblo, a cien metros de la margen."
                 },
                 {
                   "id": "B6",
-                  "label": "Revisemos el emisor y la fecha del aviso. Si sigue vigente, ya tenemos en qué basarnos.",
+                  "label": "Falta gente en la lista, alcalde. No aparece ninguna casa de la ribera. Invite usted también a ellos antes de que empiece.",
                   "next": "b_end",
                   "requiredClue": "flood/clue/1",
                   "decisionKey": "flood/b",
                   "outcome": "",
                   "responsible": true,
-                  "consequence": "Anotas que el aviso sirve si se confirma su vigencia."
+                  "consequence": "Pides que se invite a toda la ribera, sin decir por qué."
                 },
                 {
-                  "id": "B5",
-                  "label": "Pidamos que se despeje la zona de la margen. Antes que lamentar, exagerar.",
+                  "id": "B1",
+                  "label": "La fiesta está bien como está: allá arriba, lejos del río. Que empiece temprano y no se corte.",
                   "next": "b_end",
                   "requiredClue": "",
                   "decisionKey": "flood/b",
                   "outcome": "",
-                  "responsible": false,
-                  "consequence": "Anotas pedir el despeje de la margen."
+                  "responsible": true,
+                  "consequence": "Mantas la fiesta en el colegio alto y la quieres antes de que caiga la tarde."
                 }
               ],
               "portraitResource": "",
@@ -501,7 +489,7 @@
             {
               "id": "b_end",
               "speaker": "Santiago",
-              "text": "Santiago dobla el papel y lo guarda en el bolsillo. Dice que Carmen está afuera con la libreta, esperando.",
+              "text": "Santiago los deja ir con un saludo corto. La libreta, en cambio, no vuelve a la secretaría: Carmen, su hija, se la queda. Desde hace un tiempo las decisiones del río pasan por ella.",
               "next": "",
               "choices": [],
               "portraitResource": "",
@@ -511,195 +499,195 @@
         },
         {
           "id": "flood/c",
-          "firstNode": "cmid_start",
+          "firstNode": "calarma_start",
           "routes": [
-            {
-              "decisionKey": "flood/b",
-              "choice": "B1",
-              "node": "cmid_start"
-            },
-            {
-              "decisionKey": "flood/b",
-              "choice": "B2",
-              "node": "cbad_start"
-            },
-            {
-              "decisionKey": "flood/b",
-              "choice": "B3",
-              "node": "cgood_start"
-            },
-            {
-              "decisionKey": "flood/b",
-              "choice": "B4",
-              "node": "cdead_start"
-            },
-            {
-              "decisionKey": "flood/b",
-              "choice": "B5",
-              "node": "cbad_start"
-            },
-            {
-              "decisionKey": "flood/b",
-              "choice": "B6",
-              "node": "cgood_start"
-            }
+            { "decisionKey": "flood/b", "choice": "B1", "node": "cfestejo_start" },
+            { "decisionKey": "flood/b", "choice": "B2", "node": "csilencio_start" },
+            { "decisionKey": "flood/b", "choice": "B3", "node": "calarma_start" },
+            { "decisionKey": "flood/b", "choice": "B4", "node": "cfestejo_start" },
+            { "decisionKey": "flood/b", "choice": "B5", "node": "csilencio_start" },
+            { "decisionKey": "flood/b", "choice": "B6", "node": "caviso_start" }
           ],
           "nodes": [
             {
-              "id": "cgood_start",
+              "id": "calarma_start",
               "speaker": "Carmen",
-              "text": "Soy Carmen. Llevo la libreta de la iniciativa. Escribamos lo que le sirva a la gente mañana, no lo que nos quede bien a nosotros.",
+              "text": "Soy Carmen. Mi padre no va a mover a nadie, así que pregunto yo: ¿qué tengo? Y dígalo claro. Una sospecha no saca a nadie de una casa, pero lo que usted trajo aquí tal vez sí.",
               "next": "",
               "choices": [
                 {
-                  "id": "C2",
-                  "label": "Anoto qué se puede usar: dónde mirar, a quién preguntarle y qué está sin confirmar.",
-                  "next": "c_end",
-                  "requiredClue": "",
-                  "decisionKey": "flood/c",
-                  "outcome": "win",
-                  "responsible": true,
-                  "consequence": "La libreta queda con criterios que la comunidad puede comprobar por su cuenta."
-                },
-                {
                   "id": "C3",
-                  "label": "Anoto que no se puede afirmar nada sin un estudio oficial. Es lo más prudente.",
+                  "label": "Primero haría falta un estudio oficial del cauce. Sin eso no voy a mover a nadie.",
                   "next": "c_end",
                   "requiredClue": "",
                   "decisionKey": "flood/c",
                   "outcome": "lose",
                   "responsible": false,
-                  "consequence": "La libreta queda con una advertencia y nada que hacer."
+                  "consequence": "Pides un estudio oficial. Nadie se mueve, y el estudio no llega.",
+                  "endingTitle": "El estudio que no llegó",
+                  "endingText": "Carmen pidió el estudio del cauce y el estudio no llegó. Cuando el agua entró por las doce casas de la margen, la gente salió corriendo a salvar lo que pudo: colchones, papeles, una gallina. Nadie había anotado a quién se le había dicho y a quién no, así que después no hubo forma de saber a quién buscar."
                 },
                 {
                   "id": "C1",
-                  "label": "Anoto una versión corta: qué sabemos, qué no, y quién trae lo que falta.",
+                  "label": "Esta noche sube todo el que vive en la margen. Con nombres, con hora y con quién va a cada casa.",
                   "next": "c_end",
                   "requiredClue": "",
                   "decisionKey": "flood/c",
                   "outcome": "win",
                   "responsible": true,
-                  "consequence": "La libreta queda con un resumen corto y un pendiente con nombre."
+                  "consequence": "Carmen manda a avisar casa por casa con una lista de nombres y hora.",
+                  "endingTitle": "La ribera, vacía",
+                  "endingText": "El sábado a las once de la noche la libreta tenía cincuenta y dos nombres y la margen estaba vacía. El domingo a las cuatro de la tarde el río se desbordó y entró por doce casas, todas cerradas. Cuando el agua bajó, no faltaba nadie. En la libreta queda quién pidió la evacuación, quién la firmó y a qué hora."
+                },
+                {
+                  "id": "C2",
+                  "label": "No hace falta un papel: que cada vecino llame a sus vecinos de la ribera y les diga que suban al colegio alto.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "flood/c",
+                  "outcome": "win",
+                  "responsible": true,
+                  "consequence": "Cada vecino llama a los suyos. La ribera se vacía de abajo hacia arriba.",
+                  "endingTitle": "El teléfono de la puerta",
+                  "endingText": "No salió ningún papel. Salieron llamadas: cada vecino le avisó a los suyos y así alcanzó para toda la margen sin que nadie supiera el nombre de nadie. El domingo el agua entró por doce casas y todas estaban vacías. No quedó lista, pero sí cuenta: todos sabían dónde estaba el otro."
                 }
               ],
               "portraitResource": "",
               "voiceResource": ""
             },
             {
-              "id": "cmid_start",
+              "id": "cfestejo_start",
               "speaker": "Carmen",
-              "text": "Soy Carmen. Llegaron las alturas que anotó cada cuadra. Salieron desigualadas, pero son nuestras. ¿Cómo las dejamos?",
+              "text": "Soy Carmen. La fiesta ya está organizada y mi padre no quiere moverla. ¿Y usted qué me propone?",
               "next": "",
               "choices": [
                 {
-                  "id": "C3",
-                  "label": "Dejo constancia de quién anotó qué y en qué fecha, para que se pueda revisar.",
-                  "next": "c_end",
-                  "requiredClue": "",
-                  "decisionKey": "flood/c",
-                  "outcome": "win",
-                  "responsible": true,
-                  "consequence": "Cada dato queda con autor y fecha, y se puede auditar."
-                },
-                {
-                  "id": "C2",
-                  "label": "Mejor las dejamos en el cuaderno de cada cuadra, sin juntarlas. Nadie va a leer un mapa raro.",
+                  "id": "C1",
+                  "label": "Dígale a la gente que se vaya temprano a dormir. No por el río, sino por el frío de la noche.",
                   "next": "c_end",
                   "requiredClue": "",
                   "decisionKey": "flood/c",
                   "outcome": "lose",
                   "responsible": false,
-                  "consequence": "Los registros quedan dispersos y no se pueden comparar entre sí."
+                  "consequence": "Carmen reparte la consigna de madrugar. Nadie sabe de qué hablar, y nadie sube.",
+                  "endingTitle": "La consigna del frío",
+                  "endingText": "Nadie entendió de qué se trataba el frío. La fiesta siguió y el río se desbordó a las cuatro de la tarde. Cuando la gente corrió a casa por el agua, alcanzó a agarrar lo que tenía encima. La plaza había estado a cien metros de la margen y a esa hora estaba llena."
                 },
                 {
-                  "id": "C1",
-                  "label": "Las ordenamos y publicamos un mapa de la comunidad, aunque sea un borrador.",
+                  "id": "C3",
+                  "label": "Que la fiesta sea el aviso: el que esté en la plaza ve subir el agua y sube con los demás.",
                   "next": "c_end",
                   "requiredClue": "",
                   "decisionKey": "flood/c",
                   "outcome": "win",
                   "responsible": true,
-                  "consequence": "Se publica un mapa colaborativo, todavía en borrador."
+                  "consequence": "La plaza se vuelve el punto donde se ve subir el río, y la gente sube sin que se lo digan.",
+                  "endingTitle": "La plaza como aviso",
+                  "endingText": "No hubo que decir nada: en la plaza se veía subir el agua y todo el mundo subió sin que nadie se lo mandara. El domingo a las cuatro de la tarde el río se desbordó. Cuando bajó, los que seguían en el pueblo eran los que ya estaban arriba."
+                },
+                {
+                  "id": "C2",
+                  "label": "La fiesta sigue, pero la última canción es en el colegio alto y todo el mundo se queda ahí hasta el final.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "flood/c",
+                  "outcome": "win",
+                  "responsible": true,
+                  "consequence": "La fiesta termina arriba. La plaza y la margen se llenan de gente que no está abajo.",
+                  "endingTitle": "La última canción, arriba",
+                  "endingText": "La fiesta terminó en el colegio alto y la última canción se cantó desde ahí. Cuando el río se desbordó a las cuatro de la tarde, todo el pueblo llevaba cuatro horas en la misma colina. Se perdió lo que había en las casas; no se perdió nadie. La fiesta, sin querer, fue la evacuación."
                 }
               ],
               "portraitResource": "",
               "voiceResource": ""
             },
             {
-              "id": "cbad_start",
+              "id": "csilencio_start",
               "speaker": "Carmen",
-              "text": "Soy Carmen. Ya está cerrado el paso y la gente pregunta si se puede volver a la casa. Tengo que escribir algo hoy. ¿Qué pongo?",
+              "text": "Soy Carmen, hija del alcalde. Mi padre acaba de decir que no se avisa a nadie porque no hay pruebas. Yo tengo la libreta abierta y a él no le he oído decir nada. ¿Qué hago?",
               "next": "",
               "choices": [
                 {
-                  "id": "C3",
-                  "label": "Pongo 'zona cerrada temporalmente'. Es lo más prudente y no compromete a nadie.",
+                  "id": "C2",
+                  "label": "Anoto exactamente lo que dijo su padre: que no hay pruebas y que no se avisa. Con fecha y con su nombre.",
                   "next": "c_end",
                   "requiredClue": "",
                   "decisionKey": "flood/c",
                   "outcome": "lose",
                   "responsible": false,
-                  "consequence": "La libreta cierra sin decir cómo se vuelve a entrar."
+                  "consequence": "Queda escrito, con fecha y con nombre, que nadie fue avisado. Cuando llegue el agua no habrá a quién preguntar.",
+                  "endingTitle": "Lo que dijo su padre, con fecha",
+                  "endingText": "Quedó escrito, con fecha y con nombre, que no había pruebas y que no se avisaba. Cuando llegó el agua, la libreta sirvió para saber quién había decidido callar, no para encontrar a nadie. En la calle de la margen quedaron dos personas, y sin una lista no se pudo saber si eran dos o eran más."
                 },
                 {
                   "id": "C1",
-                  "label": "Pongo que el barrio es zona de riesgo. Es lo que todos esperan leer.",
-                  "next": "c_end",
-                  "requiredClue": "",
-                  "decisionKey": "flood/c",
-                  "outcome": "lose",
-                  "responsible": false,
-                  "consequence": "La libreta declara riesgo una zona que nadie evaluó."
-                },
-                {
-                  "id": "C2",
-                  "label": "Pongo qué se cerró, desde cuándo, y a quién llamar para reabrirlo.",
+                  "label": "Fírmelo usted y no él, alcalde. Póngale su nombre a la orden y yo la llevo casa por casa.",
                   "next": "c_end",
                   "requiredClue": "",
                   "decisionKey": "flood/c",
                   "outcome": "win",
                   "responsible": true,
-                  "consequence": "La libreta dice cuándo se reabre y a quién llamar."
+                  "consequence": "Carmen firma en su propio nombre y recorre la ribera con la orden.",
+                  "endingTitle": "La firma de Carmen",
+                  "endingText": "Lo firmó la hija, no el padre. Carmen salió con la orden escrita en la libreta y la leyó casa por casa, sin decir de dónde venía. El domingo el agua entró por doce casas y todas estaban vacías. La orden quedó en la secretaría con el nombre equivocado en el encabezado, y eso fue lo que salvó a la gente."
+                },
+                {
+                  "id": "C3",
+                  "label": "No escribo nada. Si él no lo dice, yo tampoco me meto.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "flood/c",
+                  "outcome": "lose",
+                  "responsible": false,
+                  "consequence": "Dejas la libreta en blanco. La orden de no avisar manda y nadie la contradice.",
+                  "endingTitle": "La libreta en blanco",
+                  "endingText": "La orden de no avisar pasó sin respuesta. El domingo el agua entró por doce casas y la gente salió corriendo a salvar lo que pudo. En la libreta no había ni un nombre, y sin nombres no hay forma de saber a quién se le había dicho y a quién no."
                 }
               ],
               "portraitResource": "",
               "voiceResource": ""
             },
             {
-              "id": "cdead_start",
+              "id": "caviso_start",
               "speaker": "Carmen",
-              "text": "Soy Carmen. Tú y Santiago bajaron a la orilla. Nadie los vio cruzar, pero ya corre el rumor de que el agua llegó a la calle. ¿Qué escribo?",
+              "text": "Soy Carmen. A la plaza subieron las casas de la ribera porque usted puso esos nombres en la lista del festín. Ahora están todos ahí arriba y abajo no hay nadie. ¿Y eso qué es?",
               "next": "",
               "choices": [
                 {
-                  "id": "C1",
-                  "label": "Escribo que la margen se inundó. Es lo que todos quieren oír y lo van a decir igual.",
-                  "next": "c_end",
-                  "requiredClue": "",
-                  "decisionKey": "flood/c",
-                  "outcome": "lose",
-                  "responsible": false,
-                  "consequence": "La libreta convierte una observación en un aviso."
-                },
-                {
                   "id": "C3",
-                  "label": "Anoto lo que se vio, con la hora, y que fue un punto de observación y no un aviso.",
+                  "label": "Que la libreta quede con el nombre de cada casa y de quién está arriba. Así, cuando baje el agua, nadie se pierde.",
                   "next": "c_end",
                   "requiredClue": "",
                   "decisionKey": "flood/c",
                   "outcome": "win",
                   "responsible": true,
-                  "consequence": "La libreta separa lo observado de lo que se afirma, con hora y autoria."
+                  "consequence": "Cada casa de la margen queda con nombre y con alguien arriba. Cuando el agua baja, todos cuentan.",
+                  "endingTitle": "Todos contados",
+                  "endingText": "Cada casa de la margen quedó en la libreta con un nombre y con quién estaba arriba. El domingo el agua entró por doce casas, pero todas estaban vacías y había una lista que decía dónde estaba cada quien. Cuando el río bajó, la ribera no se perdió a nadie: se contaba."
                 },
                 {
                   "id": "C2",
-                  "label": "Lo dejo correr. Si alguien lo vio de verdad, ya lo va a contar.",
+                  "label": "La iglesia. Que la comunidad le reza a San Miguel y guarda la noche.",
                   "next": "c_end",
                   "requiredClue": "",
                   "decisionKey": "flood/c",
                   "outcome": "lose",
                   "responsible": false,
-                  "consequence": "No queda registro, y el rumor sigue siendo lo único que circula."
+                  "consequence": "La comunidad se reúne en la iglesia a rezar. Nadie mira el río, y el río no se detiene por rezar.",
+                  "endingTitle": "La noche de San Miguel",
+                  "endingText": "La comunidad se reunió en la iglesia a rezarle a San Miguel y guardó la noche. Nadie miró el río, y el río no se detuvo por rezar. Cuando el agua bajó de madrugada, la iglesia estaba metida hasta el segundo coro y las casas de la ribera estaban vacías de gente y llenas de todo lo que la gente había dejado."
+                },
+                {
+                  "id": "C1",
+                  "label": "Que esperen arriba hasta que baje el agua. Si baja, cada quien vuelve a su casa.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "flood/c",
+                  "outcome": "lose",
+                  "responsible": false,
+                  "consequence": "Los de la ribera esperan sentados en la plaza, a cien metros de la margen.",
+                  "endingTitle": "Esperando en la plaza",
+                  "endingText": "Los de la ribera esperaron en la plaza a que bajara el agua, a cien metros del río. No bajó: subió. El agua llegó de noche y la gente corrió en hilera por el único camino de tierra que quedaba, empujándose para pasar primero."
                 }
               ],
               "portraitResource": "",
@@ -708,7 +696,7 @@
             {
               "id": "c_end",
               "speaker": "Carmen",
-              "text": "Carmen cierra la libreta y la deja encima de la mesa. Afuera ya está empezando a oscurecer.",
+              "text": "Carmen cierra la libreta y la deja encima de la mesa, sin decir nada más. Afuera ya está empezando a oscurecer.",
               "next": "",
               "choices": [],
               "portraitResource": "",
@@ -719,22 +707,22 @@
       ],
       "cinematic": [
         {
-          "title": "Una jornada junto al río",
-          "text": "La comunidad se reúne a partir de un episodio de lluvias. Las conversaciones se realizan lejos de las áreas expuestas.",
+          "title": "El río de todos los días",
+          "text": "El barrio vive con el río al lado. Todo el mundo sabe leer una crecida: el color del agua, qué se moja primero y cuánto tarda en bajar. Es un conocimiento de toda la vida, y por eso casi no asusta.",
           "seconds": 7,
           "imageResource": "",
           "voiceResource": ""
         },
         {
-          "title": "Escuchar desde un lugar seguro",
-          "text": "Ana trae un boletín y una libreta. Alex compara sus fechas antes de compartirlos con el grupo.",
+          "title": "Ana lleva un registro",
+          "text": "Ana es la única que mide y anota. No se lo ha dicho a nadie: una sospecha sin pruebas se vuelve alarma, y una alarma sin pruebas se vuelve ruido.",
           "seconds": 7,
           "imageResource": "",
           "voiceResource": ""
         },
         {
-          "title": "El mapa no lo dice todo",
-          "text": "Un punto de color en un mapa puede parecer una respuesta definitiva. Carmen recuerda que primero hay que entender qué representa.",
+          "title": "Nadie lo ha dicho todavía",
+          "text": "El río sube, y el barrio lo ha visto bajar otras veces. Ana tiene una sospecha y se la guarda. Lo que viene es decidir a quién se la dice y con qué palabras: lo que se dice mal no se vuelve a oír.",
           "seconds": 7.470588235294118,
           "imageResource": "",
           "voiceResource": ""

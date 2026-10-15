@@ -310,14 +310,20 @@ namespace CaliNature
             var card = root?.Q("cinematic-card"); if (card != null) { card.style.opacity = Mathf.Clamp01(progress * 8); card.style.translate = new Translate(0, Mathf.Lerp(24, 0, progress)); }
         }
         // Pantalla de cierre del capítulo. Se muestra DESPUÉS de la última conversación
-        // y ANTES de volver al mapa, tanto si se ganó como si se perdió: el título
-        // dice qué pasó y el cuerpo es el texto de cierre que escribe cada capítulo
-        // (endingWin / endingLose), con el summary del capítulo como respaldo.
+        // y ANTES de volver al mapa, tanto si se ganó como si se perdió.
         //
-        // En una derrota ya no se listan decisiones: ClearChapter las borró al perder.
+        // El texto NO es genérico: cada decisión de cierre trae su propio desenlace
+        // (endingTitle / endingText), así que lo que se lee es el final que
+        // corresponde a lo que el jugador decidió. endingWin / endingLose del
+        // capítulo son solo el respaldo para capítulos que no hayan escrito los suyos.
         public void ShowSummary(ChapterData chapter, bool won)
         {
-            string closing = won ? chapter.endingWin : chapter.endingLose;
+            DecisionRecord last = null;
+            foreach (var item in session.Save.Data.decisions)
+                if (item.key == chapter.id + "/c") last = item;
+
+            string closing = last?.endingText;
+            if (string.IsNullOrWhiteSpace(closing)) closing = won ? chapter.endingWin : chapter.endingLose;
             if (string.IsNullOrWhiteSpace(closing)) closing = chapter.summary;
 
             var text = new StringBuilder(closing);
@@ -331,7 +337,10 @@ namespace CaliNature
                     if (item.key.StartsWith(chapter.id + "/", StringComparison.Ordinal))
                         text.AppendLine("• " + item.consequence);
             }
-            Text("summary-title", won ? "Ganaste el capítulo" : "Perdiste el capítulo");
+
+            string title = last?.endingTitle;
+            if (string.IsNullOrWhiteSpace(title)) title = won ? "Ganaste el capítulo" : "Perdiste el capítulo";
+            Text("summary-title", title);
             Text("summary-text", text.ToString());
         }
         public void SetLoading(float progress) { var bar = root?.Q<ProgressBar>("load-progress"); if (bar != null) bar.value = progress * 100; }

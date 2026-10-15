@@ -392,6 +392,163 @@ namespace CaliNature.Tests
         // Cada capítulo declara sus dos textos de cierre, que se muestran justo después
         // de la última conversación y antes de volver al mapa. Están en texto de
         // relleno: cada equipo debe escribir el suyo.
+        // El capítulo de inundación NO comparte arbol con los demás: cada equipo
+        // diseña el suyo. Los tests compartidos recorren los capítulos en orden y
+        // se detienen en el primero que falla, así que el de inundación nunca se
+        // llegaba a comprobar. Este lo valida a mano.
+        //
+        //   A   -> bx_start (A1, A2)        |  by_start (A3)
+        //   Bx  -> csilencio (B2, B5)        |  calarma (B3, exige clue/0)
+        //   By  -> cfestejo  (B1, B4)        |  caviso  (B6, exige clue/1)
+        //
+        // Reparto de desenlaces: calarma y cfestejo tienen dos ganadoras cada una;
+        // csilencio y caviso, una. Ninguna rama gana las tres, y ningun C1/C2/C3
+        // gana en mas de dos ramas, asi que no existe estrategia dominante.
+        [Test] public void FloodChapterHasItsExactBranchingTree()
+        {
+            var data = JsonUtility.FromJson<StoryCatalog>(Resources.Load<TextAsset>("CaliNature/StoryCatalog").text);
+            var chapter = data.chapters.Single(c => c.id == "flood");
+            Assert.AreEqual(3, chapter.conversations.Length, "flood: se esperaban tres conversaciones.");
+            Assert.AreEqual(3, chapter.clues.Length, "flood: se esperaban tres pistas.");
+
+            string actual = string.Join(" ", chapter.conversations.SelectMany(c => c.routes ?? new RouteRule[0])
+                .Select(r => r.node + ":" + r.choice)
+                .OrderBy(x => x, System.StringComparer.Ordinal));
+            const string expected =
+                "bx_start:A1 bx_start:A2 by_start:A3 " +
+                "calarma_start:B3 caviso_start:B6 cfestejo_start:B1 cfestejo_start:B4 " +
+                "csilencio_start:B2 csilencio_start:B5";
+            Assert.AreEqual(expected, actual, "flood: el arbol de ramas no coincide.");
+
+            // Ninguna ruta puede apuntar a un nodo o a una opcion que no existan.
+            var nodeIds = chapter.conversations.SelectMany(c => c.nodes).Select(n => n.id).ToArray();
+            var choiceIds = chapter.conversations.SelectMany(c => c.nodes).SelectMany(n => n.choices).Select(c => c.id).ToArray();
+            foreach (var route in chapter.conversations.SelectMany(c => c.routes ?? new RouteRule[0]))
+            {
+                Assert.Contains(route.node, nodeIds, "flood: la ruta apunta a un nodo inexistente.");
+                Assert.Contains(route.choice, choiceIds, "flood: la ruta apunta a una opcion inexistente.");
+            }
+
+            var closing = chapter.conversations[2].nodes
+                .Where(n => n.choices != null && n.choices.Any(c => !string.IsNullOrEmpty(c.outcome))).ToArray();
+            Assert.AreEqual(4, closing.Length, "flood: se esperaban cuatro cierres.");
+            foreach (var node in closing) Assert.AreEqual(3, node.choices.Length, "flood/" + node.id);
+
+            var wins = closing.ToDictionary(n => n.id, n => n.choices.Count(c => c.outcome == "win"));
+            Assert.AreEqual(2, wins["calarma_start"], "flood: calarma es la rama buena y tiene dos ganadoras.");
+            Assert.AreEqual(2, wins["cfestejo_start"]);
+            Assert.AreEqual(1, wins["csilencio_start"]);
+            Assert.AreEqual(1, wins["caviso_start"]);
+            Assert.AreEqual(6, wins.Values.Sum(), "flood: seis ganadoras.");
+            Assert.AreEqual(6, closing.Sum(n => n.choices.Count(c => c.outcome == "lose")), "flood: seis perdedoras.");
+
+            // El 6/6 no basta: con 6/6 cabía que C1 ganara las cuatro y "elegir
+            // siempre C1" fuera victoria garantizada. Se exige el reparto por opcion.
+            var winsPerChoice = new Dictionary<string, int>();
+            foreach (var node in closing)
+                foreach (var choice in node.choices)
+                {
+                    if (!winsPerChoice.ContainsKey(choice.id)) winsPerChoice[choice.id] = 0;
+                    if (choice.outcome == "win") winsPerChoice[choice.id] = winsPerChoice[choice.id] + 1;
+                }
+            Assert.AreEqual(3, winsPerChoice.Count, "flood: tres opciones de cierre.");
+            foreach (var pair in winsPerChoice.OrderBy(p => p.Key, System.StringComparer.Ordinal))
+                Assert.IsTrue(pair.Value <= closing.Length / 2,
+                    "flood: la opcion " + pair.Key + " gana en " + pair.Value + " de " + closing.Length
+                    + " cierres. Es una estrategia dominante.");
+
+            // El desenlace final nunca debe depender de una pista, ni la primera
+            // conversa: una pista no puede delatar cual era la respuesta buena.
+            foreach (var node in closing)
+                foreach (var choice in node.choices)
+                    Assert.IsTrue(string.IsNullOrEmpty(choice.requiredClue), "flood/" + node.id + ": el desenlace no exige pista.");
+            foreach (var node in chapter.conversations[0].nodes)
+                foreach (var choice in node.choices)
+                    Assert.IsTrue(string.IsNullOrEmpty(choice.requiredClue), "flood/" + node.id);
+
+            // Cada rama de B abre algo con SU pista, y las dos son distintas: si
+            // compartieran pista, una de las dos rutas quedaria sin la suya.
+            var b = chapter.conversations[1];
+            var gated = b.nodes.Where(n => n.id == "bx_start" || n.id == "by_start")
+                .ToDictionary(n => n.id,
+                    n => n.choices.Where(c => !string.IsNullOrEmpty(c.requiredClue)).Select(c => c.requiredClue).ToArray());
+            Assert.AreEqual(1, gated["bx_start"].Length, "flood/bx_start: se esperaba una opcion bloqueada.");
+            Assert.AreEqual(1, gated["by_start"].Length, "flood/by_start: se esperaba una opcion bloqueada.");
+            Assert.AreEqual(chapter.id + "/clue/0", gated["bx_start"][0], "flood: bx_start exige clue/0.");
+            Assert.AreEqual(chapter.id + "/clue/1", gated["by_start"][0], "flood: by_start exige clue/1.");
+        }
+
+        // Ningun texto puede delatar en que rama esta el jugador. La palabra "rama"
+        // o un identificador de nodo escrito como si fuera diálogo rompe la tercera
+        // persona y le regala al jugador la respuesta.
+        [Test] public void FloodNeverNamesTheBranchInItsTexts()
+        {
+            var data = JsonUtility.FromJson<StoryCatalog>(Resources.Load<TextAsset>("CaliNature/StoryCatalog").text);
+            var chapter = data.chapters.Single(c => c.id == "flood");
+            var nodeIds = chapter.conversations.SelectMany(c => c.nodes).Select(n => n.id).ToArray();
+
+            var texts = new System.Collections.Generic.List<string>();
+            foreach (var conversation in chapter.conversations)
+                foreach (var node in conversation.nodes)
+                {
+                    texts.Add(node.speaker);
+                    texts.Add(node.text);
+                    foreach (var choice in node.choices) { texts.Add(choice.label); texts.Add(choice.consequence); }
+                }
+            foreach (var clue in chapter.clues)
+            {
+                texts.Add(clue.title); texts.Add(clue.text);
+                foreach (var variant in clue.variants ?? new ClueVariant[0]) { texts.Add(variant.title); texts.Add(variant.text); }
+            }
+            foreach (var card in chapter.cinematic) { texts.Add(card.title); texts.Add(card.text); }
+
+            foreach (var text in texts)
+            {
+                if (string.IsNullOrWhiteSpace(text)) continue;
+                foreach (var id in nodeIds)
+                    Assert.IsFalse(text.Contains(id), "flood: un texto menciona el nodo '" + id + "': " + text);
+                foreach (var forbidden in new[] { "rama", "nodo", "Estás en", "te lleva a" })
+                    Assert.IsFalse(text.IndexOf(forbidden, System.StringComparison.OrdinalIgnoreCase) >= 0,
+                        "flood: un texto dice '" + forbidden + "': " + text);
+            }
+        }
+
+        // El desenlace se personaliza por decisión, no por victoria/derrota: cada
+        // una de las doce decisiones de cierre tiene que contar su propio final.
+        // Con un solo endingWin/endingLose todos los finales leían igual.
+        [Test] public void EveryFloodClosingChoiceHasItsOwnEnding()
+        {
+            var data = JsonUtility.FromJson<StoryCatalog>(Resources.Load<TextAsset>("CaliNature/StoryCatalog").text);
+            var chapter = data.chapters.Single(c => c.id == "flood");
+            var closing = chapter.conversations[2].nodes
+                .Where(n => n.choices != null && n.choices.Any(c => !string.IsNullOrEmpty(c.outcome))).ToArray();
+
+            var titulos = new List<string>();
+            var cuerpos = new List<string>();
+            foreach (var node in closing)
+                foreach (var choice in node.choices)
+                {
+                    Assert.IsFalse(string.IsNullOrWhiteSpace(choice.endingTitle),
+                        "flood/" + node.id + "/" + choice.id + ": falta el título del final.");
+                    Assert.IsFalse(string.IsNullOrWhiteSpace(choice.endingText),
+                        "flood/" + node.id + "/" + choice.id + ": falta el texto del final.");
+                    titulos.Add(choice.endingTitle);
+                    cuerpos.Add(choice.endingText);
+                }
+
+            Assert.AreEqual(12, titulos.Count, "flood: se esperaban doce finales.");
+            Assert.AreEqual(titulos.Count, titulos.Distinct().Count(),
+                "flood: dos finales comparten título, así que no están personalizados.");
+            Assert.AreEqual(cuerpos.Count, cuerpos.Distinct().Count(),
+                "flood: dos finales comparten texto, así que no están personalizados.");
+
+            // `consequence` es lo que hiciste; el final es lo que pasó después.
+            // No pueden ser el mismo texto.
+            foreach (var node in closing)
+                foreach (var choice in node.choices)
+                    Assert.AreNotEqual(choice.consequence, choice.endingText, "flood/" + node.id + "/" + choice.id);
+        }
+
         [Test] public void EveryChapterDeclaresBothClosingTexts()
         {
             var data = JsonUtility.FromJson<StoryCatalog>(Resources.Load<TextAsset>("CaliNature/StoryCatalog").text);
