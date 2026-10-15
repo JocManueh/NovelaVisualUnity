@@ -1,0 +1,1777 @@
+{
+  "chapters": [
+    {
+      "id": "drought",
+      "title": "Cuando la tierra tiembla",
+      "subtitle": "Sismos y respuesta comunitaria",
+      "phenomenon": "Sismo · fenómeno geológico",
+      "period": "Caso de estudio · sismo ficticio",
+      "description": "Una sacudida interrumpe la rutina del barrio. Mientras el suelo se mueve, Alex descubre cómo protegerse y, al terminar, qué hacer y en qué orden para cuidar de todos.",
+      "summary": "Un sismo ocurre sin avisar. Durante el movimiento, agacharse, cubrirse bajo algo sólido y sujetarse, lejos de ventanas y objetos que puedan caer, reduce el riesgo de lesiones. Cuando termina, revisar si hay heridos, cerrar la llave del gas, usar las escaleras en vez del ascensor y dirigirse al punto de encuentro ayuda a proteger a toda la comunidad. La preparación y la calma también salvan vidas.",
+      "objective": "Aprende a protegerte durante un sismo y a actuar en el orden correcto.",
+      "objectiveHint": "Escucha a los personajes y realiza las acciones en el orden correcto.",
+      "sceneName": "04_DroughtChapter",
+      "endingWin": "Te cubriste, revisaste si había heridos, cerraste la llave del gas, usaste las escaleras y llegaste al punto de encuentro. Actuar en el orden correcto mantiene a salvo a toda la comunidad.",
+      "endingLose": "esto es un texto final",
+      "sources": [
+        "https://ideam.gov.co/fenomeno-del-nino",
+        "https://www.ideam.gov.co/sites/default/files/prensa/boletines/2024-08-23/capitulo_7_alteraciones_del_regimen_hidrologico_y_de_la_oferta_hidrica_por_varibilidad_y_cambio_climatico.pdf",
+        "https://www.cali.gov.co/gestiondelriesgo/publicaciones/182650/estudios-de-escenarios-de-riesgo/",
+        "https://www.cali.gov.co/gestiondelriesgo/publicaciones/184329/precaucion-en-el-primer-puente-de-2025-medidas-clave-ante-riesgos-por-lluvias/",
+        "https://www.ideam.gov.co/file-download/download/public/18906"
+      ],
+      "clues": [
+        {
+          "id": "drought/clue/0",
+          "title": "Registro comunitario",
+          "text": "Un cuaderno de campo con anotaciones de varios meses. Sirve para comparar, no para concluir.",
+          "variants": [
+            {
+              "branch": "bx_start",
+              "title": "Registro comunitario (Bx)",
+              "text": "Una nota pegada en la puerta de la casa: el vector de caer de lo que se ve desde ahí."
+            },
+            {
+              "branch": "by_start",
+              "title": "Registro comunitario (By)",
+              "text": "Un mensaje de voz de la Junta con la fecha y quién lo mandó."
+            }
+          ]
+        },
+        {
+          "id": "drought/clue/1",
+          "title": "Nota del IDEAM",
+          "text": "Boletín con fecha: explica qué es una variabilidad y qué no explica.",
+          "variants": [
+            {
+              "branch": "bx_start",
+              "title": "Nota del IDEAM (Bx)",
+              "text": "Tabla de vecinos que anota quién interrumpió el agua y por qué."
+            },
+            {
+              "branch": "by_start",
+              "title": "Nota del IDEAM (By)",
+              "text": "Acta del comité donde anotaron lo que nadie sabía."
+            }
+          ]
+        },
+        {
+          "id": "drought/clue/2",
+          "title": "Acuerdo de uso del agua",
+          "text": "Documento firmado: los horarios acordados y quién los propuso.",
+          "variants": [
+            {
+              "branch": "bx_start",
+              "title": "Acuerdo de uso del agua (Bx)",
+              "text": "Lo que quedó pegado en la ventana después de la discusión."
+            },
+            {
+              "branch": "by_start",
+              "title": "Acuerdo de uso del agua (By)",
+              "text": "La versión final, con las correcciones que hizo la comunidad."
+            }
+          ]
+        }
+      ],
+      "conversations": [
+        {
+          "id": "drought/a",
+          "firstNode": "a_start",
+          "nodes": [
+            {
+              "id": "a_start",
+              "speaker": "Amelia",
+              "text": "Este edificio es muy antiguo. Si sientes un temblor, cúbrete bajo algo sólido, lejos de las ventanas.",
+              "next": "",
+              "choices": [
+                {
+                  "id": "a_ack",
+                  "label": "Entendido. Me cubriré bajo algo sólido, lejos de las ventanas.",
+                  "next": "a_ok",
+                  "requiredClue": "",
+                  "decisionKey": "drought/a",
+                  "outcome": "",
+                  "responsible": true,
+                  "consequence": "Anotado: cubrirse bajo algo sólido y lejos de las ventanas."
+                },
+                {
+                  "id": "a_bad1",
+                  "label": "Me refugiaré bajo la ventana.",
+                  "next": "a_no_ventana",
+                  "requiredClue": "",
+                  "decisionKey": "drought/a_wrong",
+                  "outcome": "",
+                  "responsible": false,
+                  "consequence": "Respuesta incorrecta: las ventanas pueden romperse durante un sismo."
+                },
+                {
+                  "id": "a_bad2",
+                  "label": "Me pararé en medio de la habitación.",
+                  "next": "a_no_centro",
+                  "requiredClue": "",
+                  "decisionKey": "drought/a_wrong",
+                  "outcome": "",
+                  "responsible": false,
+                  "consequence": "Respuesta incorrecta: lo seguro es cubrirse bajo algo sólido, lejos de ventanas y objetos que puedan caer."
+                },
+                {
+                  "id": "a_bad3",
+                  "label": "Subiré las escaleras a toda prisa.",
+                  "next": "a_no_escaleras",
+                  "requiredClue": "",
+                  "decisionKey": "drought/a_wrong",
+                  "outcome": "",
+                  "responsible": false,
+                  "consequence": "Respuesta incorrecta: durante el temblor, lo primero es protegerse. Las escaleras se usan cuando ya terminó."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": ""
+            },
+            {
+              "id": "a_ok",
+              "speaker": "Amelia",
+              "text": "Perfecto. Agacharse, cubrirse bajo algo sólido y sujetarse, lejos de las ventanas: eso es lo que salva vidas durante un sismo.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": ""
+            },
+            {
+              "id": "a_no_ventana",
+              "speaker": "Amelia",
+              "text": "Mejor no. Las ventanas pueden romperse con el movimiento. Agáchate, cúbrete bajo algo sólido y sujétate, lejos de ellas.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": ""
+            },
+            {
+              "id": "a_no_centro",
+              "speaker": "Amelia",
+              "text": "No es seguro quedarse de pie en medio de la habitación: algo puede caer encima. Agáchate, cúbrete bajo algo sólido y sujétate, lejos de las ventanas.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": ""
+            },
+            {
+              "id": "a_no_escaleras",
+              "speaker": "Amelia",
+              "text": "Durante el temblor no corras a las escaleras: primero protégéte. Agáchate, cúbrete bajo algo sólido y sujétate. Las escaleras se usan cuando el movimiento termina.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": ""
+            }
+          ]
+        },
+        {
+          "id": "drought/b",
+          "firstNode": "b_start",
+          "routes": [
+            {
+              "decisionKey": "drought/puzzle2",
+              "choice": "",
+              "node": "b_after2"
+            },
+            {
+              "decisionKey": "drought/puzzle1",
+              "choice": "",
+              "node": "b_after"
+            }
+          ],
+          "nodes": [
+            {
+              "id": "b_start",
+              "speaker": "Bob",
+              "text": "Necesito que me ayudes a recordar qué hacer después de un sismo.",
+              "next": "",
+              "choices": [
+                {
+                  "id": "b_ack",
+                  "label": "Claro. Vamos paso a paso.",
+                  "next": "",
+                  "requiredClue": "",
+                  "decisionKey": "drought/b",
+                  "outcome": "",
+                  "responsible": true,
+                  "consequence": "Anotado: ayudar a Bob a ordenar los pasos tras un sismo."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": ""
+            },
+            {
+              "id": "b_after",
+              "speaker": "Bob",
+              "text": "Hay que actuar rápido pero con calma. ¿Recuerdas el orden correcto?",
+              "next": "",
+              "choices": [
+                {
+                  "id": "b2_ok",
+                  "label": "Sí. Vamos a ordenarlo.",
+                  "next": "",
+                  "requiredClue": "",
+                  "decisionKey": "drought/b2",
+                  "outcome": "",
+                  "responsible": true,
+                  "consequence": "Anotado: ordenar las acciones clave tras un sismo."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": ""
+            },
+            {
+              "id": "b_after2",
+              "speaker": "Bob",
+              "text": "Muy bien. Ahora ve al punto de encuentro: allí se reúne el grupo.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": ""
+            }
+          ]
+        },
+        {
+          "id": "drought/c",
+          "firstNode": "c_start",
+          "routes": [],
+          "nodes": [
+            {
+              "id": "c_start",
+              "speaker": "Coordinadora",
+              "text": "Llegaste al punto de encuentro. ¿Qué hiciste apenas tembló?",
+              "next": "",
+              "choices": [
+                {
+                  "id": "c_safe",
+                  "label": "Me cubrí bajo la mesa y luego ordené todo: heridos, gas, escaleras y punto de encuentro.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "drought/c",
+                  "outcome": "win",
+                  "responsible": true,
+                  "consequence": "El grupo confirma que seguiste el orden correcto."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": ""
+            },
+            {
+              "id": "c_end",
+              "speaker": "Coordinadora",
+              "text": "Bien hecho. Recordar el orden correcto es lo que mantiene a salvo a la comunidad.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": ""
+            }
+          ]
+        }
+      ],
+      "cinematic": [
+        {
+          "title": "Una mañana que se movió",
+          "text": "Alex visita un edificio antiguo del barrio para conocer cómo se preparan sus vecinos. De pronto, el suelo tiembla: los objetos se mueven y todos buscan dónde protegerse.",
+          "seconds": 9.526,
+          "imageResource": "",
+          "voiceResource": "CaliNature/Voices/drought_cinematic_0"
+        },
+        {
+          "title": "Cubrirse a tiempo",
+          "text": "Amelia explica que, durante un sismo, lo más seguro es agacharse, cubrirse bajo algo sólido y sujetarse, lejos de las ventanas. Después vendrá el momento de actuar con calma.",
+          "seconds": 6.607,
+          "imageResource": "",
+          "voiceResource": "CaliNature/Voices/drought_cinematic_1"
+        },
+        {
+          "title": "Un orden que salva",
+          "text": "Cuando el movimiento termina, la comunidad revisa heridos, cierra el gas y baja por las escaleras hasta el punto de encuentro. Recordar el orden correcto mantiene a todos a salvo.",
+          "seconds": 9.071,
+          "imageResource": "",
+          "voiceResource": "CaliNature/Voices/drought_cinematic_2"
+        }
+      ],
+      "npcSprites": [
+        "",
+        "",
+        ""
+      ],
+      "clueSprites": [
+        "",
+        "",
+        ""
+      ],
+      "mapSprite": ""
+    },
+    {
+      "id": "flood",
+      "title": "El río y sus márgenes",
+      "subtitle": "Inundación por desbordamiento",
+      "phenomenon": "Inundación fluvial · fenómeno hidrológico",
+      "period": "Caso de estudio · episodio de lluvias ficticio",
+      "description": "Alex se reúne con la comunidad en un lugar seguro para distinguir el río, la ocupación de sus márgenes y los avisos oficiales. La Niña puede favorecer lluvias, pero una inundación no depende obligatoriamente de ella.",
+      "summary": "Una inundación fluvial ocurre cuando el agua desborda su cauce y ocupa áreas aledañas. La lluvia y las condiciones del territorio importan. La Niña puede favorecer situaciones lluviosas, pero no es condición necesaria. Amenaza, exposición y riesgo no significan lo mismo.",
+      "objective": "Escucha tres perspectivas, reúne tres pistas y decide antes, durante y después.",
+      "sceneName": "05_RiverFloodChapter",
+      "endingWin": "La lluvia volvió el sábado y el río se desbordó a las cuatro de la tarde. Esta vez el aviso había llegado con nombre, hora y casa, y la ribera amaneció vacía. Las casas se llenaron de agua y de lodo, pero la gente no: en la libreta queda quién pidió la evacuación, quién la firmó y a qué hora. Este relato es ficticio y no reemplaza las indicaciones de las autoridades.",
+      "endingLose": "La lluvia volvió el sábado y el río se desbordó a las cuatro de la tarde. Nadie había avisado. Cuando el agua llegó a las casas, la gente salió corriendo a salvar lo que pudo: colchones, papeles, una gallina. Nadie anotó a quién se le había dicho y a quién no, así que después no hubo forma de saber a quién buscar. Este relato es ficticio y no reemplaza las indicaciones de las autoridades.",
+      "sources": [
+        "https://ideam.gov.co/fenomeno-del-nino",
+        "https://www.ideam.gov.co/sites/default/files/prensa/boletines/2024-08-23/capitulo_7_alteraciones_del_regimen_hidrologico_y_de_la_oferta_hidrica_por_varibilidad_y_cambio_climatico.pdf",
+        "https://www.cali.gov.co/gestiondelriesgo/publicaciones/182650/estudios-de-escenarios-de-riesgo/",
+        "https://www.cali.gov.co/gestiondelriesgo/publicaciones/184329/precaucion-en-el-primer-puente-de-2025-medidas-clave-ante-riesgos-por-lluvias/",
+        "https://www.ideam.gov.co/file-download/download/public/18906"
+      ],
+      "clues": [
+           {
+          "id": "flood/clue/0",
+          "title": "La hoja de la secretaría",
+          "text": "La hoja de entradas y salidas de la secretaría. Solo dice algo si uno sabe qué se está mirando.",
+          "variants": [
+            {
+              "branch": "bx_start",
+              "title": "La hoja de la secretaría",
+              "text": "La hoja del martes: el alcalde entró a las diez y cuarenta, casi dos horas después de su horario, y no hay nota de dónde estuvo. Las dos hojas anteriores tienen el mismo hueco."
+            },
+            {
+              "branch": "by_start",
+              "title": "La hoja de la secretaría",
+              "text": "La hoja de esta semana: el alcalde entra a su hora y sale a su hora. Alguien está anotando por orden suya. Nadie anota nada, en realidad, pero alguien lo hace."
+            }
+          ]
+        },
+        {
+          "id": "flood/clue/1",
+          "title": "La lista del festín",
+          "text": "La lista de quienes confirmaron para el festín. Sirve para ver quién va a estar arriba y quién no.",
+          "variants": [
+            {
+              "branch": "bx_start",
+              "title": "La lista del festín",
+              "text": "La lista del festín: fueron casi todos. Los que no aparecen son, justo, los que viven más abajo, en la margen."
+            },
+            {
+              "branch": "by_start",
+              "title": "La lista del festín",
+              "text": "La lista del festín, colgada en la secretaría: faltan todas las casas de la ribera. Nadie los buscó para confirmar, que es distinto de que no quieran ir."
+            }
+          ]
+        },
+          {
+          "id": "flood/clue/2",
+          "title": "Un vecino de la margen",
+          "text": "Lo que cuenta un vecino encaja con otras cosas, pero no se puede anotar como hecho. Sirve para preguntar mejor, no para concluir.",
+          "variants": [
+            {
+              "branch": "bx_start",
+              "title": "Un vecino de la margen",
+              "text": "El vecino cuenta que el agua primero se encharca en los patios traseros y mucho después aparece en la calle. Puede ser de hace años, o puede ser de esta semana."
+            },
+            {
+              "branch": "by_start",
+              "title": "Un vecino de la margen",
+              "text": "La vecina que vive más abajo dice que desde el martes no ha podido bajar a la playa del río. Lo cuenta como una molestia del barrio, no como una alerta."
+            }
+          ]
+        }
+      ],
+      "conversations": [
+        {
+          "id": "flood/a",
+          "firstNode": "a_start",
+          "nodes": [
+            {
+              "id": "a_start",
+              "speaker": "Ana",
+              "text": "Soy Ana, de la iniciativa del barrio. Llevo semanas anotando el río y creo que el cauce no va a dar más. Es una sospecha mía, no un hecho, y no se lo he dicho a nadie porque sin pruebas sería alarma y nada más. Necesito que alguien con más peso lo escuche. ¿Se lo decimos al alcalde, y cómo?",
+              "next": "",
+              "choices": [
+                {
+                  "id": "A2",
+                  "label": "Que lo diga Samuel. Es amigo del alcalde y no se le da rodeos: le dirá al grano, y si hay que mover algo, lo mueve antes que nadie.",
+                  "next": "a_end",
+                  "requiredClue": "",
+                  "decisionKey": "flood/a",
+                  "outcome": "",
+                  "responsible": true,
+                  "consequence": "Anotas que lo llevará Samuel: directo, con acceso, y probablemente sin escucharlo hasta el final."
+                },
+                {
+                  "id": "A3",
+                  "label": "No le digamos nada del río. Iremos a pedir lo de siempre y, si el tema sale, lo dejamos caer.",
+                  "next": "a_end",
+                  "requiredClue": "",
+                  "decisionKey": "flood/a",
+                  "outcome": "",
+                  "responsible": false,
+                  "consequence": "Anotas que la cita es por otro asunto y que del río no se habla."
+                },
+                {
+                  "id": "A1",
+                  "label": "Que lo diga yo, pero sin afirmar nada: le muestro mis anotaciones y le pregunto qué haría si el cauce llegara al límite.",
+                  "next": "a_end",
+                  "requiredClue": "",
+                  "decisionKey": "flood/a",
+                  "outcome": "",
+                  "responsible": true,
+                  "consequence": "Anotas que Ana lo plantea como pregunta, para que lo escuche sin que parezca una alarma."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": ""
+            },
+            {
+              "id": "a_end",
+              "speaker": "Ana",
+              "text": "Ana deja la libreta abierta y te dice que ella no va a soltar su sospecha por nada: eso le toca decidirlo a él. Lo que queda por decidir es quién lo dice y con qué palabras.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": ""
+            }
+          ]
+        },
+        {
+          "id": "flood/b",
+          "firstNode": "bx_start",
+          "routes": [
+            { "decisionKey": "flood/a", "choice": "A1", "node": "bx_start" },
+            { "decisionKey": "flood/a", "choice": "A2", "node": "bx_start" },
+            { "decisionKey": "flood/a", "choice": "A3", "node": "by_start" }
+          ],
+          "nodes": [
+            {
+              "id": "bx_start",
+              "speaker": "Santiago",
+              "text": "Soy Santiago, el alcalde. Me dijeron que era sobre el río. Vengan, que tengo gente esperando y no me gusta que me hagan mover el orden del día.",
+              "next": "",
+              "choices": [
+                {
+                  "id": "B5",
+                  "label": "Le propongo no mover nada todavía. Si nos equivocamos, el barrio deja de creernos y no lo recuperamos.",
+                  "next": "b_end",
+                  "requiredClue": "",
+                  "decisionKey": "flood/b",
+                  "outcome": "",
+                  "responsible": false,
+                  "consequence": "Queda acordado esperar antes de decir nada."
+                },
+                {
+                  "id": "B2",
+                  "label": "Prepare la alerta desde hoy, alcalde. Después es más difícil: de una calle inundada no se saca a nadie.",
+                  "next": "b_end",
+                  "requiredClue": "",
+                  "decisionKey": "flood/b",
+                  "outcome": "",
+                  "responsible": true,
+                  "consequence": "Santiago responde que no hay pruebas y que no se avisa a nadie hasta que las haya. La alerta no sale."
+                },
+                {
+                  "id": "B3",
+                  "label": "No le voy a pedir nada más. Con lo que sé de sus amaneceres, aquí no va a salir nada. Doy la vuelta y hablo con su hija.",
+                  "next": "b_end",
+                  "requiredClue": "flood/clue/0",
+                  "decisionKey": "flood/b",
+                  "outcome": "",
+                  "responsible": true,
+                  "consequence": "Decides saltarte la cadena y hablar directamente con Carmen."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": ""
+            },
+            {
+              "id": "by_start",
+              "speaker": "Santiago",
+              "text": "Soy Santiago, el alcalde. Hoy no venimos por el río: venimos por la fiesta. Díganme qué falta.",
+              "next": "",
+              "choices": [
+                {
+                  "id": "B4",
+                  "label": "Bajemos la fiesta a la plaza del pueblo. Que baje la gente a bailar, que no siempre hay ocasión.",
+                  "next": "b_end",
+                  "requiredClue": "",
+                  "decisionKey": "flood/b",
+                  "outcome": "",
+                  "responsible": false,
+                  "consequence": "Bajas la fiesta a la plaza del pueblo, a cien metros de la margen."
+                },
+                {
+                  "id": "B6",
+                  "label": "Falta gente en la lista, alcalde. No aparece ninguna casa de la ribera. Invite usted también a ellos antes de que empiece.",
+                  "next": "b_end",
+                  "requiredClue": "flood/clue/1",
+                  "decisionKey": "flood/b",
+                  "outcome": "",
+                  "responsible": true,
+                  "consequence": "Pides que se invite a toda la ribera, sin decir por qué."
+                },
+                {
+                  "id": "B1",
+                  "label": "La fiesta está bien como está: allá arriba, lejos del río. Que empiece temprano y no se corte.",
+                  "next": "b_end",
+                  "requiredClue": "",
+                  "decisionKey": "flood/b",
+                  "outcome": "",
+                  "responsible": true,
+                  "consequence": "Mantas la fiesta en el colegio alto y la quieres antes de que caiga la tarde."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": ""
+            },
+            {
+              "id": "b_end",
+              "speaker": "Santiago",
+              "text": "Santiago los deja ir con un saludo corto. La libreta, en cambio, no vuelve a la secretaría: Carmen, su hija, se la queda. Desde hace un tiempo las decisiones del río pasan por ella.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": ""
+            }
+          ]
+        },
+        {
+          "id": "flood/c",
+          "firstNode": "calarma_start",
+          "routes": [
+            { "decisionKey": "flood/b", "choice": "B1", "node": "cfestejo_start" },
+            { "decisionKey": "flood/b", "choice": "B2", "node": "csilencio_start" },
+            { "decisionKey": "flood/b", "choice": "B3", "node": "calarma_start" },
+            { "decisionKey": "flood/b", "choice": "B4", "node": "cfestejo_start" },
+            { "decisionKey": "flood/b", "choice": "B5", "node": "csilencio_start" },
+            { "decisionKey": "flood/b", "choice": "B6", "node": "caviso_start" }
+          ],
+          "nodes": [
+            {
+              "id": "calarma_start",
+              "speaker": "Carmen",
+              "text": "Soy Carmen. Mi padre no va a mover a nadie, así que pregunto yo: ¿qué tengo? Y dígalo claro. Una sospecha no saca a nadie de una casa, pero lo que usted trajo aquí tal vez sí.",
+              "next": "",
+              "choices": [
+                {
+                  "id": "C3",
+                  "label": "Primero haría falta un estudio oficial del cauce. Sin eso no voy a mover a nadie.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "flood/c",
+                  "outcome": "lose",
+                  "responsible": false,
+                  "consequence": "Pides un estudio oficial. Nadie se mueve, y el estudio no llega.",
+                  "endingTitle": "El estudio que no llegó",
+                  "endingText": "Carmen pidió el estudio del cauce y el estudio no llegó. Cuando el agua entró por las doce casas de la margen, la gente salió corriendo a salvar lo que pudo: colchones, papeles, una gallina. Nadie había anotado a quién se le había dicho y a quién no, así que después no hubo forma de saber a quién buscar."
+                },
+                {
+                  "id": "C1",
+                  "label": "Esta noche sube todo el que vive en la margen. Con nombres, con hora y con quién va a cada casa.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "flood/c",
+                  "outcome": "win",
+                  "responsible": true,
+                  "consequence": "Carmen manda a avisar casa por casa con una lista de nombres y hora.",
+                  "endingTitle": "La ribera, vacía",
+                  "endingText": "El sábado a las once de la noche la libreta tenía cincuenta y dos nombres y la margen estaba vacía. El domingo a las cuatro de la tarde el río se desbordó y entró por doce casas, todas cerradas. Cuando el agua bajó, no faltaba nadie. En la libreta queda quién pidió la evacuación, quién la firmó y a qué hora."
+                },
+                {
+                  "id": "C2",
+                  "label": "No hace falta un papel: que cada vecino llame a sus vecinos de la ribera y les diga que suban al colegio alto.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "flood/c",
+                  "outcome": "win",
+                  "responsible": true,
+                  "consequence": "Cada vecino llama a los suyos. La ribera se vacía de abajo hacia arriba.",
+                  "endingTitle": "El teléfono de la puerta",
+                  "endingText": "No salió ningún papel. Salieron llamadas: cada vecino le avisó a los suyos y así alcanzó para toda la margen sin que nadie supiera el nombre de nadie. El domingo el agua entró por doce casas y todas estaban vacías. No quedó lista, pero sí cuenta: todos sabían dónde estaba el otro."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": ""
+            },
+            {
+              "id": "cfestejo_start",
+              "speaker": "Carmen",
+              "text": "Soy Carmen. La fiesta ya está organizada y mi padre no quiere moverla. ¿Y usted qué me propone?",
+              "next": "",
+              "choices": [
+                {
+                  "id": "C1",
+                  "label": "Dígale a la gente que se vaya temprano a dormir. No por el río, sino por el frío de la noche.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "flood/c",
+                  "outcome": "lose",
+                  "responsible": false,
+                  "consequence": "Carmen reparte la consigna de madrugar. Nadie sabe de qué hablar, y nadie sube.",
+                  "endingTitle": "La consigna del frío",
+                  "endingText": "Nadie entendió de qué se trataba el frío. La fiesta siguió y el río se desbordó a las cuatro de la tarde. Cuando la gente corrió a casa por el agua, alcanzó a agarrar lo que tenía encima. La plaza había estado a cien metros de la margen y a esa hora estaba llena."
+                },
+                {
+                  "id": "C3",
+                  "label": "Que la fiesta sea el aviso: el que esté en la plaza ve subir el agua y sube con los demás.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "flood/c",
+                  "outcome": "win",
+                  "responsible": true,
+                  "consequence": "La plaza se vuelve el punto donde se ve subir el río, y la gente sube sin que se lo digan.",
+                  "endingTitle": "La plaza como aviso",
+                  "endingText": "No hubo que decir nada: en la plaza se veía subir el agua y todo el mundo subió sin que nadie se lo mandara. El domingo a las cuatro de la tarde el río se desbordó. Cuando bajó, los que seguían en el pueblo eran los que ya estaban arriba."
+                },
+                {
+                  "id": "C2",
+                  "label": "La fiesta sigue, pero la última canción es en el colegio alto y todo el mundo se queda ahí hasta el final.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "flood/c",
+                  "outcome": "win",
+                  "responsible": true,
+                  "consequence": "La fiesta termina arriba. La plaza y la margen se llenan de gente que no está abajo.",
+                  "endingTitle": "La última canción, arriba",
+                  "endingText": "La fiesta terminó en el colegio alto y la última canción se cantó desde ahí. Cuando el río se desbordó a las cuatro de la tarde, todo el pueblo llevaba cuatro horas en la misma colina. Se perdió lo que había en las casas; no se perdió nadie. La fiesta, sin querer, fue la evacuación."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": ""
+            },
+            {
+              "id": "csilencio_start",
+              "speaker": "Carmen",
+              "text": "Soy Carmen, hija del alcalde. Mi padre acaba de decir que no se avisa a nadie porque no hay pruebas. Yo tengo la libreta abierta y a él no le he oído decir nada. ¿Qué hago?",
+              "next": "",
+              "choices": [
+                {
+                  "id": "C2",
+                  "label": "Anoto exactamente lo que dijo su padre: que no hay pruebas y que no se avisa. Con fecha y con su nombre.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "flood/c",
+                  "outcome": "lose",
+                  "responsible": false,
+                  "consequence": "Queda escrito, con fecha y con nombre, que nadie fue avisado. Cuando llegue el agua no habrá a quién preguntar.",
+                  "endingTitle": "Lo que dijo su padre, con fecha",
+                  "endingText": "Quedó escrito, con fecha y con nombre, que no había pruebas y que no se avisaba. Cuando llegó el agua, la libreta sirvió para saber quién había decidido callar, no para encontrar a nadie. En la calle de la margen quedaron dos personas, y sin una lista no se pudo saber si eran dos o eran más."
+                },
+                {
+                  "id": "C1",
+                  "label": "Fírmelo usted y no él, alcalde. Póngale su nombre a la orden y yo la llevo casa por casa.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "flood/c",
+                  "outcome": "win",
+                  "responsible": true,
+                  "consequence": "Carmen firma en su propio nombre y recorre la ribera con la orden.",
+                  "endingTitle": "La firma de Carmen",
+                  "endingText": "Lo firmó la hija, no el padre. Carmen salió con la orden escrita en la libreta y la leyó casa por casa, sin decir de dónde venía. El domingo el agua entró por doce casas y todas estaban vacías. La orden quedó en la secretaría con el nombre equivocado en el encabezado, y eso fue lo que salvó a la gente."
+                },
+                {
+                  "id": "C3",
+                  "label": "No escribo nada. Si él no lo dice, yo tampoco me meto.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "flood/c",
+                  "outcome": "lose",
+                  "responsible": false,
+                  "consequence": "Dejas la libreta en blanco. La orden de no avisar manda y nadie la contradice.",
+                  "endingTitle": "La libreta en blanco",
+                  "endingText": "La orden de no avisar pasó sin respuesta. El domingo el agua entró por doce casas y la gente salió corriendo a salvar lo que pudo. En la libreta no había ni un nombre, y sin nombres no hay forma de saber a quién se le había dicho y a quién no."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": ""
+            },
+            {
+              "id": "caviso_start",
+              "speaker": "Carmen",
+              "text": "Soy Carmen. A la plaza subieron las casas de la ribera porque usted puso esos nombres en la lista del festín. Ahora están todos ahí arriba y abajo no hay nadie. ¿Y eso qué es?",
+              "next": "",
+              "choices": [
+                {
+                  "id": "C3",
+                  "label": "Que la libreta quede con el nombre de cada casa y de quién está arriba. Así, cuando baje el agua, nadie se pierde.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "flood/c",
+                  "outcome": "win",
+                  "responsible": true,
+                  "consequence": "Cada casa de la margen queda con nombre y con alguien arriba. Cuando el agua baja, todos cuentan.",
+                  "endingTitle": "Todos contados",
+                  "endingText": "Cada casa de la margen quedó en la libreta con un nombre y con quién estaba arriba. El domingo el agua entró por doce casas, pero todas estaban vacías y había una lista que decía dónde estaba cada quien. Cuando el río bajó, la ribera no se perdió a nadie: se contaba."
+                },
+                {
+                  "id": "C2",
+                  "label": "La iglesia. Que la comunidad le reza a San Miguel y guarda la noche.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "flood/c",
+                  "outcome": "lose",
+                  "responsible": false,
+                  "consequence": "La comunidad se reúne en la iglesia a rezar. Nadie mira el río, y el río no se detiene por rezar.",
+                  "endingTitle": "La noche de San Miguel",
+                  "endingText": "La comunidad se reunió en la iglesia a rezarle a San Miguel y guardó la noche. Nadie miró el río, y el río no se detuvo por rezar. Cuando el agua bajó de madrugada, la iglesia estaba metida hasta el segundo coro y las casas de la ribera estaban vacías de gente y llenas de todo lo que la gente había dejado."
+                },
+                {
+                  "id": "C1",
+                  "label": "Que esperen arriba hasta que baje el agua. Si baja, cada quien vuelve a su casa.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "flood/c",
+                  "outcome": "lose",
+                  "responsible": false,
+                  "consequence": "Los de la ribera esperan sentados en la plaza, a cien metros de la margen.",
+                  "endingTitle": "Esperando en la plaza",
+                  "endingText": "Los de la ribera esperaron en la plaza a que bajara el agua, a cien metros del río. No bajó: subió. El agua llegó de noche y la gente corrió en hilera por el único camino de tierra que quedaba, empujándose para pasar primero."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": ""
+            },
+            {
+              "id": "c_end",
+              "speaker": "Carmen",
+              "text": "Carmen cierra la libreta y la deja encima de la mesa, sin decir nada más. Afuera ya está empezando a oscurecer.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": ""
+            }
+          ]
+        }
+      ],
+      "cinematic": [
+        {
+          "title": "El río de todos los días",
+          "text": "El barrio vive con el río al lado. Todo el mundo sabe leer una crecida: el color del agua, qué se moja primero y cuánto tarda en bajar. Es un conocimiento de toda la vida, y por eso casi no asusta.",
+          "seconds": 7,
+          "imageResource": "",
+          "voiceResource": ""
+        },
+        {
+          "title": "Ana lleva un registro",
+          "text": "Ana es la única que mide y anota. No se lo ha dicho a nadie: una sospecha sin pruebas se vuelve alarma, y una alarma sin pruebas se vuelve ruido.",
+          "seconds": 7,
+          "imageResource": "",
+          "voiceResource": ""
+        },
+        {
+          "title": "Nadie lo ha dicho todavía",
+          "text": "El río sube, y el barrio lo ha visto bajar otras veces. Ana tiene una sospecha y se la guarda. Lo que viene es decidir a quién se la dice y con qué palabras: lo que se dice mal no se vuelve a oír.",
+          "seconds": 7.470588235294118,
+          "imageResource": "",
+          "voiceResource": ""
+        }
+      ],
+      "npcSprites": [
+        "",
+        "",
+        ""
+      ],
+      "clueSprites": [
+        "",
+        "",
+        ""
+      ],
+      "mapSprite": ""
+    },
+    {
+      "id": "wind",
+      "title": "El fuego se previene",
+      "subtitle": "Incendios forestales",
+      "phenomenon": "Incendio forestal · fenómeno asociado a condiciones climáticas y factores de ignición",
+      "period": "Caso de estudio · temporada seca ficticia",
+      "description": "En una temporada seca ficticia en los cerros de Cali, Alex participa en una conversación sobre los incendios forestales. La sequía y la vegetación seca pueden favorecer la propagación del fuego, y el viento puede dificultar su control. Prevenir las igniciones y avisar a las autoridades ayuda a reducir los riesgos.",
+      "summary": "La sequía puede dejar vegetación seca que facilita la propagación de un incendio forestal. El viento puede ayudar a extender el fuego y dificultar las labores para controlarlo. Evitar las quemas al aire libre, las fogatas y la pólvora en zonas con vegetación ayuda a prevenir incendios. Si se observa una emergencia, es importante avisar a las autoridades sin acercarse al fuego y seguir las indicaciones oficiales.",
+      "objective": "Escucha tres perspectivas, reúne tres pistas y decide antes, durante y después.",
+      "sceneName": "06_WindstormChapter",
+      "endingWin": "Cerraste el caso con decisiones que cuidan a la comunidad: evitar las igniciones, avisar a las autoridades sin acercarte al fuego y esperar sus indicaciones antes de volver. Este relato es ficticio y no reemplaza las instrucciones de las autoridades.",
+      "endingLose": "En este caso, tus decisiones retrasaron el aviso o te acercaron al fuego y al humo. Revisa la libreta y vuelve a intentarlo: prevenir, avisar sin acercarte y esperar las indicaciones oficiales protege a todos. Este relato es ficticio y no reemplaza las instrucciones de las autoridades.",
+      "sources": [
+        "https://www.cali.gov.co/salud/publicaciones/188060/porque-la-prevencion-es-de-todos-asi-se-alista-cali-ante-la-segunda-temporada-seca-del-ano/",
+        "https://www.cali.gov.co/gestiondelriesgo/publicaciones/177354/rapidamente-la-comunidad-alerto-sobre-conflagracion-en-la-via-a-las-tres-cruces/"
+      ],
+      "clues": [
+        {
+          "id": "wind/clue/0",
+          "title": "Prevenir igniciones",
+          "text": "Evitar las quemas al aire libre, las fogatas y la pólvora en zonas con vegetación reduce el riesgo de iniciar un incendio forestal. Esta pista es material educativo ficticio y no reemplaza las recomendaciones oficiales.",
+          "variants": [
+            {
+              "branch": "bx_start",
+              "title": "Prevenir igniciones",
+              "text": "El cartel que la junta pegó en el mirador: en temporada seca no se hacen quemas ni fogatas, ni se usa pólvora cerca de la vegetación. Es un cartel del relato, no un aviso oficial."
+            },
+            {
+              "branch": "by_start",
+              "title": "Prevenir igniciones",
+              "text": "La nota que Lucía guardó después de la quema del pasto: lo que parecía una limpieza se salió de control con el viento. Es un registro ficticio."
+            }
+          ]
+        },
+        {
+          "id": "wind/clue/1",
+          "title": "Reportar emergencia",
+          "text": "Al reportar un incendio, comunica la ubicación con un punto de referencia, lo que observas, si hay personas en peligro y un contacto. En Cali, las líneas indicadas para avisar son 123 y 119; esta pista educativa no reemplaza las instrucciones oficiales.",
+          "variants": [
+            {
+              "branch": "bx_start",
+              "title": "Reportar emergencia",
+              "text": "La ficha de reporte que Mateo lleva en el bolsillo: lugar con punto de referencia, qué se ve, si hay personas en peligro y un contacto. Es una ficha del relato."
+            },
+            {
+              "branch": "by_start",
+              "title": "Reportar emergencia",
+              "text": "La misma ficha, con una nota al margen: llamar primero y no acercarse a mirar. Es una ficha del relato."
+            }
+          ]
+        },
+        {
+          "id": "wind/clue/2",
+          "title": "Protegerse del humo",
+          "text": "Aléjate del fuego y del humo, sigue las indicaciones oficiales y no regreses hasta recibir autorización. Si el humo te alcanza, usa tapabocas. Esta pista es un recurso educativo ficticio y no reemplaza las recomendaciones de las autoridades.",
+          "variants": [
+            {
+              "branch": "bx_start",
+              "title": "Protegerse del humo",
+              "text": "La tarjeta que repartió la junta: alejarse del humo, seguir las indicaciones de las autoridades y esperar autorización para volver. Es una tarjeta del relato."
+            },
+            {
+              "branch": "by_start",
+              "title": "Protegerse del humo",
+              "text": "La tarjeta de la junta, con una nota: no subir con baldes ni a mirar de cerca. Es una tarjeta del relato."
+            }
+          ]
+        }
+      ],
+      "conversations": [
+        {
+          "id": "wind/a",
+          "firstNode": "a_start",
+          "nodes": [
+            {
+              "id": "a_start",
+              "speaker": "Lucía",
+              "text": "Soy Lucía, de la junta del sector. Es temporada seca y desde el mirador se ve el pasto amarillento en los cerros. Hace viento, y algunos vecinos proponen limpiar el pasto del borde del camino quemándolo. ¿Qué propones?",
+              "next": "",
+              "choices": [
+                {
+                  "id": "A2",
+                  "label": "Llamar a la junta y explicar que limpiar el pasto con fuego es una quema que puede salirse de control.",
+                  "next": "a_end",
+                  "requiredClue": "",
+                  "decisionKey": "wind/a",
+                  "outcome": "",
+                  "responsible": true,
+                  "consequence": "Anotas que no se debe usar fuego para limpiar el pasto en temporada seca."
+                },
+                {
+                  "id": "A3",
+                  "label": "Dejar que cada vecino decida si limpia su borde del camino como quiera.",
+                  "next": "a_end",
+                  "requiredClue": "",
+                  "decisionKey": "wind/a",
+                  "outcome": "",
+                  "responsible": false,
+                  "consequence": "Anotas que dejar la decisión al azar puede normalizar las quemas al aire libre."
+                },
+                {
+                  "id": "A1",
+                  "label": "Proponer limpiar el pasto con herramientas y avisar a la junta, sin usar fuego.",
+                  "next": "a_end",
+                  "requiredClue": "",
+                  "decisionKey": "wind/a",
+                  "outcome": "",
+                  "responsible": true,
+                  "consequence": "Anotas que limpiar sin fuego y avisar a la junta ayuda a prevenir igniciones."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": ""
+            },
+            {
+              "id": "a_end",
+              "speaker": "Lucía",
+              "text": "Lucía anota tu respuesta en la libreta y señala el mirador: Mateo está ahí, mirando hacia el cerro.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": ""
+            }
+          ]
+        },
+        {
+          "id": "wind/b",
+          "firstNode": "bx_start",
+          "routes": [
+            {
+              "decisionKey": "wind/a",
+              "choice": "A1",
+              "node": "bx_start"
+            },
+            {
+              "decisionKey": "wind/a",
+              "choice": "A2",
+              "node": "bx_start"
+            },
+            {
+              "decisionKey": "wind/a",
+              "choice": "A3",
+              "node": "by_start"
+            }
+          ],
+          "nodes": [
+            {
+              "id": "bx_start",
+              "speaker": "Mateo",
+              "text": "Soy Mateo. Desde el mirador veo una columna de humo en la ladera de enfrente, y el viento la empuja hacia las casas de arriba. No sé si ya avisó alguien. ¿Qué hacemos?",
+              "next": "",
+              "choices": [
+                {
+                  "id": "B2",
+                  "label": "Esperar un rato a ver si el humo crece; tal vez alguien ya avisó.",
+                  "next": "b_end",
+                  "requiredClue": "",
+                  "decisionKey": "wind/b",
+                  "outcome": "",
+                  "responsible": false,
+                  "consequence": "Anotas esperar sin avisar: un incendio puede crecer con el viento mientras se espera."
+                },
+                {
+                  "id": "B3",
+                  "label": "Llamar al 123 o al 119 con la ficha del reporte: punto de referencia, lo que se ve, si hay personas en peligro y un contacto.",
+                  "next": "b_end",
+                  "requiredClue": "wind/clue/1",
+                  "decisionKey": "wind/b",
+                  "outcome": "",
+                  "responsible": true,
+                  "consequence": "El reporte sale completo: lugar con punto de referencia, lo que se ve, personas en peligro y un contacto."
+                },
+                {
+                  "id": "B1",
+                  "label": "Llamar enseguida al 123 o al 119 y decir que hay humo en el cerro.",
+                  "next": "b_end",
+                  "requiredClue": "",
+                  "decisionKey": "wind/b",
+                  "outcome": "",
+                  "responsible": true,
+                  "consequence": "Avisas rápido a las autoridades, aunque con pocos datos."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": ""
+            },
+            {
+              "id": "by_start",
+              "speaker": "Mateo",
+              "text": "Soy Mateo. La quema del pasto se salió de control con el viento y ya hay humo y llamas subiendo por el monte. Hay quien quiere subir con baldes. ¿Qué haces?",
+              "next": "",
+              "choices": [
+                {
+                  "id": "B5",
+                  "label": "Avisar a los vecinos de arriba por el grupo de mensajes y esperar respuesta antes de llamar.",
+                  "next": "b_end",
+                  "requiredClue": "",
+                  "decisionKey": "wind/b",
+                  "outcome": "",
+                  "responsible": false,
+                  "consequence": "Anotas avisar solo por mensajes: se pierde tiempo antes de llamar a emergencias."
+                },
+                {
+                  "id": "B4",
+                  "label": "Subir con los baldes para apagarlo antes de que crezca.",
+                  "next": "b_end",
+                  "requiredClue": "",
+                  "decisionKey": "wind/b",
+                  "outcome": "",
+                  "responsible": false,
+                  "consequence": "Anotas subir a apagarlo: acercarse al fuego pone en peligro a quien lo hace."
+                },
+                {
+                  "id": "B6",
+                  "label": "Alejarnos de la ladera, dejar los baldes y llamar al 123 o al 119 diciendo dónde estamos y qué vemos.",
+                  "next": "b_end",
+                  "requiredClue": "wind/clue/2",
+                  "decisionKey": "wind/b",
+                  "outcome": "",
+                  "responsible": true,
+                  "consequence": "Te alejas del fuego y avisas a las autoridades con el lugar y lo que se ve."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": ""
+            },
+            {
+              "id": "b_end",
+              "speaker": "Mateo",
+              "text": "Mateo guarda el teléfono y señala el camino: Inés está abajo, en la caseta de la junta, con la libreta.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": ""
+            }
+          ]
+        },
+        {
+          "id": "wind/c",
+          "firstNode": "cmid_start",
+          "routes": [
+            {
+              "decisionKey": "wind/b",
+              "choice": "B1",
+              "node": "cmid_start"
+            },
+            {
+              "decisionKey": "wind/b",
+              "choice": "B2",
+              "node": "cbad_start"
+            },
+            {
+              "decisionKey": "wind/b",
+              "choice": "B3",
+              "node": "cgood_start"
+            },
+            {
+              "decisionKey": "wind/b",
+              "choice": "B4",
+              "node": "cdead_start"
+            },
+            {
+              "decisionKey": "wind/b",
+              "choice": "B5",
+              "node": "cbad_start"
+            },
+            {
+              "decisionKey": "wind/b",
+              "choice": "B6",
+              "node": "cgood_start"
+            }
+          ],
+          "nodes": [
+            {
+              "id": "cgood_start",
+              "speaker": "Inés",
+              "text": "Soy Inés. Las autoridades ya llegaron a la ladera y piden que la comunidad se mantenga lejos. El humo ya se huele en la caseta. ¿Qué hacemos mientras tanto?",
+              "next": "",
+              "choices": [
+                {
+                  "id": "C2",
+                  "label": "Informar a los vecinos solo con lo que digan las autoridades y pedir que nadie suba a mirar.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "wind/c",
+                  "outcome": "win",
+                  "responsible": true,
+                  "consequence": "La libreta queda con indicaciones oficiales y con la petición de no subir a mirar."
+                },
+                {
+                  "id": "C3",
+                  "label": "Subir a la ladera a mirar de cerca, ahora que ya llegaron los bomberos.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "wind/c",
+                  "outcome": "lose",
+                  "responsible": false,
+                  "consequence": "Subir a mirar expone al humo y estorba a quienes atienden la emergencia."
+                },
+                {
+                  "id": "C1",
+                  "label": "Alejarnos del humo, seguir las indicaciones de las autoridades y usar tapabocas si el humo nos alcanza.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "wind/c",
+                  "outcome": "win",
+                  "responsible": true,
+                  "consequence": "La libreta anota alejarse del humo, seguir las indicaciones oficiales y usar tapabocas si el humo llega."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": ""
+            },
+            {
+              "id": "cmid_start",
+              "speaker": "Inés",
+              "text": "Soy Inés. Llamaste enseguida, pero con pocos datos: dijiste solo \"humo en el cerro\". Los operadores siguen preguntando dónde. ¿Qué hacemos?",
+              "next": "",
+              "choices": [
+                {
+                  "id": "C3",
+                  "label": "Dejar así el reporte; ya avisamos y ellos sabrán encontrarlo.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "wind/c",
+                  "outcome": "lose",
+                  "responsible": false,
+                  "consequence": "Un reporte sin ubicación clara puede demorar la respuesta."
+                },
+                {
+                  "id": "C1",
+                  "label": "Volver a llamar con un punto de referencia, lo que se ve y un teléfono de contacto.",
+                  "next": "c_end",
+                  "requiredClue": "wind/clue/1",
+                  "decisionKey": "wind/c",
+                  "outcome": "win",
+                  "responsible": true,
+                  "consequence": "El reporte se completa con lugar, lo que se ve y un contacto."
+                },
+                {
+                  "id": "C2",
+                  "label": "Alejar a los vecinos del humo y esperar las indicaciones de las autoridades.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "wind/c",
+                  "outcome": "win",
+                  "responsible": true,
+                  "consequence": "La comunidad se aleja del humo y espera las indicaciones oficiales."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": ""
+            },
+            {
+              "id": "cbad_start",
+              "speaker": "Inés",
+              "text": "Soy Inés. Pasó casi una hora y el humo cubre la ladera. Alguien por fin llamó, pero la gente pregunta si puede subir a ver o a ayudar. Tengo que escribir algo hoy. ¿Qué pongo?",
+              "next": "",
+              "choices": [
+                {
+                  "id": "C3",
+                  "label": "Pongo que cada quien decida si sube a ayudar con baldes.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "wind/c",
+                  "outcome": "lose",
+                  "responsible": false,
+                  "consequence": "Dejar que cada quien suba pone a más personas cerca del fuego."
+                },
+                {
+                  "id": "C1",
+                  "label": "Pongo que no hay de qué preocuparse: el humo se ve peor de lo que es.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "wind/c",
+                  "outcome": "lose",
+                  "responsible": false,
+                  "consequence": "Restar importancia al humo retrasa las medidas de protección."
+                },
+                {
+                  "id": "C2",
+                  "label": "Pongo que nadie sube, que se aleja de la ladera y que se espera lo que indiquen las autoridades.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "wind/c",
+                  "outcome": "win",
+                  "responsible": true,
+                  "consequence": "La libreta indica no subir, alejarse y esperar las indicaciones oficiales."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": ""
+            },
+            {
+              "id": "cdead_start",
+              "speaker": "Inés",
+              "text": "Soy Inés. Subiste con los baldes y tuviste que bajar rápido por el humo. Estás bien, pero tosiendo. Los bomberos ya llegaron y piden despejar el camino. ¿Qué haces?",
+              "next": "",
+              "choices": [
+                {
+                  "id": "C1",
+                  "label": "Volver a subir por los baldes que dejé arriba.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "wind/c",
+                  "outcome": "lose",
+                  "responsible": false,
+                  "consequence": "Volver a subir expone de nuevo al humo y estorba el trabajo de los bomberos."
+                },
+                {
+                  "id": "C3",
+                  "label": "Alejarme del humo, dejar el camino libre y contarles lo que vi sin volver a subir.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "wind/c",
+                  "outcome": "win",
+                  "responsible": true,
+                  "consequence": "Te alejas, dejas el camino libre y compartes lo que viste desde un lugar seguro."
+                },
+                {
+                  "id": "C2",
+                  "label": "Quedarme en el camino mirando cómo trabajan.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "wind/c",
+                  "outcome": "lose",
+                  "responsible": false,
+                  "consequence": "Quedarte en el camino estorba el paso y te mantiene cerca del humo."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": ""
+            },
+            {
+              "id": "c_end",
+              "speaker": "Inés",
+              "text": "Inés cierra la libreta y anota la última línea: nadie vuelve a la ladera hasta que las autoridades lo autoricen.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": ""
+            }
+          ]
+        }
+      ],
+      "cinematic": [
+        {
+          "title": "Temporada seca",
+          "text": "Alex observa desde un lugar seguro los cerros de Cali durante una temporada seca ficticia. La vegetación seca y el viento le ayudan a comprender por qué el fuego puede propagarse.",
+          "seconds": 7,
+          "imageResource": "",
+          "voiceResource": ""
+        },
+        {
+          "title": "Prevenir y reportar",
+          "text": "Alex repasa las formas de evitar una ignición y cómo comunicar una emergencia sin acercarse al fuego. La prevención y un reporte claro ayudan a orientar la respuesta.",
+          "seconds": 8,
+          "imageResource": "",
+          "voiceResource": ""
+        },
+        {
+          "title": "Protegerse primero",
+          "text": "Alex se mantiene lejos del fuego y del humo mientras espera las indicaciones oficiales. No regresa a la zona hasta que las autoridades lo autorizan.",
+          "seconds": 7,
+          "imageResource": "",
+          "voiceResource": ""
+        }
+      ],
+      "npcSprites": [
+        "",
+        "",
+        ""
+      ],
+      "clueSprites": [
+        "",
+        "",
+        ""
+      ],
+      "mapSprite": ""
+    },
+    {
+      "id": "flash",
+      "title": "Una creciente que sorprende",
+      "subtitle": "Avenidas torrenciales",
+      "phenomenon": "Avenida torrencial · fenómeno hidrológico",
+      "period": "Caso de estudio · episodio ficticio de crecida rápida",
+      "description": "La comunidad estudia un caso narrativo de una creciente rápida. El agua puede transportar sedimentos y otros materiales. La escena sirve para aprender conceptos; no delimita una amenaza real de una cuenca.",
+      "summary": "Una avenida torrencial puede desarrollarse rápidamente y transportar agua, sedimentos y otros materiales. Se diferencia de inundaciones de evolución más lenta. No necesita una tormenta eléctrica como condición obligatoria. Los mapas y planes oficiales aportan el contexto local.",
+      "objective": "Escucha tres perspectivas, reúne tres pistas y decide antes, durante y después.",
+      "sceneName": "07_FlashFloodChapter",
+      "endingWin": "esto es un texto final",
+      "endingLose": "esto es un texto final",
+      "sources": [
+        "https://ideam.gov.co/fenomeno-del-nino",
+        "https://www.ideam.gov.co/sites/default/files/prensa/boletines/2024-08-23/capitulo_7_alteraciones_del_regimen_hidrologico_y_de_la_oferta_hidrica_por_varibilidad_y_cambio_climatico.pdf",
+        "https://www.cali.gov.co/gestiondelriesgo/publicaciones/182650/estudios-de-escenarios-de-riesgo/",
+        "https://www.cali.gov.co/gestiondelriesgo/publicaciones/184329/precaucion-en-el-primer-puente-de-2025-medidas-clave-ante-riesgos-por-lluvias/",
+        "https://www.ideam.gov.co/file-download/download/public/18906"
+      ],
+      "clues": [
+        {
+          "id": "flash/clue/0",
+          "title": "Señales de alerta",
+          "text": "Grietas nuevas en el terreno, árboles o postes inclinados, agua turbia en la quebrada y ruido de piedras son señales de que la ladera puede moverse. Esta pista es material educativo ficticio y no reemplaza las instrucciones de las autoridades.",
+          "variants": [
+            {
+              "branch": "bx_start",
+              "title": "Señales de alerta",
+              "text": "La lista que Lucía anotó en la libreta: grieta en la ladera, agua turbia, árbol inclinado, piedras rodando. Es una lista del relato."
+            },
+            {
+              "branch": "by_start",
+              "title": "Señales de alerta",
+              "text": "La misma lista, con una nota al margen: las señales se anotan desde lejos, no se comprueban subiendo. Es una lista del relato."
+            }
+          ]
+        },
+        {
+          "id": "flash/clue/1",
+          "title": "Reportar y qué se mueve",
+          "text": "Al avisar al 123, di dónde estás con un punto de referencia, qué ves (tierra, rocas, agua), si hay casas o personas cerca y un teléfono de contacto. Esta pista es material educativo ficticio y no reemplaza las instrucciones oficiales.",
+          "variants": [
+            {
+              "branch": "bx_start",
+              "title": "Reportar y qué se mueve",
+              "text": "La ficha de reporte que Mateo lleva en el bolsillo: lugar con punto de referencia, qué material se mueve, quién está cerca y un contacto. Es una ficha del relato."
+            },
+            {
+              "branch": "by_start",
+              "title": "Reportar y qué se mueve",
+              "text": "La misma ficha, con una nota: llamar primero y alejarse, sin quedarse a mirar. Es una ficha del relato."
+            }
+          ]
+        },
+        {
+          "id": "flash/clue/2",
+          "title": "Después del deslizamiento",
+          "text": "Después de un deslizamiento puede haber nuevos desprendimientos. No regreses hasta que las autoridades lo autoricen, y no te acerques a los escombros. Esta pista es material educativo ficticio y no reemplaza las instrucciones oficiales.",
+          "variants": [
+            {
+              "branch": "bx_start",
+              "title": "Después del deslizamiento",
+              "text": "La tarjeta que repartió la junta: esperar la autorización oficial, no acercarse a los escombros y avisar si falta alguien. Es una tarjeta del relato."
+            },
+            {
+              "branch": "by_start",
+              "title": "Después del deslizamiento",
+              "text": "La tarjeta de la junta, con una nota: ninguna pertenencia vale volver a la ladera. Es una tarjeta del relato."
+            }
+          ]
+        },
+        {
+          "id": "flash/clue/1",
+          "title": "Agua y materiales",
+          "text": "Qué arrastra el agua además de agua.",
+          "variants": [
+            {
+              "branch": "bx_start",
+              "title": "Agua y materiales (Bx)",
+              "text": "Lo que quedó en la puerta tras pasar la creciente."
+            },
+            {
+              "branch": "by_start",
+              "title": "Agua y materiales (By)",
+              "text": "La lista de objetos que nadie explicó que se llevó."
+            }
+          ]
+        },
+        {
+          "id": "flash/clue/2",
+          "title": "Referencia cartográfica",
+          "text": "El estudio con su fecha, alcance y escala.",
+          "variants": [
+            {
+              "branch": "bx_start",
+              "title": "Referencia cartográfica (Bx)",
+              "text": "El croquis del barrio que dibujaron a mano."
+            },
+            {
+              "branch": "by_start",
+              "title": "Referencia cartográfica (By)",
+              "text": "Lo que sobrescribieron la visita al mapa oficial."
+            }
+          ]
+        }
+      ],
+      "conversations": [
+        {
+          "id": "flash/a",
+          "firstNode": "a_start",
+          "nodes": [
+            {
+              "id": "a_start",
+              "speaker": "Lucía",
+              "text": "Soy Lucía, de la junta del barrio. Esta mañana apareció una grieta en la ladera que está sobre la vía, y el agua de la quebrada baja turbia. Algunos vecinos dicen que es normal con las lluvias. ¿Qué hacemos?",
+              "next": "",
+              "choices": [
+                {
+                  "id": "A3",
+                  "label": "Subir a la ladera a mirar las grietas de cerca, para saber si son peligrosas.",
+                  "next": "a_end",
+                  "requiredClue": "",
+                  "decisionKey": "flash/a",
+                  "outcome": "",
+                  "responsible": false,
+                  "consequence": "Anotas que acercarse a una ladera con grietas expone a un desprendimiento."
+                },
+                {
+                  "id": "A2",
+                  "label": "Marcar la zona para que nadie pase por ahí y avisar a la junta y a las autoridades.",
+                  "next": "a_end",
+                  "requiredClue": "",
+                  "decisionKey": "flash/a",
+                  "outcome": "",
+                  "responsible": true,
+                  "consequence": "Anotas que señalizar la zona y avisar a las autoridades es un buen primer paso."
+                },
+                {
+                  "id": "A1",
+                  "label": "Avisar a la gestión del riesgo y a los vecinos de las casas cercanas a la ladera, y alejarnos de ahí.",
+                  "next": "a_end",
+                  "requiredClue": "",
+                  "decisionKey": "flash/a",
+                  "outcome": "",
+                  "responsible": true,
+                  "consequence": "Anotas que las grietas y el agua turbia son señales de alerta: hay que avisar y alejarse."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": ""
+            },
+            {
+              "id": "a_end",
+              "speaker": "Lucía",
+              "text": "Lucía anota tu respuesta en la libreta y señala la cuadra de abajo: Mateo está ahí, mirando hacia la ladera.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": ""
+            }
+          ]
+        },
+        {
+          "id": "flash/b",
+          "firstNode": "bx_start",
+          "routes": [
+            {
+              "decisionKey": "flash/a",
+              "choice": "A1",
+              "node": "bx_start"
+            },
+            {
+              "decisionKey": "flash/a",
+              "choice": "A2",
+              "node": "bx_start"
+            },
+            {
+              "decisionKey": "flash/a",
+              "choice": "A3",
+              "node": "by_start"
+            }
+          ],
+          "nodes": [
+            {
+              "id": "bx_start",
+              "speaker": "Mateo",
+              "text": "Soy Mateo. Se oyen piedras rodando por la ladera y un árbol se inclinó hacia la vía. En las casas de abajo hay familias. ¿Qué hacemos?",
+              "next": "",
+              "choices": [
+                {
+                  "id": "B3",
+                  "label": "Con la secuencia de señales que anotamos (grieta, agua turbia, piedras), llamar al 123 y llevar a las familias al punto de encuentro, lejos de la ladera y de la quebrada.",
+                  "next": "b_end",
+                  "requiredClue": "flash/clue/0",
+                  "decisionKey": "flash/b",
+                  "outcome": "",
+                  "responsible": true,
+                  "consequence": "Las señales anotadas permiten dar un aviso claro y evacuar a tiempo hacia un sitio seguro."
+                },
+                {
+                  "id": "B1",
+                  "label": "Llamar al 123 y ayudar a las familias a salir hacia un sitio alejado de la ladera, sin cargar muchas cosas.",
+                  "next": "b_end",
+                  "requiredClue": "",
+                  "decisionKey": "flash/b",
+                  "outcome": "",
+                  "responsible": true,
+                  "consequence": "Avisas y evacúas rápido, aunque sin tener claro a dónde ir."
+                },
+                {
+                  "id": "B2",
+                  "label": "Esperar a ver si dejan de caer piedras antes de molestar a nadie.",
+                  "next": "b_end",
+                  "requiredClue": "",
+                  "decisionKey": "flash/b",
+                  "outcome": "",
+                  "responsible": false,
+                  "consequence": "Esperar con señales de alerta le quita tiempo a la evacuación."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": ""
+            },
+            {
+              "id": "by_start",
+              "speaker": "Mateo",
+              "text": "Soy Mateo. Subiste a mirar la grieta y se soltó tierra cerca de ti; bajaste corriendo. Estás bien, pero la ladera sigue soltando material y hay curiosos mirando desde la vía. ¿Qué hacemos?",
+              "next": "",
+              "choices": [
+                {
+                  "id": "B5",
+                  "label": "Pedirle a la gente que se aleje, pero esperar unos minutos antes de llamar.",
+                  "next": "b_end",
+                  "requiredClue": "",
+                  "decisionKey": "flash/b",
+                  "outcome": "",
+                  "responsible": false,
+                  "consequence": "Alejar a la gente ayuda, pero retrasar la llamada demora la respuesta de emergencia."
+                },
+                {
+                  "id": "B6",
+                  "label": "Alejarnos de la ladera y de la vía, y llamar al 123 contando que el terreno arrastra tierra y rocas y que hay casas cerca.",
+                  "next": "b_end",
+                  "requiredClue": "flash/clue/1",
+                  "decisionKey": "flash/b",
+                  "outcome": "",
+                  "responsible": true,
+                  "consequence": "El reporte explica qué se está moviendo y quién está en riesgo, y te alejas de la zona."
+                },
+                {
+                  "id": "B4",
+                  "label": "Volver a subir por el celular que se me cayó; será solo un momento.",
+                  "next": "b_end",
+                  "requiredClue": "",
+                  "decisionKey": "flash/b",
+                  "outcome": "",
+                  "responsible": false,
+                  "consequence": "Volver a una ladera que se está desprendiendo es muy peligroso."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": ""
+            },
+            {
+              "id": "b_end",
+              "speaker": "Mateo",
+              "text": "Mateo guarda el teléfono y señala la puerta: Inés espera abajo con la libreta.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": ""
+            }
+          ]
+        },
+        {
+          "id": "flash/c",
+          "firstNode": "cmid_start",
+          "routes": [
+            {
+              "decisionKey": "flash/b",
+              "choice": "B1",
+              "node": "cmid_start"
+            },
+            {
+              "decisionKey": "flash/b",
+              "choice": "B2",
+              "node": "cbad_start"
+            },
+            {
+              "decisionKey": "flash/b",
+              "choice": "B3",
+              "node": "cgood_start"
+            },
+            {
+              "decisionKey": "flash/b",
+              "choice": "B4",
+              "node": "cdead_start"
+            },
+            {
+              "decisionKey": "flash/b",
+              "choice": "B5",
+              "node": "cbad_start"
+            },
+            {
+              "decisionKey": "flash/b",
+              "choice": "B6",
+              "node": "cgood_start"
+            }
+          ],
+          "nodes": [
+            {
+              "id": "cgood_start",
+              "speaker": "Inés",
+              "text": "Soy Inés. La ladera cedió sobre la vía, pero todos alcanzamos a llegar al punto de encuentro. Las autoridades ya cerraron el paso. Hay vecinos que quieren volver a sus casas por sus cosas. ¿Qué hacemos?",
+              "next": "",
+              "choices": [
+                {
+                  "id": "C1",
+                  "label": "Esperar la autorización oficial para volver y no acercarnos a la zona del deslizamiento ni a los escombros.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "flash/c",
+                  "outcome": "win",
+                  "responsible": true,
+                  "consequence": "La libreta anota esperar la autorización oficial y mantenerse lejos de los escombros."
+                },
+                {
+                  "id": "C3",
+                  "label": "Volver rápido por lo más importante; el deslizamiento ya pasó.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "flash/c",
+                  "outcome": "lose",
+                  "responsible": false,
+                  "consequence": "Después de un deslizamiento puede haber nuevos desprendimientos: volver sin permiso es peligroso."
+                },
+                {
+                  "id": "C2",
+                  "label": "Contar quién falta y avisar a los rescatistas si alguien quedó atrapado, sin entrar a buscarlo nosotros.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "flash/c",
+                  "outcome": "win",
+                  "responsible": true,
+                  "consequence": "La libreta anota hacer el conteo y dejar la búsqueda a los rescatistas."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": ""
+            },
+            {
+              "id": "cmid_start",
+              "speaker": "Inés",
+              "text": "Soy Inés. Llamaron a tiempo y las familias salieron, pero la ladera sigue inestable y hay vecinos que quieren regresar a las casas más cercanas. ¿Qué hacemos?",
+              "next": "",
+              "choices": [
+                {
+                  "id": "C3",
+                  "label": "Dejar que regresen de a poco, si ya no se oyen piedras.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "flash/c",
+                  "outcome": "lose",
+                  "responsible": false,
+                  "consequence": "Que no se oigan piedras no significa que la ladera esté estable."
+                },
+                {
+                  "id": "C1",
+                  "label": "Mantener a todos lejos hasta que las autoridades evalúen la ladera y autoricen el regreso.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "flash/c",
+                  "outcome": "win",
+                  "responsible": true,
+                  "consequence": "La libreta anota que solo las autoridades pueden decir cuándo es seguro volver."
+                },
+                {
+                  "id": "C2",
+                  "label": "Hacer un conteo de personas y avisar si falta alguien, sin acercarnos a la ladera.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "flash/c",
+                  "outcome": "win",
+                  "responsible": true,
+                  "consequence": "La libreta anota el conteo de personas y el aviso a los rescatistas."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": ""
+            },
+            {
+              "id": "cbad_start",
+              "speaker": "Inés",
+              "text": "Soy Inés. Pasó una hora antes de que se avisara, y la ladera cedió sobre la vía. Que sepamos nadie salió herido, pero hay gente cerca de los escombros. ¿Qué hacemos?",
+              "next": "",
+              "choices": [
+                {
+                  "id": "C3",
+                  "label": "Mover los escombros con las manos, por si hay alguien debajo.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "flash/c",
+                  "outcome": "lose",
+                  "responsible": false,
+                  "consequence": "Remover escombros sin equipo ni permiso puede provocar nuevos derrumbes."
+                },
+                {
+                  "id": "C2",
+                  "label": "Quedarnos en las casas cercanas hasta que pase todo.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "flash/c",
+                  "outcome": "lose",
+                  "responsible": false,
+                  "consequence": "Las casas cerca de la ladera siguen en riesgo de nuevos desprendimientos."
+                },
+                {
+                  "id": "C1",
+                  "label": "Alejar a todos de los escombros y la ladera, llamar al 123 para reportar si hay atrapados y esperar a los rescatistas.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "flash/c",
+                  "outcome": "win",
+                  "responsible": true,
+                  "consequence": "La libreta anota alejarse, reportar a posibles atrapados y esperar a los rescatistas."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": ""
+            },
+            {
+              "id": "cdead_start",
+              "speaker": "Inés",
+              "text": "Soy Inés. Volviste a subir por el celular y te alcanzó tierra suelta; lograste bajar con raspones. Los rescatistas piden despejar la vía. ¿Qué haces?",
+              "next": "",
+              "choices": [
+                {
+                  "id": "C2",
+                  "label": "Quedarme en la vía mirando el deslizamiento.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "flash/c",
+                  "outcome": "lose",
+                  "responsible": false,
+                  "consequence": "Quedarte en la vía estorba a los rescatistas y te mantiene en peligro."
+                },
+                {
+                  "id": "C1",
+                  "label": "Alejarme, dejar la vía libre y contarles a los rescatistas lo que vi, sin volver a subir.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "flash/c",
+                  "outcome": "win",
+                  "responsible": true,
+                  "consequence": "Te alejas, dejas el paso libre y compartes lo que viste desde un lugar seguro."
+                },
+                {
+                  "id": "C3",
+                  "label": "Volver a subir a buscar mi celular antes de que lo cubra la tierra.",
+                  "next": "c_end",
+                  "requiredClue": "",
+                  "decisionKey": "flash/c",
+                  "outcome": "lose",
+                  "responsible": false,
+                  "consequence": "Volver a la ladera te expone otra vez: ninguna pertenencia vale ese riesgo."
+                }
+              ],
+              "portraitResource": "",
+              "voiceResource": ""
+            },
+            {
+              "id": "c_end",
+              "speaker": "Inés",
+              "text": "Inés cierra la libreta y anota la última línea: nadie vuelve a la zona hasta que las autoridades lo autoricen.",
+              "next": "",
+              "choices": [],
+              "portraitResource": "",
+              "voiceResource": ""
+            }
+          ]
+        }
+      ],
+      "cinematic": [
+        {
+          "title": "El tiempo de una creciente",
+          "text": "En un encuentro comunitario, Alex observa una secuencia ilustrada de un caso ficticio. El cambio ocurre en poco tiempo.",
+          "seconds": 7,
+          "imageResource": "",
+          "voiceResource": "CaliNature/Voices/flash_cinematic_0"
+        },
+        {
+          "title": "Algo más que agua",
+          "text": "Inés señala los materiales transportados. El grupo necesita una explicación más precisa que la palabra inundación.",
+          "seconds": 7,
+          "imageResource": "",
+          "voiceResource": "CaliNature/Voices/flash_cinematic_1"
+        },
+        {
+          "title": "El valor de una fuente",
+          "text": "Antes de cerrar la libreta, Lucía insiste: una simulación ayuda a aprender, pero una decisión real necesita información oficial vigente.",
+          "seconds": 8,
+          "imageResource": "",
+          "voiceResource": "CaliNature/Voices/flash_cinematic_2"
+        }
+      ],
+      "npcSprites": [
+        "",
+        "",
+        ""
+      ],
+      "clueSprites": [
+        "",
+        "",
+        ""
+      ],
+      "mapSprite": ""
+    }
+  ]
+}

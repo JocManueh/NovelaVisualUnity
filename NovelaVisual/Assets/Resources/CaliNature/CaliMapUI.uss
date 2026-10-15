@@ -1,0 +1,85 @@
+/* Shared visual language with Pagina_Juego and the main menu; map only. */
+#map, #map *, .map-active #topbar *, .map-active #modal * {
+    -unity-font-definition: url("/Assets/Fonts/Menu/Poppins-Regular.ttf");
+    -unity-font: url("/Assets/Fonts/Menu/Poppins-Regular.ttf");
+    -unity-font-style: normal; letter-spacing: 0;
+}
+#map { background-color: rgba(17,24,28,0.25); }
+#map .heading, #map Button, #map .map-legend-title, .map-active #topbar Button {
+    -unity-font-definition: url("/Assets/Fonts/Menu/Poppins-SemiBold.ttf");
+    -unity-font: url("/Assets/Fonts/Menu/Poppins-SemiBold.ttf");
+    -unity-font-style: normal;
+}
+#map .map-heading {
+    top: 28px; left: 28px; max-width: 560px; padding: 23px;
+    background-color: rgb(26,26,26); border-radius: 9px;
+    border-width: 2px; border-color: rgb(51,51,51); border-top-color: rgb(0,103,120); border-top-width: 5px;
+}
+#map .map-heading .heading { font-size: 34px; color: rgb(246,246,246); margin: 3px 0 8px; }
+#map .map-eyebrow { font-size: 11px; color: rgb(134,214,228); letter-spacing: 1.4px; margin: 0 0 9px; }
+#map .map-welcome { font-size: 15px; color: rgb(226,226,226); white-space: normal; margin-bottom: 16px; }
+#map #map-progress { font-size: 13px; color: rgb(196,196,196); }
+#map .map-progress-track { background-color: rgb(51,51,51); height: 6px; margin: 9px 0; }
+#map #map-progress-fill { background-color: rgb(112,194,140); height: 6px; }
+#map .map-heading .caption { font-size: 11px; color: rgb(180,180,180); margin: 3px 0 9px; }
+#map .map-heading .row { flex-shrink: 0; height: 88px; min-height: 0; max-height: 88px; }
+#map .map-heading Button { border-radius: 5px; padding: 8px 10px; margin: 3px; min-height: 36px; font-size: 12px; border-width: 1px; color: white; }
+#map #filter-all { background-color: rgb(40,40,40); border-color: rgb(90,90,90); }
+#map #filter-0 { background-color: rgb(122,48,44); border-color: rgb(163,77,71); }
+#map #filter-1 { background-color: rgb(0,94,112); border-color: rgb(21,133,152); }
+#map #filter-2 { background-color: rgb(35,75,112); border-color: rgb(64,122,162); }
+#map #filter-3 { background-color: rgb(36,86,60); border-color: rgb(71,138,93); }
+#map #filter-all.filter-active { background-color: rgb(0,103,120); border-color: rgb(143,233,255); }
+#map #filter-0.filter-active { border-color: rgb(247,125,118); }
+#map #filter-1.filter-active { border-color: rgb(34,197,223); }
+#map #filter-2.filter-active { border-color: rgb(88,171,220); }
+#map #filter-3.filter-active { border-color: rgb(112,194,140); }
+#map .map-heading Button:hover { color: white; opacity: 0.85; }
+#map Button.marker-label {
+    width: 198px; height: 68px; min-height: 68px; padding: 10px 12px; font-size: 13px;
+    color: rgb(246,246,246); border-radius: 8px; border-width: 2px;
+    border-color: rgb(70,70,70); border-left-width: 5px;
+}
+#map #marker-label-0 { background-color: rgb(122,48,44); }
+#map #marker-label-1 { background-color: rgb(0,94,112); }
+#map #marker-label-2 { background-color: rgb(35,75,112); }
+#map #marker-label-3 { background-color: rgb(36,86,60); }
+#map Button.marker-label:hover { border-top-color: rgb(143,233,255); border-right-color: rgb(143,233,255); border-bottom-color: rgb(143,233,255); }
+#map #marker-label-0.mission-complete, #map #marker-label-1.mission-complete,
+#map #marker-label-2.mission-complete, #map #marker-label-3.mission-complete { background-color: rgb(30,81,53); color: rgb(180,240,197); }
+#map #marker-label-0.mission-selected, #map #marker-label-1.mission-selected,
+#map #marker-label-2.mission-selected, #map #marker-label-3.mission-selected { background-color: rgb(0,103,120); color: white; border-top-color: rgb(143,233,255); border-right-color: rgb(143,233,255); border-bottom-color: rgb(143,233,255); }
+#map .legend { max-width: 330px; padding: 16px 18px; background-color: rgb(26,26,26); border-radius: 9px; border-width: 1px; border-color: rgb(51,51,51); border-left-width: 4px; border-left-color: rgb(137,58,53); }
+#map .map-legend-title { color: rgb(246,246,246); font-size: 17px; margin-bottom: 7px; }
+#map .status-pending { color: rgb(247,125,118); font-size: 12px; }
+#map .status-done { color: rgb(112,194,140); font-size: 12px; }
+#map .legend .caption { font-size: 11px; color: rgb(180,180,180); }
+#map .zone-card { background-color: rgb(26,26,26); border-radius: 9px; border-width: 2px; border-color: rgb(51,51,51); border-top-width: 5px; border-top-color: rgb(137,58,53); padding: 23px; width: 350px; bottom: 165px; }
+#map .zone-card .heading { color: rgb(246,246,246); font-size: 26px; margin-bottom: 12px; }
+#map .zone-card .body { color: rgb(226,226,226); font-size: 16px; }
+#map #zone-progress { color: rgb(134,214,228); font-size: 12px; margin-bottom: 14px; }
+#map #enter-zone { background-color: rgb(137,58,53); border-color: rgb(161,75,69); color: white; font-size: 16px; border-radius: 5px; }
+#map #enter-zone:hover { background-color: rgb(164,70,64); }
+#map #close-zone { background-color: rgb(0,103,120); color: white; border-color: rgb(15,127,144); font-size: 12px; border-radius: 5px; }
+#map #close-zone:hover { background-color: rgb(8,126,145); }
+#map .zoom Button { background-color: rgb(0,103,120); border-color: rgb(15,127,144); color: white; border-radius: 5px; font-size: 27px; }
+#map .zoom Button:hover { background-color: rgb(8,126,145); }
+.map-active #topbar Button { border-radius: 5px; padding: 9px 16px; font-size: 13px; background-color: rgb(26,26,26); color: rgb(226,226,226); border-color: rgb(61,61,61); min-height: 38px; }
+.map-active #topbar Button:hover { background-color: rgb(0,103,120); color: white; }
+#map .map-attribution { font-size: 10px; color: rgb(196,196,196); background-color: rgb(26,26,26); padding: 4px 8px; }
+.map-active #modal .modal-card { background-color: rgb(26,26,26); border-width: 1px; border-color: rgb(61,61,61); border-radius: 9px; }
+.map-active #modal Label { color: rgb(226,226,226); }
+.map-active #modal Button { background-color: rgb(0,103,120); border-color: rgb(15,127,144); color: white; border-radius: 5px; }
+.map-active #modal Button:hover { background-color: rgb(8,126,145); }
+.map-active #modal Button.primary { background-color: rgb(137,58,53); border-color: rgb(161,75,69); }
+.compact #map .map-heading { top: 74px; left: 12px; padding: 14px; max-width: 48%; }
+.compact #map .map-heading .heading { font-size: 26px; }
+.compact #map .map-welcome { font-size: 13px; margin-bottom: 7px; }
+.compact #map .map-heading Button { font-size: 11px; padding: 5px 7px; min-height: 29px; }
+.compact #map .map-heading .row { height: 72px; min-height: 0; max-height: 72px; }
+.compact #map .map-eyebrow { font-size: 9px; }
+.compact #map .legend { max-width: 250px; padding: 10px; }
+.compact #map .map-legend-title { font-size: 16px; }
+.compact #map .zone-card { top: 76px; bottom: 90px; right: 12px; width: 280px; padding: 12px; }
+.compact #map .zone-card .heading { font-size: 22px; }
+.compact #map .zone-card .body { font-size: 15px; }

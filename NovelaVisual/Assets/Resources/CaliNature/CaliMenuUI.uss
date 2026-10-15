@@ -1,0 +1,70 @@
+/* Reference: Pagina_Juego/src/styles.css. Scoped to the main menu. */
+#menu, #menu *, .menu-active #topbar *, .menu-active #modal * {
+    -unity-font-definition: url("/Assets/Fonts/Menu/Poppins-Regular.ttf");
+    -unity-font: url("/Assets/Fonts/Menu/Poppins-Regular.ttf");
+    -unity-font-style: normal;
+    letter-spacing: 0;
+}
+#menu { background-color: rgb(17,17,17); color: rgb(246,246,246); padding: 90px 40px 36px; }
+#menu .menu-stripe { position: absolute; top: 0; left: 0; right: 0; height: 5px; flex-direction: row; }
+#menu .stripe-blue { width: 29%; background-color: rgb(17,133,179); }
+#menu .stripe-red { width: 5%; background-color: rgb(225,88,88); }
+#menu .stripe-white { width: 29%; background-color: rgb(238,238,238); }
+#menu .stripe-green { width: 32%; background-color: rgb(57,129,87); }
+#menu .menu-brand { position: absolute; top: 36px; left: 38px; color: rgb(134,214,228); font-size: 12px; letter-spacing: 1px; }
+#menu .hero { width: 92%; max-width: 1040px; padding: 35px 34px 25px; background-color: rgb(26,26,26); border-width: 2px; border-color: rgb(51,51,51); border-radius: 9px; }
+#menu .hero .eyebrow { color: rgb(181,203,208); font-size: 12px; letter-spacing: 1.5px; margin-bottom: 14px; }
+#menu .hero .title { color: rgb(246,246,246); font-size: 50px; letter-spacing: -0.7px; margin: 0 0 12px; }
+#menu .hero .lead { color: rgb(226,226,226); font-size: 17px; max-width: 860px; margin-bottom: 18px; }
+#menu .hero Button { width: 310px; min-height: 48px; margin: 5px 0; padding: 12px 20px; font-size: 15px; border-radius: 5px; border-width: 1px; color: white; }
+#menu .hero .title, #menu .hero Button { -unity-font-definition: url("/Assets/Fonts/Menu/Poppins-SemiBold.ttf"); -unity-font: url("/Assets/Fonts/Menu/Poppins-SemiBold.ttf"); }
+#menu #new-game { background-color: rgb(137,58,53); border-color: rgb(161,75,69); }
+#menu #new-game:hover { background-color: rgb(164,70,64); }
+#menu #continue { background-color: rgb(0,103,120); border-color: rgb(15,127,144); }
+#menu #continue:hover { background-color: rgb(8,126,145); }
+#menu #menu-help { background-color: rgb(38,94,67); border-color: rgb(59,125,88); }
+#menu #menu-help:hover { background-color: rgb(48,116,82); }
+#menu .hero Button:active { border-color: rgb(143,233,255); }
+#menu .hero Button:disabled { opacity: 0.42; }
+#menu .hero .caption { color: rgb(174,174,174); font-size: 11px; margin-top: 19px; max-width: 780px; }
+.menu-active #topbar Button { background-color: rgb(26,26,26); border-color: rgb(61,61,61); color: rgb(226,226,226); font-size: 13px; min-height: 36px; padding: 8px 15px; border-radius: 5px; }
+.menu-active #topbar Button:hover { background-color: rgb(0,103,120); color: white; }
+.menu-active #modal .modal-card { background-color: rgb(26,26,26); border-width: 1px; border-color: rgb(61,61,61); border-radius: 9px; }
+.menu-active #modal Label { color: rgb(226,226,226); }
+.menu-active #modal Button { background-color: rgb(0,103,120); border-color: rgb(15,127,144); color: white; }
+.menu-active #modal Button.primary { background-color: rgb(137,58,53); border-color: rgb(161,75,69); }
+.compact #menu { padding: 70px 20px 16px; }
+.compact #menu .menu-brand { top: 27px; left: 24px; font-size: 9px; }
+.compact #menu .hero { padding: 20px 24px 17px; width: 94%; }
+.compact #menu .hero .title { font-size: 34px; margin-bottom: 8px; }
+.compact #menu .hero .eyebrow { font-size: 10px; letter-spacing: 1px; margin-bottom: 10px; }
+.compact #menu .hero .lead { font-size: 14px; margin-bottom: 10px; }
+.compact #menu .hero Button { min-height: 37px; padding: 7px 15px; font-size: 13px; margin: 4px 0; }
+.compact #menu .hero .caption { font-size: 10px; margin-top: 11px; }
+
+/* Introduction shown before opening the map. */
+#intro, #intro *, .intro-active #topbar *, .intro-active #modal * {
+    -unity-font-definition: url("/Assets/Fonts/Menu/Poppins-Regular.ttf");
+    -unity-font: url("/Assets/Fonts/Menu/Poppins-Regular.ttf");
+    -unity-font-style: normal;
+    letter-spacing: 0;
+}
+#intro { background-color: rgb(17,17,17); padding: 80px 32px 32px; }
+#intro .reading-card { width: 78%; max-width: 980px; max-height: 90%; padding: 30px 36px; background-color: rgb(26,26,26); border-width: 2px; border-color: rgb(51,51,51); border-top-width: 5px; border-top-color: rgb(0,103,120); border-radius: 9px; }
+#intro .eyebrow { color: rgb(134,214,228); font-size: 12px; letter-spacing: 1.4px; margin: 0 0 12px; flex-shrink: 0; }
+#intro .heading { color: rgb(246,246,246); font-size: 32px; margin: 0 0 20px; flex-shrink: 0; }
+#intro .heading, #intro Button { -unity-font-definition: url("/Assets/Fonts/Menu/Poppins-SemiBold.ttf"); -unity-font: url("/Assets/Fonts/Menu/Poppins-SemiBold.ttf"); }
+#intro .body { color: rgb(226,226,226); font-size: 17px; margin: 0; white-space: normal; }
+#intro .intro-scroll { flex-shrink: 1; min-height: 0; margin-bottom: 20px; }
+#intro #intro-map { background-color: rgb(137,58,53); color: white; border-color: rgb(161,75,69); border-radius: 5px; font-size: 16px; min-height: 46px; flex-shrink: 0; }
+#intro #intro-map:hover { background-color: rgb(164,70,64); }
+.intro-active #topbar Button { background-color: rgb(26,26,26); color: rgb(226,226,226); border-color: rgb(61,61,61); border-radius: 5px; font-size: 13px; min-height: 36px; padding: 8px 15px; }
+.intro-active #topbar Button:hover { background-color: rgb(0,103,120); color: white; }
+.intro-active #modal .modal-card { background-color: rgb(26,26,26); border-width: 1px; border-color: rgb(61,61,61); border-radius: 9px; }
+.intro-active #modal Label { color: rgb(226,226,226); }
+.intro-active #modal Button { background-color: rgb(0,103,120); border-color: rgb(15,127,144); color: white; }
+.compact #intro { padding: 65px 16px 16px; }
+.compact #intro .reading-card { width: 92%; max-height: 100%; padding: 20px 24px; }
+.compact #intro .heading { font-size: 25px; margin-bottom: 12px; }
+.compact #intro .body { font-size: 15px; }
+.compact #intro .eyebrow { font-size: 10px; }

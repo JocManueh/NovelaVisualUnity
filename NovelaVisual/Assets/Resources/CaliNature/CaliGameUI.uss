@@ -1,0 +1,237 @@
+:root {
+  --ink: rgb(24, 35, 39);
+  --paper: rgb(246, 244, 235);
+  --accent: rgb(25, 102, 86);
+  --line: rgb(184, 195, 184);
+
+  /* Palatino Linotype: serif caligráfico con aire de manuscrito y expedición. */
+  --font-regular: url("/Assets/Fonts/CaliPalatino-Regular.ttf");
+  --font-bold: url("/Assets/Fonts/CaliPalatino-Bold.ttf");
+  --font-italic: url("/Assets/Fonts/CaliPalatino-Italic.ttf");
+  --font-bold-italic: url("/Assets/Fonts/CaliPalatino-BoldItalic.ttf");
+
+  color: var(--ink);
+  font-size: 20px;
+  -unity-font-definition: var(--font-regular);
+  -unity-font: var(--font-regular);
+}
+
+#app { flex-grow: 1; }
+.screen { position: absolute; left: 0; top: 0; right: 0; bottom: 0; }
+.hidden { display: none; }
+.opaque { background-color: var(--paper); }
+.centered { align-items: center; justify-content: center; }
+
+/* ---------- MENÚ INICIAL: todo centrado y con jerarquía clara ---------- */
+#menu { align-items: center; justify-content: center; padding: 40px; }
+
+.hero {
+  width: 82%;
+  max-width: 940px;
+  align-items: center;
+  margin: 0;
+}
+
+.hero .eyebrow {
+  -unity-font-definition: var(--font-bold);
+  -unity-font-style: bold;
+  -unity-text-align: middle-center;
+  font-size: 16px;
+  letter-spacing: 5px;
+  color: var(--accent);
+  margin-bottom: 22px;
+}
+
+.hero .title {
+  -unity-font-definition: var(--font-bold);
+  -unity-font-style: bold;
+  -unity-text-align: middle-center;
+  font-size: 74px;
+  letter-spacing: 1px;
+  white-space: normal;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.hero .lead {
+  -unity-font-definition: var(--font-italic);
+  -unity-font-style: italic;
+  -unity-text-align: middle-center;
+  font-size: 27px;
+  white-space: normal;
+  margin-top: 0;
+  margin-bottom: 14px;
+  max-width: 760px;
+}
+
+.hero .row { justify-content: center; margin-top: 14px; }
+
+.hero .caption {
+  -unity-text-align: middle-center;
+  font-size: 16px;
+  margin-top: 30px;
+  margin-bottom: 0;
+  max-width: 720px;
+}
+
+.compact .hero { width: 92%; }
+.compact .hero .title { font-size: 46px; }
+.compact .hero .lead { font-size: 20px; }
+.compact .hero .eyebrow { font-size: 13px; letter-spacing: 3px; margin-bottom: 12px; }
+
+/* ---------- ESCALAS DE TEXTO GLOBALES (tamaño aumentado) ---------- */
+.title {
+  -unity-font-definition: var(--font-bold);
+  -unity-font-style: bold;
+  font-size: 72px;
+  white-space: normal;
+  margin-top: 12px;
+  margin-bottom: 22px;
+}
+
+.heading {
+  -unity-font-definition: var(--font-bold);
+  -unity-font-style: bold;
+  font-size: 30px;
+  white-space: normal;
+  margin-bottom: 12px;
+}
+
+.eyebrow {
+  -unity-font-definition: var(--font-bold);
+  -unity-font-style: bold;
+  font-size: 16px;
+  color: var(--accent);
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.lead { font-size: 26px; white-space: normal; margin-bottom: 24px; }
+.body { white-space: normal; font-size: 22px; margin-bottom: 18px; }
+.caption { white-space: normal; font-size: 17px; color: rgb(64, 81, 83); margin-top: 8px; margin-bottom: 8px; }
+
+Button {
+  -unity-font-definition: var(--font-bold);
+  -unity-font-style: bold;
+  background-color: rgb(231, 234, 223);
+  color: var(--ink);
+  border-width: 1px;
+  border-color: var(--line);
+  border-radius: 7px;
+  padding: 12px 20px;
+  min-height: 48px;
+  font-size: 20px;
+  margin: 4px;
+  white-space: normal;
+}
+Button:hover { background-color: rgb(211, 227, 213); }
+Button:active { background-color: rgb(191, 215, 194); }
+Button:disabled { opacity: 0.5; }
+
+.primary { background-color: var(--accent); color: white; border-color: var(--accent); }
+.primary:hover { background-color: rgb(18, 80, 70); }
+.row { flex-direction: row; align-items: center; flex-wrap: wrap; }
+.topbar { position: absolute; right: 24px; top: 18px; flex-direction: row; }
+
+.reading-card { width: 78%; max-width: 980px; max-height: 82%; padding: 40px; background-color: rgb(255, 254, 249); border-radius: 16px; }
+.map-heading { position: absolute; top: 82px; left: 25px; padding: 20px; background-color: var(--paper); border-radius: 10px; max-width: 690px; }
+.map-heading Button { font-size: 18px; padding: 8px 12px; min-height: 40px; }
+.zone-card { position: absolute; top: 90px; bottom: 165px; right: 25px; width: 330px; background-color: var(--paper); padding: 24px; border-radius: 12px; }
+.zone-scroll { flex-grow: 1; flex-shrink: 1; min-height: 0; }
+.marker-label { position: absolute; background-color: rgb(20, 57, 49); color: white; padding: 5px 10px; border-radius: 5px; font-size: 18px; -unity-font-style: bold; }
+#enter-zone { flex-shrink: 0; }
+.zone-card .heading, .zone-card .eyebrow { flex-shrink: 0; }
+
+.compact .zone-card { top: 76px; bottom: 90px; right: 12px; width: 280px; padding: 12px; }
+.compact .zone-card .heading { font-size: 22px; margin-bottom: 5px; }
+.compact .zone-card .body { font-size: 18px; }
+.compact .map-heading { top: 76px; left: 12px; max-width: 48%; padding: 10px; }
+.compact .map-heading .heading { font-size: 22px; }
+.compact .map-heading Button { font-size: 14px; padding: 4px 8px; min-height: 30px; }
+.compact .legend { max-width: 60%; bottom: 6px; padding: 6px; }
+.compact .legend .caption { font-size: 12px; }
+.compact .zoom { bottom: 28px; right: 12px; flex-direction: row; }
+.compact .zoom Button { min-height: 38px; padding: 4px 12px; }
+.compact .objective { top: 75px; width: 270px; padding: 10px; }
+.compact .objective .body { font-size: 15px; }
+.compact .title { font-size: 44px; }
+.compact .lead { font-size: 20px; }
+.compact .reading-card { padding: 18px; }
+.compact .hero Button { min-height: 36px; padding: 6px 12px; }
+.compact .dialogue-card { padding: 16px 18px; }
+.compact .portrait-frame { width: 24%; height: 46%; margin-left: 12px; }
+.compact .dialogue-text { font-size: 20px; min-height: 70px; }
+
+.legend { position: absolute; bottom: 18px; left: 24px; max-width: 420px; padding: 12px; background-color: var(--paper); border-radius: 8px; }
+.zoom { position: absolute; bottom: 30px; right: 28px; }
+.zoom Button { width: 62px; font-size: 30px; }
+.objective { position: absolute; left: 24px; top: 24px; width: 350px; background-color: rgba(246, 244, 235, 0.94); padding: 18px; border-radius: 10px; }
+.objective .heading { font-size: 25px; }
+.objective .body { font-size: 19px; }
+.interaction { position: absolute; bottom: 170px; align-self: center; background-color: var(--paper); padding: 12px; border-radius: 6px; }
+.touch-controls { position: absolute; left: 26px; bottom: 26px; align-items: center; }
+.touch-controls Button { min-width: 68px; min-height: 58px; }
+.touch-interact { position: absolute; right: 28px; bottom: 32px; min-height: 64px; }
+
+/* La fila deja el cuadro a la izquierda y el retrato a la derecha, ambos apoyados
+   en el borde inferior. El cuadro cede ancho para que el retrato nunca lo tape. */
+.conversation-backdrop { background-color: rgba(9, 22, 24, 0.6); flex-direction: row; align-items: flex-end; justify-content: space-between; padding: 30px 5%; }
+.dialogue-card { flex-grow: 1; flex-shrink: 1; min-width: 0; background-color: var(--paper); border-radius: 16px; padding: 24px 30px; min-height: 250px; max-height: 84%; }
+.dialogue-text { font-size: 27px; min-height: 110px; white-space: normal; margin-top: 10px; margin-bottom: 14px; }
+#speaker { flex-grow: 1; color: var(--accent); }
+#choices { flex-direction: column; }
+/* Retrato del interlocutor: ilustración de pie a la derecha del cuadro, sobre el
+   escenario. El PNG conserva su canal alfa (no se dibuja ningún panel detrás) y la
+   imagen se ajusta con "contain" (ScaleMode.ScaleToFit, fijado en código) para no
+   deformarse ni recortar la cabeza o el torso. */
+.portrait-frame { flex-shrink: 0; width: 26%; height: 58%; margin-left: 24px; align-items: center; justify-content: flex-end; }
+.portrait { width: 100%; height: 100%; }
+.choice { -unity-text-align: middle-left; }
+
+.modal-shade { background-color: rgba(8, 18, 22, 0.85); }
+.modal-card { background-color: var(--paper); width: 84%; max-width: 1060px; height: 86%; border-radius: 12px; padding: 25px; }
+.modal-scroll { flex-grow: 1; }
+#settings-fields { padding: 20px; }
+#settings-fields Slider, #settings-fields Toggle { margin-bottom: 20px; min-height: 38px; }
+.cinematic-skip { position: absolute; right: 28px; bottom: 24px; }
+#load-progress { width: 70%; margin-top: 30px; height: 35px; }
+
+.map-attribution { position: absolute; bottom: 4px; right: 8px; background-color: white; color: rgb(45, 45, 45); font-size: 13px; padding: 3px 8px; }
+
+/* Connected destinations: the underlying Google map remains unchanged. */
+#map { overflow: hidden; }
+.map-heading { top: 28px; left: 24px; max-width: 570px; padding: 22px; background-color: rgba(248, 254, 251, 0.97); border-width: 1px; border-color: rgb(180, 222, 217); border-top-width: 5px; border-top-color: rgb(15, 173, 155); border-radius: 18px; }
+.map-heading .heading { color: rgb(18, 61, 73); font-size: 30px; margin-bottom: 10px; }
+.map-eyebrow { color: rgb(17, 142, 143); font-size: 12px; letter-spacing: 2px; margin-top: 0; }
+#map-progress { color: rgb(47, 93, 101); font-size: 15px; }
+.map-progress-track { height: 6px; margin-top: 10px; margin-bottom: 4px; background-color: rgb(216, 236, 229); border-radius: 4px; }
+#map-progress-fill { width: 0; height: 6px; background-color: rgb(24, 162, 103); border-radius: 4px; }
+.map-heading Button { font-size: 14px; padding: 7px 10px; min-height: 34px; border-radius: 18px; border-color: rgb(196, 218, 220); background-color: rgb(236, 246, 244); }
+.map-heading Button:hover { background-color: rgb(198, 238, 231); border-color: rgb(32, 162, 162); }
+.map-heading Button.filter-active { background-color: rgb(21, 100, 115); border-color: rgb(21, 100, 115); color: white; }
+#filter-0 { border-bottom-color: rgb(237, 165, 43); border-bottom-width: 3px; }
+#filter-1 { border-bottom-color: rgb(37, 166, 225); border-bottom-width: 3px; }
+#filter-2 { border-bottom-color: rgb(157, 105, 221); border-bottom-width: 3px; }
+#filter-3 { border-bottom-color: rgb(15, 173, 155); border-bottom-width: 3px; }
+Button.marker-label { position: absolute; width: 184px; height: 62px; min-height: 62px; margin: 0; padding: 8px 10px; border-radius: 12px; border-width: 2px; border-color: white; border-left-width: 6px; color: rgb(155, 30, 42); background-color: rgba(255, 251, 248, 0.98); font-size: 14px; -unity-font-style: bold; -unity-text-align: middle-left; transition-property: background-color, border-top-color, border-right-color, border-bottom-color; transition-duration: 0.15s; }
+Button.marker-label:hover { background-color: rgb(255, 240, 192); border-top-color: rgb(238, 178, 62); border-right-color: rgb(238, 178, 62); border-bottom-color: rgb(238, 178, 62); }
+Button.marker-label.mission-complete { color: rgb(13, 109, 59); background-color: rgb(232, 253, 238); }
+Button.marker-label.mission-selected { background-color: rgb(22, 65, 80); color: white; border-top-color: rgb(244, 188, 64); border-right-color: rgb(244, 188, 64); border-bottom-color: rgb(244, 188, 64); }
+.legend { max-width: 350px; padding: 15px; background-color: rgba(248, 254, 251, 0.97); border-radius: 14px; border-left-width: 4px; border-left-color: rgb(21, 165, 171); }
+.map-legend-title { font-size: 13px; letter-spacing: 2px; -unity-font-style: bold; color: rgb(22, 100, 114); margin-bottom: 6px; }
+.status-pending { color: rgb(194, 42, 48); font-size: 14px; margin-right: 18px; }
+.status-done { color: rgb(19, 132, 75); font-size: 14px; }
+.legend .caption { font-size: 12px; margin-bottom: 0; }
+.zone-card { background-color: rgb(248, 254, 251); border-radius: 18px; border-top-width: 5px; border-top-color: rgb(241, 177, 51); }
+.zone-card .heading { color: rgb(22, 65, 80); }
+#close-zone { align-self: flex-start; min-height: 30px; font-size: 13px; padding: 4px 8px; margin-bottom: 10px; }
+.zoom Button { background-color: rgb(22, 83, 98); color: white; border-color: rgb(64, 147, 157); border-radius: 15px; }
+.zoom Button:hover { background-color: rgb(22, 140, 147); }
+.compact .map-heading { top: 74px; left: 12px; padding: 12px; max-width: 48%; }
+.compact .map-heading .heading { font-size: 20px; }
+.compact .map-heading Button { font-size: 12px; padding: 4px 7px; min-height: 28px; }
+.compact .map-eyebrow { font-size: 10px; }
+.compact .legend { max-width: 270px; padding: 8px; bottom: 26px; }
+.compact .legend .caption { font-size: 10px; }
+.compact .map-legend-title { font-size: 11px; }
+.compact .status-pending, .compact .status-done { font-size: 11px; }
